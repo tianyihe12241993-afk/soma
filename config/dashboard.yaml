@@ -1,0 +1,17 @@
+# Dashboard collection config.
+# The SOMA dashboard is a Next.js page with the leaderboard embedded as JSON in the HTML.
+# collect_dashboard.py fetches the HTML and extracts the per-miner records.
+leaderboard_url: "https://thesoma.ai/dashboard"
+miner_page_url: "https://thesoma.ai/dashboard/miner/107/{hotkey}"   # per-miner detail
+competition_id: 107
+
+# Display column order on the rendered board is: total, Easy, Hard, Medium.
+# But the embedded JSON category_scores key order is {Easy, Medium, Hard} — the
+# collector reads the JSON keys by name, so order is not relied upon.
+fetch:
+  timeout_seconds: 30
+  user_agent: "soma-ops-collector/1.0"
+
+# review_status values seen: "scored", "failed review", "pending"/unevaluated.
+# Failed-review miners are EXCLUDED from reward-element computation.
+review_status_field: "review_status"

@@ -1,0 +1,87 @@
+{
+  "computed_at": "2026-06-21T13:12:49Z",
+  "eligible_miners": 180,
+  "excluded_failed_review": [
+    "5HVTBzthVDi5v4TeLukANBbAXX9PVYW5K2hiMYKRWoik3cjk",
+    "5EFLeDNSU5Z2QqSGLZeEJkxV9PBM6EKTEDaB6b8QgHRXBwJY"
+  ],
+  "elements": {
+    "Overall (E,M,H)": {
+      "score": 1.4544,
+      "weight": 1.0,
+      "winners": [
+        {
+          "hotkey": "5EkiFXSRAiUVDeDEZGLidLoEVh99ghTG6bdSNGcwhA6budgB",
+          "name": ""
+        }
+      ]
+    },
+    "Pair (E,M)": {
+      "score": 1.406,
+      "weight": 0.166667,
+      "winners": [
+        {
+          "hotkey": "5FbqgypX3uD3WYvAxu6iNvmPBAzWanXf5JyhNgiCyJtfe1h1",
+          "name": ""
+        }
+      ]
+    },
+    "Pair (E,H)": {
+      "score": 1.5488,
+      "weight": 0.166667,
+      "winners": [
+        {
+          "hotkey": "5DhHqmB1BzyW6qsZ44EhajM8dXKChxRqB7vqZTwojm1WwsSz",
+          "name": ""
+        }
+      ]
+    },
+    "Pair (M,H)": {
+      "score": 1.596,
+      "weight": 0.166667,
+      "winners": [
+        {
+          "hotkey": "5EkiFXSRAiUVDeDEZGLidLoEVh99ghTG6bdSNGcwhA6budgB",
+          "name": ""
+        }
+      ]
+    },
+    "Single (E)": {
+      "score": 1.3733,
+      "weight": 0.083333,
+      "winners": [
+        {
+          "hotkey": "5GgUhFiG3Vx8EGPcq29FeXeWXRDXQq91fiXdBDueae3W5rkj",
+          "name": ""
+        }
+      ]
+    },
+    "Single (M)": {
+      "score": 1.62,
+      "weight": 0.083333,
+      "winners": [
+        {
+          "hotkey": "5FbqgypX3uD3WYvAxu6iNvmPBAzWanXf5JyhNgiCyJtfe1h1",
+          "name": ""
+        }
+      ]
+    },
+    "Single (H)": {
+      "score": 1.7507,
+      "weight": 0.083333,
+      "winners": [
+        {
+          "hotkey": "5DhHqmB1BzyW6qsZ44EhajM8dXKChxRqB7vqZTwojm1WwsSz",
+          "name": ""
+        }
+      ]
+    }
+  },
+  "incentive_share_of_pool": {
+    "5EkiFXSRAiUVDeDEZGLidLoEVh99ghTG6bdSNGcwhA6budgB": 0.6667,
+    "5FbqgypX3uD3WYvAxu6iNvmPBAzWanXf5JyhNgiCyJtfe1h1": 0.1429,
+    "5DhHqmB1BzyW6qsZ44EhajM8dXKChxRqB7vqZTwojm1WwsSz": 0.1429,
+    "5GgUhFiG3Vx8EGPcq29FeXeWXRDXQq91fiXdBDueae3W5rkj": 0.0476
+  },
+  "our_element_wins": []
+}

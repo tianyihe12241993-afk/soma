@@ -130,3 +130,14 @@ dmypy.json
 *.swp
 *.swo
 *~
+.gstack/
+
+# --- SOMA-ops (compaction-safe ops workspace) ---
+config/secrets.env
+*.env
+!*.env.example
+.claude/settings.local.json
+sessions/tool_audit.jsonl
+__pycache__/
+*.pyc
+.DS_Store
