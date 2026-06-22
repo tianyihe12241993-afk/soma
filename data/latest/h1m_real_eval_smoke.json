@@ -1,0 +1,120 @@
+{
+  "computed_at": "2026-06-22T03:03:50Z",
+  "status": "BLOCKED_CONFIRMED_NOT_DOCKER_DESKTOP",
+  "smoke_run": "attempted; agent dies ~12s before any solve (no real result)",
+  "blockers": {
+    "none_infra": "setup complete",
+    "awaiting": "user confirmation of model + go for PAID --execute smoke",
+    "pass_fail_needs": "clone SWE-rebench fork + set SOMA_SWEREBENCH_HARNESS_ROOT (else ratio-only, no pass/fail)"
+  },
+  "user_actions_required": [
+    "Report this to DendriteHQ: OpenClaw mounts .openclaw/sandbox-skills/skills into the agent workspace, then rm's the workspace -> 'Device or resource busy' (mountpoint) under soma_bench + Docker-in-Docker on WSL. Repros on 2026.6.8-beta.2 and 2026.6.9.",
+    "Ask DendriteHQ how they run local soma_bench evals (likely native-Linux host, or a patched openclaw image / config) \u2014 the PLATFORM's own eval works, so the bug is specific to the local DinD/WSL path.",
+    "Optional: try on a native Linux Docker host (not WSL+Docker-Desktop DinD) \u2014 the skills bind-mount/rm may behave differently."
+  ],
+  "prepared": {
+    "manifest": "experiments/manifests/H1M_real_eval_medium_first.yaml",
+    "smoke_driver": "experiments/candidates/H1M_m7_deeper_safe_v1/run_smoke_real_eval.sh",
+    "gate": "h1m_run.py --results (proven on fixtures PASS->ACCEPT / FAIL->REJECT)"
+  },
+  "smoke_instances": [
+    "django__django-10914",
+    "django__django-15851"
+  ],
+  "profiles": [
+    "m7",
+    "h1m@medium",
+    "h1m@deep"
+  ],
+  "runs_per_task": 2,
+  "offline_projection_standing": {
+    "m7_medium_first_baseline_ratio": 3.016,
+    "m7_medium_est_score": 1.69,
+    "h1m@medium_proj_ratio": 3.342,
+    "h1m@deep_proj_ratio": 3.429,
+    "real_pass_neg_broke": "PENDING_EVAL"
+  },
+  "cost_estimate": {
+    "smoke_12_runs": "~$3-18, ~1-3h (incl ~5-12GB image pulls)",
+    "full_medium_first_42_runs": "~$10-60, ~3-9h, ~15-40GB pulls",
+    "note": "dominated by OpenRouter model choice + runs_per_task(2)"
+  },
+  "key_handling": "OPENROUTER_API_KEY read from config/secrets.env (git-ignored); never printed; rotate after use (exposed in chat)",
+  "setup_done": {
+    "docker": "up (v29.5.3, WSL integration active)",
+    "repos_cloned": [
+      "~/SOMA-benchmark",
+      "~/SOMA-plugin (public)"
+    ],
+    "uv_sync": "ok (soma-bench built; backend=openclaw, workspace=docker)",
+    "openclaw": "Docker image alpine/openclaw:latest (no host install)",
+    "deps_installed": [
+      "datasets",
+      "huggingface_hub",
+      "docker-py"
+    ],
+    "swe_rebench_fork": "public/clonable (for --swerebench-eval pass/fail)",
+    "env_file": "~/SOMA-benchmark/.env (key redacted/600/uncommitted; model qwen/qwen3-coder default)"
+  },
+  "exact_smoke_command": "cd ~/SOMA-benchmark && source .env && cp <profile base_miner> ~/SOMA-plugin/base_miner.py && H1M_PROFILE=<medium|deep|''> uv run python -m soma_bench benchmark-solve --agent-name openclaw --benchmark SWE-bench/SWE-bench_Verified --instance-id django__django-10914 --execute --openclaw-plugin-path ~/SOMA-plugin --openclaw-plugin-reinstall-on-run-start --swerebench-eval",
+  "spend": "~none (agent dies ~12s in workspace prep, before real LLM work)",
+  "stack_built": {
+    "uv+soma-bench": "ok",
+    "swe_rebench_harness": "swebench 4.0.3 in ~/.venvs/swerebench",
+    "plugin": "installed (reinstall_performed)",
+    "docker_images": [
+      "soma-compression-service:latest(666MB)",
+      "docker:dind",
+      "python:3.12-slim",
+      "alpine/openclaw:latest",
+      "swebench/sweb.eval.x86_64.django_1776_django-10914(3.94GB)"
+    ],
+    "miner_injection": "m7 base_miner.py copied into compression service in DinD; service ready :8000",
+    "model_resolved": "openrouter/qwen/qwen3-coder (correct)"
+  },
+  "fixes_applied": [
+    "COMPACT_BENCH_COMPRESSION_SERVICE_CONTEXT=/mnt/e/soma/sandbox_service/compression_service",
+    "docker credsStore removed (desktop.exe exec-format-error)",
+    "COMPACT_BENCH_LLM_BASE_URL set",
+    "COMPACT_BENCH_PLUGIN_TEMPLATE_PATH set",
+    "SOMA_OPENCLAW_USER=root",
+    "dropped --openclaw-current-user"
+  ],
+  "blocker": {
+    "where": "OpenClaw agent workspace prep",
+    "error_uid1000": "rm: cannot remove '.../repo/.openclaw/sandbox-skills/skills': Permission denied",
+    "error_root": "rm: cannot remove '.../sandbox-skills/skills': Device or resource busy (it is a bind-mount)",
+    "diagnosis": "alpine/openclaw:latest seeds sandbox-skills as a root-owned bind-mount in the workspace, then its own prep step rm's it and fails regardless of user. Upstream OpenClaw/benchmark bug under this Docker/WSL setup, NOT an H1M or config issue.",
+    "agent_outcome": "exit 1 in ~12s; patch=empty; swerebench=skipped-empty-patch",
+    "reproduced_on": [
+      "Docker Desktop WSL2 backend",
+      "NATIVE docker.io engine 29.1.3 (Ubuntu 22.04, /var/lib/docker)",
+      "alpine/openclaw 2026.6.9 + 2026.6.8-beta.2",
+      "root + current-user"
+    ],
+    "users_tried": [
+      "current-user(uid1000)->Permission denied",
+      "root->Device or resource busy (mountpoint)"
+    ],
+    "disable_flag": "none \u2014 openclaw run/agent expose no skills/sandbox-disable flag",
+    "rm_location": "inside the OpenClaw gateway container (GatewayClientRequestError) \u2014 i.e. in DendriteHQ's alpine/openclaw image, not patchable without rebuilding it",
+    "native_docker_test": "SAME error 'rm sandbox-skills/skills: Device or resource busy' -> NOT a Docker Desktop issue",
+    "common_factor": "WSL2 itself (kernel 6.18.33.1-microsoft-standard-WSL2) \u2014 its mount-namespace/propagation under Docker-in-Docker leaves OpenClaw's skills bind-mount un-removable; OR an OpenClaw/benchmark version regression (2 versions failed identically -> less likely)."
+  },
+  "options": [
+    "known-good alpine/openclaw image tag (pin SOMA_OPENCLAW_GATEWAY_IMAGE) instead of :latest",
+    "an OpenClaw flag/config to disable sandbox-skills (none found in benchmark CLI)",
+    "raise with SOMA/OpenClaw maintainers (DendriteHQ) \u2014 their container, their bug"
+  ],
+  "gate_status": "ready+proven (h1m_run.py --results); awaiting real results which this bug blocks",
+  "my_side_exhausted": [
+    "built full stack",
+    "fixed 5 config issues (compression-service ctx, docker credsStore, LLM proxy, plugin template, user)",
+    "tried both container users",
+    "tried 2 image versions",
+    "checked for disable flags"
+  ],
+  "note": "Platform eval works (it scored our miners); the offline gate + projection remain the practical signal until local eval is unblocked.",
+  "resolution_path": "Run on a REAL (non-WSL) Linux host (bare-metal/VM/cloud) like the past laptop. Native docker.io inside WSL2 did NOT help because it still uses the WSL2 kernel.",
+  "open_question_for_user": "Was the past (working) laptop real Linux/Mac (not WSL2)? If yes -> WSL2 is the cause. If it was also WSL2 -> try the oldest openclaw image (2026.6.6-beta.2)."
+}

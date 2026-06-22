@@ -34,6 +34,34 @@ loses chat detail.** The **source of truth is the files in this repo, not chat h
 → `make reward` (normalizes + computes the 7 reward elements) → `data/latest/category_winners.json`
 + `reports/reward_projection.md`. `make status` shows where we stand; `make checkpoint` saves state.
 
+## Post-competition RESEARCH mode (current)
+Competition 107 is **completed — we do NOT submit**. The goal is offline research to design the
+strongest next-round miner. **Direction (do not relitigate): m7-style architecture with deeper
+PASS-SAFE compression, backed by per-task evidence — NOT more routing.** Flip-mode rescue /
+persistent-failure routing / release-flip-on-pass are **permanently dropped** (postmortem proved
+net-negative).
+
+Research data flow:
+`make runs` (KEYLESS per-run scrape via the dashboard server action — the correct detailed source;
+`make detail` is the per-task-only RSC fallback) → `make import` (→ `miner_task_scores.jsonl` +
+`run_scores.jsonl`) → `make gaps` (shared_pass / compression_gap / fragile + `m7_gap_analysis.md`)
+→ `make compare` (`top_miner_comparison.md`, `postmortem.md`, `scoreboard.json`)
+→ `make experiments` (scaffold vs m7 baseline) → `make summarize`. `make research` runs the chain.
+Per-task CATEGORY (E/M/H) comes from `config/task_categories.csv`. Detail tools are KEYLESS (no API key).
+
+Research rules (in addition to the hard rules above):
+- **Separate three truth-levels** in every record: *observed platform result* (`source:platform`),
+  *local replay result* (`source:local`, treat as NOISY), *manual interpretation* (e.g. the
+  `score≈1+0.5·ln(ratio)` model — label it, never store it as observed).
+- **Never invent scores.** If data is missing, write an IMPORT_TEMPLATE and mark it missing
+  (current gaps: per-task category map; token-type split).
+- **Hotkey→version comes from `config/miners.yaml`** (audited in `reports/label_mapping_audit.md`).
+  On any label mismatch, STOP and update the audit before analyzing. Scores are hotkey-anchored.
+- **Candidates are based on m7.** A candidate is REJECTED if broken baselines rise, Medium drops,
+  or avg ratio doesn't improve meaningfully (gate in `reports/experiment_backlog.md`).
+- Keep all future prompt/coach content within **public allowed-prompt rules** (loop-detection +
+  forced-stop only; no workflow steering).
+
 ## Reward model (summary; full math in scripts/compute_reward_elements.py)
 Incentive is split across **7 elements** (not top-3): Overall(E,M,H) weight 1; pairs (E,M),(E,H),(M,H)
 weight 1/6 each; singles (E),(M),(H) weight 1/12 each. Each element's winner = highest average score

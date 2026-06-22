@@ -1,0 +1,2928 @@
+{
+  "summary": {
+    "hotkey": "5DhHqmB1BzyW6qsZ44EhajM8dXKChxRqB7vqZTwojm1WwsSz",
+    "total_score": 1.4095269365881329,
+    "screener_passed": true,
+    "category_scores": {
+      "Easy": 1.3469635185999342,
+      "Medium": 1.1272064666285235,
+      "Hard": 1.750730623477807
+    },
+    "task_count": 50,
+    "screener_task_count": 5
+  },
+  "penalties": {
+    "comp_id": 107,
+    "hotkey": "5DhHqmB1BzyW6qsZ44EhajM8dXKChxRqB7vqZTwojm1WwsSz",
+    "categories": {
+      "Easy": 2.220446049250313e-16,
+      "Medium": 2.220446049250313e-16,
+      "Hard": 0
+    },
+    "total": -0.0012267336860443123
+  },
+  "tasks": [
+    {
+      "task_id": 217,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1126760,
+      "tokens_with_compression": 976794.2,
+      "platform_score": 1.0731797302755806,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51177,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 729866,
+          "platform_score": 1.1729998137467397,
+          "time_taken_seconds": 453.9789,
+          "agent_steps": 35
+        },
+        {
+          "run_id": 51178,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 875699,
+          "platform_score": 1.0819190792793205,
+          "time_taken_seconds": 496.2933,
+          "agent_steps": 32
+        },
+        {
+          "run_id": 51179,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1787980,
+          "platform_score": 0.7250094065770035,
+          "time_taken_seconds": 554.6138,
+          "agent_steps": 42
+        },
+        {
+          "run_id": 51180,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 997335,
+          "platform_score": 1.0168869307973616,
+          "time_taken_seconds": 512.9415,
+          "agent_steps": 50
+        },
+        {
+          "run_id": 51181,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 493091,
+          "platform_score": 1.369083420977477,
+          "time_taken_seconds": 333.1177,
+          "agent_steps": 34
+        }
+      ]
+    },
+    {
+      "task_id": 218,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1584982,
+      "tokens_with_compression": 705874,
+      "platform_score": 2.9169153329096535,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51182,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 977192,
+          "platform_score": 3.6046454152246845,
+          "time_taken_seconds": 550.3634,
+          "agent_steps": 41
+        },
+        {
+          "run_id": 51183,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1305038,
+          "platform_score": 3.459993272518448,
+          "time_taken_seconds": 595.2362,
+          "agent_steps": 47
+        },
+        {
+          "run_id": 51184,
+          "attempt_no": 3,
+          "pass_with_compression": false,
+          "tokens_with_compression": 547745,
+          "platform_score": -0.7196004115838943,
+          "time_taken_seconds": 406.9016,
+          "agent_steps": 27
+        },
+        {
+          "run_id": 51185,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 236795,
+          "platform_score": 4.260982771715852,
+          "time_taken_seconds": 355.235,
+          "agent_steps": 13
+        },
+        {
+          "run_id": 51186,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 462600,
+          "platform_score": 3.9785556166731766,
+          "time_taken_seconds": 380.2491,
+          "agent_steps": 25
+        }
+      ]
+    },
+    {
+      "task_id": 219,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1229179,
+      "tokens_with_compression": 1459126.6,
+      "platform_score": 0.9431622805291214,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51187,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1523576,
+          "platform_score": 0.8779337165088761,
+          "time_taken_seconds": 557.5295,
+          "agent_steps": 45
+        },
+        {
+          "run_id": 51188,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 2596374,
+          "platform_score": 0.6114058900441945,
+          "time_taken_seconds": 747.8784,
+          "agent_steps": 49
+        },
+        {
+          "run_id": 51189,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1123982,
+          "platform_score": 1.03002494962084,
+          "time_taken_seconds": 523.3673,
+          "agent_steps": 41
+        },
+        {
+          "run_id": 51190,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1326941,
+          "platform_score": 0.947025671589544,
+          "time_taken_seconds": 508.1164,
+          "agent_steps": 30
+        },
+        {
+          "run_id": 51191,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 724760,
+          "platform_score": 1.2494211748821524,
+          "time_taken_seconds": 421.561,
+          "agent_steps": 31
+        }
+      ]
+    },
+    {
+      "task_id": 220,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 2228314,
+      "tokens_with_compression": 558009.2,
+      "platform_score": 0.591058506529486,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51192,
+          "attempt_no": 1,
+          "pass_with_compression": false,
+          "tokens_with_compression": 757622,
+          "platform_score": -4,
+          "time_taken_seconds": 606.0339,
+          "agent_steps": 33
+        },
+        {
+          "run_id": 51193,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 408098,
+          "platform_score": 1.8327856430299985,
+          "time_taken_seconds": 361.0392,
+          "agent_steps": 19
+        },
+        {
+          "run_id": 51194,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 734869,
+          "platform_score": 1.5386931878324472,
+          "time_taken_seconds": 476.1581,
+          "agent_steps": 28
+        },
+        {
+          "run_id": 51195,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 598887,
+          "platform_score": 1.6410028475635745,
+          "time_taken_seconds": 435.8204,
+          "agent_steps": 24
+        },
+        {
+          "run_id": 51196,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 290570,
+          "platform_score": 1.9428108542214098,
+          "time_taken_seconds": 358.4795,
+          "agent_steps": 13
+        }
+      ]
+    },
+    {
+      "task_id": 221,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 885390,
+      "tokens_with_compression": 135079.2,
+      "platform_score": 1.8982940482368693,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51197,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 89941,
+          "platform_score": 1.9975579034358795,
+          "time_taken_seconds": 286.8461,
+          "agent_steps": 8
+        },
+        {
+          "run_id": 51198,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 113444,
+          "platform_score": 1.9569487637545795,
+          "time_taken_seconds": 278.3092,
+          "agent_steps": 7
+        },
+        {
+          "run_id": 51199,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 90290,
+          "platform_score": 1.997170622184362,
+          "time_taken_seconds": 287.827,
+          "agent_steps": 8
+        },
+        {
+          "run_id": 51200,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 292447,
+          "platform_score": 1.5414906876005865,
+          "time_taken_seconds": 453.4142,
+          "agent_steps": 20
+        },
+        {
+          "run_id": 51201,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 89274,
+          "platform_score": 1.9983022642089392,
+          "time_taken_seconds": 276.444,
+          "agent_steps": 8
+        }
+      ]
+    },
+    {
+      "task_id": 222,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 884630,
+      "tokens_with_compression": 561951,
+      "platform_score": 1.2367218457056008,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51202,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 668232,
+          "platform_score": 1.1274239981431602,
+          "time_taken_seconds": 509.9253,
+          "agent_steps": 30
+        },
+        {
+          "run_id": 51203,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 405336,
+          "platform_score": 1.377383531065951,
+          "time_taken_seconds": 374.1162,
+          "agent_steps": 19
+        },
+        {
+          "run_id": 51204,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 510253,
+          "platform_score": 1.262288366886057,
+          "time_taken_seconds": 468.054,
+          "agent_steps": 21
+        },
+        {
+          "run_id": 51205,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 842219,
+          "platform_score": 1.0117216697401363,
+          "time_taken_seconds": 536.8812,
+          "agent_steps": 33
+        },
+        {
+          "run_id": 51206,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 383715,
+          "platform_score": 1.4047916626926997,
+          "time_taken_seconds": 399.0485,
+          "agent_steps": 18
+        }
+      ]
+    },
+    {
+      "task_id": 223,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1133375,
+      "tokens_with_compression": 530417.4,
+      "platform_score": 1.3600585671929255,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51207,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 683537,
+          "platform_score": 1.187189967881221,
+          "time_taken_seconds": 508.1062,
+          "agent_steps": 37
+        },
+        {
+          "run_id": 51208,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 320079,
+          "platform_score": 1.5665464416372032,
+          "time_taken_seconds": 327.4588,
+          "agent_steps": 17
+        },
+        {
+          "run_id": 51209,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 232589,
+          "platform_score": 1.7055016582791993,
+          "time_taken_seconds": 344.2914,
+          "agent_steps": 13
+        },
+        {
+          "run_id": 51210,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 749844,
+          "platform_score": 1.1408977693521019,
+          "time_taken_seconds": 479.2026,
+          "agent_steps": 29
+        },
+        {
+          "run_id": 51211,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 666038,
+          "platform_score": 1.200156998814903,
+          "time_taken_seconds": 419.1526,
+          "agent_steps": 24
+        }
+      ]
+    },
+    {
+      "task_id": 224,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1827000,
+      "tokens_with_compression": 737634.4,
+      "platform_score": 1.3947503222742068,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51212,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 531900,
+          "platform_score": 1.5507548579265615,
+          "time_taken_seconds": 513.6385,
+          "agent_steps": 21
+        },
+        {
+          "run_id": 51213,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 909746,
+          "platform_score": 1.2823998889655512,
+          "time_taken_seconds": 422.2914,
+          "agent_steps": 28
+        },
+        {
+          "run_id": 51214,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 708275,
+          "platform_score": 1.4075663906216769,
+          "time_taken_seconds": 416.2491,
+          "agent_steps": 20
+        },
+        {
+          "run_id": 51215,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 749689,
+          "platform_score": 1.379153381867851,
+          "time_taken_seconds": 376.531,
+          "agent_steps": 22
+        },
+        {
+          "run_id": 51216,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 788562,
+          "platform_score": 1.3538770919893932,
+          "time_taken_seconds": 407.9638,
+          "agent_steps": 25
+        }
+      ]
+    },
+    {
+      "task_id": 225,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 432782,
+      "tokens_with_compression": 241264.4,
+      "platform_score": 1.5719635916437547,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51217,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 132782,
+          "platform_score": 2.718933804150954,
+          "time_taken_seconds": 342.4938,
+          "agent_steps": 12
+        },
+        {
+          "run_id": 51218,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 673449,
+          "platform_score": 1.9070820124182035,
+          "time_taken_seconds": 671.1788,
+          "agent_steps": 40
+        },
+        {
+          "run_id": 51219,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 61429,
+          "platform_score": 3.0386526621250693,
+          "time_taken_seconds": 234.6222,
+          "agent_steps": 6
+        },
+        {
+          "run_id": 51220,
+          "attempt_no": 4,
+          "pass_with_compression": false,
+          "tokens_with_compression": 160558,
+          "platform_score": -2.376954842801931,
+          "time_taken_seconds": 399.8034,
+          "agent_steps": 13
+        },
+        {
+          "run_id": 51221,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 178104,
+          "platform_score": 2.5721043223264775,
+          "time_taken_seconds": 285.6575,
+          "agent_steps": 15
+        }
+      ]
+    },
+    {
+      "task_id": 226,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 439968,
+      "tokens_with_compression": 131801.8,
+      "platform_score": 1.7576384960205402,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51222,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 81724,
+          "platform_score": 1.8331171820132866,
+          "time_taken_seconds": 322.0253,
+          "agent_steps": 9
+        },
+        {
+          "run_id": 51223,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 34673,
+          "platform_score": 2,
+          "time_taken_seconds": 259.3117,
+          "agent_steps": 4
+        },
+        {
+          "run_id": 51224,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 473159,
+          "platform_score": 0.9550752980894158,
+          "time_taken_seconds": 640.4566,
+          "agent_steps": 35
+        },
+        {
+          "run_id": 51225,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 34638,
+          "platform_score": 2,
+          "time_taken_seconds": 308.6944,
+          "agent_steps": 4
+        },
+        {
+          "run_id": 51226,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 34815,
+          "platform_score": 2,
+          "time_taken_seconds": 264.2625,
+          "agent_steps": 4
+        }
+      ]
+    },
+    {
+      "task_id": 227,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": true,
+      "tokens_without_compression": 917488,
+      "tokens_with_compression": 1615238.6,
+      "platform_score": 3.079877575503322,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51227,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1794919,
+          "platform_score": 3.0037184918686446,
+          "time_taken_seconds": 708.5856,
+          "agent_steps": 50
+        },
+        {
+          "run_id": 51228,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 2138906,
+          "platform_score": 2.916051197972794,
+          "time_taken_seconds": 975.9984,
+          "agent_steps": 65
+        },
+        {
+          "run_id": 51229,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1988683,
+          "platform_score": 2.9524621343561326,
+          "time_taken_seconds": 889.2239,
+          "agent_steps": 56
+        },
+        {
+          "run_id": 51230,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1219014,
+          "platform_score": 3.1971772720271767,
+          "time_taken_seconds": 644.5479,
+          "agent_steps": 48
+        },
+        {
+          "run_id": 51231,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 934671,
+          "platform_score": 3.3299787812918624,
+          "time_taken_seconds": 807.0923,
+          "agent_steps": 35
+        }
+      ]
+    },
+    {
+      "task_id": 228,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": true,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 574499,
+      "tokens_with_compression": 404963.8,
+      "platform_score": 0.031477135483933424,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 48477,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 561710,
+          "platform_score": 0.9440067768329076,
+          "time_taken_seconds": 446.8282,
+          "agent_steps": 25
+        },
+        {
+          "run_id": 48478,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 501808,
+          "platform_score": 1.000390839865806,
+          "time_taken_seconds": 431.1418,
+          "agent_steps": 26
+        },
+        {
+          "run_id": 48479,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 332812,
+          "platform_score": 1.2057107450770848,
+          "time_taken_seconds": 299.2616,
+          "agent_steps": 14
+        },
+        {
+          "run_id": 48480,
+          "attempt_no": 4,
+          "pass_with_compression": false,
+          "tokens_with_compression": 133545,
+          "platform_score": -4,
+          "time_taken_seconds": 288.8711,
+          "agent_steps": 9
+        },
+        {
+          "run_id": 48481,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 494944,
+          "platform_score": 1.0072773156438692,
+          "time_taken_seconds": 436.5273,
+          "agent_steps": 22
+        }
+      ]
+    },
+    {
+      "task_id": 229,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": false,
+      "tokens_without_compression": 1021877,
+      "tokens_with_compression": 1069821,
+      "platform_score": -0.0369569054386328,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51232,
+          "attempt_no": 1,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1352908,
+          "platform_score": -0.06126261549797546,
+          "time_taken_seconds": 692.4773,
+          "agent_steps": 44
+        },
+        {
+          "run_id": 51233,
+          "attempt_no": 2,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1023383,
+          "platform_score": -0.033348361110181836,
+          "time_taken_seconds": 622.2341,
+          "agent_steps": 37
+        },
+        {
+          "run_id": 51234,
+          "attempt_no": 3,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1022498,
+          "platform_score": -0.03326184580893009,
+          "time_taken_seconds": 474.8315,
+          "agent_steps": 28
+        },
+        {
+          "run_id": 51235,
+          "attempt_no": 4,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1010455,
+          "platform_score": -0.03207705296068575,
+          "time_taken_seconds": 589.8381,
+          "agent_steps": 32
+        },
+        {
+          "run_id": 51236,
+          "attempt_no": 5,
+          "pass_with_compression": false,
+          "tokens_with_compression": 939861,
+          "platform_score": -0.02483465181539087,
+          "time_taken_seconds": 650.6358,
+          "agent_steps": 30
+        }
+      ]
+    },
+    {
+      "task_id": 230,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": false,
+      "tokens_without_compression": 713141,
+      "tokens_with_compression": 1216307.6,
+      "platform_score": 1.4164590330090632,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51237,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1229507,
+          "platform_score": 3.596353065449462,
+          "time_taken_seconds": 752.3754,
+          "agent_steps": 34
+        },
+        {
+          "run_id": 51238,
+          "attempt_no": 2,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1163719,
+          "platform_score": -0.07523015043025946,
+          "time_taken_seconds": 786.6254,
+          "agent_steps": 33
+        },
+        {
+          "run_id": 51239,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 910416,
+          "platform_score": 3.746586524000088,
+          "time_taken_seconds": 470.8776,
+          "agent_steps": 28
+        },
+        {
+          "run_id": 51240,
+          "attempt_no": 4,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1297843,
+          "platform_score": -0.08613842487222272,
+          "time_taken_seconds": 862.6131,
+          "agent_steps": 40
+        },
+        {
+          "run_id": 51241,
+          "attempt_no": 5,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1480053,
+          "platform_score": -0.09927584910175266,
+          "time_taken_seconds": 716.0854,
+          "agent_steps": 43
+        }
+      ]
+    },
+    {
+      "task_id": 231,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": false,
+      "tokens_without_compression": 2033013,
+      "tokens_with_compression": 1331966.2,
+      "platform_score": 0.2716675750910194,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51242,
+          "attempt_no": 1,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1589761,
+          "platform_score": -1.5820212167935608,
+          "time_taken_seconds": 943.7721,
+          "agent_steps": 52
+        },
+        {
+          "run_id": 51243,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 850369,
+          "platform_score": 3.2270536880824663,
+          "time_taken_seconds": 628.4595,
+          "agent_steps": 34
+        },
+        {
+          "run_id": 51244,
+          "attempt_no": 3,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1181057,
+          "platform_score": -1.5641907833794646,
+          "time_taken_seconds": 548.9399,
+          "agent_steps": 33
+        },
+        {
+          "run_id": 51245,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1833498,
+          "platform_score": 2.8428984261968457,
+          "time_taken_seconds": 781.3033,
+          "agent_steps": 61
+        },
+        {
+          "run_id": 51246,
+          "attempt_no": 5,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1205146,
+          "platform_score": -1.5654022386511888,
+          "time_taken_seconds": 616.2654,
+          "agent_steps": 47
+        }
+      ]
+    },
+    {
+      "task_id": 232,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 664367,
+      "tokens_with_compression": 425375.4,
+      "platform_score": 2.2544295752699215,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51247,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 355860,
+          "platform_score": 2.312149753912392,
+          "time_taken_seconds": 369.4806,
+          "agent_steps": 15
+        },
+        {
+          "run_id": 51248,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 407245,
+          "platform_score": 2.25819872396949,
+          "time_taken_seconds": 376.0978,
+          "agent_steps": 18
+        },
+        {
+          "run_id": 51249,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 642502,
+          "platform_score": 2.075816740101869,
+          "time_taken_seconds": 437.5448,
+          "agent_steps": 26
+        },
+        {
+          "run_id": 51250,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 423508,
+          "platform_score": 2.242535750298108,
+          "time_taken_seconds": 339.2232,
+          "agent_steps": 18
+        },
+        {
+          "run_id": 51251,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 297762,
+          "platform_score": 2.383446908067749,
+          "time_taken_seconds": 319.1446,
+          "agent_steps": 11
+        }
+      ]
+    },
+    {
+      "task_id": 233,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 782437,
+      "tokens_with_compression": 177089,
+      "platform_score": 2.3355586379053537,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51252,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 38693,
+          "platform_score": 2.6,
+          "time_taken_seconds": 243.3331,
+          "agent_steps": 4
+        },
+        {
+          "run_id": 51253,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 96097,
+          "platform_score": 2.5239181051583053,
+          "time_taken_seconds": 284.1866,
+          "agent_steps": 10
+        },
+        {
+          "run_id": 51254,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 48087,
+          "platform_score": 2.6,
+          "time_taken_seconds": 265.8086,
+          "agent_steps": 5
+        },
+        {
+          "run_id": 51255,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 255363,
+          "platform_score": 2.117020302220591,
+          "time_taken_seconds": 403.8847,
+          "agent_steps": 21
+        },
+        {
+          "run_id": 51256,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 447205,
+          "platform_score": 1.8368547821478736,
+          "time_taken_seconds": 352.9378,
+          "agent_steps": 14
+        }
+      ]
+    },
+    {
+      "task_id": 234,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": true,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 542683,
+      "tokens_with_compression": 105489,
+      "platform_score": 1.8373275485432785,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 48482,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 303465,
+          "platform_score": 1.284958980646589,
+          "time_taken_seconds": 350.5967,
+          "agent_steps": 14
+        },
+        {
+          "run_id": 48483,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 56637,
+          "platform_score": 2,
+          "time_taken_seconds": 204.1592,
+          "agent_steps": 5
+        },
+        {
+          "run_id": 48484,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 47124,
+          "platform_score": 2,
+          "time_taken_seconds": 247.9609,
+          "agent_steps": 4
+        },
+        {
+          "run_id": 48485,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 31823,
+          "platform_score": 2,
+          "time_taken_seconds": 198.5264,
+          "agent_steps": 3
+        },
+        {
+          "run_id": 48486,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 88396,
+          "platform_score": 1.9016787620698032,
+          "time_taken_seconds": 276.5067,
+          "agent_steps": 7
+        }
+      ]
+    },
+    {
+      "task_id": 235,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1041765,
+      "tokens_with_compression": 278060.4,
+      "platform_score": 0.5140923470738502,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51257,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 267991,
+          "platform_score": 1.6745017564000093,
+          "time_taken_seconds": 278.8502,
+          "agent_steps": 12
+        },
+        {
+          "run_id": 51258,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 227234,
+          "platform_score": 1.7569882935596202,
+          "time_taken_seconds": 294.4995,
+          "agent_steps": 12
+        },
+        {
+          "run_id": 51259,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 307496,
+          "platform_score": 1.605747415812774,
+          "time_taken_seconds": 279.0046,
+          "agent_steps": 16
+        },
+        {
+          "run_id": 51260,
+          "attempt_no": 4,
+          "pass_with_compression": false,
+          "tokens_with_compression": 232087,
+          "platform_score": -4,
+          "time_taken_seconds": 269.1739,
+          "agent_steps": 11
+        },
+        {
+          "run_id": 51261,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 355494,
+          "platform_score": 1.533224269596848,
+          "time_taken_seconds": 316.2196,
+          "agent_steps": 17
+        }
+      ]
+    },
+    {
+      "task_id": 236,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 647943,
+      "tokens_with_compression": 124691.6,
+      "platform_score": 1.8133106990363366,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51262,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 29391,
+          "platform_score": 2,
+          "time_taken_seconds": 214.4161,
+          "agent_steps": 3
+        },
+        {
+          "run_id": 51263,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 42254,
+          "platform_score": 1.987866730036379,
+          "time_taken_seconds": 183.0753,
+          "agent_steps": 4
+        },
+        {
+          "run_id": 51264,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 448530,
+          "platform_score": 1.1468674522680224,
+          "time_taken_seconds": 438.5762,
+          "agent_steps": 22
+        },
+        {
+          "run_id": 51265,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 29275,
+          "platform_score": 2,
+          "time_taken_seconds": 211.3274,
+          "agent_steps": 3
+        },
+        {
+          "run_id": 51266,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 74008,
+          "platform_score": 1.9318193128772816,
+          "time_taken_seconds": 218.7616,
+          "agent_steps": 7
+        }
+      ]
+    },
+    {
+      "task_id": 237,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1797234,
+      "tokens_with_compression": 604098.4,
+      "platform_score": 2.898240053475015,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51267,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 445048,
+          "platform_score": 3.8844197167443655,
+          "time_taken_seconds": 464.24,
+          "agent_steps": 19
+        },
+        {
+          "run_id": 51268,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1087565,
+          "platform_score": 3.537548074142053,
+          "time_taken_seconds": 567.0976,
+          "agent_steps": 43
+        },
+        {
+          "run_id": 51269,
+          "attempt_no": 3,
+          "pass_with_compression": false,
+          "tokens_with_compression": 682200,
+          "platform_score": -0.7687445003591346,
+          "time_taken_seconds": 397.2701,
+          "agent_steps": 30
+        },
+        {
+          "run_id": 51270,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 473411,
+          "platform_score": 3.8658851793075364,
+          "time_taken_seconds": 398.2722,
+          "agent_steps": 21
+        },
+        {
+          "run_id": 51271,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 332268,
+          "platform_score": 3.972091797540255,
+          "time_taken_seconds": 338.4941,
+          "agent_steps": 13
+        }
+      ]
+    },
+    {
+      "task_id": 238,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1129225,
+      "tokens_with_compression": 768857.8,
+      "platform_score": 1.1963629685303936,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51272,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 851770,
+          "platform_score": 1.139114851604074,
+          "time_taken_seconds": 448.5665,
+          "agent_steps": 37
+        },
+        {
+          "run_id": 51273,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 566271,
+          "platform_score": 1.343236739169825,
+          "time_taken_seconds": 453.2345,
+          "agent_steps": 30
+        },
+        {
+          "run_id": 51274,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 897577,
+          "platform_score": 1.11292366499386,
+          "time_taken_seconds": 489.1638,
+          "agent_steps": 44
+        },
+        {
+          "run_id": 51275,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 764788,
+          "platform_score": 1.1929737846522048,
+          "time_taken_seconds": 453.673,
+          "agent_steps": 35
+        },
+        {
+          "run_id": 51276,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 763883,
+          "platform_score": 1.1935658022320041,
+          "time_taken_seconds": 510.0126,
+          "agent_steps": 35
+        }
+      ]
+    },
+    {
+      "task_id": 239,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1493751,
+      "tokens_with_compression": 561680.6,
+      "platform_score": 2.723745295165978,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51277,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 164288,
+          "platform_score": 3.162377136406591,
+          "time_taken_seconds": 248.5061,
+          "agent_steps": 10
+        },
+        {
+          "run_id": 51278,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 983540,
+          "platform_score": 2.3788645086899534,
+          "time_taken_seconds": 584.988,
+          "agent_steps": 38
+        },
+        {
+          "run_id": 51279,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 740027,
+          "platform_score": 2.5211003267177943,
+          "time_taken_seconds": 509.768,
+          "agent_steps": 37
+        },
+        {
+          "run_id": 51280,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 586850,
+          "platform_score": 2.637059037454271,
+          "time_taken_seconds": 404.8847,
+          "agent_steps": 26
+        },
+        {
+          "run_id": 51281,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 333698,
+          "platform_score": 2.9193254665612796,
+          "time_taken_seconds": 408.8279,
+          "agent_steps": 18
+        }
+      ]
+    },
+    {
+      "task_id": 240,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": false,
+      "tokens_without_compression": 756373,
+      "tokens_with_compression": 454331.8,
+      "platform_score": 0.03381435897106266,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51282,
+          "attempt_no": 1,
+          "pass_with_compression": false,
+          "tokens_with_compression": 591462,
+          "platform_score": 0.00035863956608845894,
+          "time_taken_seconds": 458.3642,
+          "agent_steps": 30
+        },
+        {
+          "run_id": 51283,
+          "attempt_no": 2,
+          "pass_with_compression": false,
+          "tokens_with_compression": 381214,
+          "platform_score": 0.04428229363330923,
+          "time_taken_seconds": 425.0759,
+          "agent_steps": 20
+        },
+        {
+          "run_id": 51284,
+          "attempt_no": 3,
+          "pass_with_compression": false,
+          "tokens_with_compression": 251449,
+          "platform_score": 0.08589436478904869,
+          "time_taken_seconds": 346.5061,
+          "agent_steps": 15
+        },
+        {
+          "run_id": 51285,
+          "attempt_no": 4,
+          "pass_with_compression": false,
+          "tokens_with_compression": 709954,
+          "platform_score": -0.017901634563731773,
+          "time_taken_seconds": 552.1624,
+          "agent_steps": 32
+        },
+        {
+          "run_id": 51286,
+          "attempt_no": 5,
+          "pass_with_compression": false,
+          "tokens_with_compression": 337580,
+          "platform_score": 0.05643813143059867,
+          "time_taken_seconds": 391.5057,
+          "agent_steps": 25
+        }
+      ]
+    },
+    {
+      "task_id": 241,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1122536,
+      "tokens_with_compression": 101389.8,
+      "platform_score": 3.156060582863592,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51287,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 169404,
+          "platform_score": 3.1026893323014457,
+          "time_taken_seconds": 288.0122,
+          "agent_steps": 13
+        },
+        {
+          "run_id": 51288,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 126484,
+          "platform_score": 3.141778737435506,
+          "time_taken_seconds": 390.2917,
+          "agent_steps": 10
+        },
+        {
+          "run_id": 51289,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 134230,
+          "platform_score": 3.13583484458101,
+          "time_taken_seconds": 319.7538,
+          "agent_steps": 9
+        },
+        {
+          "run_id": 51290,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 32464,
+          "platform_score": 3.2,
+          "time_taken_seconds": 224.222,
+          "agent_steps": 3
+        },
+        {
+          "run_id": 51291,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 44367,
+          "platform_score": 3.2,
+          "time_taken_seconds": 296.6215,
+          "agent_steps": 4
+        }
+      ]
+    },
+    {
+      "task_id": 242,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 707107,
+      "tokens_with_compression": 681313.8,
+      "platform_score": 1.0369294553408008,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51292,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 571780,
+          "platform_score": 1.0834080283992242,
+          "time_taken_seconds": 436.1008,
+          "agent_steps": 24
+        },
+        {
+          "run_id": 51293,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 311793,
+          "platform_score": 1.3866154263635728,
+          "time_taken_seconds": 336.9457,
+          "agent_steps": 17
+        },
+        {
+          "run_id": 51294,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 623320,
+          "platform_score": 1.0402551641163749,
+          "time_taken_seconds": 403.1307,
+          "agent_steps": 31
+        },
+        {
+          "run_id": 51295,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1113609,
+          "platform_score": 0.7501044936830576,
+          "time_taken_seconds": 485.332,
+          "agent_steps": 40
+        },
+        {
+          "run_id": 51296,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 786067,
+          "platform_score": 0.9242641641417736,
+          "time_taken_seconds": 395.5324,
+          "agent_steps": 30
+        }
+      ]
+    },
+    {
+      "task_id": 243,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1358706,
+      "tokens_with_compression": 1046204.4,
+      "platform_score": 0.7330767800260262,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51297,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1296812,
+          "platform_score": 1.5927909047396693,
+          "time_taken_seconds": 551.6463,
+          "agent_steps": 47
+        },
+        {
+          "run_id": 51298,
+          "attempt_no": 2,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1120409,
+          "platform_score": -3.2002357086676883,
+          "time_taken_seconds": 464.5212,
+          "agent_steps": 47
+        },
+        {
+          "run_id": 51299,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1054749,
+          "platform_score": 1.696093965246575,
+          "time_taken_seconds": 488.5258,
+          "agent_steps": 37
+        },
+        {
+          "run_id": 51300,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 946087,
+          "platform_score": 1.7504557512042873,
+          "time_taken_seconds": 424.0099,
+          "agent_steps": 37
+        },
+        {
+          "run_id": 51301,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 812965,
+          "platform_score": 1.8262789876072874,
+          "time_taken_seconds": 470.2696,
+          "agent_steps": 30
+        }
+      ]
+    },
+    {
+      "task_id": 244,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": true,
+      "tokens_without_compression": 705372,
+      "tokens_with_compression": 686312,
+      "platform_score": 1.9407961073125501,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51302,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1260259,
+          "platform_score": 2.4352961222163296,
+          "time_taken_seconds": 556.1251,
+          "agent_steps": 48
+        },
+        {
+          "run_id": 51303,
+          "attempt_no": 2,
+          "pass_with_compression": false,
+          "tokens_with_compression": 821646,
+          "platform_score": -1.6351926682610785,
+          "time_taken_seconds": 521.9164,
+          "agent_steps": 38
+        },
+        {
+          "run_id": 51304,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 565365,
+          "platform_score": 2.836096619272071,
+          "time_taken_seconds": 389.771,
+          "agent_steps": 27
+        },
+        {
+          "run_id": 51305,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 297900,
+          "platform_score": 3.156453459545427,
+          "time_taken_seconds": 354.4773,
+          "agent_steps": 14
+        },
+        {
+          "run_id": 51306,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 486390,
+          "platform_score": 2.9113270037900016,
+          "time_taken_seconds": 496.4962,
+          "agent_steps": 26
+        }
+      ]
+    },
+    {
+      "task_id": 245,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 673863,
+      "tokens_with_compression": 335088.6,
+      "platform_score": 1.3139124614025675,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51307,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 255882,
+          "platform_score": 1.410817729334815,
+          "time_taken_seconds": 343.1821,
+          "agent_steps": 18
+        },
+        {
+          "run_id": 51308,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 503711,
+          "platform_score": 1.0721745842379133,
+          "time_taken_seconds": 402.145,
+          "agent_steps": 20
+        },
+        {
+          "run_id": 51309,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 389412,
+          "platform_score": 1.2008569751402924,
+          "time_taken_seconds": 355.2411,
+          "agent_steps": 19
+        },
+        {
+          "run_id": 51310,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 383290,
+          "platform_score": 1.2087799882819088,
+          "time_taken_seconds": 322.6556,
+          "agent_steps": 27
+        },
+        {
+          "run_id": 51311,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 143148,
+          "platform_score": 1.6769330300179077,
+          "time_taken_seconds": 339.2021,
+          "agent_steps": 11
+        }
+      ]
+    },
+    {
+      "task_id": 246,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1150220,
+      "tokens_with_compression": 880518.4,
+      "platform_score": 1.602663542890514,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51312,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 488486,
+          "platform_score": 1.8639569693949354,
+          "time_taken_seconds": 367.8458,
+          "agent_steps": 19
+        },
+        {
+          "run_id": 51313,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1174844,
+          "platform_score": 1.4605899986732322,
+          "time_taken_seconds": 489.1287,
+          "agent_steps": 28
+        },
+        {
+          "run_id": 51314,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1022221,
+          "platform_score": 1.5162530633766758,
+          "time_taken_seconds": 552.6095,
+          "agent_steps": 33
+        },
+        {
+          "run_id": 51315,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 885445,
+          "platform_score": 1.5737101219988339,
+          "time_taken_seconds": 475.4351,
+          "agent_steps": 30
+        },
+        {
+          "run_id": 51316,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 831596,
+          "platform_score": 1.5988075610088934,
+          "time_taken_seconds": 382.6546,
+          "agent_steps": 28
+        }
+      ]
+    },
+    {
+      "task_id": 247,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": true,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1344878,
+      "tokens_with_compression": 361098.6,
+      "platform_score": -0.5692972740477045,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 48487,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 180302,
+          "platform_score": 1.9111551468818437,
+          "time_taken_seconds": 309.8494,
+          "agent_steps": 11
+        },
+        {
+          "run_id": 48488,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 65803,
+          "platform_score": 2,
+          "time_taken_seconds": 296.5697,
+          "agent_steps": 5
+        },
+        {
+          "run_id": 48489,
+          "attempt_no": 3,
+          "pass_with_compression": false,
+          "tokens_with_compression": 465494,
+          "platform_score": -4,
+          "time_taken_seconds": 351.7806,
+          "agent_steps": 21
+        },
+        {
+          "run_id": 48490,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 779730,
+          "platform_score": 1.2423584828796341,
+          "time_taken_seconds": 404.58,
+          "agent_steps": 29
+        },
+        {
+          "run_id": 48491,
+          "attempt_no": 5,
+          "pass_with_compression": false,
+          "tokens_with_compression": 314164,
+          "platform_score": -4,
+          "time_taken_seconds": 293.1588,
+          "agent_steps": 16
+        }
+      ]
+    },
+    {
+      "task_id": 248,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1062450,
+      "tokens_with_compression": 992883.4,
+      "platform_score": -0.2114098510206003,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51317,
+          "attempt_no": 1,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1681410,
+          "platform_score": -3.210953649371458,
+          "time_taken_seconds": 658.9963,
+          "agent_steps": 61
+        },
+        {
+          "run_id": 51318,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 718900,
+          "platform_score": 1.7893827962999853,
+          "time_taken_seconds": 451.9583,
+          "agent_steps": 32
+        },
+        {
+          "run_id": 51319,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 504851,
+          "platform_score": 1.9661122611775284,
+          "time_taken_seconds": 357.3924,
+          "agent_steps": 27
+        },
+        {
+          "run_id": 51320,
+          "attempt_no": 4,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1007465,
+          "platform_score": -3.200709740324559,
+          "time_taken_seconds": 517.2401,
+          "agent_steps": 47
+        },
+        {
+          "run_id": 51321,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1051791,
+          "platform_score": 1.5991190771155013,
+          "time_taken_seconds": 475.6844,
+          "agent_steps": 38
+        }
+      ]
+    },
+    {
+      "task_id": 249,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1156016,
+      "tokens_with_compression": 914375.6,
+      "platform_score": 0.21330997418817255,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51322,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 691967,
+          "platform_score": 1.2218984013469532,
+          "time_taken_seconds": 385.5665,
+          "agent_steps": 27
+        },
+        {
+          "run_id": 51323,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 627338,
+          "platform_score": 1.270924799484431,
+          "time_taken_seconds": 435.9351,
+          "agent_steps": 23
+        },
+        {
+          "run_id": 51324,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 632871,
+          "platform_score": 1.2665342297032616,
+          "time_taken_seconds": 437.9317,
+          "agent_steps": 23
+        },
+        {
+          "run_id": 51325,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 583445,
+          "platform_score": 1.3071924404062174,
+          "time_taken_seconds": 454.2271,
+          "agent_steps": 23
+        },
+        {
+          "run_id": 51326,
+          "attempt_no": 5,
+          "pass_with_compression": false,
+          "tokens_with_compression": 2036257,
+          "platform_score": -4,
+          "time_taken_seconds": 999.6655,
+          "agent_steps": 51
+        }
+      ]
+    },
+    {
+      "task_id": 250,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1230544,
+      "tokens_with_compression": 706236.4,
+      "platform_score": 2.4581965100168146,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51327,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 629988,
+          "platform_score": 2.51020804526404,
+          "time_taken_seconds": 352.2345,
+          "agent_steps": 21
+        },
+        {
+          "run_id": 51328,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 714968,
+          "platform_score": 2.4469395378327485,
+          "time_taken_seconds": 397.4662,
+          "agent_steps": 23
+        },
+        {
+          "run_id": 51329,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 786588,
+          "platform_score": 2.399206128880995,
+          "time_taken_seconds": 408.8141,
+          "agent_steps": 27
+        },
+        {
+          "run_id": 51330,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 563526,
+          "platform_score": 2.565951694751295,
+          "time_taken_seconds": 379.0865,
+          "agent_steps": 19
+        },
+        {
+          "run_id": 51331,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 836112,
+          "platform_score": 2.368677143354994,
+          "time_taken_seconds": 440.3504,
+          "agent_steps": 25
+        }
+      ]
+    },
+    {
+      "task_id": 251,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 441256,
+      "tokens_with_compression": 113475.2,
+      "platform_score": 1.6711394124502328,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51332,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 199802,
+          "platform_score": 1.3675696705606588,
+          "time_taken_seconds": 324.0056,
+          "agent_steps": 15
+        },
+        {
+          "run_id": 51333,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 155893,
+          "platform_score": 1.4916481714086522,
+          "time_taken_seconds": 302.8466,
+          "agent_steps": 12
+        },
+        {
+          "run_id": 51334,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 28634,
+          "platform_score": 2,
+          "time_taken_seconds": 217.7803,
+          "agent_steps": 3
+        },
+        {
+          "run_id": 51335,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 28653,
+          "platform_score": 2,
+          "time_taken_seconds": 262.1911,
+          "agent_steps": 3
+        },
+        {
+          "run_id": 51336,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 154394,
+          "platform_score": 1.4964792202818527,
+          "time_taken_seconds": 279.8455,
+          "agent_steps": 12
+        }
+      ]
+    },
+    {
+      "task_id": 252,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1091029,
+      "tokens_with_compression": 182192.8,
+      "platform_score": 1.873997946122202,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51337,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 125451,
+          "platform_score": 1.9781690426283354,
+          "time_taken_seconds": 300.8112,
+          "agent_steps": 6
+        },
+        {
+          "run_id": 51338,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 148297,
+          "platform_score": 1.935224804226626,
+          "time_taken_seconds": 303.33,
+          "agent_steps": 8
+        },
+        {
+          "run_id": 51339,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 386045,
+          "platform_score": 1.5004719527013062,
+          "time_taken_seconds": 353.1052,
+          "agent_steps": 16
+        },
+        {
+          "run_id": 51340,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 125428,
+          "platform_score": 1.9781873781606556,
+          "time_taken_seconds": 316.9557,
+          "agent_steps": 6
+        },
+        {
+          "run_id": 51341,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 125743,
+          "platform_score": 1.9779365528940862,
+          "time_taken_seconds": 274.333,
+          "agent_steps": 7
+        }
+      ]
+    },
+    {
+      "task_id": 253,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": true,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 479159,
+      "tokens_with_compression": 142155.6,
+      "platform_score": 1.659084195250717,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 48492,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 298656,
+          "platform_score": 1.228624356136485,
+          "time_taken_seconds": 367.0547,
+          "agent_steps": 19
+        },
+        {
+          "run_id": 48493,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 63730,
+          "platform_score": 1.9586554444464146,
+          "time_taken_seconds": 267.2996,
+          "agent_steps": 6
+        },
+        {
+          "run_id": 48494,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 123597,
+          "platform_score": 1.669757424385971,
+          "time_taken_seconds": 255.9861,
+          "agent_steps": 11
+        },
+        {
+          "run_id": 48495,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 122285,
+          "platform_score": 1.6750933678542161,
+          "time_taken_seconds": 294.4674,
+          "agent_steps": 9
+        },
+        {
+          "run_id": 48496,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 102510,
+          "platform_score": 1.763290383430498,
+          "time_taken_seconds": 289.6054,
+          "agent_steps": 9
+        }
+      ]
+    },
+    {
+      "task_id": 254,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": true,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 532579,
+      "tokens_with_compression": 302087.4,
+      "platform_score": 0.32891931043805184,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 48497,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 337256,
+          "platform_score": 1.199792017095574,
+          "time_taken_seconds": 344.5662,
+          "agent_steps": 20
+        },
+        {
+          "run_id": 48498,
+          "attempt_no": 2,
+          "pass_with_compression": false,
+          "tokens_with_compression": 557059,
+          "platform_score": -4,
+          "time_taken_seconds": 457.3487,
+          "agent_steps": 26
+        },
+        {
+          "run_id": 48499,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 216031,
+          "platform_score": 1.422502202086067,
+          "time_taken_seconds": 278.6824,
+          "agent_steps": 14
+        },
+        {
+          "run_id": 48500,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 285378,
+          "platform_score": 1.283305851399371,
+          "time_taken_seconds": 297.1855,
+          "agent_steps": 19
+        },
+        {
+          "run_id": 48501,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 114713,
+          "platform_score": 1.738996481609247,
+          "time_taken_seconds": 239.0083,
+          "agent_steps": 8
+        }
+      ]
+    },
+    {
+      "task_id": 255,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 603445,
+      "tokens_with_compression": 321289.6,
+      "platform_score": 0.5603872167798503,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51342,
+          "attempt_no": 1,
+          "pass_with_compression": false,
+          "tokens_with_compression": 398443,
+          "platform_score": -2.3844544354662736,
+          "time_taken_seconds": 532.2257,
+          "agent_steps": 25
+        },
+        {
+          "run_id": 51343,
+          "attempt_no": 2,
+          "pass_with_compression": false,
+          "tokens_with_compression": 147321,
+          "platform_score": -2.344656412581686,
+          "time_taken_seconds": 324.6041,
+          "agent_steps": 11
+        },
+        {
+          "run_id": 51344,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 219788,
+          "platform_score": 2.6977006597674604,
+          "time_taken_seconds": 334.3866,
+          "agent_steps": 16
+        },
+        {
+          "run_id": 51345,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 588119,
+          "platform_score": 2.205567728276444,
+          "time_taken_seconds": 454.2235,
+          "agent_steps": 30
+        },
+        {
+          "run_id": 51346,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 252777,
+          "platform_score": 2.6277785439033066,
+          "time_taken_seconds": 321.3401,
+          "agent_steps": 17
+        }
+      ]
+    },
+    {
+      "task_id": 256,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 2404963,
+      "tokens_with_compression": 849543,
+      "platform_score": 2.705711731995721,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51347,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1127325,
+          "platform_score": 2.5511622266206317,
+          "time_taken_seconds": 573.732,
+          "agent_steps": 37
+        },
+        {
+          "run_id": 51348,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 904490,
+          "platform_score": 2.66127802649319,
+          "time_taken_seconds": 510.1698,
+          "agent_steps": 28
+        },
+        {
+          "run_id": 51349,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 918095,
+          "platform_score": 2.6538132154118417,
+          "time_taken_seconds": 511.3712,
+          "agent_steps": 25
+        },
+        {
+          "run_id": 51350,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 728915,
+          "platform_score": 2.7691850873988253,
+          "time_taken_seconds": 414.9599,
+          "agent_steps": 27
+        },
+        {
+          "run_id": 51351,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 568890,
+          "platform_score": 2.893120104054118,
+          "time_taken_seconds": 412.957,
+          "agent_steps": 21
+        }
+      ]
+    },
+    {
+      "task_id": 257,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": true,
+      "tokens_without_compression": 2017063,
+      "tokens_with_compression": 1791091.4,
+      "platform_score": 2.014639904273049,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51352,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1402006,
+          "platform_score": 2.9443512974559534,
+          "time_taken_seconds": 1224.4736,
+          "agent_steps": 42
+        },
+        {
+          "run_id": 51353,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 2448993,
+          "platform_score": 2.665464871729643,
+          "time_taken_seconds": 1094.1458,
+          "agent_steps": 64
+        },
+        {
+          "run_id": 51354,
+          "attempt_no": 3,
+          "pass_with_compression": false,
+          "tokens_with_compression": 2668569,
+          "platform_score": -1.6163367521131817,
+          "time_taken_seconds": 1413.0943,
+          "agent_steps": 88
+        },
+        {
+          "run_id": 51355,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1594653,
+          "platform_score": 2.8799752527031677,
+          "time_taken_seconds": 1091.5879,
+          "agent_steps": 55
+        },
+        {
+          "run_id": 51356,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 841236,
+          "platform_score": 3.1997448515896636,
+          "time_taken_seconds": 645.1441,
+          "agent_steps": 27
+        }
+      ]
+    },
+    {
+      "task_id": 258,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 709077,
+      "tokens_with_compression": 490712.4,
+      "platform_score": 1.2073457911470145,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51357,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 883212,
+          "platform_score": 0.8743557506431194,
+          "time_taken_seconds": 523.9991,
+          "agent_steps": 28
+        },
+        {
+          "run_id": 51358,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 289429,
+          "platform_score": 1.4321833735854121,
+          "time_taken_seconds": 380.0687,
+          "agent_steps": 15
+        },
+        {
+          "run_id": 51359,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 439673,
+          "platform_score": 1.2231227474378366,
+          "time_taken_seconds": 423.7291,
+          "agent_steps": 21
+        },
+        {
+          "run_id": 51360,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 344773,
+          "platform_score": 1.3446952671071741,
+          "time_taken_seconds": 391.8697,
+          "agent_steps": 17
+        },
+        {
+          "run_id": 51361,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 496475,
+          "platform_score": 1.1623718169615307,
+          "time_taken_seconds": 408.2879,
+          "agent_steps": 24
+        }
+      ]
+    },
+    {
+      "task_id": 259,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 759937,
+      "tokens_with_compression": 64565,
+      "platform_score": 1.9086002410441598,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51362,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 43062,
+          "platform_score": 1.9591172628666016,
+          "time_taken_seconds": 299.7068,
+          "agent_steps": 4
+        },
+        {
+          "run_id": 51363,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 42975,
+          "platform_score": 1.9593195015073093,
+          "time_taken_seconds": 295.9925,
+          "agent_steps": 4
+        },
+        {
+          "run_id": 51364,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 43186,
+          "platform_score": 1.9588297197689364,
+          "time_taken_seconds": 296.6238,
+          "agent_steps": 4
+        },
+        {
+          "run_id": 51365,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 75512,
+          "platform_score": 1.8999406797775578,
+          "time_taken_seconds": 315.9906,
+          "agent_steps": 6
+        },
+        {
+          "run_id": 51366,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 118090,
+          "platform_score": 1.7657940413003934,
+          "time_taken_seconds": 331.1774,
+          "agent_steps": 10
+        }
+      ]
+    },
+    {
+      "task_id": 260,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1513961,
+      "tokens_with_compression": 979234.2,
+      "platform_score": 2.066139598330918,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51367,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 888743,
+          "platform_score": 3.0361780240870138,
+          "time_taken_seconds": 493.9813,
+          "agent_steps": 29
+        },
+        {
+          "run_id": 51368,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 777773,
+          "platform_score": 3.102864722602289,
+          "time_taken_seconds": 572.5712,
+          "agent_steps": 36
+        },
+        {
+          "run_id": 51369,
+          "attempt_no": 3,
+          "pass_with_compression": false,
+          "tokens_with_compression": 616633,
+          "platform_score": -1.5380688436182581,
+          "time_taken_seconds": 446.396,
+          "agent_steps": 21
+        },
+        {
+          "run_id": 51370,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1680205,
+          "platform_score": 2.717746532133636,
+          "time_taken_seconds": 694.1674,
+          "agent_steps": 51
+        },
+        {
+          "run_id": 51371,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 932817,
+          "platform_score": 3.0119775564499056,
+          "time_taken_seconds": 650.4566,
+          "agent_steps": 40
+        }
+      ]
+    },
+    {
+      "task_id": 261,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 546890,
+      "tokens_with_compression": 48095.8,
+      "platform_score": 2.5428538455919303,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51372,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 50207,
+          "platform_score": 2.535372918784703,
+          "time_taken_seconds": 305.3615,
+          "agent_steps": 5
+        },
+        {
+          "run_id": 51373,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 50564,
+          "platform_score": 2.533247298356988,
+          "time_taken_seconds": 283.1008,
+          "agent_steps": 5
+        },
+        {
+          "run_id": 51374,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 60906,
+          "platform_score": 2.4774197489378764,
+          "time_taken_seconds": 302.3866,
+          "agent_steps": 6
+        },
+        {
+          "run_id": 51375,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 39356,
+          "platform_score": 2.584343051637821,
+          "time_taken_seconds": 300.0446,
+          "agent_steps": 4
+        },
+        {
+          "run_id": 51376,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 39446,
+          "platform_score": 2.5838862102422624,
+          "time_taken_seconds": 261.7415,
+          "agent_steps": 4
+        }
+      ]
+    },
+    {
+      "task_id": 262,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1651100,
+      "tokens_with_compression": 967512,
+      "platform_score": 0.301363649501025,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51377,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 998961,
+          "platform_score": 1.2228559771809469,
+          "time_taken_seconds": 734.1006,
+          "agent_steps": 42
+        },
+        {
+          "run_id": 51378,
+          "attempt_no": 2,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1492429,
+          "platform_score": -4,
+          "time_taken_seconds": 681.839,
+          "agent_steps": 46
+        },
+        {
+          "run_id": 51379,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 742569,
+          "platform_score": 1.3711559487786202,
+          "time_taken_seconds": 556.325,
+          "agent_steps": 34
+        },
+        {
+          "run_id": 51380,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 286405,
+          "platform_score": 1.8282227318173692,
+          "time_taken_seconds": 333.6667,
+          "agent_steps": 15
+        },
+        {
+          "run_id": 51381,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1317196,
+          "platform_score": 1.0845835897281884,
+          "time_taken_seconds": 569.0663,
+          "agent_steps": 32
+        }
+      ]
+    },
+    {
+      "task_id": 263,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1576654,
+      "tokens_with_compression": 596044.8,
+      "platform_score": 2.1546298111305737,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51382,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 1275076,
+          "platform_score": 1.6854854976046827,
+          "time_taken_seconds": 679.9005,
+          "agent_steps": 58
+        },
+        {
+          "run_id": 51383,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 83645,
+          "platform_score": 2.6,
+          "time_taken_seconds": 286.8214,
+          "agent_steps": 5
+        },
+        {
+          "run_id": 51384,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 696942,
+          "platform_score": 1.9875149326719004,
+          "time_taken_seconds": 478.6477,
+          "agent_steps": 39
+        },
+        {
+          "run_id": 51385,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 706958,
+          "platform_score": 1.980380400338588,
+          "time_taken_seconds": 556.5,
+          "agent_steps": 34
+        },
+        {
+          "run_id": 51386,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 217603,
+          "platform_score": 2.5197682250376987,
+          "time_taken_seconds": 328.2601,
+          "agent_steps": 12
+        }
+      ]
+    },
+    {
+      "task_id": 264,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 935869,
+      "tokens_with_compression": 392064,
+      "platform_score": 1.4626253643027989,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51387,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 345708,
+          "platform_score": 1.4782600836434754,
+          "time_taken_seconds": 301.81,
+          "agent_steps": 13
+        },
+        {
+          "run_id": 51388,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 237846,
+          "platform_score": 1.6652456249919303,
+          "time_taken_seconds": 344.9117,
+          "agent_steps": 8
+        },
+        {
+          "run_id": 51389,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 345810,
+          "platform_score": 1.4781125820589331,
+          "time_taken_seconds": 318.1154,
+          "agent_steps": 11
+        },
+        {
+          "run_id": 51390,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 265145,
+          "platform_score": 1.6109189046220855,
+          "time_taken_seconds": 282.0914,
+          "agent_steps": 9
+        },
+        {
+          "run_id": 51391,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 765811,
+          "platform_score": 1.0805896261975705,
+          "time_taken_seconds": 489.2588,
+          "agent_steps": 25
+        }
+      ]
+    },
+    {
+      "task_id": 265,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": true,
+      "pass_with_compression": true,
+      "tokens_without_compression": 1189263,
+      "tokens_with_compression": 119413.6,
+      "platform_score": 1.929224849544143,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51392,
+          "attempt_no": 1,
+          "pass_with_compression": true,
+          "tokens_with_compression": 109665,
+          "platform_score": 1.957051967181036,
+          "time_taken_seconds": 319.7093,
+          "agent_steps": 7
+        },
+        {
+          "run_id": 51393,
+          "attempt_no": 2,
+          "pass_with_compression": true,
+          "tokens_with_compression": 175594,
+          "platform_score": 1.8466808861715844,
+          "time_taken_seconds": 299.2013,
+          "agent_steps": 9
+        },
+        {
+          "run_id": 51394,
+          "attempt_no": 3,
+          "pass_with_compression": true,
+          "tokens_with_compression": 49411,
+          "platform_score": 2,
+          "time_taken_seconds": 265.9152,
+          "agent_steps": 3
+        },
+        {
+          "run_id": 51395,
+          "attempt_no": 4,
+          "pass_with_compression": true,
+          "tokens_with_compression": 131553,
+          "platform_score": 1.9206560576150387,
+          "time_taken_seconds": 301.6071,
+          "agent_steps": 8
+        },
+        {
+          "run_id": 51396,
+          "attempt_no": 5,
+          "pass_with_compression": true,
+          "tokens_with_compression": 130845,
+          "platform_score": 1.9217353367530556,
+          "time_taken_seconds": 251.8167,
+          "agent_steps": 8
+        }
+      ]
+    },
+    {
+      "task_id": 266,
+      "task_name": "Will be available after uploads finish",
+      "is_screener": false,
+      "pass_without_compression": false,
+      "pass_with_compression": false,
+      "tokens_without_compression": 2565539,
+      "tokens_with_compression": 687762.8,
+      "platform_score": -0.6977029464061668,
+      "run_count": 5,
+      "runs": [
+        {
+          "run_id": 51397,
+          "attempt_no": 1,
+          "pass_with_compression": false,
+          "tokens_with_compression": 800101,
+          "platform_score": -0.7089416098493653,
+          "time_taken_seconds": 491.6276,
+          "agent_steps": 28
+        },
+        {
+          "run_id": 51398,
+          "attempt_no": 2,
+          "pass_with_compression": false,
+          "tokens_with_compression": 478420,
+          "platform_score": -0.6772794996509207,
+          "time_taken_seconds": 411.9974,
+          "agent_steps": 18
+        },
+        {
+          "run_id": 51399,
+          "attempt_no": 3,
+          "pass_with_compression": false,
+          "tokens_with_compression": 475341,
+          "platform_score": -0.6768921056564614,
+          "time_taken_seconds": 438.7152,
+          "agent_steps": 19
+        },
+        {
+          "run_id": 51400,
+          "attempt_no": 4,
+          "pass_with_compression": false,
+          "tokens_with_compression": 665059,
+          "platform_score": -0.6970427046954515,
+          "time_taken_seconds": 403.4212,
+          "agent_steps": 25
+        },
+        {
+          "run_id": 51401,
+          "attempt_no": 5,
+          "pass_with_compression": false,
+          "tokens_with_compression": 1019893,
+          "platform_score": -0.7283588121786349,
+          "time_taken_seconds": 579.0295,
+          "agent_steps": 34
+        }
+      ]
+    }
+  ],
+  "hotkey": "5DhHqmB1BzyW6qsZ44EhajM8dXKChxRqB7vqZTwojm1WwsSz",
+  "competition_id": 107
+}

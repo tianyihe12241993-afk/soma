@@ -85,7 +85,7 @@ def main() -> int:
            "elements": winners,
            "incentive_share_of_pool": dict(sorted(incentive.items(), key=lambda kv: -kv[1])),
            "our_element_wins": list(our_wins.keys())}
-    (LATEST / "category_winners.json").write_text(json.dumps(out, indent=2))
+    (LATEST / "category_winners.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
 
     # ---- markdown report ----
     L = [f"# Reward Projection", f"_computed {utc_now()} — {len(elig)} eligible miners "
@@ -121,7 +121,7 @@ def main() -> int:
                      f"{best_ours_m['medium']:.3f} vs winner {m_elig[0]['medium']:.3f} "
                      f"(gap {m_elig[0]['medium']-best_ours_m['medium']:+.3f}).")
     REPORTS.mkdir(parents=True, exist_ok=True)
-    (REPORTS / "reward_projection.md").write_text("\n".join(L) + "\n")
+    (REPORTS / "reward_projection.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print(f"wrote {LATEST/'category_winners.json'} and {REPORTS/'reward_projection.md'}")
     print("our element wins:", our_wins or "none")
     return 0

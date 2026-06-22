@@ -2,7 +2,7 @@
 # The SOMA dashboard is a Next.js page with the leaderboard embedded as JSON in the HTML.
 # collect_dashboard.py fetches the HTML and extracts the per-miner records.
 leaderboard_url: "https://thesoma.ai/dashboard"
-miner_page_url: "https://thesoma.ai/dashboard/miner/107/{hotkey}"   # per-miner detail
+miner_page_url: "https://thesoma.ai/dashboard/miner/{comp}/{hotkey}"   # per-miner detail (collect_miner_detail.py)
 competition_id: 107
 
 # Display column order on the rendered board is: total, Easy, Hard, Medium.

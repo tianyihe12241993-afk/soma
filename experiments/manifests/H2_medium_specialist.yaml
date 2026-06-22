@@ -1,0 +1,11 @@
+id: H2_medium_specialist
+base: m7
+goal: "Maximize Medium category score (our closest reward element; leader 1.620 vs m7 1.421)."
+subsets: [medium, shared_pass]
+guard: [fragile]
+forbid: [persistent_failure_routing, flip_mode_rescue, disallowed_prompt_coaching]
+hypothesis: "Medium is where m7 is already strong; deeper pass-safe compression on Medium tasks lifts the element without broad changes."
+success_metric: "Medium score up vs m7 with NO increase in Medium negative_score tasks. Preserve pass-rate first, then push ratio."
+candidate: null
+blocked_on: "task->category map MISSING (config/task_categories.csv). Until imported, the 'medium' subset is null and H2 runs on shared_pass only."
+notes: "Task/category-aware compression only if allowed by public prompt rules — keep within loop-detection + forced-stop bounds."

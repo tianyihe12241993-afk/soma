@@ -1,0 +1,60 @@
+# Real SOMA SWE-bench eval — H1M_m7_deeper_safe_v1 (offline research; DO NOT SUBMIT).
+# Run order: SMOKE first (2 tasks) → gate → STOP for confirmation → Medium-first → fragile.
+# Requires (NOT yet present — see reports/H1M_real_eval.md): running Docker daemon + the external
+# SOMA-benchmark (soma_bench) + openclaw agent + SOMA-plugin. The ops/candidate code cannot run it alone.
+id: H1M_real_eval_medium_first
+candidate: H1M_m7_deeper_safe_v1
+benchmark: SWE-bench/SWE-bench_Verified      # split: test
+arch: x86_64
+image_template: ghcr.io/epoch-research/swe-bench.eval.{arch}.{instance_id}
+agent: openclaw
+plugin_base_miner: experiments/candidates/H1M_m7_deeper_safe_v1/h1m_miner.py   # injected as <SOMA-plugin>/base_miner.py
+m7_base_miner: miner/cot_compression/upload_miner_v11_m7.py                     # the m7 baseline (DO NOT MODIFY)
+openrouter_key: env:OPENROUTER_API_KEY        # read from config/secrets.env / env; NEVER printed or committed
+output_dir: experiments/runs/                  # all eval outputs land here
+runs_per_task: 2                               # cost control for offline research (platform uses 5)
+
+profiles:
+  m7:         { base_miner: m7_base_miner, env: {} }
+  h1m@medium: { base_miner: plugin_base_miner, env: { H1M_PROFILE: medium } }
+  h1m@deep:   { base_miner: plugin_base_miner, env: { H1M_PROFILE: deep } }
+
+# Phase 1 — SMOKE (cost-controlled; run ONLY this first, then stop for confirmation)
+smoke_instances:
+  - django__django-10914
+  - django__django-15851
+
+# Phase 2 — Medium-first (run only after smoke passes + explicit confirmation)
+medium_first_instances:
+  - django__django-15851
+  - django__django-11119
+  - sympy__sympy-24539
+  - django__django-14580
+  - django__django-14855
+  - django__django-10914
+  - django__django-11603
+
+# Phase 3 — fragile guard (after Medium-first)
+fragile_instances:
+  - sympy__sympy-17139
+  - sympy__sympy-16766
+  - django__django-11239
+  - django__django-14493
+
+# NEVER push compression here (solving gaps, not compression gaps)
+excluded_solving_gap:
+  - django__django-14999
+  - sympy__sympy-22714
+
+# Per-instance command (run once per profile per instance), from the SOMA-benchmark checkout:
+#   cp <profile.base_miner> <SOMA-plugin>/base_miner.py
+#   H1M_PROFILE=<profile.env> OPENROUTER_API_KEY=$KEY \
+#   python -m soma_bench benchmark-solve --agent-name openclaw \
+#     --benchmark SWE-bench/SWE-bench_Verified --instance-id <instance> \
+#     --openclaw-plugin-path <SOMA-plugin> --execute
+# Then convert soma_bench outputs -> gate CSV (task,pass,neg_runs,n_runs,ratio,score,broke_baseline,
+# pairing_error,missing_patch,category) and run:
+#   python experiments/candidates/H1M_m7_deeper_safe_v1/h1m_run.py --results <gate.csv>
+
+gate: "h1m_run.py --results — reject on new broken baseline / Medium neg-run up / Medium score drop /
+       ratio<8% / integrity error (proven on fixtures: PASS->ACCEPT, FAIL->REJECT)."

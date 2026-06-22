@@ -7,7 +7,16 @@ import json
 import os
 import re
 import subprocess
+import sys as _sys
 from pathlib import Path
+
+# Make console output UTF-8 everywhere (Windows defaults to cp1252 and crashes on
+# ✓/×/→/⚠ etc.). Files are already written with encoding="utf-8"; this fixes prints.
+for _stream in (_sys.stdout, _sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 ROOT = Path(__file__).resolve().parent.parent          # repo root: /Users/user/SOMA
 STATE = ROOT / "state"
@@ -67,8 +76,76 @@ def hotkey_to_name() -> dict:
 
 
 def latest_raw_snapshot() -> Path | None:
-    files = sorted(RAW.glob("*/*_leaderboard.json"))
+    files = [f for f in sorted(RAW.glob("*/*_leaderboard.json"))]
     return files[-1] if files else None
+
+
+def latest_detail_snapshot() -> Path | None:
+    files = sorted(RAW.glob("*/*_miner_detail.json"))
+    return files[-1] if files else None
+
+
+def _parse_flow(block: str) -> dict:
+    """Parse a flow-style YAML mapping body 'k: v, k: "q", ...' -> dict (stdlib only)."""
+    out = {}
+    for m in re.finditer(r'(\w+):\s*("(?:[^"\\]|\\.)*"|[^,}]+)', block):
+        k, v = m.group(1), m.group(2).strip()
+        if v.startswith('"') and v.endswith('"'):
+            v = v[1:-1]
+        elif v.lower() in ("true", "false"):
+            v = v.lower() == "true"
+        elif v.lower() in ("null", "none", "~"):
+            v = None
+        else:
+            try:
+                v = int(v)
+            except ValueError:
+                try:
+                    v = float(v)
+                except ValueError:
+                    pass
+        out[k] = v
+    return out
+
+
+def load_flow_section(path: Path, section: str) -> dict:
+    """Load a flow-style block-mapping section (e.g. 'miners:' / 'top_miners:') from a
+    config file as {key: {fields}}. Stdlib-only; tolerant of PyYAML-style flow one-liners."""
+    txt = read_text(path)
+    out = {}
+    in_section = False
+    for line in txt.splitlines():
+        if re.match(rf'^{re.escape(section)}:\s*$', line):
+            in_section = True
+            continue
+        if in_section and re.match(r'^\S', line):       # next top-level key ends the section
+            break
+        m = re.match(r'^\s+([A-Za-z0-9_]+):\s*\{(.*)\}\s*$', line)
+        if in_section and m:
+            out[m.group(1)] = _parse_flow(m.group(2))
+    return out
+
+
+def load_miners_rich() -> dict:
+    """Focal miners (config/miners.yaml 'miners:' section) with all derived stat fields."""
+    return load_flow_section(CONFIG / "miners.yaml", "miners")
+
+
+def load_top_miners() -> dict:
+    return load_flow_section(CONFIG / "top_miners.yaml", "top_miners")
+
+
+def load_secrets() -> dict:
+    """Parse config/secrets.env (git-ignored, KEY="value" lines) -> dict. Empty if absent."""
+    out = {}
+    txt = read_text(CONFIG / "secrets.env")
+    for line in txt.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, _, v = line.partition("=")
+        out[k.strip()] = v.strip().strip('"').strip("'")
+    return out
 
 
 def latest_processed_rows() -> list:

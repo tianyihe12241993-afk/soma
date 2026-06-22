@@ -1,0 +1,5624 @@
+{
+  "observed_at": "2026-06-21T16:19:11Z",
+  "source": "https://thesoma.ai/dashboard (server-action getSweTaskRunsAction)",
+  "competition_id": 107,
+  "leaderboard": [
+    {
+      "hotkey": "5EkiFXSRAiUVDeDEZGLidLoEVh99ghTG6bdSNGcwhA6budgB",
+      "total_score": 1.4600559701839968,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1711914394634482,
+        "Medium": 1.4798889827752122,
+        "Hard": 1.7120954570944757
+      },
+      "last_submit": "2026-06-17T16:42:58.566412Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5E7hCCzjedynCsQbU2aEGrb59izS6GycKKux9gJjNVKbziYU",
+      "total_score": 1.436382234961206,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.255271142216671,
+        "Medium": 1.4373313356944726,
+        "Hard": 1.6058906332816179
+      },
+      "last_submit": "2026-06-17T16:41:58.365959Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FbqgypX3uD3WYvAxu6iNvmPBAzWanXf5JyhNgiCyJtfe1h1",
+      "total_score": 1.4153286183597862,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1919346207854788,
+        "Medium": 1.6200082544129355,
+        "Hard": 1.420902156494222
+      },
+      "last_submit": "2026-06-17T16:42:34.289289Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DhHqmB1BzyW6qsZ44EhajM8dXKChxRqB7vqZTwojm1WwsSz",
+      "total_score": 1.4095269365881329,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.3469635185999342,
+        "Medium": 1.1272064666285235,
+        "Hard": 1.750730623477807
+      },
+      "last_submit": "2026-06-16T14:55:41.019513Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EFLeDNSU5Z2QqSGLZeEJkxV9PBM6EKTEDaB6b8QgHRXBwJY",
+      "total_score": 1.3858036872375816,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": 1.4327108425531785,
+        "Medium": 1.4165100409122644,
+        "Hard": 1.3109494226776288
+      },
+      "last_submit": "2026-06-13T05:53:40.793774Z",
+      "status": "failed review"
+    },
+    {
+      "hotkey": "5GEUZcudEcmsHTeGTwqYVgwxALc5oQRe3b1NA51rXGFWJBrw",
+      "total_score": 1.354710663105906,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1256208695012706,
+        "Medium": 1.2786402533231156,
+        "Hard": 1.6463949962812947
+      },
+      "last_submit": "2026-06-17T17:56:22.633435Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5G6J5dA18opafejjFtSsTXWjqp19nzQahGemNUmNQ66Tz8UW",
+      "total_score": 1.3349693455894034,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.2805023155491622,
+        "Medium": 1.1965782069858548,
+        "Hard": 1.5246235712896468
+      },
+      "last_submit": "2026-06-15T10:42:13.986307Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GsHHNmexGGkrdjZPHW5jyCcgfUodazHeEhPBx4Rpxmy17KB",
+      "total_score": 1.2793878933327285,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1265061448577,
+        "Medium": 1.4212485790714267,
+        "Hard": 1.2814159120411155
+      },
+      "last_submit": "2026-06-16T08:52:00.656616Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5ERdwbn59m1aVxZWL6ueLHCPuTBrzDX1L9EfQjAncNZNFJjM",
+      "total_score": 1.2631088524007108,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1557579143881576,
+        "Medium": 1.3115041786946016,
+        "Hard": 1.3157497030598115
+      },
+      "last_submit": "2026-06-17T16:42:17.764547Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EPkREJ9AQqG7JTyEETYLG5PHd21fzkuSKWVoAHQcgof8QXn",
+      "total_score": 1.2557928196321724,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.2523460217101432,
+        "Medium": 1.0594505238923695,
+        "Hard": 1.4553791604750606
+      },
+      "last_submit": "2026-06-17T17:39:53.723223Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CJs9EmL4Doo7ra59BVmnmgDQDCPPDppwCQnL5GewDBFM816",
+      "total_score": 1.2223270007736753,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.220380939739461,
+        "Medium": 1.4227524178332338,
+        "Hard": 1.0237331705698498
+      },
+      "last_submit": "2026-06-13T19:29:47.822402Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5ECfdygSqeMH9h9uamHhD6VpZrtSCpA4PPBpVAuJQ7Y2VaN5",
+      "total_score": 1.22090736371716,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0415929111075055,
+        "Medium": 1.1116580728498855,
+        "Hard": 1.4538794501474719
+      },
+      "last_submit": "2026-06-11T07:51:01.448728Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Dk5CXJq2KUafPDm9DagqsFQEqSCA212idjW9joVMQubmmRt",
+      "total_score": 1.211864907709062,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8647182640379754,
+        "Medium": 1.5566869513014847,
+        "Hard": 1.1937691169835443
+      },
+      "last_submit": "2026-06-16T03:18:34.191299Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5E9fyipw2makXwPd9VopCDKbGAZajSLRvqN14nUd87ANmxtv",
+      "total_score": 1.206741511248194,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9930619158660114,
+        "Medium": 1.536210007678755,
+        "Hard": 1.0783832222361571
+      },
+      "last_submit": "2026-06-17T10:30:21.012235Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GsnC1vdzMM4FbAwEWmPaDxsQHne9dPVGiycEnapmgGR4Fjy",
+      "total_score": 1.2059865175779976,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0297900868025351,
+        "Medium": 1.200360219466634,
+        "Hard": 1.3774447505368572
+      },
+      "last_submit": "2026-06-16T19:58:02.456343Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CkmCSL3fZ1y5RWjCRnNJtSGavyhJM4CRcDMgTPV2NALR9Mf",
+      "total_score": 1.2048996814691808,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8739184906406017,
+        "Medium": 1.3938603105982281,
+        "Hard": 1.3274507613552657
+      },
+      "last_submit": "2026-06-16T06:29:02.098729Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GGtypJEeCv6xwwRQrySi527yJYAkhFKGRxZpCLGPqnwcmW3",
+      "total_score": 1.1923471384860118,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1421625351314706,
+        "Medium": 1.1322181567246714,
+        "Hard": 1.2997086881104494
+      },
+      "last_submit": "2026-06-17T17:56:39.526263Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DZU8JcduRKR9f4PSwJgVntqiBdVs6Cqx533F9M7Qbnwdrev",
+      "total_score": 1.1767609008280324,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.2598702519954719,
+        "Medium": 1.1173284649581792,
+        "Hard": 1.1579727708932346
+      },
+      "last_submit": "2026-06-15T10:42:33.336176Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GCWaCnbJkwJGo7FUjqNn1TNUySrZtz2PrwSyQyjYMobnZkw",
+      "total_score": 1.1665576352571332,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9316533452730393,
+        "Medium": 1.1153663792638575,
+        "Hard": 1.4368210417877458
+      },
+      "last_submit": "2026-06-11T19:25:36.160197Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EF8nHthtDV3woo6oK2rNk3vGJ8ag6X1fzPMJuLhAZAMjmtc",
+      "total_score": 1.1587851696227363,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0565257139235298,
+        "Medium": 1.183355239907237,
+        "Hard": 1.2304592929374891
+      },
+      "last_submit": "2026-06-16T23:15:04.977235Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GgUhFiG3Vx8EGPcq29FeXeWXRDXQq91fiXdBDueae3W5rkj",
+      "total_score": 1.1583984051055536,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.373315594874235,
+        "Medium": 1.1909870974116634,
+        "Hard": 0.9235347106642156
+      },
+      "last_submit": "2026-06-12T20:16:30.758688Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HVTBzthVDi5v4TeLukANBbAXX9PVYW5K2hiMYKRWoik3cjk",
+      "total_score": 1.13979272609075,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": 0.8742425978049644,
+        "Medium": 1.2490691372030698,
+        "Hard": 1.2804458474827012
+      },
+      "last_submit": "2026-06-14T01:26:29.792341Z",
+      "status": "failed review"
+    },
+    {
+      "hotkey": "5DM9q9FkbY6hj6swf8rQgb9Rh8ndUbRDw2hvu4FPLSaFFh2z",
+      "total_score": 1.1305920183725497,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.710182445536546,
+        "Medium": 1.1352807076810825,
+        "Hard": 1.436726333882528
+      },
+      "last_submit": "2026-06-12T15:01:08.891655Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5F1M1CyXLxG5cyPgX6itTHGChQET9j2YQsNNHLphWPySP4g4",
+      "total_score": 1.1209198132578004,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.4708835251744814,
+        "Medium": 0.8602274740742546,
+        "Hard": 1.4544649812464057
+      },
+      "last_submit": "2026-06-11T20:33:57.822192Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GxLcCzndqqhQRCiVN4wxouY5RWnE7bFCXzgemD7r9SMYYoB",
+      "total_score": 1.1152877532005343,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.6652981462018159,
+        "Medium": 1.0656936809465911,
+        "Hard": 1.4788108380527358
+      },
+      "last_submit": "2026-06-11T22:47:54.976991Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EbvWzM9LXGMiRbcAh9JkgVEfLhLWuGafBe62d6LR5rMJVNe",
+      "total_score": 1.1077522998324225,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1270616699747746,
+        "Medium": 1.449680087106045,
+        "Hard": 0.7476509877189388
+      },
+      "last_submit": "2026-06-17T08:32:16.675762Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5H8ufxt36JczvvhfKdphUirU655QWRgRBM6gDWo5sxjzW37W",
+      "total_score": 1.1031093992186358,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8729477910361769,
+        "Medium": 0.9841915084301922,
+        "Hard": 1.4386499800611574
+      },
+      "last_submit": "2026-06-10T15:29:33.805168Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DiPbbgTa2zFVFur2pTTwZ2DF5StgvExoEhWebwYzHHfNG2R",
+      "total_score": 1.095849583015724,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.32556208157419775,
+        "Medium": 0.9615936875649194,
+        "Hard": 1.3850969939748747
+      },
+      "last_submit": "2026-06-09T23:09:22.653983Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DSYJRA9EBhazNYk9bKPzp2uyZ1YhgPn4mjqfzb2y8jC6qbZ",
+      "total_score": 1.0905445799406897,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0790266648384303,
+        "Medium": 1.1969162921635474,
+        "Hard": 0.9950132584023113
+      },
+      "last_submit": "2026-06-17T17:57:13.410976Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EeV9B2XmLTE5E8ynpFN4D6Q2HS2TxywnARKTYJFfYqT4AZF",
+      "total_score": 1.0863207634979757,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9118662539844902,
+        "Medium": 1.241883330373092,
+        "Hard": 1.0949506761649621
+      },
+      "last_submit": "2026-06-16T23:02:17.298324Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FWiPFWe2NCwcQVXM3ZHNpJjmFxdPp8oBZYkDH695yuDbztj",
+      "total_score": 1.0858644669675641,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9619638299195072,
+        "Medium": 0.7673266747171246,
+        "Hard": 1.5210146234985267
+      },
+      "last_submit": "2026-06-12T07:57:07.107207Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DskVPR8AKnK7RZHMnHFVXAmzTeybabERi4D5fdGoEWSjMda",
+      "total_score": 1.081080341746107,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0204281570717857,
+        "Medium": 1.15917917328765,
+        "Hard": 1.0600659193098094
+      },
+      "last_submit": "2026-06-16T03:23:56.351680Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GmxAVmh5aELdJdLFv6PjTFeX7FaTXtJBGwt1xHzCKyx1rfB",
+      "total_score": 1.0800042436882453,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.2301674821242683,
+        "Medium": 0.9555885331110661,
+        "Hard": 1.2962238422101224
+      },
+      "last_submit": "2026-06-11T14:32:14.972733Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Cqek9Ddsmxa1kPL3DZ91VbWYGAZKScoRrUN62jNF7GSofTZ",
+      "total_score": 1.0799131058661242,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9789322488336181,
+        "Medium": 1.3677980292548693,
+        "Hard": 0.8870689890962069
+      },
+      "last_submit": "2026-06-13T15:22:14.856736Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DCyrgZPMoxDoTzbbTVjgsek4hh7V2TPMetwA3RJ1WzAkrEc",
+      "total_score": 1.0781677793577593,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.834070463026718,
+        "Medium": 1.033015227333868,
+        "Hard": 1.353058982046159
+      },
+      "last_submit": "2026-06-09T21:39:56.667745Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CaXJvVUAib6BoejpHeUgvgmno88iJhCPmDxQ539rgN3p8Uy",
+      "total_score": 1.0778566131170546,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0201491321543434,
+        "Medium": 0.8820322283817692,
+        "Hard": 1.3279939211113616
+      },
+      "last_submit": "2026-06-10T13:09:58.081636Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FZ5JB8EafB7jJ7qA3oLNfCRVhCoK4zPL5K8sdJ3yiPZC8Vc",
+      "total_score": 1.077102395200166,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.018703834288111,
+        "Medium": 1.1971632557963252,
+        "Hard": 1.0120048860506472
+      },
+      "last_submit": "2026-06-17T08:40:02.692328Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5C5KNxMNSM8TnprZC5xKoZE8iHZNafFqoFaVBidz3CRRQAcu",
+      "total_score": 1.0764816183478807,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0679492850340582,
+        "Medium": 1.259591043541728,
+        "Hard": 0.9014026245082212
+      },
+      "last_submit": "2026-06-15T22:22:13.319935Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DPFod3SPZzLqHoKZfC8dZjVJ6P2Yj8inj4b5pw8m3eFJeEM",
+      "total_score": 1.0645337529005996,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1118651117671279,
+        "Medium": 0.9544270933507981,
+        "Hard": 1.1111600768499015
+      },
+      "last_submit": "2026-06-17T17:58:23.339198Z",
+      "status": "evaluating"
+    },
+    {
+      "hotkey": "5HQwXjLCKzjZo8kwzhKuRXXPmKZF1PCoocVtRdawsELLwUnG",
+      "total_score": 1.0613161101446504,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.6174284737154174,
+        "Medium": 0.9909820379478749,
+        "Hard": 1.512274192699886
+      },
+      "last_submit": "2026-06-10T09:26:11.212199Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HGV7HPNry8TM8Yg1VkL7ixzfGXpBhVNXVpn2bdNLBSRKXwo",
+      "total_score": 1.0518752638163171,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0812096636416886,
+        "Medium": 0.966124821224219,
+        "Hard": 1.1100168595139497
+      },
+      "last_submit": "2026-06-16T03:21:19.167139Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5H3CxYwb9jkESJxpScniak1gxb33SopnaPMdDMEkeAXUPZF7",
+      "total_score": 1.0492357762156947,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9461056854567191,
+        "Medium": 0.9753760293299107,
+        "Hard": 1.220159137933452
+      },
+      "last_submit": "2026-06-12T15:01:24.394578Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DqgraCiBfmJjNmCcDWPzVDGRKVYiXKNG5vyjshtUteFd8JA",
+      "total_score": 1.0423947073494935,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.3415582796201999,
+        "Medium": 1.0697119302521871,
+        "Hard": 1.307325533958859
+      },
+      "last_submit": "2026-06-10T20:22:26.260971Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5F26J6aGytyLoCT9T4EXqj6BNwrTJEmLtF3XsAXE436SmtTE",
+      "total_score": 1.038045422626296,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9434085078619541,
+        "Medium": 1.0303886834230829,
+        "Hard": 1.1347721992547726
+      },
+      "last_submit": "2026-06-17T17:33:29.768885Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GKM3GACUxC87qn6VecDGASrNyYDKmJRX5hLDsBaXtdCGvPF",
+      "total_score": 1.03437183357528,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7908653013346045,
+        "Medium": 1.2410712369197103,
+        "Hard": 1.056855048810311
+      },
+      "last_submit": "2026-06-14T23:39:01.586509Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5G6NRFskC4Lb8QhQpgd7f7eyBw5dfQgYFNPLWkwrZqJYvKrV",
+      "total_score": 1.0254456934947722,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0259896738279197,
+        "Medium": 0.8845881322356028,
+        "Hard": 1.1657912732639186
+      },
+      "last_submit": "2026-06-17T14:09:02.689006Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5C54TJW5tTeWTw1tUWPqDaixAA2KQiCubjPvyUsQH1wPUsEk",
+      "total_score": 1.0230462457803728,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8139093818893084,
+        "Medium": 1.362474530632916,
+        "Hard": 0.8804526563547155
+      },
+      "last_submit": "2026-06-17T08:32:45.729807Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FUQmobmRADjsKxoy1eCx9VJPU6WduHDG1y24C5ZbJ56Bg8z",
+      "total_score": 1.0201798673925353,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8743583661447438,
+        "Medium": 0.8980962117977134,
+        "Hard": 1.2795072888676309
+      },
+      "last_submit": "2026-06-10T13:26:03.656629Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Ff3CykTzN7SR9UrZFiVSnLubSGDhzX5TzMCF45y2rK4NjsA",
+      "total_score": 1.0077133183968696,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9171270161383616,
+        "Medium": 0.9301362254484093,
+        "Hard": 1.1705481075886306
+      },
+      "last_submit": "2026-06-17T14:08:00.926208Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FeUW5dDrHikuYCigbncMNGGsxpsMXGDCHDAfbX8894NjVK6",
+      "total_score": 1.0066460240649322,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.05953963564794851,
+        "Medium": 0.9983856831924012,
+        "Hard": 1.4754642448680855
+      },
+      "last_submit": "2026-06-11T08:07:33.994195Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FCRm5fGMYtiii42ProB2cTGoYdYkj7Navn1FPN3ZoP3YpyX",
+      "total_score": 1.0034542794501853,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8318567158417922,
+        "Medium": 1.1324828769747022,
+        "Hard": 0.8406310926009306
+      },
+      "last_submit": "2026-06-12T14:21:08.207365Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EPN2pxZRBU4zWAgBWjcWfLwdr7jXAQd21w1U46qYUgn2wvA",
+      "total_score": 0.994537835557268,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9777231914891926,
+        "Medium": 1.0701512058898413,
+        "Hard": 0.9347500125828843
+      },
+      "last_submit": "2026-06-16T01:21:18.067257Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CzMuu21NGJYVywTq6bZPrbpS42n6J9v1vx7WHyJcmVtC5Qj",
+      "total_score": 0.9899105972040996,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.42738180206164333,
+        "Medium": 1.0208502788699354,
+        "Hard": 1.1546524614330798
+      },
+      "last_submit": "2026-06-16T13:35:49.139071Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5D9iuzMxcNajPdLJNoHjUA4Tc7i86jrnJ1ZnHde62z1PermG",
+      "total_score": 0.9853464503632559,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7252816206150339,
+        "Medium": 0.8328841961545281,
+        "Hard": 1.3764803912641428
+      },
+      "last_submit": "2026-06-13T02:32:40.982246Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GYxeJjdvfatKWdcbeidX7F3VTnrK6n73pEHzMgpRb5gFpEH",
+      "total_score": 0.9839675737209186,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8754384066970617,
+        "Medium": 1.089294948950747,
+        "Hard": 0.9807852968664825
+      },
+      "last_submit": "2026-06-17T16:03:08.657804Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HLBjkGJVbgeQv3WpU2ND4cYAFNS5YQ2Dnb1Gh1MgsiQAyWy",
+      "total_score": 0.9764428371368634,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.5734860661790058,
+        "Medium": 1.0696636046750907,
+        "Hard": 1.1148065282947277
+      },
+      "last_submit": "2026-06-12T07:30:30.842594Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GYho2fchpYv3BAECHMTV199uTyrMDBHfdShFJr7c7GekWeh",
+      "total_score": 0.9730394980366155,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.6998714181681525,
+        "Medium": 0.7231879972124045,
+        "Hard": 0.7762531302351938
+      },
+      "last_submit": "2026-06-11T15:02:08.156550Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5E2TP68WLmQJcwFhQqTaMwbh3bQj6rAy7TSYKTtQnt6iTPvP",
+      "total_score": 0.9730276279226455,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.1658113257546332,
+        "Medium": 1.1027246460773013,
+        "Hard": 1.2399855219012954
+      },
+      "last_submit": "2026-06-14T04:55:02.129057Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EJ65CAaEH1xDaHsUyQfZg6GH3UDeS26iuz6E4H117MJyg3C",
+      "total_score": 0.9713464546613633,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8188866392123701,
+        "Medium": 0.6938546989018306,
+        "Hard": 1.3923298014317131
+      },
+      "last_submit": "2026-06-14T17:04:53.466671Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EyhoYp17rKjUJmKJ6ZrZvkap4zxtaqb5Hy1kUESNc2iSWNy",
+      "total_score": 0.9663223253313573,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.443388458682647,
+        "Medium": 0.9040612336888767,
+        "Hard": 1.012928572387704
+      },
+      "last_submit": "2026-06-14T04:46:21.775577Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5D581UDhZYmDP8QMwuKgsp5iadbVRDZGzLvgztGBSPdS1b2m",
+      "total_score": 0.9660477959889375,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.5464843754808588,
+        "Medium": 0.8450510104479525,
+        "Hard": 1.0514136378722618
+      },
+      "last_submit": "2026-06-16T03:04:42.123893Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GQevo9beEAVLz9Ub3guvGrtkf5oZSsxNbmdo6B8fV7mPtp4",
+      "total_score": 0.9641529842342385,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.131496082986228,
+        "Medium": 0.8219430766316673,
+        "Hard": 0.9488635047761136
+      },
+      "last_submit": "2026-06-16T20:35:58.683388Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CDeCcVofUBtWWBxd2Bv2dWJ8ER8p92pEqK84sYze9Kb9kCm",
+      "total_score": 0.963738697233433,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7768350525286962,
+        "Medium": 1.011195607288574,
+        "Hard": -1.6368298387226656
+      },
+      "last_submit": "2026-06-17T17:40:45.929951Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HWVZLTHAgtwGoS63nwC3q7o25V7M2KvNZDHHo9gcmJE5AqR",
+      "total_score": 0.9562342414263529,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9632807574407982,
+        "Medium": 0.9996168153012093,
+        "Hard": 0.9062196524790789
+      },
+      "last_submit": "2026-06-17T08:35:25.174010Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Ehwp7iECedzFb6FDCMU8frZzTennXiXuwtsDfyC1U1SwuCD",
+      "total_score": 0.9555719071236881,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7593496897454521,
+        "Medium": 0.8894531459541852,
+        "Hard": 1.206370402296237
+      },
+      "last_submit": "2026-06-10T12:50:08.699655Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Ci8CKrgxxZgXoCySseLLz5Q7P2QLkKLsApGyd38YuJbMmG1",
+      "total_score": 0.9543174069013949,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9135687420205816,
+        "Medium": 0.8045642564633173,
+        "Hard": 1.14242224193318
+      },
+      "last_submit": "2026-06-11T14:30:50.440113Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DJkgwhA1CudZV2ajWswu3Z9Fq43wB1p6uqCTZag1Fq2WEXK",
+      "total_score": 0.9520715210968254,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8771042506305999,
+        "Medium": 1.1353806848759689,
+        "Hard": 0.8393197883447172
+      },
+      "last_submit": "2026-06-12T23:57:17.705587Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GBPFAAeKQ8KTesZyQWcXgvumdUAcrrexJiLEzE75ZzkjjxN",
+      "total_score": 0.9441726298482331,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8945113558615496,
+        "Medium": 0.8265747288783505,
+        "Hard": 1.1085105533938195
+      },
+      "last_submit": "2026-06-11T20:35:54.073774Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GMxJQwRmVU2egjxTh3wuwDqMiBDcHEdobpm1Yh8558LxZ58",
+      "total_score": 0.9387303389990871,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7060997148319661,
+        "Medium": 0.9606941317509037,
+        "Hard": 0.2827730932599586
+      },
+      "last_submit": "2026-06-17T17:40:57.233946Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CZgBHpiWanScWosDAWksEDh1onVpjtLheSSdG56dRDTCAbB",
+      "total_score": 0.9373831176581415,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8330323056088673,
+        "Medium": 0.9315790509869446,
+        "Hard": 0.9263538663753028
+      },
+      "last_submit": "2026-06-16T15:34:21.017866Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CFqU2SsJbZjGwWS8cwjcCWrXxEo7gEpsE76SagDCihCmsMY",
+      "total_score": 0.9372122756781849,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1652295384876368,
+        "Medium": 0.9314839258253631,
+        "Hard": 0.7283361428868176
+      },
+      "last_submit": "2026-06-17T17:33:26.620898Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GsYoWcDVN9iuZKWuWcy453HVyoCS4D6vsznW9GWYo8Ue1QK",
+      "total_score": 0.9308406611354272,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.4120870673965005,
+        "Medium": 0.9895034777620992,
+        "Hard": 0.975568868287815
+      },
+      "last_submit": "2026-06-15T08:35:07.657380Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FqfEPFi937maZ9JvxVKF3GZTqPtwihayWsMzgwZeJahYuwA",
+      "total_score": 0.9298644147935526,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.3605948072804548,
+        "Medium": 1.045718449052048,
+        "Hard": 0.7014695835564995
+      },
+      "last_submit": "2026-06-10T17:34:04.849195Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DZLFZj46PcVWstRzADK6PFs8eE9XhmHxXGuj72cbaGnC6VC",
+      "total_score": 0.9293035531093947,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.6556164600959855,
+        "Medium": 0.9495235391182284,
+        "Hard": 0.9935187323598473
+      },
+      "last_submit": "2026-06-14T21:04:37.362508Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Eo7tJhBBv9xAtkCocyEQ8Nx7tpp4KoRzV58Aqoa9acSnwJc",
+      "total_score": 0.9280128441245576,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7482571709852968,
+        "Medium": 0.7207304894955495,
+        "Hard": 1.304477008766991
+      },
+      "last_submit": "2026-06-13T14:25:37.029583Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Dt3utA2SbttmEUbtCCiWd5Aa3WXcGvkPb2xR6YnQH7QzRQw",
+      "total_score": 0.9219157056314051,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0232711836731347,
+        "Medium": 0.646500197425028,
+        "Hard": 1.1019378227396839
+      },
+      "last_submit": "2026-06-10T20:07:35.215811Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GL4KxdashDdVd7twAGNoooPwTdkoxmcYKiEMiUBAQQaJKPh",
+      "total_score": 0.9163133770720755,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0293380248411372,
+        "Medium": 1.0733643436496445,
+        "Hard": 0.6528862714177421
+      },
+      "last_submit": "2026-06-17T17:33:28.220197Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HQjFVNfhn12LrM3tYsHjrmEpU1bW8DyeXWzAYf5kLPY74hx",
+      "total_score": 0.905378304808206,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8240590760307089,
+        "Medium": 0.5894621671107627,
+        "Hard": 1.2978301872374098
+      },
+      "last_submit": "2026-06-17T14:31:41.062926Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GWXUTu3rxJsfeBHnd8n32jrbEVWpbsbpejJEXYTT7YWxTbM",
+      "total_score": 0.9026366091499263,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.5437734152230309,
+        "Medium": 0.9610409827075976,
+        "Hard": 1.1819858298763926
+      },
+      "last_submit": "2026-06-16T01:23:39.598687Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GYSDvK3a7f1XH2fDxhL24i1dCr18vnJdQtVSiMUuYkiW6Xn",
+      "total_score": 0.9022081813067393,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.29097379835949777,
+        "Medium": 0.5168024862986913,
+        "Hard": 1.2655572370327874
+      },
+      "last_submit": "2026-06-10T21:32:48.825977Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CwZBKyLsnzK3fqmD56qNntvBAcBi7D4Ss2sc4u6xhjNJHDc",
+      "total_score": 0.9010400749088197,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9240217586331578,
+        "Medium": 0.9160103520405256,
+        "Hard": 0.8644399778012648
+      },
+      "last_submit": "2026-06-08T18:17:36.259419Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FcCDRishtUAkizQ7KoqLGBRj6Ma7frqArA871mmY9hHADm4",
+      "total_score": 0.8965805989225242,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0014463278985364,
+        "Medium": 0.8552183705358427,
+        "Hard": 0.8392456706258971
+      },
+      "last_submit": "2026-06-17T08:37:15.732429Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DD9ZhcSVwm9BFsu26A6MtsR4wwQCt1ZtNDtN6DuWczXPUeg",
+      "total_score": 0.8917706306478212,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.007947214832958682,
+        "Medium": 0.9739425211773405,
+        "Hard": 1.2726546986190606
+      },
+      "last_submit": "2026-06-17T14:07:27.308392Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5F9w9HMUohoG1iLAULcN9UDSesUu1oXjanDALajBE3u6xCgw",
+      "total_score": 0.8863746378028541,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.614103371704668,
+        "Medium": 0.870805300796416,
+        "Hard": 1.1581992840781767
+      },
+      "last_submit": "2026-06-17T16:01:48.264948Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EPSfDcDSc7Trtk1vYSP5aquZ2xxXzvzxuDpDbfoyUG8pfEv",
+      "total_score": 0.8852830480402032,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8873215849610521,
+        "Medium": 0.965912647333262,
+        "Hard": 0.8027348257628155
+      },
+      "last_submit": "2026-06-17T17:57:59.360142Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CmLSfa3BT79PSn5JyddzLBimd8UeJZ9uz7k2qoCsAn37neq",
+      "total_score": 0.8842386754542897,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0471484522784635,
+        "Medium": 0.37610561851166047,
+        "Hard": 1.2390448836212258
+      },
+      "last_submit": "2026-06-11T23:18:48.224759Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5G4Q4qLHPLosmExpoLzLj9YVf1WP1ATHGbdfgcLiRbq5HRxD",
+      "total_score": 0.8837587555655224,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.1895131471230087,
+        "Medium": 0.8893495831866725,
+        "Hard": 1.275336307266115
+      },
+      "last_submit": "2026-06-08T20:18:43.589023Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EvEGExeSSwaEgofMNtaWABUkAmD1YFYQ6AbrsKPjfdn7vxa",
+      "total_score": 0.8758924849684329,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9248791298326307,
+        "Medium": 0.9804726911606094,
+        "Hard": 0.7252072012570094
+      },
+      "last_submit": "2026-06-14T00:25:40.966903Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EkCiYX2M39wytrXyHxi2ZVKmEDyjKqSyeYGMNQ32HJVEAkA",
+      "total_score": 0.8737719407580098,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8574660068059563,
+        "Medium": 0.4141942735143207,
+        "Hard": 1.348696369368339
+      },
+      "last_submit": "2026-06-16T19:54:19.630141Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Ctm5ycYHogNi9g8KtsviCYiiqnjKBHEurm1PSBGcgRV2cKd",
+      "total_score": 0.872605297830523,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.584475214194847,
+        "Medium": 0.9744873616925416,
+        "Hard": 0.8959052569072066
+      },
+      "last_submit": "2026-06-11T18:07:49.856904Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GhVbHSRGtfbmFnrhHJC6Bto5h8GB6irgthQCaP174V4v35f",
+      "total_score": 0.8695179364637617,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.6647182246264505,
+        "Medium": 0.834666409884961,
+        "Hard": 1.0970304299040032
+      },
+      "last_submit": "2026-06-14T00:25:01.704247Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Cvk1FdGYiL2c7KPztRUUwsPxvozhvrk6YFDBgMfDLpe3NcV",
+      "total_score": 0.8655822656609287,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.689128855666004,
+        "Medium": 0.757198444169151,
+        "Hard": 0.904307379241259
+      },
+      "last_submit": "2026-06-11T02:43:30.970411Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DvQk4fgQt1pAEVfwbZn4gaquGSZHrC58ysHgNWSwfpuSiqA",
+      "total_score": 0.8573893775740808,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9616085255552811,
+        "Medium": 0.8307002961543644,
+        "Hard": 0.7859898491291384
+      },
+      "last_submit": "2026-06-13T19:55:42.204797Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CPNnhmFj3hERHD8Xc73cUkd573J9PLGuG9uuhtnEZ9ELYFs",
+      "total_score": 0.852110660283059,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8085017339028528,
+        "Medium": 0.7529158473096951,
+        "Hard": 0.9763871489010416
+      },
+      "last_submit": "2026-06-17T05:53:33.913414Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Ctr6aoRBoffXyJgZpCCXMYteGGpZ8tieJHG4a8sn26G616J",
+      "total_score": 0.8475116634706552,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.5890015869108511,
+        "Medium": 1.1001059868872574,
+        "Hard": 0.8382209415221027
+      },
+      "last_submit": "2026-06-17T16:03:34.048194Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HZ3rJu1Cbd8zz7Qnj59rr826ux9YK983GiJMAgy2yrksP1P",
+      "total_score": 0.8405045699033682,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.6934269987206498,
+        "Medium": 0.5655051589404669,
+        "Hard": 1.25392993021471
+      },
+      "last_submit": "2026-06-16T19:50:08.294431Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EUVimNNDNrwodVB1LfzfhMzUdvG2pwfXWrmgBG4X3NG5wSb",
+      "total_score": 0.8395080596593321,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.0884332994585666,
+        "Medium": 0.7548235742137672,
+        "Hard": 0.6899099664703234
+      },
+      "last_submit": "2026-06-11T20:23:39.681488Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CnziaBadcD5kVtSPMGqe4fMHHfkXeDweEtBWN3ry7C3RBiT",
+      "total_score": 0.8346506485595455,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.5997675628743568,
+        "Medium": 1.0000125776291933,
+        "Hard": 0.8903551530759577
+      },
+      "last_submit": "2026-06-16T17:53:13.663900Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EqUfva34661TWvCGipFg1me3tyhMZaLWya56Biisuo8KGX9",
+      "total_score": 0.8321157793650844,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 1.1032627303554179,
+        "Medium": 0.6266897181747009,
+        "Hard": 0.7823447102116221
+      },
+      "last_submit": "2026-06-17T16:03:20.910601Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FUTAPjpKLKZU327F65vZGgf4ARe4JcpE8b9ZuLzHCBjU7zX",
+      "total_score": 0.8219522376001693,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": 0.8806028582372933,
+        "Hard": 1.3199654419622213
+      },
+      "last_submit": "2026-06-17T05:39:12.697692Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DtEz84j53Pf1V2umycYFoZoJEk4jAXnAHjqyj6caD5QBUcK",
+      "total_score": 0.812645837308339,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -3.191069025435941,
+        "Medium": 0.7421717132066927,
+        "Hard": 0.8917003816899607
+      },
+      "last_submit": "2026-06-17T15:33:51.978649Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GgqHgSdxgALgAMbweEZ879sk3upkY7ZGjeecAan8zixcnVG",
+      "total_score": 0.8109447250165092,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7000114875489283,
+        "Medium": 0.6912029436883378,
+        "Hard": 0.73464425087686
+      },
+      "last_submit": "2026-06-12T21:37:28.054909Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5E2hs3PFs7Y3Urc6quckaSy11xNz5r2KXJ5Q4zjHKSmu2YdE",
+      "total_score": 0.8056756980231663,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.17707823006538437,
+        "Medium": 0.9190443699072981,
+        "Hard": 0.8465118833477483
+      },
+      "last_submit": "2026-06-15T15:34:50.647242Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FWZGczzL2ZtXwJXeR9Sxx2MrVKfrksPoJFbCZdCcqcDHRYj",
+      "total_score": 0.8031577005194581,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7392774586424213,
+        "Medium": 0.7242658533994462,
+        "Hard": 0.9421721282296209
+      },
+      "last_submit": "2026-06-17T10:30:06.265811Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FesCeceNNdWz5uD9jgnbLDgJAMa5oBD2f5eVQtEhT78R7BU",
+      "total_score": 0.8014479640581502,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.8529917720396156,
+        "Medium": 0.8652611450999617,
+        "Hard": 0.689122963739667
+      },
+      "last_submit": "2026-06-11T23:04:51.642057Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GRRZUYceeswCMT4AQoKMKLRvXgK1Njwfm6XMKaturFqP626",
+      "total_score": 0.7812855496226465,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.29697608236134876,
+        "Medium": 0.9022885638630189,
+        "Hard": 0.9237738766630113
+      },
+      "last_submit": "2026-06-09T17:08:58.391103Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GuKUq7zQ6LUcNuKqb521WNNBjgEHopRsUXoXzTPAodjhhzc",
+      "total_score": 0.7804697734478001,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7924629812156265,
+        "Medium": 0.8404660486287705,
+        "Hard": 0.7091857733088744
+      },
+      "last_submit": "2026-06-16T17:06:30.426174Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FgmHovyi7BcfF1eZqTXGZVDEa7fW5jYbBEzmokHfrJAr54W",
+      "total_score": 0.7774704127269505,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.9670384056134731,
+        "Medium": 0.8163569878195771,
+        "Hard": 0.5601669031528926
+      },
+      "last_submit": "2026-06-17T15:40:46.580251Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Cnkk4E8gXGTgKCWapS6wLJqPh4vmjSfgUW66apg7RuSdPtX",
+      "total_score": 0.7586846744128817,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": 0.4877188962394845,
+        "Medium": 1.6619039349908737
+      },
+      "last_submit": "2026-06-17T17:59:30.634734Z",
+      "status": "in queue"
+    },
+    {
+      "hotkey": "5E6zgcVJmJBA9MYiXb43PvGiJjmRn58BrfyvkjmND5WXJKnn",
+      "total_score": 0.7506851477006755,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.3994732976534161,
+        "Medium": 0.4703598607653916,
+        "Hard": 1.08860023008903
+      },
+      "last_submit": "2026-06-16T15:37:01.667277Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EHLsayYAiJa26doZMfXKhrpeuoK6kqAud5wj43VjJgmwS46",
+      "total_score": 0.7161994011546984,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.2915209780919099,
+        "Medium": 0.8715274437730907,
+        "Hard": -0.03540237476629349
+      },
+      "last_submit": "2026-06-13T01:25:29.613596Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Hixdfvu9XyXX5gSyXsZ58gA6nYVLBSr7hW9Ty9sWxbPnD5P",
+      "total_score": 0.693864240663487,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.27469084853312875,
+        "Medium": 0.617033081349617,
+        "Hard": 1.1652115337471045
+      },
+      "last_submit": "2026-06-13T11:19:56.676986Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GgVXzUBF9wDjMdqyRwHecTNHmFDDR3NCzzF1bPSPcULJtpS",
+      "total_score": 0.6865564915206361,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.4693355141814859,
+        "Medium": 0.49893204704407257,
+        "Hard": 0.8459102420672693
+      },
+      "last_submit": "2026-06-17T17:25:52.640227Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GHfG4vhQgyMTEAonxsaNkGCFNfaHLVjSfjA4tpy6Zo45Nc1",
+      "total_score": 0.6756536577395353,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.10416424094594,
+        "Medium": 0.7090105818438435,
+        "Hard": 0.6277573273602179
+      },
+      "last_submit": "2026-06-17T17:06:59.253322Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CJ3qYQ4ZNiezAd21fpA73KYWzGdWmke6QYU7gsHgMpbkLus",
+      "total_score": 0.6673806217451936,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.7448376040158973,
+        "Medium": 0.5439667424910475,
+        "Hard": 0.7178938118033829
+      },
+      "last_submit": "2026-06-14T16:29:17.652280Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5D1oZVfHw8BCukUMFFpGegcQjxiJYZsvVBYgLpezmARRZzco",
+      "total_score": 0.6445680829758293,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.4673312226886397,
+        "Medium": 0.2667714352834274,
+        "Hard": 1.1891758932914671
+      },
+      "last_submit": "2026-06-16T16:08:58.222046Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Dt8wmVq2gBpnboxgJFvTyTzaUa7ys7fwfPsWtQ8BavS2bct",
+      "total_score": 0.628917064826843,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.6014728394624687,
+        "Medium": 0.5704554886659761,
+        "Hard": 0.7132085001541801
+      },
+      "last_submit": "2026-06-16T06:17:06.099769Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5ETwa6smwUa7eB8aBfNjtRL8ujj1S5zWxVw2ZX3SEboiBZEY",
+      "total_score": 0.616903150373818,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.4984377189393987,
+        "Medium": 0.29354620482433713,
+        "Hard": 1.0517569725674587
+      },
+      "last_submit": "2026-06-10T17:55:55.058891Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5ECsyg7iGn5T7rqBS7QBAfX2tmJdrcN9yGCWSYeVXivcbyij",
+      "total_score": 0.5822528948945225,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.34505505017543747,
+        "Medium": 0.35946160630693136,
+        "Hard": 1.0282892138059587
+      },
+      "last_submit": "2026-06-15T17:52:31.463023Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5H66TCkbrTWU3W1W1ppkHnq5w7JH9Er829Ziz5zu7o67Tp7V",
+      "total_score": 0.5103578654710024,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.37795044500459074,
+        "Medium": 0.15212233803465125,
+        "Hard": 0.9932121415816253
+      },
+      "last_submit": "2026-06-16T13:15:52.909278Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GZX1HBHmnNE6NpUpSbkdta75H9MyXK7ddsCnugBMzqTgUK2",
+      "total_score": 0.5055571454249836,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.2839406895695422,
+        "Medium": 0.17135692465433472,
+        "Hard": 1.0483375599419302
+      },
+      "last_submit": "2026-06-12T15:02:05.837240Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DoPJqgvv7JFUuHoMyGtahARmVJbKdRfnMLJ6YKKWZDEPDvM",
+      "total_score": 0.48360007362642676,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.16650750843809803,
+        "Medium": -1.3917820709941058,
+        "Hard": 0.9194855495073044
+      },
+      "last_submit": "2026-06-17T17:11:49.846384Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GqJjt7q7gfb7nFttzrq3zwiNHVKcbCihqhYTvFyQhDYGEEs",
+      "total_score": 0.4486495040785172,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.1929755380460625,
+        "Medium": 0.2325994272114862,
+        "Hard": 0.9053339019172704
+      },
+      "last_submit": "2026-06-13T15:47:04.659145Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5G26PEPrKDUnRG2qg4pagp4Uvq59D3wGnzxPri8t2BaELM3u",
+      "total_score": 0.4369038536499765,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.8775387314671206,
+        "Medium": 0.563082716854284,
+        "Hard": 0.8687571144461508
+      },
+      "last_submit": "2026-06-08T20:59:41.297852Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Hapm4BEuioj7evef7bGwaZ6LQJnwZ36YsTApvrs94THLT8n",
+      "total_score": 0.36019858215493006,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": 0.9571308407475332,
+        "Hard": 1.0473662493892189
+      },
+      "last_submit": "2026-06-17T07:13:50.273085Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EqTAW8cnc5FYbWz27RoU4tNxirRLLG5RVjhnL9xtDUBdGPg",
+      "total_score": 0.27752806808092156,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.2200251788283909,
+        "Medium": 0.1646639219571835,
+        "Hard": 0.444512580559981
+      },
+      "last_submit": "2026-06-16T20:46:30.256047Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DFvymSeEwuGdHzYQqTnrGYXQX6x89AS9V2mv7sBtQBcEKmS",
+      "total_score": 0.2166808796577282,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.37384759337926265,
+        "Medium": -0.3463609231777043,
+        "Hard": 0.6318010695787759
+      },
+      "last_submit": "2026-06-16T19:14:15.174596Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FRUesGSMueRhn4S6UjkFTY3aUawdd7vMLL45ctm9twXWfrb",
+      "total_score": 0.12741792987091305,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.3638338395235863,
+        "Medium": -0.18933974949479815,
+        "Hard": 0.8499734039426743
+      },
+      "last_submit": "2026-06-11T13:01:05.650813Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GGyYCHRykMWbyouXtATvSGXHhoT1AiHzpahECpFKvyAbKnf",
+      "total_score": 0.1151620660445074,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.1868003047457099,
+        "Medium": 0.5832246569153989,
+        "Hard": 0.2257461980081379
+      },
+      "last_submit": "2026-06-10T10:12:53.781964Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Dt1C98zAd9fNv36tBUhVpWkMBxD2E9msRTYHXMy9Ume4KnV",
+      "total_score": 0.0614015441486222,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.22771263975669997,
+        "Medium": 0.4816603105669852,
+        "Hard": -0.6335132823986953
+      },
+      "last_submit": "2026-06-16T14:55:27.974842Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HZ9HWRfp5GdZQDGVk9CrZhJAyn8TZNA449geBXhoZDAqtfX",
+      "total_score": 0.03485397567984805,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.2674373984240406,
+        "Medium": 1.2440194720954025
+      },
+      "last_submit": "2026-06-16T03:49:40.325123Z",
+      "status": "no api key"
+    },
+    {
+      "hotkey": "5DaGJ4K7cYo2G6azsdSwWabnTqovsQ1e3NZnBkpvSUJhNKAL",
+      "total_score": -0.023053231354085213,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.170601897831983,
+        "Medium": 0.22492015117619157,
+        "Hard": -0.8898664941440773
+      },
+      "last_submit": "2026-06-16T16:08:30.882240Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EFCcz738jS63EaAFa1t91UNueVcgdTdqJLLc3Jf3zzikd7C",
+      "total_score": -0.042979792737332545,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.2757548738150426,
+        "Medium": -0.42921939386356067,
+        "Hard": 0.04327423986901291
+      },
+      "last_submit": "2026-06-14T14:21:11.708314Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FCV3re83d4WCYo6jjbKNGvsLSDwHEpMb7M2mXWowAe2FJrK",
+      "total_score": -0.054203320808218436,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.35965183608461304,
+        "Medium": 0.005765474308653928,
+        "Hard": 0.12224240800293185
+      },
+      "last_submit": "2026-06-16T14:54:43.363115Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CFLZtt6Ez1s7FAbGFMQDMU5fGgtadSMvwcrBKJCM6pEvA3Z",
+      "total_score": -0.15881827181581487,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.10269636405856497,
+        "Medium": -0.5048132373289413,
+        "Hard": 0.13435607463166566
+      },
+      "last_submit": "2026-06-10T21:33:15.549369Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GjfFyiQXB5pvX3o81SUAox28ZNcrd33nAUgE3GahDGkxcu7",
+      "total_score": -0.23386295377905153,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.31606458608256993,
+        "Medium": -0.35404350393047723,
+        "Hard": -0.03631616145960859
+      },
+      "last_submit": "2026-06-12T12:49:46.056650Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DCnA57Dve8W4GwXMrTwpB4MGzSGpcVdhwfvnGra8JkFK2yD",
+      "total_score": -0.2742866142602982,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.957400417618336,
+        "Medium": -0.2018391525285499,
+        "Hard": 0.873995510551393
+      },
+      "last_submit": "2026-06-17T17:36:51.294577Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DUMJcggE7E4KkP8wRr5de4td3qxdYLqkhzJFDjmtkY4zZj7",
+      "total_score": -0.30443294286692524,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.8042888195583964,
+        "Medium": -0.24925454245217749,
+        "Hard": 0.11084124654559346
+      },
+      "last_submit": "2026-06-17T10:30:32.701838Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HjCmzdhitt8fMAMXR2FSkwsaFK7wHEBoQBixioqv1SchsJP",
+      "total_score": -0.35119082469130447,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.3809982889910648,
+        "Medium": 0.39174367975031643,
+        "Hard": -1.733382995122299
+      },
+      "last_submit": "2026-06-12T18:30:52.331955Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GjMm9ysBsmmjyX7MHnLxx76KLHzwuXMQEQUqytxAqSyW7ui",
+      "total_score": -0.3705221370874261,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.08789148209087028,
+        "Medium": -0.12883709347118044,
+        "Hard": -2.230721005250961
+      },
+      "last_submit": "2026-06-16T14:55:09.774440Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5F9khyvoTbxU7MVKoxyCezZk7FDu496NwLvPHJo5jQkFEokH",
+      "total_score": -0.3943302711532648,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.1874893062481764,
+        "Medium": 0.42471380406106274,
+        "Hard": -0.22090823525957948
+      },
+      "last_submit": "2026-06-10T14:40:04.456976Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CqobqKZUPDRQKX8AiumKANc3NaE7tVqySy4DwP2w2xRh2Fi",
+      "total_score": -0.4690476267325199,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": 0.507373441936295,
+        "Medium": 0.28275333887574305,
+        "Hard": -2.3988933741618053
+      },
+      "last_submit": "2026-06-15T16:09:04.760257Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CRnr7QSW8Q5xYqyDZDoT2a5NaAyEM7sUBzG4JHf9jVa3xuq",
+      "total_score": -0.547565909631694,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.3852395551393673,
+        "Medium": 0.9111239181380073,
+        "Hard": -2.0016483362341537
+      },
+      "last_submit": "2026-06-12T11:09:31.009932Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CktnReyPwThRwXnrEBJM7J9c39o1HvxtVRhKzFsd3wvJ4xw",
+      "total_score": -0.6226299000385884,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.7066713390373103,
+        "Medium": 0.5170994700352658,
+        "Hard": -1.7885768814272862
+      },
+      "last_submit": "2026-06-10T18:50:10.505186Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EvmuzP3MbNBh85c94BGDYeGvi5b8FpuoZbpqPkGGjTNTVVY",
+      "total_score": -0.7914571739138214,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -3.5006001409680794,
+        "Medium": -0.017488239677831974,
+        "Hard": -1.9525409452284088
+      },
+      "last_submit": "2026-06-13T20:34:23.446039Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GRbLYGJreYqvBg9ATcR5AXJ5VGvaHoCstFZQdyy6g149eRD",
+      "total_score": -0.7990477746174633,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.8322446057480013,
+        "Medium": 0.16788685318919683,
+        "Hard": -2.082467745865369
+      },
+      "last_submit": "2026-06-11T15:28:59.219748Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DRhhSfyRkeL5zX1fmFrGNnqLDv9ZatpcsxFV8yhCsaACz5y",
+      "total_score": -0.876119599076211,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.4157412993233311,
+        "Medium": -0.8926983427926238,
+        "Hard": -0.35166160806839075
+      },
+      "last_submit": "2026-06-08T19:07:51.192807Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EUGPtgruDKVojirePo4dHbriXvVshTvwfCPGvjYTKNf2zuA",
+      "total_score": -0.9346699772378342,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.2607769071647037,
+        "Medium": -0.01590351129015577,
+        "Hard": -1.7354721428398485
+      },
+      "last_submit": "2026-06-17T17:57:44.790978Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DaLJdXcfRRUKrxffcugknibYsvXhBF73KRepJjrt7tJDBV6",
+      "total_score": -0.9853328307997291,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.3781419112614604,
+        "Medium": -1.2874394773844813,
+        "Hard": -0.3135235202509947
+      },
+      "last_submit": "2026-06-17T13:16:23.456199Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EhD3GfXGQhrp9wsvamGcC46HA2ksaXWnAETHZpQczNo178P",
+      "total_score": -0.9864792041302728,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.6653856164445848,
+        "Medium": -1.2751326687305613,
+        "Hard": -0.05885499852827891
+      },
+      "last_submit": "2026-06-13T15:53:39.989058Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EqYbCzNCphW1QmztNNywccLwoWeM1PqRZHAM4TwsUsHQGn1",
+      "total_score": -1.007069692184026,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.3433120633004307,
+        "Medium": -1.3208742426601359,
+        "Hard": -0.3768017335983598
+      },
+      "last_submit": "2026-06-14T23:41:08.329832Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5G3zGtrZNquC88gVEhKRXjxmeN6rfpJyRgeADiNAYDSSM8Wr",
+      "total_score": -1.0316555143883734,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.42520125865656855,
+        "Medium": -1.8254131467554782,
+        "Hard": -0.8086783580041454
+      },
+      "last_submit": "2026-06-17T10:33:23.593901Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5H6v798HWMGukmKdfe6ugZvjY3YajLEH6THUkGBM3RkeQLFm",
+      "total_score": -1.0754437791758815,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -0.3010747945942436,
+        "Medium": 1.0543719650517902,
+        "Hard": -3.702085322422739
+      },
+      "last_submit": "2026-06-08T18:18:27.112110Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5D1r14x6Qw5PZRUgkRkJMtpCfjzgEbF3JJS1TqTJTvmVC6e9",
+      "total_score": -1.2121262712850314,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.3471123975793522,
+        "Medium": -1.452615757326707,
+        "Hard": -0.8445910193192896
+      },
+      "last_submit": "2026-06-11T11:01:55.324891Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DPnuS5Nu7HosT3iE3oqYJkwQbofSGGyFZKFGbrpKuEzSxUx",
+      "total_score": -1.2371135742435992,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.3940681289406767,
+        "Medium": -1.3226955431608758,
+        "Hard": -1.00380967149378
+      },
+      "last_submit": "2026-06-15T18:20:59.643600Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DcnuqtknV8UXG363EtaU5X9FT2H7vqh4Ut4utpkoShSbTwq",
+      "total_score": -1.247409378643975,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.3310249231739517,
+        "Medium": -1.56496849000305,
+        "Hard": -0.8511532841978626
+      },
+      "last_submit": "2026-06-17T17:28:06.681008Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DJAUV3uHDWz6yWm7ozLjjqdxrjEDjVHvt3d1ZHGW1P47rZc",
+      "total_score": -1.2525736621784174,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -1.4073778113299626,
+        "Medium": -0.6333570655722367
+      },
+      "last_submit": "2026-06-17T14:07:06.549981Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5GQow1vgRLzTtBdQDsCah1NnkRY85fPLnAGhpJ7HDNSnnstK",
+      "total_score": -1.4305625976396281,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.8867965896545482,
+        "Medium": -1.4702879811692586,
+        "Hard": -0.9614405157430155
+      },
+      "last_submit": "2026-06-16T16:09:05.963894Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GuVh9N6vbd2ns4PuVMUUE64qxzBX1e1HRZDLdcDwcQgXomN",
+      "total_score": -1.448611903587989,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.7890013424253413,
+        "Medium": -1.4225822815900244,
+        "Hard": -1.1542749949155051
+      },
+      "last_submit": "2026-06-09T16:30:58.759788Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DG4k8dazLNEDBgbtvtntz6YwFT93yFkLFufS4mgiSyDdbqM",
+      "total_score": -1.4565234245493413,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -1.6217126236971535,
+        "Medium": -0.7957666279580939
+      },
+      "last_submit": "2026-06-17T13:17:57.021744Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5HQzJmriuQiA6m8Unce9FngufM6oL6JbmzZHnycWWKioab3Y",
+      "total_score": -1.5666171594612845,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.8941499680499652,
+        "Medium": -1.7658217058372987,
+        "Hard": -1.059146440295927
+      },
+      "last_submit": "2026-06-09T20:59:45.052302Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EeUAVZDbk2jSYbtFFbQMAoqtArnDe5JLHzfKg7oCYmQhXmk",
+      "total_score": -1.6022169682555725,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -1.8003514717820335,
+        "Medium": -0.8096789541497293
+      },
+      "last_submit": "2026-06-17T14:02:32.036428Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5EcpBY1MvmwFxzbD6mZSJmcqMR5TivTy1PnGDao3jw6EzDHj",
+      "total_score": -1.6156193678599218,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -2.0670647385674528,
+        "Medium": 0.1901621149702022
+      },
+      "last_submit": "2026-06-17T10:46:22.423316Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5GNf5mUBXEH5i3b6rjfzpX6M8ruGrXrPomeacsj4jvNQdik4",
+      "total_score": -1.6363332775843036,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.8200466960164232,
+        "Medium": 0.42478508710725116,
+        "Hard": -3.5512407700373063
+      },
+      "last_submit": "2026-06-12T17:55:44.209731Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FxZizynNryfbK115oPGuc1NsdZS49rz9ay6VNVfFfMnbSgP",
+      "total_score": -1.6433589112921165,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.965719772104233,
+        "Medium": -1.6849081376768433,
+        "Hard": -1.2984112276724598
+      },
+      "last_submit": "2026-06-16T19:22:48.407067Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5H11C9R2ceiWDwyXn1ukFq3KmztuuogRNuEWNjroS1WvGKqa",
+      "total_score": -1.695035694112247,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.974224061496085,
+        "Medium": -1.9281767651120618,
+        "Hard": -1.1991291008688223
+      },
+      "last_submit": "2026-06-13T15:04:43.006913Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5F7ZFW8JyAr549hKJarNFCT2UMk2gFZvXfvoE46FTzd5ysnq",
+      "total_score": -1.8958046035583083,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.175202595165038,
+        "Medium": -2.166299532673597,
+        "Hard": -1.362346858813158
+      },
+      "last_submit": "2026-06-10T13:48:40.341273Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Dvhvo4HtZLpN3u7vwPc42hyoWULcqhxjCUoqJXwsXUjarZB",
+      "total_score": -1.950236059340356,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -2.9284274275629643,
+        "Medium": 1.9625294135500768
+      },
+      "last_submit": "2026-06-17T10:33:31.349270Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5GxVDi3od8Fvjs2E8oxuuAcLE5Vu3D9bCphSEK9gH8RSXyV3",
+      "total_score": -2.0372570983842113,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.2410731933835426,
+        "Medium": -2.7719717154165178,
+        "Hard": -1.1107155684113614
+      },
+      "last_submit": "2026-06-12T21:23:23.268002Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CJRJ8kJPpBqwmQsEypJGZDiSEFHvdksAbfMwydpU8qJqsgh",
+      "total_score": -2.099668502789907,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -2.686092590292285,
+        "Medium": 0.24602784721960447
+      },
+      "last_submit": "2026-06-17T10:44:09.117687Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5Ea27F2gXeV5zmNa8t3qTcWKfveQrj5UV7eySvCwVDBFiGiJ",
+      "total_score": -2.160169289667418,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -3.0065845149064745,
+        "Medium": -2.1842577659345337,
+        "Hard": -1.4124795490291855
+      },
+      "last_submit": "2026-06-17T15:02:04.501170Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GNmCqRoeFnRjDmo7Zi1ujMp3kvfhgwWP3AugDxDoFn7Pgtv",
+      "total_score": -2.192476034164528,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.450939513849215,
+        "Medium": -2.8469057263960336,
+        "Hard": -1.2947865963474312
+      },
+      "last_submit": "2026-06-10T13:51:45.556921Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HDfzfykJZrdW3Y2kac1UVEPzJUrN3nE2wFUxn97ywcTWsS8",
+      "total_score": -2.3433861544412995,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.9571961151520085,
+        "Medium": -2.9092041847452133,
+        "Hard": -1.1998646317037767
+      },
+      "last_submit": "2026-06-12T12:54:03.323968Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EegY4k7NMNpXRwxbhS15BesgeekxUhfDyFkmxBAuhqi6FmV",
+      "total_score": -2.3843985980299136,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -1.7712092868984675,
+        "Medium": -1.3840316482152533,
+        "Hard": -3.4451616378696692
+      },
+      "last_submit": "2026-06-11T15:01:53.725260Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5F9YQUrmJzRWr8RCmu7Y29fDk9h3NRqRK7GmihKdsMQo27tE",
+      "total_score": -2.3898103157060024,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -3.468001883604264,
+        "Medium": -1.2124482681489188,
+        "Hard": -2.8192218410065335
+      },
+      "last_submit": "2026-06-16T23:35:50.258094Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5E9bq9a7NnpabkAw81HtLyki4Bxf2CYPyi4su1TYbn9ZhQ32",
+      "total_score": -2.395542823264891,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -3.075342353056171,
+        "Medium": -3.243868089535427,
+        "Hard": -0.9074062348378522
+      },
+      "last_submit": "2026-06-11T22:03:56.986951Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FnnByy5Z1giEGNutEMt8BdvD5LLXs4QbYnHgMR8WD6p9RvF",
+      "total_score": -2.417344874860387,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -3.0183383073903864,
+        "Medium": -3.2065177387725377,
+        "Hard": -1.0625311332729384
+      },
+      "last_submit": "2026-06-11T22:04:21.210346Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EP1eurVw3QWQX617GMt12cmZ1E4RV948Lyjsz1UbDrAKEj6",
+      "total_score": -2.5068034008843454,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.826219406132497,
+        "Medium": -3.3012152674174926,
+        "Hard": -1.4117647058823528
+      },
+      "last_submit": "2026-06-13T20:39:50.059100Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FXJhNMzegEh3HpGVCzJfQBTmjbi4e5EnQHFMVw8eWxiiMfB",
+      "total_score": -2.510171492407819,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.9504390434605954,
+        "Medium": -3.3111901853064283,
+        "Hard": -1.294783339694824
+      },
+      "last_submit": "2026-06-09T16:39:00.903957Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Cck2JNmqwxE4ASv8qcrEJp9YCnrSp5cVYRaFKVMRF3Ciu8a",
+      "total_score": -2.530867396035959,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -2.8882120566504383,
+        "Medium": -3.313645699728882,
+        "Hard": -1.4117647058823528
+      },
+      "last_submit": "2026-06-13T13:27:35.786206Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EcepsectdE2zNiSn7tEGYJLfDB8kJX4fpaV4XvQ5wfJZ9WK",
+      "total_score": -2.5503063965926005,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -0.7145364717304434,
+        "Hard": -1.8989651224003619
+      },
+      "last_submit": "2026-06-17T17:40:23.381299Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EqFgCwpUTfADEG2ecFFgoVNSyVMtEMZ2g8MFhoamVAczcoZ",
+      "total_score": -2.5924541720186145,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -3.082024715219636,
+        "Medium": -3.312371362200974,
+        "Hard": -1.4117647058823528
+      },
+      "last_submit": "2026-06-13T14:21:55.266155Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DwRRgssLWEoZU4VnDny28xbGhUWzuduP5dvCw9g91mWeMAy",
+      "total_score": -2.616283102860527,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -3.130776198272813,
+        "Medium": -3.3365727041565525,
+        "Hard": -1.4117647058823528
+      },
+      "last_submit": "2026-06-17T15:02:05.820309Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DWdSTwgy8tTGr4JsKZ1vGtQ92koumw7kysJSdAv28qZ3rCX",
+      "total_score": -3.023666111287392,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -1.5561292837507046,
+        "Hard": -3.0079548306078587
+      },
+      "last_submit": "2026-06-08T22:01:13.830977Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EbZpQ6XSsdRoUavAuLn3GqrGBLNLxAw2piyjzf7JRGHKjTK",
+      "total_score": -3.062440441997903,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -1.2031869808115747,
+        "Hard": -3.117169327726975
+      },
+      "last_submit": "2026-06-09T20:20:54.186164Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5GZKZ2p64m7zgJKNnrkoyXB7uu8X5ZHzx7MgKTT8deNPiWVu",
+      "total_score": -3.0922038742989217,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -3.8330973731074116,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-11T16:43:56.203305Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5FsA8Z66fsFQD5sgpBk7UedvS9fC5uyudbDwDWfNWT3UMjLT",
+      "total_score": -3.121294256912865,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -2.901617821141081,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-17T10:33:38.172351Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5HmANzFyNkfMyWbnwSsfAfFgRGgqWVN1Tc26ApXWZQ8gPdYW",
+      "total_score": -3.194901961853469,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -3.2626513013558336,
+        "Medium": -2.9239046038440115
+      },
+      "last_submit": "2026-06-17T13:03:19.064835Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5Hpd7AvjmEhjh8Gk4v9C6abSydNARx11AwRRdtZ1VQXMDEmS",
+      "total_score": -3.496288478187128,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.6880537060259253,
+        "Hard": -0.008152860626376768
+      },
+      "last_submit": "2026-06-17T17:41:09.537941Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Co47RKd5pXVh3DAYfjb3XqmZndMuHhh9VbkY6ABcAMpFSNG",
+      "total_score": -3.8049233697922693,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -3.756154212240337,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-11T21:22:21.020689Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5E6tvCjG5ncAoSHBrP481HNTgKjgHL1D2dFjqS7rKNBsn9sV",
+      "total_score": -3.866126998886898,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": 0.13787671380515754
+      },
+      "last_submit": "2026-06-17T14:07:44.987223Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5CJPqSg5wGWVwsvNrtQgtrxzRzNXhXWjbfF1pBsgreLz53eG",
+      "total_score": -4,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.6181599420897363,
+        "Hard": -3.023880155207063
+      },
+      "last_submit": "2026-06-09T09:45:45.778448Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5DSdCmTEhFrXSyj8cBg7yYoCXCQp8uy4wvAa5Wz5447VuKgt",
+      "total_score": -4,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -3.6003040104958752
+      },
+      "last_submit": "2026-06-17T17:26:18.143158Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5EuwX9wEfCA9oBjrDRXqxzGJkd9a9P9tzyENdAwFfT2jZEkV",
+      "total_score": -4,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "last_submit": "2026-06-17T15:01:34.950886Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5FekChUK8NEYSsJx6qSjuBNKFDTLS3nD9VvHhbmktLgdeynF",
+      "total_score": -4,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "last_submit": "2026-06-17T14:08:36.305676Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5Fq7Y2rSQJWjmniWcXGZjnGCA9HYSLxFCboTL5GyEid3jzYr",
+      "total_score": -4,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.9415404170551365,
+        "Hard": -4
+      },
+      "last_submit": "2026-06-17T17:43:47.929780Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5HdKbY59t83KsSZxY9kmf2EBrRCrzMwVvkq6P2MQJstkWpYz",
+      "total_score": -4,
+      "screener_passed": true,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "last_submit": "2026-06-11T16:44:02.051957Z",
+      "status": "scored"
+    },
+    {
+      "hotkey": "5CM9dr1SZcrhQSgoUgHEAbwGY4SjmVyr4KVS9xT1BNEgkm8D",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-08T18:23:49.755308Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5DAnjvxyGvnxoB7jQgLJwK9RtGemyEyxndS1k8xi3D241SGH",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-10T15:50:47.652007Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5DhqqkHfbjCikxzuYK3AsoFEszxK6AzWyigN8sFCba7YW4sN",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-10T14:18:37.102988Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5DvZs56KL9hNhtzRDDCwfyURFMKn2wuDdhCdHoT9F8SRrqKB",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-10T14:48:22.761178Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5Dz3TdZaDPuaGbqqnPZSwKThq4RziX2Kwb1qKXj67rzeT4sp",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -1.2120309889220446
+      },
+      "last_submit": "2026-06-10T20:30:21.102342Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5EKyJnbyNSa9hN6fHEdwUrisGvZMUfi1uxAgppwCQBVpyDrp",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-16T00:41:14.238524Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5Ek4cQRMaB7XtiqWHhAocWRBqbZLA6vxztvatFDc4vMbDudB",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-09T23:14:06.748646Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5F2Bru22C1Kzk4stsE6g3onSMSfX92Higx43PG3naq7Tocgz",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-09T23:54:39.089225Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5F4doUpga5SZvXy4Rj1yMkL64zDdEPMZR5QLstT52Xq5oBcN",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-09T15:40:59.538047Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5FBfdE5qHwhMwzRUG2LMYeKzH1vUWhM5kfjxmcfgeXeymc2g",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-10T04:47:55.732132Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5FNMwjex4hAKUMe9ocRpD1JjnHpygr5LSMrchytoWrjgn3fw",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-08T23:49:05.488097Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5Fes4VF4z6mE8KbZQMpHS91cF7epRYkwFwCK9NcY1bzE7vKG",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-11T14:59:25.820551Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5FmnEhXo6eyYDsrd9nhfqrpYDd3Sn6YxuDbUBA5DUgmrWdnU",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-11T14:08:32.585724Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5FpY8hCUtsuuwzecVVZmX3R4woeSVgB68SSSj8HY4F9dFg1g",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-09T20:43:14.643372Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5FsGpqGKsxyQ8Vyev9WzFgeq5APmFRfkzDDkEX5R3zPCn9xU",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-08T19:42:33.671996Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5G1UeLtFbPNJjqXgQ5Mxr5NprQBbV3WPSsXZrpSFvqfL9f8U",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-10T23:35:07.404329Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5G6s5fvnRmHbQK5jUmbqpGiWzE2KtxMGs59yqQGSkFDr3H8V",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-12T17:14:59.451416Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5G9KoxxYq3AJHU2SkVRjJMs3P1N7EPH8KjNSt5SzJZYG1GtC",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-10T13:30:47.392288Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5GToPcDxzRdjQivcoc6j8LV19ESREESo7dMr9CpBnDMtLk1a",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-10T00:16:56.918050Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5GgJnNqE7BhBgvSMDMo236UjxBEHG4vMJJ4QNGrjTQDPQnhM",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-09T20:31:46.169840Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5GjMnovtmZz5cjasUG1Mope2zWeoHMgXYL7sV3CtykRodo4L",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-11T06:12:18.166659Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5Gk7VXQM6itJH8AFTvYa4ZgWwRQF3SkP1KaMrXNMFF5wpfGn",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-11T16:42:07.151722Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5HKwe95Tnt4nTv434rZXtW1rm673HSpdNZqYvV3dHtqjaMbF",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-17T05:40:58.147028Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5HR3YDRMPhJ86FgbAMbWZE5tcgG4RFNo5Yf83WCZd15yiZU7",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": 0.19410191318087833
+      },
+      "last_submit": "2026-06-17T12:45:09.330068Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5HdRCdhcXDUkjbWTJVLFo7MrX616R1wjRfceubBuT12t4sxX",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-17T07:27:55.578535Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5HdTr7PisVFCpuAALrNiQcaYx4cxF545ywSWYboJv6j5gYiD",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-15T02:44:05.444965Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5HdofXFGv4XMbpT3NdwhEAa2H7utsXEijkzp8drX8rWkRqQD",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-08T18:17:35.013392Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5HgzWVGvoCz431PKrA9Q2yaSYY3A1WriLzLcyt9gKUnieKYf",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-11T08:15:09.930392Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5Hn9ZNbvRFeF7dNgtkRNnzrxMxgZgXv63MLJvCwVVrQ2rBt8",
+      "total_score": -4,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4
+      },
+      "last_submit": "2026-06-09T16:37:41.546266Z",
+      "status": "not qualified"
+    },
+    {
+      "hotkey": "5Co9rKNRWBCNrZ4UUAAvH5utz2qRVvtVAb6BN6L2wPSR6a78",
+      "total_score": null,
+      "screener_passed": false,
+      "category_scores": null,
+      "last_submit": "2026-06-17T17:59:56.305161Z",
+      "status": "in queue"
+    },
+    {
+      "hotkey": "5GYPPzxC19E3LZrqa57hEnQ2zqAKFxHSegovXSTTGZkPoaN5",
+      "total_score": null,
+      "screener_passed": null,
+      "last_submit": "2026-06-13T19:49:11.346328Z",
+      "status": "no api key",
+      "category_scores": null
+    }
+  ],
+  "miner_count": 1,
+  "miners": [
+    {
+      "hotkey": "5GsHHNmexGGkrdjZPHW5jyCcgfUodazHeEhPBx4Rpxmy17KB",
+      "competition_id": 107,
+      "summary": {
+        "hotkey": "5GsHHNmexGGkrdjZPHW5jyCcgfUodazHeEhPBx4Rpxmy17KB",
+        "total_score": 1.2793878933327285,
+        "screener_passed": true,
+        "category_scores": {
+          "Easy": 1.1265061448577,
+          "Medium": 1.4212485790714267,
+          "Hard": 1.2814159120411155
+        },
+        "task_count": 50,
+        "screener_task_count": 5
+      },
+      "penalties": {
+        "comp_id": 107,
+        "hotkey": "5GsHHNmexGGkrdjZPHW5jyCcgfUodazHeEhPBx4Rpxmy17KB",
+        "categories": {
+          "Easy": 4.440892098500626e-16,
+          "Medium": 0,
+          "Hard": 2.220446049250313e-16
+        },
+        "total": -0.0029976813426475513
+      },
+      "tasks": [
+        {
+          "task_id": 217,
+          "task_name": "django__django-10880",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1126760,
+          "tokens_with_compression": 450595.8,
+          "platform_score": 1.4209003602960606,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49577,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 406945,
+              "platform_score": 1.4650912709833475,
+              "time_taken_seconds": 472.1573,
+              "agent_steps": 31
+            },
+            {
+              "run_id": 49578,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 595278,
+              "platform_score": 1.2749160299113453,
+              "time_taken_seconds": 560.0907,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 49579,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 368850,
+              "platform_score": 1.5142352629061342,
+              "time_taken_seconds": 452.3043,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 49580,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 429508,
+              "platform_score": 1.4381101077910372,
+              "time_taken_seconds": 511.5725,
+              "agent_steps": 34
+            },
+            {
+              "run_id": 49581,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 452398,
+              "platform_score": 1.4121491298884383,
+              "time_taken_seconds": 408.6145,
+              "agent_steps": 33
+            }
+          ]
+        },
+        {
+          "task_id": 218,
+          "task_name": "django__django-14999",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1584982,
+          "tokens_with_compression": 644299,
+          "platform_score": 1.0962194629314461,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49582,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 569249,
+              "platform_score": 3.874828017449398,
+              "time_taken_seconds": 614.3487,
+              "agent_steps": 42
+            },
+            {
+              "run_id": 49583,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 651301,
+              "platform_score": 3.807501041100879,
+              "time_taken_seconds": 636.9549,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 49584,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 517440,
+              "platform_score": -0.7150471096804358,
+              "time_taken_seconds": 606.7208,
+              "agent_steps": 39
+            },
+            {
+              "run_id": 49585,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 639691,
+              "platform_score": -0.7320144433503151,
+              "time_taken_seconds": 614.6303,
+              "agent_steps": 47
+            },
+            {
+              "run_id": 49586,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 843814,
+              "platform_score": -0.7541701908622953,
+              "time_taken_seconds": 641.9145,
+              "agent_steps": 38
+            }
+          ]
+        },
+        {
+          "task_id": 219,
+          "task_name": "django__django-10914",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1229179,
+          "tokens_with_compression": 436812,
+          "platform_score": 1.509349734018759,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49587,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 481302,
+              "platform_score": 1.4540939918096785,
+              "time_taken_seconds": 441.442,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 49588,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 508727,
+              "platform_score": 1.4263856942212834,
+              "time_taken_seconds": 441.0305,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 49589,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 465433,
+              "platform_score": 1.4708573801154503,
+              "time_taken_seconds": 387.7368,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 49590,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 412155,
+              "platform_score": 1.5316417115705208,
+              "time_taken_seconds": 382.912,
+              "agent_steps": 31
+            },
+            {
+              "run_id": 49591,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 316443,
+              "platform_score": 1.663769892376862,
+              "time_taken_seconds": 307.4033,
+              "agent_steps": 19
+            }
+          ]
+        },
+        {
+          "task_id": 220,
+          "task_name": "django__django-15315",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 2228314,
+          "tokens_with_compression": 366275,
+          "platform_score": 1.8723583409411542,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49592,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 238470,
+              "platform_score": 1.9739856106635976,
+              "time_taken_seconds": 326.993,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49593,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 372865,
+              "platform_score": 1.877931101931899,
+              "time_taken_seconds": 443.5603,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 49594,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 324706,
+              "platform_score": 1.9205957249387218,
+              "time_taken_seconds": 427.2463,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49595,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 535849,
+              "platform_score": 1.6966131113683816,
+              "time_taken_seconds": 491.745,
+              "agent_steps": 36
+            },
+            {
+              "run_id": 49596,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 359485,
+              "platform_score": 1.892666155803171,
+              "time_taken_seconds": 439.6576,
+              "agent_steps": 26
+            }
+          ]
+        },
+        {
+          "task_id": 221,
+          "task_name": "django__django-11119",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 885390,
+          "tokens_with_compression": 329836.4,
+          "platform_score": 1.4845607746523046,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49597,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 361581,
+              "platform_score": 1.4353893729920337,
+              "time_taken_seconds": 393.0308,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 49598,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 261420,
+              "platform_score": 1.597568259758199,
+              "time_taken_seconds": 345.4335,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49599,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 340112,
+              "platform_score": 1.465994926871517,
+              "time_taken_seconds": 427.6273,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 49600,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 352945,
+              "platform_score": 1.4474762957225873,
+              "time_taken_seconds": 387.9721,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 49601,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 333124,
+              "platform_score": 1.4763750179171864,
+              "time_taken_seconds": 447.4074,
+              "agent_steps": 28
+            }
+          ]
+        },
+        {
+          "task_id": 222,
+          "task_name": "django__django-15499",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 884630,
+          "tokens_with_compression": 701078.2,
+          "platform_score": 0.2366598407283167,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49602,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 565842,
+              "platform_score": 1.2105842638130342,
+              "time_taken_seconds": 518.4385,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 49603,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 435188,
+              "platform_score": 1.3418526466417338,
+              "time_taken_seconds": 428.0977,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 49604,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 615822,
+              "platform_score": 1.1682627270891794,
+              "time_taken_seconds": 555.2405,
+              "agent_steps": 45
+            },
+            {
+              "run_id": 49605,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 341820,
+              "platform_score": 1.4625995660976363,
+              "time_taken_seconds": 448.8509,
+              "agent_steps": 27
+            },
+            {
+              "run_id": 49606,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1546719,
+              "platform_score": -4,
+              "time_taken_seconds": 786.2411,
+              "agent_steps": 91
+            }
+          ]
+        },
+        {
+          "task_id": 223,
+          "task_name": "django__django-11133",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1133375,
+          "tokens_with_compression": 398543.2,
+          "platform_score": 0.3655199370698246,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49607,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 339630,
+              "platform_score": -4,
+              "time_taken_seconds": 623.1888,
+              "agent_steps": 25
+            },
+            {
+              "run_id": 49608,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 363108,
+              "platform_score": 1.5034802064620236,
+              "time_taken_seconds": 420.1904,
+              "agent_steps": 25
+            },
+            {
+              "run_id": 49609,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 447207,
+              "platform_score": 1.3993195744647386,
+              "time_taken_seconds": 482.6593,
+              "agent_steps": 34
+            },
+            {
+              "run_id": 49610,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 264629,
+              "platform_score": 1.6538792992424631,
+              "time_taken_seconds": 374.4168,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 49611,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 578142,
+              "platform_score": 1.2709206051798976,
+              "time_taken_seconds": 518.8096,
+              "agent_steps": 42
+            }
+          ]
+        },
+        {
+          "task_id": 224,
+          "task_name": "django__django-15569",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1827000,
+          "tokens_with_compression": 316628.6,
+          "platform_score": 1.7686623822081793,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49612,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 331840,
+              "platform_score": 1.7492472592273192,
+              "time_taken_seconds": 373.3455,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 49613,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 424647,
+              "platform_score": 1.661481592574583,
+              "time_taken_seconds": 461.2985,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 49614,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 204126,
+              "platform_score": 1.8950219016683878,
+              "time_taken_seconds": 337.5505,
+              "agent_steps": 14
+            },
+            {
+              "run_id": 49615,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 296655,
+              "platform_score": 1.7828721825070386,
+              "time_taken_seconds": 404.7254,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 49616,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 325875,
+              "platform_score": 1.7546889750635681,
+              "time_taken_seconds": 381.2301,
+              "agent_steps": 20
+            }
+          ]
+        },
+        {
+          "task_id": 225,
+          "task_name": "django__django-11239",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 432782,
+          "tokens_with_compression": 251608.4,
+          "platform_score": 0.5321386070934141,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49617,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 358622,
+              "platform_score": -2.4090993892409136,
+              "time_taken_seconds": 503.1824,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 49618,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 258604,
+              "platform_score": -2.396020550246504,
+              "time_taken_seconds": 388.5384,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49619,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 233332,
+              "platform_score": 2.4370569809578218,
+              "time_taken_seconds": 383.5255,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 49620,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 243119,
+              "platform_score": 2.4165126292919745,
+              "time_taken_seconds": 384.3785,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49621,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 164365,
+              "platform_score": 2.6122433647046925,
+              "time_taken_seconds": 391.4775,
+              "agent_steps": 15
+            }
+          ]
+        },
+        {
+          "task_id": 226,
+          "task_name": "django__django-15851",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 439968,
+          "tokens_with_compression": 189215.8,
+          "platform_score": 1.4252950051328657,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49622,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 162013,
+              "platform_score": 1.4909527507388927,
+              "time_taken_seconds": 366.8416,
+              "agent_steps": 13
+            },
+            {
+              "run_id": 49623,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 235274,
+              "platform_score": 1.3044156440068302,
+              "time_taken_seconds": 391.4648,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49624,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 206676,
+              "platform_score": 1.3692148653812644,
+              "time_taken_seconds": 384.3674,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49625,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 215111,
+              "platform_score": 1.3492139532164473,
+              "time_taken_seconds": 413.9363,
+              "agent_steps": 20
+            },
+            {
+              "run_id": 49626,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 127005,
+              "platform_score": 1.612677812320894,
+              "time_taken_seconds": 314.5755,
+              "agent_steps": 12
+            }
+          ]
+        },
+        {
+          "task_id": 227,
+          "task_name": "django__django-11299",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 917488,
+          "tokens_with_compression": 1244042,
+          "platform_score": 2.3849302933941035,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49627,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1298185,
+              "platform_score": 3.165714872110353,
+              "time_taken_seconds": 711.9762,
+              "agent_steps": 61
+            },
+            {
+              "run_id": 49628,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1116850,
+              "platform_score": 3.2409423282568675,
+              "time_taken_seconds": 729.9947,
+              "agent_steps": 60
+            },
+            {
+              "run_id": 49629,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1232599,
+              "platform_score": 3.1916359655293443,
+              "time_taken_seconds": 683.1927,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 49630,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1283589,
+              "platform_score": -0.8429118192972698,
+              "time_taken_seconds": 644.9033,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 49631,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1288987,
+              "platform_score": 3.1692701203712206,
+              "time_taken_seconds": 695.9864,
+              "agent_steps": 53
+            }
+          ]
+        },
+        {
+          "task_id": 228,
+          "task_name": "django__django-15863",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 574499,
+          "tokens_with_compression": 344284.8,
+          "platform_score": 1.2063783831450727,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 47202,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 269682,
+              "platform_score": 1.310877884524094,
+              "time_taken_seconds": 431.4927,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 47203,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 239998,
+              "platform_score": 1.3691843330847662,
+              "time_taken_seconds": 456.3926,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 47204,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 307231,
+              "platform_score": 1.2456996742514181,
+              "time_taken_seconds": 480.3181,
+              "agent_steps": 23
+            },
+            {
+              "run_id": 47205,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 428511,
+              "platform_score": 1.0793414237449845,
+              "time_taken_seconds": 530.8508,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 47206,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 476002,
+              "platform_score": 1.0267886001201014,
+              "time_taken_seconds": 576.6212,
+              "agent_steps": 37
+            }
+          ]
+        },
+        {
+          "task_id": 229,
+          "task_name": "django__django-11490",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1021877,
+          "tokens_with_compression": 544899.6,
+          "platform_score": 0.03329576241710413,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49632,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 385775,
+              "platform_score": 0.06421311758782546,
+              "time_taken_seconds": 440.5123,
+              "agent_steps": 31
+            },
+            {
+              "run_id": 49633,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 798617,
+              "platform_score": -0.008549600781971986,
+              "time_taken_seconds": 662.5735,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 49634,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 483831,
+              "platform_score": 0.041564980164789,
+              "time_taken_seconds": 457.6052,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 49635,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 628051,
+              "platform_score": 0.015476410047361045,
+              "time_taken_seconds": 565.1079,
+              "agent_steps": 38
+            },
+            {
+              "run_id": 49636,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 428224,
+              "platform_score": 0.053773905067517135,
+              "time_taken_seconds": 488.4565,
+              "agent_steps": 31
+            }
+          ]
+        },
+        {
+          "task_id": 230,
+          "task_name": "django__django-15930",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 713141,
+          "tokens_with_compression": 742322.2,
+          "platform_score": 0.7570458815509358,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49637,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 660220,
+              "platform_score": 3.907250786549831,
+              "time_taken_seconds": 586.5284,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 49638,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 930982,
+              "platform_score": -0.052916525713049944,
+              "time_taken_seconds": 662.1067,
+              "agent_steps": 50
+            },
+            {
+              "run_id": 49639,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 831635,
+              "platform_score": -0.04163189567300364,
+              "time_taken_seconds": 640.7115,
+              "agent_steps": 52
+            },
+            {
+              "run_id": 49640,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 505284,
+              "platform_score": 0.008195403847152399,
+              "time_taken_seconds": 521.3369,
+              "agent_steps": 40
+            },
+            {
+              "run_id": 49641,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 783490,
+              "platform_score": -0.035668361256250794,
+              "time_taken_seconds": 587.0016,
+              "agent_steps": 42
+            }
+          ]
+        },
+        {
+          "task_id": 231,
+          "task_name": "django__django-11555",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 2033013,
+          "tokens_with_compression": 625461.6,
+          "platform_score": 0.44782639869576546,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49642,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 366585,
+              "platform_score": -1.4939947037088233,
+              "time_taken_seconds": 447.0517,
+              "agent_steps": 27
+            },
+            {
+              "run_id": 49643,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 985356,
+              "platform_score": -1.5533210584582258,
+              "time_taken_seconds": 630.9241,
+              "agent_steps": 59
+            },
+            {
+              "run_id": 49644,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 721850,
+              "platform_score": 3.308980194009363,
+              "time_taken_seconds": 485.0871,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 49645,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 495981,
+              "platform_score": 3.496620064777473,
+              "time_taken_seconds": 510.6248,
+              "agent_steps": 37
+            },
+            {
+              "run_id": 49646,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 557536,
+              "platform_score": -1.5191525031409596,
+              "time_taken_seconds": 508.0164,
+              "agent_steps": 40
+            }
+          ]
+        },
+        {
+          "task_id": 232,
+          "task_name": "django__django-16100",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 664367,
+          "tokens_with_compression": 320077,
+          "platform_score": 2.375637144058431,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49647,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 249990,
+              "platform_score": 2.4533963451189775,
+              "time_taken_seconds": 345.6254,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 49648,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 270915,
+              "platform_score": 2.4212426645263734,
+              "time_taken_seconds": 424.0807,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 49649,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 321898,
+              "platform_score": 2.352270821873548,
+              "time_taken_seconds": 398.1493,
+              "agent_steps": 20
+            },
+            {
+              "run_id": 49650,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 220345,
+              "platform_score": 2.5038869120009024,
+              "time_taken_seconds": 347.4819,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 49651,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 537237,
+              "platform_score": 2.147388976772352,
+              "time_taken_seconds": 505.3449,
+              "agent_steps": 33
+            }
+          ]
+        },
+        {
+          "task_id": 233,
+          "task_name": "django__django-11603",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 782437,
+          "tokens_with_compression": 295339.6,
+          "platform_score": 2.053837167126484,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49652,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 367967,
+              "platform_score": 1.934366703259488,
+              "time_taken_seconds": 457.9475,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 49653,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 260339,
+              "platform_score": 2.1073710194269046,
+              "time_taken_seconds": 365.7313,
+              "agent_steps": 24
+            },
+            {
+              "run_id": 49654,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 229108,
+              "platform_score": 2.1712665793274475,
+              "time_taken_seconds": 402.6414,
+              "agent_steps": 20
+            },
+            {
+              "run_id": 49655,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 362649,
+              "platform_score": 1.941645621213981,
+              "time_taken_seconds": 443.1619,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 49656,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 256635,
+              "platform_score": 2.114535912404598,
+              "time_taken_seconds": 349.2423,
+              "agent_steps": 21
+            }
+          ]
+        },
+        {
+          "task_id": 234,
+          "task_name": "django__django-16139",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 542683,
+          "tokens_with_compression": 380769.8,
+          "platform_score": 0.16231788752388407,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 47207,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 214899,
+              "platform_score": 1.4575080467900778,
+              "time_taken_seconds": 381.608,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 47208,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 263143,
+              "platform_score": 1.3562433166213541,
+              "time_taken_seconds": 476.5154,
+              "agent_steps": 20
+            },
+            {
+              "run_id": 47209,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 408896,
+              "platform_score": 1.1358616994553934,
+              "time_taken_seconds": 611.919,
+              "agent_steps": 31
+            },
+            {
+              "run_id": 47210,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 309769,
+              "platform_score": -4,
+              "time_taken_seconds": 473.6382,
+              "agent_steps": 24
+            },
+            {
+              "run_id": 47211,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 707142,
+              "platform_score": 0.8619763747525946,
+              "time_taken_seconds": 596.6068,
+              "agent_steps": 44
+            }
+          ]
+        },
+        {
+          "task_id": 235,
+          "task_name": "django__django-11951",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1041765,
+          "tokens_with_compression": 275864,
+          "platform_score": 1.6678900318270327,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49657,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 199393,
+              "platform_score": 1.8223395795309245,
+              "time_taken_seconds": 340.7745,
+              "agent_steps": 16
+            },
+            {
+              "run_id": 49658,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 267651,
+              "platform_score": 1.6751365088011714,
+              "time_taken_seconds": 365.2309,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49659,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 344332,
+              "platform_score": 1.5491753012151224,
+              "time_taken_seconds": 362.7077,
+              "agent_steps": 27
+            },
+            {
+              "run_id": 49660,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 300601,
+              "platform_score": 1.617086553332059,
+              "time_taken_seconds": 366.7742,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49661,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 267343,
+              "platform_score": 1.6757122162558864,
+              "time_taken_seconds": 355.1697,
+              "agent_steps": 22
+            }
+          ]
+        },
+        {
+          "task_id": 236,
+          "task_name": "django__django-16255",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 647943,
+          "tokens_with_compression": 289343,
+          "platform_score": 1.3688132389902719,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49662,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 298619,
+              "platform_score": 1.350270980037303,
+              "time_taken_seconds": 359.6638,
+              "agent_steps": 25
+            },
+            {
+              "run_id": 49663,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 327061,
+              "platform_score": 1.304781887793731,
+              "time_taken_seconds": 345.8479,
+              "agent_steps": 25
+            },
+            {
+              "run_id": 49664,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 246992,
+              "platform_score": 1.4451772629952528,
+              "time_taken_seconds": 307.6529,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 49665,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 262434,
+              "platform_score": 1.4148554257916017,
+              "time_taken_seconds": 326.2511,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49666,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 311609,
+              "platform_score": 1.3289806383334704,
+              "time_taken_seconds": 362.2184,
+              "agent_steps": 25
+            }
+          ]
+        },
+        {
+          "task_id": 237,
+          "task_name": "django__django-12308",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1797234,
+          "tokens_with_compression": 540239.6,
+          "platform_score": 2.933423971381424,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49667,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 572478,
+              "platform_score": 3.794236963961731,
+              "time_taken_seconds": 427.3406,
+              "agent_steps": 40
+            },
+            {
+              "run_id": 49668,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 765693,
+              "platform_score": -0.775672006527003,
+              "time_taken_seconds": 567.6851,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 49669,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 562003,
+              "platform_score": 3.801623811475607,
+              "time_taken_seconds": 465.8403,
+              "agent_steps": 43
+            },
+            {
+              "run_id": 49670,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 488467,
+              "platform_score": 3.8564927845601744,
+              "time_taken_seconds": 418.1306,
+              "agent_steps": 32
+            },
+            {
+              "run_id": 49671,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 312557,
+              "platform_score": 3.990438303436611,
+              "time_taken_seconds": 365.6728,
+              "agent_steps": 26
+            }
+          ]
+        },
+        {
+          "task_id": 238,
+          "task_name": "sympy__sympy-15017",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1129225,
+          "tokens_with_compression": 493705.8,
+          "platform_score": 1.4257858168370126,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49672,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 655653,
+              "platform_score": 1.2699572774814918,
+              "time_taken_seconds": 569.084,
+              "agent_steps": 50
+            },
+            {
+              "run_id": 49673,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 496149,
+              "platform_score": 1.4093349778516089,
+              "time_taken_seconds": 427.4601,
+              "agent_steps": 34
+            },
+            {
+              "run_id": 49674,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 557434,
+              "platform_score": 1.3511010649330109,
+              "time_taken_seconds": 468.0775,
+              "agent_steps": 41
+            },
+            {
+              "run_id": 49675,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 320632,
+              "platform_score": 1.6276260962482756,
+              "time_taken_seconds": 353.7271,
+              "agent_steps": 24
+            },
+            {
+              "run_id": 49676,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 438661,
+              "platform_score": 1.470909667670676,
+              "time_taken_seconds": 395.502,
+              "agent_steps": 32
+            }
+          ]
+        },
+        {
+          "task_id": 239,
+          "task_name": "django__django-12419",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1493751,
+          "tokens_with_compression": 306101,
+          "platform_score": 2.960418203334755,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49677,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 325610,
+              "platform_score": 2.931593489633598,
+              "time_taken_seconds": 436.0655,
+              "agent_steps": 27
+            },
+            {
+              "run_id": 49678,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 279066,
+              "platform_score": 2.999979122735379,
+              "time_taken_seconds": 419.0151,
+              "agent_steps": 23
+            },
+            {
+              "run_id": 49679,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 414916,
+              "platform_score": 2.810405617675063,
+              "time_taken_seconds": 430.2054,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 49680,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 248584,
+              "platform_score": 3.0381291870050795,
+              "time_taken_seconds": 394.971,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 49681,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 262329,
+              "platform_score": 3.021983599624654,
+              "time_taken_seconds": 380.476,
+              "agent_steps": 22
+            }
+          ]
+        },
+        {
+          "task_id": 240,
+          "task_name": "sympy__sympy-15345",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 756373,
+          "tokens_with_compression": 313495.8,
+          "platform_score": 0.06937036125119923,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49682,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 211126,
+              "platform_score": 0.10337287219195304,
+              "time_taken_seconds": 363.2284,
+              "agent_steps": 15
+            },
+            {
+              "run_id": 49683,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 517481,
+              "platform_score": 0.013721102407710095,
+              "time_taken_seconds": 520.7907,
+              "agent_steps": 34
+            },
+            {
+              "run_id": 49684,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 261542,
+              "platform_score": 0.08195889511038094,
+              "time_taken_seconds": 405.938,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49685,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 234269,
+              "platform_score": 0.09297138058121755,
+              "time_taken_seconds": 383.7877,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49686,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 343061,
+              "platform_score": 0.05482755596473452,
+              "time_taken_seconds": 423.6792,
+              "agent_steps": 24
+            }
+          ]
+        },
+        {
+          "task_id": 241,
+          "task_name": "django__django-13363",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1122536,
+          "tokens_with_compression": 292740.6,
+          "platform_score": 2.8613532373988595,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49687,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 172224,
+              "platform_score": 3.098674924864523,
+              "time_taken_seconds": 372.4075,
+              "agent_steps": 15
+            },
+            {
+              "run_id": 49688,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 363802,
+              "platform_score": 2.7357638522530165,
+              "time_taken_seconds": 448.4337,
+              "agent_steps": 24
+            },
+            {
+              "run_id": 49689,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 312590,
+              "platform_score": 2.8116225201943204,
+              "time_taken_seconds": 442.9897,
+              "agent_steps": 23
+            },
+            {
+              "run_id": 49690,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 370182,
+              "platform_score": 2.7270713457550273,
+              "time_taken_seconds": 464.7856,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49691,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 244905,
+              "platform_score": 2.9336335439274093,
+              "time_taken_seconds": 380.0316,
+              "agent_steps": 17
+            }
+          ]
+        },
+        {
+          "task_id": 242,
+          "task_name": "sympy__sympy-15809",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 707107,
+          "tokens_with_compression": 382633.4,
+          "platform_score": -0.7670566958460605,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49692,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 244295,
+              "platform_score": 1.5085969236976455,
+              "time_taken_seconds": 396.3715,
+              "agent_steps": 20
+            },
+            {
+              "run_id": 49693,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 587157,
+              "platform_score": -4,
+              "time_taken_seconds": 515.8921,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 49694,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 429208,
+              "platform_score": 1.2268143544491732,
+              "time_taken_seconds": 400.9593,
+              "agent_steps": 31
+            },
+            {
+              "run_id": 49695,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 366230,
+              "platform_score": -4,
+              "time_taken_seconds": 424.9442,
+              "agent_steps": 27
+            },
+            {
+              "run_id": 49696,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 286277,
+              "platform_score": 1.4293052426228787,
+              "time_taken_seconds": 398.9866,
+              "agent_steps": 24
+            }
+          ]
+        },
+        {
+          "task_id": 243,
+          "task_name": "django__django-13417",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1358706,
+          "tokens_with_compression": 638263.6,
+          "platform_score": 1.9529548326946145,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49697,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 701658,
+              "platform_score": 1.899899963788518,
+              "time_taken_seconds": 603.6314,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 49698,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 664137,
+              "platform_score": 1.9273787899548416,
+              "time_taken_seconds": 580.3942,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 49699,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 679144,
+              "platform_score": 1.9162064258741687,
+              "time_taken_seconds": 547.9411,
+              "agent_steps": 50
+            },
+            {
+              "run_id": 49700,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 684610,
+              "platform_score": 1.91219835017298,
+              "time_taken_seconds": 518.1726,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 49701,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 461769,
+              "platform_score": 2.109090633682564,
+              "time_taken_seconds": 405.3791,
+              "agent_steps": 35
+            }
+          ]
+        },
+        {
+          "task_id": 244,
+          "task_name": "sympy__sympy-15875",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 705372,
+          "tokens_with_compression": 284323.2,
+          "platform_score": 1.3493688393636512,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49702,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 441214,
+              "platform_score": -1.597885890650339,
+              "time_taken_seconds": 490.8803,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 49703,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 283392,
+              "platform_score": 3.181416840302014,
+              "time_taken_seconds": 368.2332,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 49704,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 175359,
+              "platform_score": 3.4214147388107214,
+              "time_taken_seconds": 343.2694,
+              "agent_steps": 14
+            },
+            {
+              "run_id": 49705,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 305918,
+              "platform_score": -1.5759131150704113,
+              "time_taken_seconds": 423.2041,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49706,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 215733,
+              "platform_score": 3.3178116234262705,
+              "time_taken_seconds": 355.0205,
+              "agent_steps": 16
+            }
+          ]
+        },
+        {
+          "task_id": 245,
+          "task_name": "django__django-13741",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 673863,
+          "tokens_with_compression": 302598,
+          "platform_score": 1.3661766276445992,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49707,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 401302,
+              "platform_score": 1.185818799160877,
+              "time_taken_seconds": 427.5529,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 49708,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 134573,
+              "platform_score": 1.7016419329589318,
+              "time_taken_seconds": 321.1809,
+              "agent_steps": 12
+            },
+            {
+              "run_id": 49709,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 473569,
+              "platform_score": 1.1030271170192378,
+              "time_taken_seconds": 557.3103,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 49710,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 269805,
+              "platform_score": 1.384326191768402,
+              "time_taken_seconds": 392.5195,
+              "agent_steps": 20
+            },
+            {
+              "run_id": 49711,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 233741,
+              "platform_score": 1.4560690973155475,
+              "time_taken_seconds": 336.5694,
+              "agent_steps": 18
+            }
+          ]
+        },
+        {
+          "task_id": 246,
+          "task_name": "sympy__sympy-16450",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1150220,
+          "tokens_with_compression": 407709,
+          "platform_score": 1.9677887498110977,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49712,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 233519,
+              "platform_score": 2.220622150852383,
+              "time_taken_seconds": 392.5191,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49713,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 421384,
+              "platform_score": 1.9378401093639563,
+              "time_taken_seconds": 513.3854,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 49714,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 486053,
+              "platform_score": 1.8664535396243978,
+              "time_taken_seconds": 467.5058,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 49715,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 472256,
+              "platform_score": 1.8808517696327147,
+              "time_taken_seconds": 525.3051,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 49716,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 425333,
+              "platform_score": 1.933176179582036,
+              "time_taken_seconds": 456.0093,
+              "agent_steps": 30
+            }
+          ]
+        },
+        {
+          "task_id": 247,
+          "task_name": "django__django-13821",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1344878,
+          "tokens_with_compression": 293083.2,
+          "platform_score": 0.5386313699643263,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 47212,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 269223,
+              "platform_score": 1.7685772753136983,
+              "time_taken_seconds": 375.9078,
+              "agent_steps": 23
+            },
+            {
+              "run_id": 47213,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 440593,
+              "platform_score": 1.5277715624279404,
+              "time_taken_seconds": 458.1886,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 47214,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 125092,
+              "platform_score": -4,
+              "time_taken_seconds": 441.3284,
+              "agent_steps": 11
+            },
+            {
+              "run_id": 47215,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 369931,
+              "platform_score": 1.6151740849553313,
+              "time_taken_seconds": 432.7559,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 47216,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 260577,
+              "platform_score": 1.7816339271246615,
+              "time_taken_seconds": 392.0328,
+              "agent_steps": 21
+            }
+          ]
+        },
+        {
+          "task_id": 248,
+          "task_name": "sympy__sympy-16766",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1062450,
+          "tokens_with_compression": 692194.8,
+          "platform_score": 0.8118717853075698,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49717,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 650115,
+              "platform_score": 1.8396692941361166,
+              "time_taken_seconds": 578.131,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 49718,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 736145,
+              "platform_score": 1.777530374197724,
+              "time_taken_seconds": 576.4117,
+              "agent_steps": 50
+            },
+            {
+              "run_id": 49719,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 488379,
+              "platform_score": 1.982698057410333,
+              "time_taken_seconds": 459.3791,
+              "agent_steps": 36
+            },
+            {
+              "run_id": 49720,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 948045,
+              "platform_score": 1.6510429445534656,
+              "time_taken_seconds": 638.6682,
+              "agent_steps": 63
+            },
+            {
+              "run_id": 49721,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 638290,
+              "platform_score": -3.1915817437597895,
+              "time_taken_seconds": 569.8939,
+              "agent_steps": 50
+            }
+          ]
+        },
+        {
+          "task_id": 249,
+          "task_name": "django__django-13933",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1156016,
+          "tokens_with_compression": 340031,
+          "platform_score": 1.5903504606543788,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49722,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 459156,
+              "platform_score": 1.4269725238570463,
+              "time_taken_seconds": 521.3724,
+              "agent_steps": 34
+            },
+            {
+              "run_id": 49723,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 206427,
+              "platform_score": 1.8095092598669247,
+              "time_taken_seconds": 394.2077,
+              "agent_steps": 13
+            },
+            {
+              "run_id": 49724,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 384839,
+              "platform_score": 1.515255002153,
+              "time_taken_seconds": 445.1708,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 49725,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 320394,
+              "platform_score": 1.6068917904430513,
+              "time_taken_seconds": 456.524,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49726,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 329339,
+              "platform_score": 1.5931237269518703,
+              "time_taken_seconds": 414.8565,
+              "agent_steps": 25
+            }
+          ]
+        },
+        {
+          "task_id": 250,
+          "task_name": "sympy__sympy-17139",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1230544,
+          "tokens_with_compression": 317934.8,
+          "platform_score": -0.246472151547325,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49727,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 264487,
+              "platform_score": -2.337637070296644,
+              "time_taken_seconds": 368.3902,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 49728,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 498481,
+              "platform_score": -2.3624807887480364,
+              "time_taken_seconds": 483.3412,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 49729,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 250627,
+              "platform_score": -2.3365605438431793,
+              "time_taken_seconds": 357.5627,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49730,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 307415,
+              "platform_score": 2.868959117921336,
+              "time_taken_seconds": 438.5232,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49731,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 268664,
+              "platform_score": 2.935358527229899,
+              "time_taken_seconds": 443.7492,
+              "agent_steps": 20
+            }
+          ]
+        },
+        {
+          "task_id": 251,
+          "task_name": "django__django-14089",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 441256,
+          "tokens_with_compression": 193541.6,
+          "platform_score": 1.3868053823584823,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49732,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 197738,
+              "platform_score": 1.372761647584669,
+              "time_taken_seconds": 371.215,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 49733,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 172479,
+              "platform_score": 1.4410953636827553,
+              "time_taken_seconds": 362.661,
+              "agent_steps": 15
+            },
+            {
+              "run_id": 49734,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 164782,
+              "platform_score": 1.46392141454329,
+              "time_taken_seconds": 337.4028,
+              "agent_steps": 15
+            },
+            {
+              "run_id": 49735,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 208259,
+              "platform_score": 1.346841859947827,
+              "time_taken_seconds": 349.4211,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49736,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 224450,
+              "platform_score": 1.30940662603387,
+              "time_taken_seconds": 377.4622,
+              "agent_steps": 19
+            }
+          ]
+        },
+        {
+          "task_id": 252,
+          "task_name": "sympy__sympy-17655",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1091029,
+          "tokens_with_compression": 301663.2,
+          "platform_score": 1.6292044830265724,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49737,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 212023,
+              "platform_score": 1.7922337083549842,
+              "time_taken_seconds": 321.6944,
+              "agent_steps": 16
+            },
+            {
+              "run_id": 49738,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 333599,
+              "platform_score": 1.5734790877525935,
+              "time_taken_seconds": 407.1786,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 49739,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 328636,
+              "platform_score": 1.5809735465450883,
+              "time_taken_seconds": 366.6684,
+              "agent_steps": 23
+            },
+            {
+              "run_id": 49740,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 333980,
+              "platform_score": 1.5729083687195407,
+              "time_taken_seconds": 372.2309,
+              "agent_steps": 25
+            },
+            {
+              "run_id": 49741,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 300078,
+              "platform_score": 1.6264277037606547,
+              "time_taken_seconds": 352.9142,
+              "agent_steps": 18
+            }
+          ]
+        },
+        {
+          "task_id": 253,
+          "task_name": "django__django-14373",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 479159,
+          "tokens_with_compression": 338576.8,
+          "platform_score": 1.1815958006040976,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 47217,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 401810,
+              "platform_score": 1.0802808907905956,
+              "time_taken_seconds": 630.9244,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 47218,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 222909,
+              "platform_score": 1.3748887526145002,
+              "time_taken_seconds": 362.4314,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 47219,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 341797,
+              "platform_score": 1.161162064037972,
+              "time_taken_seconds": 447.5812,
+              "agent_steps": 24
+            },
+            {
+              "run_id": 47220,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 450850,
+              "platform_score": 1.0227032158551952,
+              "time_taken_seconds": 599.5525,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 47221,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 275518,
+              "platform_score": 1.268944079722224,
+              "time_taken_seconds": 431.3422,
+              "agent_steps": 21
+            }
+          ]
+        },
+        {
+          "task_id": 254,
+          "task_name": "sympy__sympy-19637",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 532579,
+          "tokens_with_compression": 366222.4,
+          "platform_score": 1.1781756070603087,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 47222,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 538452,
+              "platform_score": 0.9658639819718603,
+              "time_taken_seconds": 660.8331,
+              "agent_steps": 41
+            },
+            {
+              "run_id": 47223,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 248676,
+              "platform_score": 1.3521377378668347,
+              "time_taken_seconds": 457.8246,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 47224,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 285623,
+              "platform_score": 1.2828767803206251,
+              "time_taken_seconds": 314.7902,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 47225,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 425708,
+              "platform_score": 1.08333632742128,
+              "time_taken_seconds": 473.0426,
+              "agent_steps": 32
+            },
+            {
+              "run_id": 47226,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 332653,
+              "platform_score": 1.2066632077209447,
+              "time_taken_seconds": 382.0929,
+              "agent_steps": 26
+            }
+          ]
+        },
+        {
+          "task_id": 255,
+          "task_name": "django__django-14493",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 603445,
+          "tokens_with_compression": 321746,
+          "platform_score": 0.6207106712468149,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49742,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 284871,
+              "platform_score": -2.3710333152505925,
+              "time_taken_seconds": 382.8192,
+              "agent_steps": 23
+            },
+            {
+              "run_id": 49743,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 558408,
+              "platform_score": -2.3979554525214724,
+              "time_taken_seconds": 490.367,
+              "agent_steps": 41
+            },
+            {
+              "run_id": 49744,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 255398,
+              "platform_score": 2.622620826106709,
+              "time_taken_seconds": 372.8204,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 49745,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 275472,
+              "platform_score": 2.5847893874467585,
+              "time_taken_seconds": 331.2502,
+              "agent_steps": 20
+            },
+            {
+              "run_id": 49746,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 234581,
+              "platform_score": 2.665131910452672,
+              "time_taken_seconds": 355.6512,
+              "agent_steps": 19
+            }
+          ]
+        },
+        {
+          "task_id": 256,
+          "task_name": "sympy__sympy-19954",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 2404963,
+          "tokens_with_compression": 328363.4,
+          "platform_score": 2.0111719128224252,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49747,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 428001,
+              "platform_score": 3.025450326816802,
+              "time_taken_seconds": 443.7514,
+              "agent_steps": 32
+            },
+            {
+              "run_id": 49748,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 389420,
+              "platform_score": 3.053790450618859,
+              "time_taken_seconds": 353.9929,
+              "agent_steps": 24
+            },
+            {
+              "run_id": 49749,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 264271,
+              "platform_score": 3.15693286408727,
+              "time_taken_seconds": 310.8631,
+              "agent_steps": 14
+            },
+            {
+              "run_id": 49750,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 280011,
+              "platform_score": -2.3256026272231183,
+              "time_taken_seconds": 326.4631,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 49751,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 280114,
+              "platform_score": 3.145288549812311,
+              "time_taken_seconds": 344.3486,
+              "agent_steps": 21
+            }
+          ]
+        },
+        {
+          "task_id": 257,
+          "task_name": "django__django-14539",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 2017063,
+          "tokens_with_compression": 698617.2,
+          "platform_score": 1.48199300036854,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49752,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 204348,
+              "platform_score": 3.7597497871260024,
+              "time_taken_seconds": 345.3325,
+              "agent_steps": 16
+            },
+            {
+              "run_id": 49753,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1188916,
+              "platform_score": -1.5678267277489355,
+              "time_taken_seconds": 940.9132,
+              "agent_steps": 58
+            },
+            {
+              "run_id": 49754,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 757971,
+              "platform_score": 3.2518584078812793,
+              "time_taken_seconds": 979.5758,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 49755,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 445993,
+              "platform_score": 3.5170293426341117,
+              "time_taken_seconds": 642.2954,
+              "agent_steps": 36
+            },
+            {
+              "run_id": 49756,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 895858,
+              "platform_score": -1.5508458080497571,
+              "time_taken_seconds": 864.331,
+              "agent_steps": 52
+            }
+          ]
+        },
+        {
+          "task_id": 258,
+          "task_name": "sympy__sympy-21847",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 709077,
+          "tokens_with_compression": 343131.4,
+          "platform_score": 1.3543609309239835,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49757,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 438535,
+              "platform_score": 1.2244185687432203,
+              "time_taken_seconds": 537.2751,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 49758,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 277100,
+              "platform_score": 1.4539491559021787,
+              "time_taken_seconds": 442.2727,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 49759,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 346063,
+              "platform_score": 1.342827962132715,
+              "time_taken_seconds": 467.3976,
+              "agent_steps": 23
+            },
+            {
+              "run_id": 49760,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 285202,
+              "platform_score": 1.439539531267508,
+              "time_taken_seconds": 498.5158,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 49761,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 368757,
+              "platform_score": 1.3110694365742943,
+              "time_taken_seconds": 413.5575,
+              "agent_steps": 24
+            }
+          ]
+        },
+        {
+          "task_id": 259,
+          "task_name": "django__django-14580",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 759937,
+          "tokens_with_compression": 161956.4,
+          "platform_score": 1.6650386830658395,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49762,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 199988,
+              "platform_score": 1.567210995230127,
+              "time_taken_seconds": 412.7339,
+              "agent_steps": 18
+            },
+            {
+              "run_id": 49763,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 76126,
+              "platform_score": 1.8975111963145168,
+              "time_taken_seconds": 352.8824,
+              "agent_steps": 7
+            },
+            {
+              "run_id": 49764,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 196303,
+              "platform_score": 1.5746501875708527,
+              "time_taken_seconds": 422.2428,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 49765,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 201263,
+              "platform_score": 1.5646689369350264,
+              "time_taken_seconds": 485.0381,
+              "agent_steps": 19
+            },
+            {
+              "run_id": 49766,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 136102,
+              "platform_score": 1.7211520992786735,
+              "time_taken_seconds": 392.8846,
+              "agent_steps": 12
+            }
+          ]
+        },
+        {
+          "task_id": 260,
+          "task_name": "sympy__sympy-22714",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1513961,
+          "tokens_with_compression": 635841.8,
+          "platform_score": 1.3196981573812416,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49767,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1420979,
+              "platform_score": 2.801531401683511,
+              "time_taken_seconds": 777.9097,
+              "agent_steps": 66
+            },
+            {
+              "run_id": 49768,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 490168,
+              "platform_score": -1.5242972929882255,
+              "time_taken_seconds": 544.4009,
+              "agent_steps": 37
+            },
+            {
+              "run_id": 49769,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 433141,
+              "platform_score": 3.3955504214654937,
+              "time_taken_seconds": 554.9984,
+              "agent_steps": 31
+            },
+            {
+              "run_id": 49770,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 441577,
+              "platform_score": -1.5180335462354886,
+              "time_taken_seconds": 483.4107,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 49771,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 393344,
+              "platform_score": 3.443739802980917,
+              "time_taken_seconds": 541.3756,
+              "agent_steps": 28
+            }
+          ]
+        },
+        {
+          "task_id": 261,
+          "task_name": "django__django-14752",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 546890,
+          "tokens_with_compression": 221733,
+          "platform_score": 2.014138809825762,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49772,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 93039,
+              "platform_score": 2.3503136285207917,
+              "time_taken_seconds": 395.7938,
+              "agent_steps": 9
+            },
+            {
+              "run_id": 49773,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 373306,
+              "platform_score": 1.7122978018426511,
+              "time_taken_seconds": 471.1478,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 49774,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 188919,
+              "platform_score": 2.052837855286117,
+              "time_taken_seconds": 420.6588,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 49775,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 170357,
+              "platform_score": 2.1045489136039572,
+              "time_taken_seconds": 403.6975,
+              "agent_steps": 15
+            },
+            {
+              "run_id": 49776,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 283044,
+              "platform_score": 1.8506958498752915,
+              "time_taken_seconds": 498.3613,
+              "agent_steps": 23
+            }
+          ]
+        },
+        {
+          "task_id": 262,
+          "task_name": "sympy__sympy-23534",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1651100,
+          "tokens_with_compression": 661630.8,
+          "platform_score": 0.34333308342036284,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49777,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 697813,
+              "platform_score": 1.4022382673251452,
+              "time_taken_seconds": 699.7877,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 49778,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 655622,
+              "platform_score": 1.433421644927868,
+              "time_taken_seconds": 706.2947,
+              "agent_steps": 38
+            },
+            {
+              "run_id": 49779,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 627519,
+              "platform_score": 1.4553268718886803,
+              "time_taken_seconds": 684.2068,
+              "agent_steps": 43
+            },
+            {
+              "run_id": 49780,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 661346,
+              "platform_score": -4,
+              "time_taken_seconds": 591.2992,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 49781,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 665854,
+              "platform_score": 1.42567863296012,
+              "time_taken_seconds": 643.3607,
+              "agent_steps": 42
+            }
+          ]
+        },
+        {
+          "task_id": 263,
+          "task_name": "django__django-14855",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1576654,
+          "tokens_with_compression": 457911.6,
+          "platform_score": 2.213196857667856,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49782,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 510897,
+              "platform_score": 2.1427820272698224,
+              "time_taken_seconds": 603.1355,
+              "agent_steps": 40
+            },
+            {
+              "run_id": 49783,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 468681,
+              "platform_score": 2.185904846209458,
+              "time_taken_seconds": 417.3345,
+              "agent_steps": 26
+            },
+            {
+              "run_id": 49784,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 288825,
+              "platform_score": 2.4252393993040307,
+              "time_taken_seconds": 323.5968,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 49785,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 625226,
+              "platform_score": 2.041809437246837,
+              "time_taken_seconds": 602.4735,
+              "agent_steps": 47
+            },
+            {
+              "run_id": 49786,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 395929,
+              "platform_score": 2.2702485783091317,
+              "time_taken_seconds": 403.6776,
+              "agent_steps": 32
+            }
+          ]
+        },
+        {
+          "task_id": 264,
+          "task_name": "sympy__sympy-24539",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 935869,
+          "tokens_with_compression": 373721.6,
+          "platform_score": 1.477882336885628,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49787,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 346242,
+              "platform_score": 1.4774883514287036,
+              "time_taken_seconds": 462.6304,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 49788,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 303034,
+              "platform_score": 1.5441348224818068,
+              "time_taken_seconds": 387.1644,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 49789,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 669122,
+              "platform_score": 1.1480741250813085,
+              "time_taken_seconds": 474.8003,
+              "agent_steps": 37
+            },
+            {
+              "run_id": 49790,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 203819,
+              "platform_score": 1.7424411551501244,
+              "time_taken_seconds": 320.1526,
+              "agent_steps": 15
+            },
+            {
+              "run_id": 49791,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 346391,
+              "platform_score": 1.4772732302861962,
+              "time_taken_seconds": 382.4443,
+              "agent_steps": 25
+            }
+          ]
+        },
+        {
+          "task_id": 265,
+          "task_name": "django__django-14915",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1189263,
+          "tokens_with_compression": 207871.6,
+          "platform_score": 1.7804075492773943,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49792,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 218601,
+              "platform_score": 1.7594450433513316,
+              "time_taken_seconds": 389.7353,
+              "agent_steps": 15
+            },
+            {
+              "run_id": 49793,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 184543,
+              "platform_score": 1.8271913040077283,
+              "time_taken_seconds": 365.0345,
+              "agent_steps": 15
+            },
+            {
+              "run_id": 49794,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 219371,
+              "platform_score": 1.758038559296023,
+              "time_taken_seconds": 303.0185,
+              "agent_steps": 16
+            },
+            {
+              "run_id": 49795,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 214354,
+              "platform_score": 1.7672927618950012,
+              "time_taken_seconds": 330.6852,
+              "agent_steps": 17
+            },
+            {
+              "run_id": 49796,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 202489,
+              "platform_score": 1.7900700778368877,
+              "time_taken_seconds": 389.8758,
+              "agent_steps": 15
+            }
+          ]
+        },
+        {
+          "task_id": 266,
+          "task_name": "sympy__sympy-24562",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 2565539,
+          "tokens_with_compression": 442966.8,
+          "platform_score": -0.6719206413504016,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 49797,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 266427,
+              "platform_score": -0.64961576912313,
+              "time_taken_seconds": 358.5509,
+              "agent_steps": 16
+            },
+            {
+              "run_id": 49798,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 452345,
+              "platform_score": -0.6739168689653301,
+              "time_taken_seconds": 467.3522,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 49799,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 493766,
+              "platform_score": -0.6791738624291777,
+              "time_taken_seconds": 500.4531,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 49800,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 382788,
+              "platform_score": -0.664111010172857,
+              "time_taken_seconds": 426.6875,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 49801,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 619508,
+              "platform_score": -0.6927856960615133,
+              "time_taken_seconds": 619.4188,
+              "agent_steps": 35
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

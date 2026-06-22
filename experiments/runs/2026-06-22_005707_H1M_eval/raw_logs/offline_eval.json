@@ -1,0 +1,642 @@
+{
+  "computed_at": "2026-06-22T00:25:31Z",
+  "note": "RATIO + STRUCTURAL SAFETY measured offline on sample+synthetic transcripts. Platform pass/neg-run/broke = PENDING_EVAL (needs SOMA SWE-bench). Score lift = estimate via 1+0.5ln(ratio).",
+  "variants": [
+    {
+      "label": "m7/v11.1",
+      "cases": [
+        {
+          "case": "sample-1",
+          "ok": true,
+          "tokens_in": 5279,
+          "tokens_out": 5108,
+          "ratio": 1.033,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-2",
+          "ok": true,
+          "tokens_in": 3609,
+          "tokens_out": 3202,
+          "ratio": 1.127,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-3",
+          "ok": true,
+          "tokens_in": 5278,
+          "tokens_out": 3987,
+          "ratio": 1.324,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-4",
+          "ok": true,
+          "tokens_in": 13826,
+          "tokens_out": 4746,
+          "ratio": 2.913,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-5",
+          "ok": true,
+          "tokens_in": 4081,
+          "tokens_out": 3586,
+          "ratio": 1.138,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "synth-clean-large",
+          "ok": true,
+          "tokens_in": 28408,
+          "tokens_out": 4244,
+          "ratio": 6.694,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-clean-big",
+          "ok": true,
+          "tokens_in": 35080,
+          "tokens_out": 4448,
+          "ratio": 7.887,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-errdense-fragile",
+          "ok": true,
+          "tokens_in": 26198,
+          "tokens_out": 3916,
+          "ratio": 6.69,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        }
+      ]
+    },
+    {
+      "label": "h1m@m7",
+      "cases": [
+        {
+          "case": "sample-1",
+          "ok": true,
+          "tokens_in": 5279,
+          "tokens_out": 5108,
+          "ratio": 1.033,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-2",
+          "ok": true,
+          "tokens_in": 3609,
+          "tokens_out": 3202,
+          "ratio": 1.127,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-3",
+          "ok": true,
+          "tokens_in": 5278,
+          "tokens_out": 3987,
+          "ratio": 1.324,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-4",
+          "ok": true,
+          "tokens_in": 13826,
+          "tokens_out": 4746,
+          "ratio": 2.913,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-5",
+          "ok": true,
+          "tokens_in": 4081,
+          "tokens_out": 3586,
+          "ratio": 1.138,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "synth-clean-large",
+          "ok": true,
+          "tokens_in": 28408,
+          "tokens_out": 4244,
+          "ratio": 6.694,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-clean-big",
+          "ok": true,
+          "tokens_in": 35080,
+          "tokens_out": 4448,
+          "ratio": 7.887,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-errdense-fragile",
+          "ok": true,
+          "tokens_in": 26198,
+          "tokens_out": 3916,
+          "ratio": 6.69,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        }
+      ]
+    },
+    {
+      "label": "h1m@light",
+      "cases": [
+        {
+          "case": "sample-1",
+          "ok": true,
+          "tokens_in": 5279,
+          "tokens_out": 5108,
+          "ratio": 1.033,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-2",
+          "ok": true,
+          "tokens_in": 3609,
+          "tokens_out": 3087,
+          "ratio": 1.169,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-3",
+          "ok": true,
+          "tokens_in": 5278,
+          "tokens_out": 3867,
+          "ratio": 1.365,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-4",
+          "ok": true,
+          "tokens_in": 13826,
+          "tokens_out": 4691,
+          "ratio": 2.947,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-5",
+          "ok": true,
+          "tokens_in": 4081,
+          "tokens_out": 3486,
+          "ratio": 1.171,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "synth-clean-large",
+          "ok": true,
+          "tokens_in": 28408,
+          "tokens_out": 4144,
+          "ratio": 6.855,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-clean-big",
+          "ok": true,
+          "tokens_in": 35080,
+          "tokens_out": 4348,
+          "ratio": 8.068,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-errdense-fragile",
+          "ok": true,
+          "tokens_in": 26198,
+          "tokens_out": 17216,
+          "ratio": 1.522,
+          "mode": "rich",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        }
+      ]
+    },
+    {
+      "label": "h1m@medium",
+      "cases": [
+        {
+          "case": "sample-1",
+          "ok": true,
+          "tokens_in": 5279,
+          "tokens_out": 5108,
+          "ratio": 1.033,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-2",
+          "ok": true,
+          "tokens_in": 3609,
+          "tokens_out": 2856,
+          "ratio": 1.264,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-3",
+          "ok": true,
+          "tokens_in": 5278,
+          "tokens_out": 3665,
+          "ratio": 1.44,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-4",
+          "ok": true,
+          "tokens_in": 13826,
+          "tokens_out": 4646,
+          "ratio": 2.976,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-5",
+          "ok": true,
+          "tokens_in": 4081,
+          "tokens_out": 3351,
+          "ratio": 1.218,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "synth-clean-large",
+          "ok": true,
+          "tokens_in": 28408,
+          "tokens_out": 3601,
+          "ratio": 7.889,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-clean-big",
+          "ok": true,
+          "tokens_in": 35080,
+          "tokens_out": 3805,
+          "ratio": 9.219,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-errdense-fragile",
+          "ok": true,
+          "tokens_in": 26198,
+          "tokens_out": 17216,
+          "ratio": 1.522,
+          "mode": "rich",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        }
+      ]
+    },
+    {
+      "label": "h1m@deep",
+      "cases": [
+        {
+          "case": "sample-1",
+          "ok": true,
+          "tokens_in": 5279,
+          "tokens_out": 5108,
+          "ratio": 1.033,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-2",
+          "ok": true,
+          "tokens_in": 3609,
+          "tokens_out": 2666,
+          "ratio": 1.354,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-3",
+          "ok": true,
+          "tokens_in": 5278,
+          "tokens_out": 3523,
+          "ratio": 1.498,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-4",
+          "ok": true,
+          "tokens_in": 13826,
+          "tokens_out": 4601,
+          "ratio": 3.005,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "sample-5",
+          "ok": true,
+          "tokens_in": 4081,
+          "tokens_out": 3236,
+          "ratio": 1.261,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": null,
+          "orphans_ok": null,
+          "users_kept": null
+        },
+        {
+          "case": "synth-clean-large",
+          "ok": true,
+          "tokens_in": 28408,
+          "tokens_out": 3601,
+          "ratio": 7.889,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-clean-big",
+          "ok": true,
+          "tokens_in": 35080,
+          "tokens_out": 3805,
+          "ratio": 9.219,
+          "mode": "harvest",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        },
+        {
+          "case": "synth-errdense-fragile",
+          "ok": true,
+          "tokens_in": 26198,
+          "tokens_out": 17216,
+          "ratio": 1.522,
+          "mode": "rich",
+          "changed": true,
+          "all_protected": true,
+          "orphans_ok": true,
+          "users_kept": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "m7/v11.1": {
+      "n_harvest_cases": 7,
+      "harvest_cases": [
+        "sample-2",
+        "sample-3",
+        "sample-4",
+        "sample-5",
+        "synth-clean-large",
+        "synth-clean-big",
+        "synth-errdense-fragile"
+      ],
+      "mean_pct_vs_m7": 0.0,
+      "mean_est_lift_vs_m7": 0.0,
+      "improved": [],
+      "regressed": [],
+      "fragile_guard_fired_on": [],
+      "all_protected": true,
+      "orphans_ok": true,
+      "ok_cases": 8,
+      "n_cases": 8
+    },
+    "h1m@m7": {
+      "n_harvest_cases": 7,
+      "harvest_cases": [
+        "sample-2",
+        "sample-3",
+        "sample-4",
+        "sample-5",
+        "synth-clean-large",
+        "synth-clean-big",
+        "synth-errdense-fragile"
+      ],
+      "mean_pct_vs_m7": 0.0,
+      "mean_est_lift_vs_m7": 0.0,
+      "improved": [],
+      "regressed": [],
+      "fragile_guard_fired_on": [],
+      "all_protected": true,
+      "orphans_ok": true,
+      "ok_cases": 8,
+      "n_cases": 8
+    },
+    "h1m@light": {
+      "n_harvest_cases": 6,
+      "harvest_cases": [
+        "sample-2",
+        "sample-3",
+        "sample-4",
+        "sample-5",
+        "synth-clean-large",
+        "synth-clean-big"
+      ],
+      "mean_pct_vs_m7": 0.026,
+      "mean_est_lift_vs_m7": 0.013,
+      "improved": [
+        "sample-2",
+        "sample-3",
+        "sample-4",
+        "sample-5",
+        "synth-clean-large",
+        "synth-clean-big"
+      ],
+      "regressed": [],
+      "fragile_guard_fired_on": [
+        "synth-errdense-fragile"
+      ],
+      "all_protected": true,
+      "orphans_ok": true,
+      "ok_cases": 8,
+      "n_cases": 8
+    },
+    "h1m@medium": {
+      "n_harvest_cases": 6,
+      "harvest_cases": [
+        "sample-2",
+        "sample-3",
+        "sample-4",
+        "sample-5",
+        "synth-clean-large",
+        "synth-clean-big"
+      ],
+      "mean_pct_vs_m7": 0.108,
+      "mean_est_lift_vs_m7": 0.051,
+      "improved": [
+        "sample-2",
+        "sample-3",
+        "sample-4",
+        "sample-5",
+        "synth-clean-large",
+        "synth-clean-big"
+      ],
+      "regressed": [],
+      "fragile_guard_fired_on": [
+        "synth-errdense-fragile"
+      ],
+      "all_protected": true,
+      "orphans_ok": true,
+      "ok_cases": 8,
+      "n_cases": 8
+    },
+    "h1m@deep": {
+      "n_harvest_cases": 6,
+      "harvest_cases": [
+        "sample-2",
+        "sample-3",
+        "sample-4",
+        "sample-5",
+        "synth-clean-large",
+        "synth-clean-big"
+      ],
+      "mean_pct_vs_m7": 0.137,
+      "mean_est_lift_vs_m7": 0.063,
+      "improved": [
+        "sample-2",
+        "sample-3",
+        "sample-4",
+        "sample-5",
+        "synth-clean-large",
+        "synth-clean-big"
+      ],
+      "regressed": [],
+      "fragile_guard_fired_on": [
+        "synth-errdense-fragile"
+      ],
+      "all_protected": true,
+      "orphans_ok": true,
+      "ok_cases": 8,
+      "n_cases": 8
+    }
+  }
+}

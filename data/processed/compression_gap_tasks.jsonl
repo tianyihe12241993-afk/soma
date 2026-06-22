@@ -1,0 +1,6 @@
+{"task_id": 227, "task_name": "django__django-11299", "category": "Hard", "m7_ratio": 0.7375, "m7_score": 2.3849302933941035, "baseline_pass": false}
+{"task_id": 222, "task_name": "django__django-15499", "category": "Easy", "m7_ratio": 1.2618, "m7_score": 0.2366598407283167, "baseline_pass": true}
+{"task_id": 248, "task_name": "sympy__sympy-16766", "category": "Easy", "m7_ratio": 1.5349, "m7_score": 0.8118717853075701, "baseline_pass": true}
+{"task_id": 225, "task_name": "django__django-11239", "category": "Easy", "m7_ratio": 1.7201, "m7_score": 0.5321386070934143, "baseline_pass": true}
+{"task_id": 242, "task_name": "sympy__sympy-15809", "category": "Easy", "m7_ratio": 1.848, "m7_score": -0.7670566958460606, "baseline_pass": true}
+{"task_id": 255, "task_name": "django__django-14493", "category": "Medium", "m7_ratio": 1.8755, "m7_score": 0.6207106712468151, "baseline_pass": true}

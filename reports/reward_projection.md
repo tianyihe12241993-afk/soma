@@ -1,5 +1,5 @@
 # Reward Projection
-_computed 2026-06-21T13:12:49Z — 180 eligible miners (failed-review excluded)_
+_computed 2026-06-21T15:15:25Z — 181 eligible miners (failed-review excluded)_
 
 ## Element winners
 | element | weight | winner | score |

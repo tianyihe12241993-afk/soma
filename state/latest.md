@@ -1,15 +1,15 @@
-# LATEST — 2026-06-21T13:13:08Z
+# LATEST — 2026-06-22T03:28:03Z
 _auto-written by checkpoint (manual)_
 
-**Note:** restructured: ops files now directly under SOMA root, single .claude
+**Note:** Pre-MacBook-handoff: pushing all work to origin/main. Real eval must run on Mac (real-Linux Docker; WSL2 confirmed incompatible). Detailed status in state/CURRENT.md.
 
 **Best live miner:** m7=1.279 | pending: m12
 **Our reward-element wins:** none
 
 **Top of NEXT_ACTIONS:**
--       3 miners' eval needs ~$100+. If it drains mid-eval → incomplete runs → low scores. (User action: top up.)
-- - [x] ~~Track m9/m10/m11 eval~~ — DONE (2026-06-21): scored 0.92–1.04, all below m7 (flip bets confirmed a downgrade).
-- - [ ] **Watch the Medium element** (now 5FbqgypX ~1.620). We back into the Medium reward (~4.8%) ONLY if the
--       Medium leader drops below m7's 1.421 — unlikely; monitor each collect.
+-       Add columns to the import schema when available.
+- - [ ] (Optional) **platform upload receipts** (hotkey+version+timestamp) → close the label audit to 100%.
+- - [ ] Re-run `make detail` periodically only if you want fresher rival scrapes (comp is over; board is static).
+- - [x] ~~WSL env + soma_shared~~ — DONE (env ready; soma_shared 0.1.0 in venv). Upload path needs only a wallet,
 
-_Full checkpoint: sessions/2026-06-21_131308_manual.md_
+_Full checkpoint: sessions\2026-06-22_032803_manual.md_

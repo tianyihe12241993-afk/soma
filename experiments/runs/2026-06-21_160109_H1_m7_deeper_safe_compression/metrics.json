@@ -1,0 +1,67 @@
+{
+  "experiment_id": "H1_m7_deeper_safe_compression",
+  "computed_at": "2026-06-21T16:01:09Z",
+  "subsets": [
+    "shared_pass",
+    "barely_compressed"
+  ],
+  "missing_subsets": [],
+  "task_ids": [
+    217,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    232,
+    233,
+    235,
+    236,
+    237,
+    238,
+    239,
+    241,
+    242,
+    243,
+    244,
+    245,
+    246,
+    248,
+    249,
+    251,
+    252,
+    255,
+    256,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265
+  ],
+  "baseline_m7": {
+    "n_tasks": 37,
+    "pass_rate": 1.0,
+    "broke_baseline": 0,
+    "negative_score": 1,
+    "avg_compression_ratio": 3.003,
+    "median_compression_ratio": 2.501,
+    "score_estimate": 1.5334,
+    "weighted_token_cost": null,
+    "output_token_increase": null
+  },
+  "candidate": {
+    "status": "needs_data",
+    "note": "No candidate results supplied. Run the candidate locally on the subset and re-run with --results <file>. weighted_token_cost/output_token_increase need input/cached/output token split (H4)."
+  },
+  "changed_vs_m7": [],
+  "gate": [
+    "BASELINE ONLY \u2014 no candidate yet"
+  ]
+}

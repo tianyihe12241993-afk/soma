@@ -1,0 +1,189 @@
+{
+  "computed_at": "2026-06-22T00:57:07Z",
+  "candidate": "H1M_m7_deeper_safe_v1",
+  "profiles": [
+    "m7",
+    "h1m@medium",
+    "h1m@deep"
+  ],
+  "data_basis": "REAL m7 baseline (platform scrape) + OFFLINE candidate proxy/projection. Candidate real pass/neg-run/broke = PENDING_EVAL (needs SOMA SWE-bench env; raw per-call task contexts unavailable offline). No scores invented.",
+  "groups": {
+    "medium_first": {
+      "tasks": [
+        "django__django-15851",
+        "django__django-11119",
+        "sympy__sympy-24539",
+        "django__django-14580",
+        "django__django-14855",
+        "django__django-10914",
+        "django__django-11603"
+      ],
+      "m7_baseline": {
+        "n_tasks": 7,
+        "pass_rate": 1.0,
+        "neg_run_rate": 0.0,
+        "broke_baseline_count": 0,
+        "negative_score_count": 0,
+        "avg_ratio": 3.016,
+        "median_ratio": 2.684,
+        "medium_ratio": 3.016,
+        "medium_est_score": 1.69,
+        "avg_score": 1.69
+      },
+      "h1m@medium": {
+        "source": "estimate (offline proxy x m7 baseline; NOT a real eval)",
+        "offline_ratio_pct_vs_m7": 0.108,
+        "proj_avg_ratio": 3.342,
+        "proj_medium_ratio": 3.342,
+        "est_score_delta_per_task": 0.051,
+        "offline_all_protected": true,
+        "offline_orphans_ok": true,
+        "real_pass_rate": "PENDING_EVAL",
+        "real_neg_run_rate": "PENDING_EVAL",
+        "real_broke_baseline": "PENDING_EVAL",
+        "real_negative_score": "PENDING_EVAL"
+      },
+      "h1m@deep": {
+        "source": "estimate (offline proxy x m7 baseline; NOT a real eval)",
+        "offline_ratio_pct_vs_m7": 0.137,
+        "proj_avg_ratio": 3.429,
+        "proj_medium_ratio": 3.429,
+        "est_score_delta_per_task": 0.064,
+        "offline_all_protected": true,
+        "offline_orphans_ok": true,
+        "real_pass_rate": "PENDING_EVAL",
+        "real_neg_run_rate": "PENDING_EVAL",
+        "real_broke_baseline": "PENDING_EVAL",
+        "real_negative_score": "PENDING_EVAL"
+      }
+    },
+    "fragile_guard": {
+      "tasks": [
+        "sympy__sympy-17139",
+        "sympy__sympy-16766",
+        "django__django-11239",
+        "django__django-14493"
+      ],
+      "m7_baseline": {
+        "n_tasks": 4,
+        "pass_rate": 0.75,
+        "neg_run_rate": 0.4,
+        "broke_baseline_count": 1,
+        "negative_score_count": 1,
+        "avg_ratio": 2.25,
+        "median_ratio": 1.798,
+        "medium_ratio": 1.875,
+        "medium_est_score": 0.621,
+        "avg_score": 0.43
+      },
+      "h1m@medium": {
+        "source": "estimate (offline proxy x m7 baseline; NOT a real eval)",
+        "offline_ratio_pct_vs_m7": 0.108,
+        "proj_avg_ratio": 2.493,
+        "proj_medium_ratio": 2.078,
+        "est_score_delta_per_task": 0.051,
+        "offline_all_protected": true,
+        "offline_orphans_ok": true,
+        "real_pass_rate": "PENDING_EVAL",
+        "real_neg_run_rate": "PENDING_EVAL",
+        "real_broke_baseline": "PENDING_EVAL",
+        "real_negative_score": "PENDING_EVAL",
+        "expected_behavior": "fragile guard -> fall back to m7 (no deepening); VERIFY on eval. offline: guard fired on error-dense signature"
+      },
+      "h1m@deep": {
+        "source": "estimate (offline proxy x m7 baseline; NOT a real eval)",
+        "offline_ratio_pct_vs_m7": 0.137,
+        "proj_avg_ratio": 2.558,
+        "proj_medium_ratio": 2.132,
+        "est_score_delta_per_task": 0.064,
+        "offline_all_protected": true,
+        "offline_orphans_ok": true,
+        "real_pass_rate": "PENDING_EVAL",
+        "real_neg_run_rate": "PENDING_EVAL",
+        "real_broke_baseline": "PENDING_EVAL",
+        "real_negative_score": "PENDING_EVAL",
+        "expected_behavior": "fragile guard -> fall back to m7 (no deepening); VERIFY on eval. offline: guard fired on error-dense signature"
+      }
+    },
+    "solving_gap_excluded": {
+      "tasks": [
+        "django__django-14999",
+        "sympy__sympy-22714"
+      ],
+      "m7_baseline": {
+        "n_tasks": 2,
+        "pass_rate": 0.5,
+        "neg_run_rate": 0.5,
+        "broke_baseline_count": 0,
+        "negative_score_count": 0,
+        "avg_ratio": 2.42,
+        "median_ratio": 2.42,
+        "medium_ratio": null,
+        "medium_est_score": null,
+        "avg_score": 1.208
+      }
+    }
+  },
+  "gate": {
+    "h1m@medium": {
+      "checks": [
+        [
+          "compression_improvement>=8%",
+          "PASS",
+          "offline +10.8%"
+        ],
+        [
+          "fragile_guard_works",
+          "PASS",
+          "guard fired on 1 case(s), protected=True"
+        ],
+        [
+          "medium_est_score_no_drop",
+          "PASS (projected)",
+          "projected +0.051/task on Medium (deeper ratio)"
+        ],
+        [
+          "new_broken_baseline_vs_m7",
+          "PENDING_EVAL",
+          "offline harness: 0 broken; real needs SOMA eval"
+        ],
+        [
+          "medium_neg_run_increase",
+          "PENDING_EVAL",
+          "m7 Medium-first targets are pass-stable (neg_run_rate=0.0); real needs eval"
+        ]
+      ],
+      "offline_decision": "ADVANCE (candidate-only): offline gate PASS; real-task gate PENDING_EVAL"
+    },
+    "h1m@deep": {
+      "checks": [
+        [
+          "compression_improvement>=8%",
+          "PASS",
+          "offline +13.7%"
+        ],
+        [
+          "fragile_guard_works",
+          "PASS",
+          "guard fired on 1 case(s), protected=True"
+        ],
+        [
+          "medium_est_score_no_drop",
+          "PASS (projected)",
+          "projected +0.064/task on Medium (deeper ratio)"
+        ],
+        [
+          "new_broken_baseline_vs_m7",
+          "PENDING_EVAL",
+          "offline harness: 0 broken; real needs SOMA eval"
+        ],
+        [
+          "medium_neg_run_increase",
+          "PENDING_EVAL",
+          "m7 Medium-first targets are pass-stable (neg_run_rate=0.0); real needs eval"
+        ]
+      ],
+      "offline_decision": "ADVANCE (candidate-only): offline gate PASS; real-task gate PENDING_EVAL"
+    }
+  }
+}

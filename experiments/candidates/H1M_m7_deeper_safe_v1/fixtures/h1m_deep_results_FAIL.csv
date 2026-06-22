@@ -1,0 +1,9 @@
+task,pass,neg_runs,n_runs,ratio,score,broke_baseline,pairing_error,missing_patch,category
+django-15851,false,1,5,2.70,0.20,true,false,false,Medium
+django-11119,true,0,5,3.10,1.55,false,true,false,Medium
+sympy-24539,true,2,5,2.88,1.30,false,false,false,Medium
+django-14580,true,0,5,5.40,1.73,false,false,false,Medium
+django-14855,true,0,5,3.96,2.28,false,false,false,Medium
+django-10914,true,0,5,3.24,1.57,false,false,false,Medium
+django-11603,true,0,5,3.05,2.12,false,false,false,Medium
+sympy-16766,false,2,5,4.50,-1.20,true,false,false,Easy

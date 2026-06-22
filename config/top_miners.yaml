@@ -1,0 +1,20 @@
+# Top rival miners on competition 107 — comparison targets for offline research.
+# Scores keyed by HOTKEY (scraped from dashboard, source=platform). avg_ratio is the
+# mean per-task compression ratio (tokens_without/tokens_with) over the 45 scored tasks,
+# derived from data/raw/dashboard/*_miner_detail.json. role = where they lead.
+# Used by compare_miners.py / find_shared_pass_gaps.py as the "top miner" reference set.
+competition_id: 107
+# primary comparison target (the overall leader) for shared-pass gap decomposition:
+primary_reference: 5EkiFXSRAiUVDeDEZGLidLoEVh99ghTG6bdSNGcwhA6budgB
+
+top_miners:
+  t1:  { hotkey: 5EkiFXSRAiUVDeDEZGLidLoEVh99ghTG6bdSNGcwhA6budgB, total: 1.460, easy: 1.171, medium: 1.480, hard: 1.712, avg_ratio: 4.83, role: "overall leader (E,M,H + M,H pair)" }
+  t2:  { hotkey: 5E7hCCzjedynCsQbU2aEGrb59izS6GycKKux9gJjNVKbziYU, total: 1.436, easy: 1.255, medium: 1.437, hard: 1.606, avg_ratio: 4.93, role: "2nd overall; broad strength" }
+  t3:  { hotkey: 5FbqgypX3uD3WYvAxu6iNvmPBAzWanXf5JyhNgiCyJtfe1h1, total: 1.415, easy: 1.192, medium: 1.620, hard: 1.421, avg_ratio: 4.95, role: "MEDIUM leader (1.620) + (E,M) pair" }
+  t4:  { hotkey: 5DhHqmB1BzyW6qsZ44EhajM8dXKChxRqB7vqZTwojm1WwsSz, total: 1.410, easy: 1.347, medium: 1.127, hard: 1.751, avg_ratio: 3.06, role: "HARD king (1.751) + Easy-strong; wins via pass-rate not ratio" }
+  t5:  { hotkey: 5GEUZcudEcmsHTeGTwqYVgwxALc5oQRe3b1NA51rXGFWJBrw, total: 1.355, easy: 1.126, medium: 1.279, hard: 1.646, avg_ratio: 2.40, role: "Hard-strong at low ratio" }
+  t6:  { hotkey: 5G6J5dA18opafejjFtSsTXWjqp19nzQahGemNUmNQ66Tz8UW, total: 1.335, easy: 1.281, medium: 1.197, hard: 1.525, avg_ratio: 2.88, role: "balanced" }
+  t7:  { hotkey: 5ERdwbn59m1aVxZWL6ueLHCPuTBrzDX1L9EfQjAncNZNFJjM, total: 1.263, easy: 1.156, medium: 1.312, hard: 1.316, avg_ratio: 4.73, role: "high ratio, mid total" }
+  t8:  { hotkey: 5EPkREJ9AQqG7JTyEETYLG5PHd21fzkuSKWVoAHQcgof8QXn, total: 1.256, easy: 1.252, medium: 1.059, hard: 1.455, avg_ratio: 2.86, role: "Easy/Hard tilt" }
+  t9:  { hotkey: 5CJs9EmL4Doo7ra59BVmnmgDQDCPPDppwCQnL5GewDBFM816, total: 1.222, easy: 1.220, medium: 1.423, hard: 1.024, avg_ratio: 2.81, role: "(E,M) pair contender; weak Hard" }
+  t10: { hotkey: 5GgUhFiG3Vx8EGPcq29FeXeWXRDXQq91fiXdBDueae3W5rkj, total: 1.158, easy: 1.373, medium: 1.191, hard: 0.924, avg_ratio: 5.24, role: "EASY leader (1.373); high ratio but weak Hard" }
