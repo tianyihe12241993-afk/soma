@@ -1,0 +1,11 @@
+id: H4_output_weight_ready
+base: m7
+goal: "Prepare for a next scoring formula with WEIGHTED token costs (input vs cached-input vs output)."
+subsets: [shared_pass, barely_compressed]
+guard: [fragile]
+forbid: [persistent_failure_routing, flip_mode_rescue]
+hypothesis: "Current score rewards raw input-token reduction. If output tokens (or cached-input) get weighted, the winning lever shifts. Track all three token types separately so candidates optimize weighted cost, not just raw input."
+success_metric: "Lower WEIGHTED token cost (not just raw input tokens); no output_token_increase; no broke_baseline increase."
+candidate: null
+blocked_on: "token-type split MISSING. Dashboard scrape gives one token count per side; need input/cached-input/output breakdown. Import via data/raw/platform_results/ when available (add columns to the per-task template)."
+notes: "Until token-type data exists, this is a measurement-readiness task: extend the import schema + metrics (weighted_token_cost, output_token_increase) — already stubbed in run_experiment_matrix.py."

@@ -1,0 +1,10 @@
+id: H3_fragile_task_guard
+base: m7
+goal: "Prevent catastrophic regressions on fragile tasks (compression breaks a passing baseline)."
+subsets: [fragile, shared_pass]
+guard: []
+forbid: [persistent_failure_routing, flip_mode_rescue]
+hypothesis: "A small set of fragile signatures (e.g. sympy-17139, m7 ✓→✗ -0.246) cause the worst -penalty tasks. A conservative fallback (near-pass-through) on detected fragile signatures preserves the pass at low ratio cost."
+success_metric: "broke_baseline DOWN vs m7 while avg_compression_ratio elsewhere is preserved (no ratio loss on non-fragile tasks)."
+candidate: null
+notes: "Fallback only for fragile signatures; must not touch the safe-headroom tasks H1 pushes. Pairs with H1 (push safe, protect fragile)."

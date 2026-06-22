@@ -1,0 +1,2 @@
+miner_id,hotkey,version,task_id,task_name,category,baseline_pass,miner_pass,baseline_tokens,miner_tokens,compression_ratio,score,broke_baseline,negative_score,source,observed_at
+m7,5Gs...,v11.1,217,django__django-10880,Medium,true,true,1126760,450595,2.5,1.42,false,false,platform,2026-06-17T00:00:00Z

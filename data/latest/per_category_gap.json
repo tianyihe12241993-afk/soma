@@ -1,0 +1,397 @@
+{
+  "computed_at": "2026-06-21T22:19:54Z",
+  "leaders": [
+    "t1",
+    "t2",
+    "t3",
+    "t4"
+  ],
+  "reference": "t1",
+  "by_category": {
+    "Easy": {
+      "tasks": 13,
+      "m7_avg_score": 0.621,
+      "leader_avg_score": 1.0319,
+      "score_gap": 0.4109,
+      "m7_avg_ratio": 2.618,
+      "leader_avg_ratio": 3.961,
+      "m7_neg_run_rate": 0.2615,
+      "leader_neg_run_rate": 0.2054,
+      "m7_broke": 0,
+      "leader_broke_total": 0,
+      "shared_pass_tasks": 9,
+      "shared_pass_mean_gap": 0.3798,
+      "shared_pass_ratio_explained": 0.2171,
+      "shared_pass_residual": 0.1627
+    },
+    "Medium": {
+      "tasks": 18,
+      "m7_avg_score": 1.4996,
+      "leader_avg_score": 1.3289,
+      "score_gap": -0.1707,
+      "m7_avg_ratio": 2.839,
+      "leader_avg_ratio": 4.042,
+      "m7_neg_run_rate": 0.0444,
+      "leader_neg_run_rate": 0.1006,
+      "m7_broke": 0,
+      "leader_broke_total": 4,
+      "shared_pass_tasks": 17,
+      "shared_pass_mean_gap": 0.0161,
+      "shared_pass_ratio_explained": 0.2142,
+      "shared_pass_residual": -0.1981
+    },
+    "Hard": {
+      "tasks": 14,
+      "m7_avg_score": 1.7597,
+      "leader_avg_score": 2.1179,
+      "score_gap": 0.3582,
+      "m7_avg_ratio": 3.534,
+      "leader_avg_ratio": 5.398,
+      "m7_neg_run_rate": 0.2174,
+      "leader_neg_run_rate": 0.1449,
+      "m7_broke": 1,
+      "leader_broke_total": 0,
+      "shared_pass_tasks": 10,
+      "shared_pass_mean_gap": 0.1968,
+      "shared_pass_ratio_explained": 0.2713,
+      "shared_pass_residual": -0.0744
+    }
+  },
+  "under_compressed_medium": [
+    {
+      "task_id": 226,
+      "task_name": "django__django-15851",
+      "m7_ratio": 2.3252,
+      "proven_ratio": 8.064,
+      "proven_by": "t10",
+      "headroom_x": 3.468,
+      "m7_score": 1.4252950051328657,
+      "est_gain": 0.622
+    },
+    {
+      "task_id": 221,
+      "task_name": "django__django-11119",
+      "m7_ratio": 2.6843,
+      "proven_ratio": 8.8095,
+      "proven_by": "t5",
+      "headroom_x": 3.282,
+      "m7_score": 1.4845607746523044,
+      "est_gain": 0.594
+    },
+    {
+      "task_id": 264,
+      "task_name": "sympy__sympy-24539",
+      "m7_ratio": 2.5042,
+      "proven_ratio": 6.9104,
+      "proven_by": "t7",
+      "headroom_x": 2.76,
+      "m7_score": 1.4778823368856278,
+      "est_gain": 0.508
+    },
+    {
+      "task_id": 243,
+      "task_name": "django__django-13417",
+      "m7_ratio": 2.1288,
+      "proven_ratio": 5.7677,
+      "proven_by": "t2",
+      "headroom_x": 2.709,
+      "m7_score": 1.9529548326946145,
+      "est_gain": 0.498
+    },
+    {
+      "task_id": 259,
+      "task_name": "django__django-14580",
+      "m7_ratio": 4.6922,
+      "proven_ratio": 11.7701,
+      "proven_by": "t4",
+      "headroom_x": 2.508,
+      "m7_score": 1.6650386830658395,
+      "est_gain": 0.46
+    },
+    {
+      "task_id": 263,
+      "task_name": "django__django-14855",
+      "m7_ratio": 3.4431,
+      "proven_ratio": 8.454,
+      "proven_by": "t1",
+      "headroom_x": 2.455,
+      "m7_score": 2.2131968576678567,
+      "est_gain": 0.449
+    },
+    {
+      "task_id": 219,
+      "task_name": "django__django-10914",
+      "m7_ratio": 2.814,
+      "proven_ratio": 6.7903,
+      "proven_by": "t1",
+      "headroom_x": 2.413,
+      "m7_score": 1.5093497340187587,
+      "est_gain": 0.44
+    },
+    {
+      "task_id": 233,
+      "task_name": "django__django-11603",
+      "m7_ratio": 2.6493,
+      "proven_ratio": 6.3078,
+      "proven_by": "t10",
+      "headroom_x": 2.381,
+      "m7_score": 2.053837167126484,
+      "est_gain": 0.434
+    },
+    {
+      "task_id": 258,
+      "task_name": "sympy__sympy-21847",
+      "m7_ratio": 2.0665,
+      "proven_ratio": 4.2952,
+      "proven_by": "t10",
+      "headroom_x": 2.078,
+      "m7_score": 1.3543609309239835,
+      "est_gain": 0.366
+    },
+    {
+      "task_id": 238,
+      "task_name": "sympy__sympy-15017",
+      "m7_ratio": 2.2872,
+      "proven_ratio": 4.682,
+      "proven_by": "t7",
+      "headroom_x": 2.047,
+      "m7_score": 1.4257858168370126,
+      "est_gain": 0.358
+    }
+  ],
+  "under_compressed_hard": [
+    {
+      "task_id": 261,
+      "task_name": "django__django-14752",
+      "m7_ratio": 2.4664,
+      "proven_ratio": 12.0222,
+      "proven_by": "t10",
+      "headroom_x": 4.874,
+      "m7_score": 2.014138809825762,
+      "est_gain": 0.792
+    },
+    {
+      "task_id": 241,
+      "task_name": "django__django-13363",
+      "m7_ratio": 3.8346,
+      "proven_ratio": 12.1419,
+      "proven_by": "t10",
+      "headroom_x": 3.166,
+      "m7_score": 2.8613532373988595,
+      "est_gain": 0.576
+    },
+    {
+      "task_id": 217,
+      "task_name": "django__django-10880",
+      "m7_ratio": 2.5006,
+      "proven_ratio": 6.1732,
+      "proven_by": "t1",
+      "headroom_x": 2.469,
+      "m7_score": 1.4209003602960604,
+      "est_gain": 0.452
+    },
+    {
+      "task_id": 239,
+      "task_name": "django__django-12419",
+      "m7_ratio": 4.8799,
+      "proven_ratio": 11.1246,
+      "proven_by": "t1",
+      "headroom_x": 2.28,
+      "m7_score": 2.960418203334755,
+      "est_gain": 0.412
+    },
+    {
+      "task_id": 220,
+      "task_name": "django__django-15315",
+      "m7_ratio": 6.0837,
+      "proven_ratio": 10.4364,
+      "proven_by": "t7",
+      "headroom_x": 1.715,
+      "m7_score": 1.8723583409411542,
+      "est_gain": 0.27
+    },
+    {
+      "task_id": 224,
+      "task_name": "django__django-15569",
+      "m7_ratio": 5.7702,
+      "proven_ratio": 9.2894,
+      "proven_by": "t10",
+      "headroom_x": 1.61,
+      "m7_score": 1.7686623822081793,
+      "est_gain": 0.238
+    }
+  ],
+  "fragile_top": [
+    {
+      "task_id": 250,
+      "task_name": "sympy__sympy-17139",
+      "category": "Hard",
+      "broke_by": [
+        "m7"
+      ],
+      "m7_broke": true,
+      "detail": {
+        "m7": {
+          "ratio": 3.8704,
+          "score": -0.246472151547325
+        }
+      },
+      "severity": -0.246472151547325
+    },
+    {
+      "task_id": 248,
+      "task_name": "sympy__sympy-16766",
+      "category": "Easy",
+      "broke_by": [
+        "m10",
+        "m9"
+      ],
+      "m7_broke": false,
+      "detail": {
+        "m9": {
+          "ratio": 2.1817,
+          "score": -2.153523967699069
+        },
+        "m10": {
+          "ratio": 1.6734,
+          "score": -3.1910519887681907
+        }
+      },
+      "severity": -3.1910519887681907
+    },
+    {
+      "task_id": 225,
+      "task_name": "django__django-11239",
+      "category": "Easy",
+      "broke_by": [
+        "m10",
+        "m11",
+        "m9"
+      ],
+      "m7_broke": false,
+      "detail": {
+        "m9": {
+          "ratio": 1.3227,
+          "score": -1.4970649978007926
+        },
+        "m10": {
+          "ratio": 1.2811,
+          "score": -0.5300778718402052
+        },
+        "m11": {
+          "ratio": 1.089,
+          "score": -1.4716238072994792
+        }
+      },
+      "severity": -1.4970649978007926
+    },
+    {
+      "task_id": 255,
+      "task_name": "django__django-14493",
+      "category": "Medium",
+      "broke_by": [
+        "m9"
+      ],
+      "m7_broke": false,
+      "detail": {
+        "m9": {
+          "ratio": 1.7624,
+          "score": -0.412383154184381
+        }
+      },
+      "severity": -0.412383154184381
+    }
+  ],
+  "catastrophic_hard_gap": [
+    {
+      "task_id": 218,
+      "task_name": "django__django-14999",
+      "m7_score": 1.096,
+      "leader_score": 4.008,
+      "gap": 2.912,
+      "m7_ratio": 2.46,
+      "leader_ratio": 2.6773
+    },
+    {
+      "task_id": 260,
+      "task_name": "sympy__sympy-22714",
+      "m7_score": 1.32,
+      "leader_score": 3.602,
+      "gap": 2.282,
+      "m7_ratio": 2.381,
+      "leader_ratio": 5.3671
+    },
+    {
+      "task_id": 256,
+      "task_name": "sympy__sympy-19954",
+      "m7_score": 2.011,
+      "leader_score": 3.161,
+      "gap": 1.15,
+      "m7_ratio": 7.3241,
+      "leader_ratio": 10.161
+    },
+    {
+      "task_id": 250,
+      "task_name": "sympy__sympy-17139",
+      "m7_score": -0.246,
+      "leader_score": 0.893,
+      "gap": 1.139,
+      "m7_ratio": 3.8704,
+      "leader_ratio": 5.9274
+    },
+    {
+      "task_id": 227,
+      "task_name": "django__django-11299",
+      "m7_score": 2.385,
+      "leader_score": 3.101,
+      "gap": 0.716,
+      "m7_ratio": 0.7375,
+      "leader_ratio": 4.3745
+    },
+    {
+      "task_id": 241,
+      "task_name": "django__django-13363",
+      "m7_score": 2.861,
+      "leader_score": 3.112,
+      "gap": 0.251,
+      "m7_ratio": 3.8346,
+      "leader_ratio": 7.1712
+    },
+    {
+      "task_id": 239,
+      "task_name": "django__django-12419",
+      "m7_score": 2.96,
+      "leader_score": 3.191,
+      "gap": 0.231,
+      "m7_ratio": 4.8799,
+      "leader_ratio": 11.1246
+    },
+    {
+      "task_id": 230,
+      "task_name": "django__django-15930",
+      "m7_score": 0.757,
+      "leader_score": 0.907,
+      "gap": 0.15,
+      "m7_ratio": 0.9607,
+      "leader_ratio": 0.901
+    },
+    {
+      "task_id": 261,
+      "task_name": "django__django-14752",
+      "m7_score": 2.014,
+      "leader_score": 2.15,
+      "gap": 0.136,
+      "m7_ratio": 2.4664,
+      "leader_ratio": 3.3762
+    },
+    {
+      "task_id": 220,
+      "task_name": "django__django-15315",
+      "m7_score": 1.872,
+      "leader_score": 1.659,
+      "gap": -0.214,
+      "m7_ratio": 6.0837,
+      "leader_ratio": 1.4061
+    }
+  ]
+}

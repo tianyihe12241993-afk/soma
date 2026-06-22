@@ -1,0 +1,344 @@
+{
+  "computed_at": "2026-06-21T22:21:36Z",
+  "deep_threshold": 4.5,
+  "clean_neg_max": 1,
+  "correlations": {
+    "overall": {
+      "n_points": 379,
+      "corr_ratio_vs_negrate": -0.087,
+      "corr_ratio_vs_broke": null,
+      "corr_ratio_vs_score": 0.279,
+      "mean_ratio": 3.931,
+      "mean_negrate": 0.0765
+    },
+    "Easy": {
+      "n_points": 90,
+      "corr_ratio_vs_negrate": -0.217,
+      "corr_ratio_vs_broke": null,
+      "corr_ratio_vs_score": 0.272,
+      "mean_ratio": 3.558,
+      "mean_negrate": 0.1
+    },
+    "Medium": {
+      "n_points": 185,
+      "corr_ratio_vs_negrate": -0.027,
+      "corr_ratio_vs_broke": null,
+      "corr_ratio_vs_score": 0.256,
+      "mean_ratio": 3.549,
+      "mean_negrate": 0.0541
+    },
+    "Hard": {
+      "n_points": 104,
+      "corr_ratio_vs_negrate": -0.116,
+      "corr_ratio_vs_broke": null,
+      "corr_ratio_vs_score": 0.116,
+      "mean_ratio": 4.933,
+      "mean_negrate": 0.0962
+    }
+  },
+  "output_token_data": "MISSING \u2014 only one compressed-token count per run; no input/cached/output split",
+  "proven_safe_deep_tasks": [
+    {
+      "task_id": 236,
+      "task_name": "django__django-16255",
+      "category": "Easy",
+      "m7_ratio": 2.2394,
+      "m7_neg": 0,
+      "leader": "t6",
+      "leader_ratio": 16.98,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 227,
+      "task_name": "django__django-11299",
+      "category": "Hard",
+      "m7_ratio": 0.7375,
+      "m7_neg": 1,
+      "leader": "t2",
+      "leader_ratio": 4.64,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 245,
+      "task_name": "django__django-13741",
+      "category": "Easy",
+      "m7_ratio": 2.2269,
+      "m7_neg": 0,
+      "leader": "t10",
+      "leader_ratio": 12.39,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 261,
+      "task_name": "django__django-14752",
+      "category": "Hard",
+      "m7_ratio": 2.4664,
+      "m7_neg": 0,
+      "leader": "t10",
+      "leader_ratio": 12.02,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 248,
+      "task_name": "sympy__sympy-16766",
+      "category": "Easy",
+      "m7_ratio": 1.5349,
+      "m7_neg": 1,
+      "leader": "t3",
+      "leader_ratio": 5.79,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 226,
+      "task_name": "django__django-15851",
+      "category": "Medium",
+      "m7_ratio": 2.3252,
+      "m7_neg": 0,
+      "leader": "t10",
+      "leader_ratio": 8.06,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 221,
+      "task_name": "django__django-11119",
+      "category": "Medium",
+      "m7_ratio": 2.6843,
+      "m7_neg": 0,
+      "leader": "t5",
+      "leader_ratio": 8.81,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 241,
+      "task_name": "django__django-13363",
+      "category": "Hard",
+      "m7_ratio": 3.8346,
+      "m7_neg": 0,
+      "leader": "t10",
+      "leader_ratio": 12.14,
+      "leader_neg": 1
+    },
+    {
+      "task_id": 222,
+      "task_name": "django__django-15499",
+      "category": "Easy",
+      "m7_ratio": 1.2618,
+      "m7_neg": 1,
+      "leader": "t10",
+      "leader_ratio": 3.82,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 264,
+      "task_name": "sympy__sympy-24539",
+      "category": "Medium",
+      "m7_ratio": 2.5042,
+      "m7_neg": 0,
+      "leader": "t7",
+      "leader_ratio": 6.91,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 243,
+      "task_name": "django__django-13417",
+      "category": "Medium",
+      "m7_ratio": 2.1288,
+      "m7_neg": 0,
+      "leader": "t2",
+      "leader_ratio": 5.77,
+      "leader_neg": 1
+    },
+    {
+      "task_id": 223,
+      "task_name": "django__django-11133",
+      "category": "Medium",
+      "m7_ratio": 2.8438,
+      "m7_neg": 1,
+      "leader": "t3",
+      "leader_ratio": 7.32,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 259,
+      "task_name": "django__django-14580",
+      "category": "Medium",
+      "m7_ratio": 4.6922,
+      "m7_neg": 0,
+      "leader": "t4",
+      "leader_ratio": 11.77,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 217,
+      "task_name": "django__django-10880",
+      "category": "Hard",
+      "m7_ratio": 2.5006,
+      "m7_neg": 0,
+      "leader": "t1",
+      "leader_ratio": 6.17,
+      "leader_neg": 1
+    },
+    {
+      "task_id": 263,
+      "task_name": "django__django-14855",
+      "category": "Medium",
+      "m7_ratio": 3.4431,
+      "m7_neg": 0,
+      "leader": "t1",
+      "leader_ratio": 8.45,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 219,
+      "task_name": "django__django-10914",
+      "category": "Medium",
+      "m7_ratio": 2.814,
+      "m7_neg": 0,
+      "leader": "t1",
+      "leader_ratio": 6.79,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 233,
+      "task_name": "django__django-11603",
+      "category": "Medium",
+      "m7_ratio": 2.6493,
+      "m7_neg": 0,
+      "leader": "t10",
+      "leader_ratio": 6.31,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 239,
+      "task_name": "django__django-12419",
+      "category": "Hard",
+      "m7_ratio": 4.8799,
+      "m7_neg": 0,
+      "leader": "t1",
+      "leader_ratio": 11.12,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 237,
+      "task_name": "django__django-12308",
+      "category": "Hard",
+      "m7_ratio": 3.3267,
+      "m7_neg": 1,
+      "leader": "t3",
+      "leader_ratio": 7.23,
+      "leader_neg": 1
+    },
+    {
+      "task_id": 252,
+      "task_name": "sympy__sympy-17655",
+      "category": "Easy",
+      "m7_ratio": 3.6167,
+      "m7_neg": 0,
+      "leader": "t3",
+      "leader_ratio": 7.17,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 265,
+      "task_name": "django__django-14915",
+      "category": "Medium",
+      "m7_ratio": 5.7211,
+      "m7_neg": 0,
+      "leader": "t4",
+      "leader_ratio": 9.96,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 220,
+      "task_name": "django__django-15315",
+      "category": "Hard",
+      "m7_ratio": 6.0837,
+      "m7_neg": 0,
+      "leader": "t7",
+      "leader_ratio": 10.44,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 251,
+      "task_name": "django__django-14089",
+      "category": "Medium",
+      "m7_ratio": 2.2799,
+      "m7_neg": 0,
+      "leader": "t4",
+      "leader_ratio": 3.89,
+      "leader_neg": 0
+    },
+    {
+      "task_id": 246,
+      "task_name": "sympy__sympy-16450",
+      "category": "Medium",
+      "m7_ratio": 2.8212,
+      "m7_neg": 0,
+      "leader": "t3",
+      "leader_ratio": 4.79,
+      "leader_neg": 1
+    },
+    {
+      "task_id": 235,
+      "task_name": "django__django-11951",
+      "category": "Easy",
+      "m7_ratio": 3.7764,
+      "m7_neg": 0,
+      "leader": "t2",
+      "leader_ratio": 6.25,
+      "leader_neg": 1
+    }
+  ],
+  "instability_examples": [
+    {
+      "task_id": 256,
+      "task_name": "sympy__sympy-19954",
+      "category": "Hard",
+      "miner": "t9",
+      "ratio": 6.06,
+      "neg": 4,
+      "score": -1.27
+    },
+    {
+      "task_id": 260,
+      "task_name": "sympy__sympy-22714",
+      "category": "Hard",
+      "miner": "t2",
+      "ratio": 7.08,
+      "neg": 3,
+      "score": 0.596
+    },
+    {
+      "task_id": 237,
+      "task_name": "django__django-12308",
+      "category": "Hard",
+      "miner": "t2",
+      "ratio": 9.38,
+      "neg": 3,
+      "score": 1.237
+    },
+    {
+      "task_id": 237,
+      "task_name": "django__django-12308",
+      "category": "Hard",
+      "miner": "t10",
+      "ratio": 4.83,
+      "neg": 3,
+      "score": 1.2
+    },
+    {
+      "task_id": 262,
+      "task_name": "sympy__sympy-23534",
+      "category": "Medium",
+      "miner": "t2",
+      "ratio": 7.49,
+      "neg": 3,
+      "score": -1.634
+    }
+  ],
+  "feasibility": {
+    "shared_pass_tasks": 36,
+    "tasks_with_a_clean_deep_leader(>=4.5x,<=1neg)": 27,
+    "share": 0.75
+  }
+}

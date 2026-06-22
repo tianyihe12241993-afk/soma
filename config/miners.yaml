@@ -1,26 +1,27 @@
-# SOMA miner registry — source of truth for OUR hotkeys on competition 107 (subnet 114).
-# Used by compute_reward_elements.py / checkpoint to flag which leaderboard rows are ours.
+# SOMA miner registry — OUR hotkeys, competition 107 (subnet 114). COMPLETED comp.
+# hotkey→version mapping AUDITED 2026-06-21 (reports/label_mapping_audit.md): the
+# registry stands (m9=v22, m10=v18); the conflicting chat label was rejected.
+# Per-hotkey scores are scraped from the dashboard (source=platform). The derived
+# stats (avg_ratio / broke_baseline / negative_score / barely_compressed) are
+# computed from the immutable per-task scrapes in data/raw/dashboard/*_miner_detail.json
+# — they are DERIVED, not hand-entered. Flow-style one-liners so stdlib parses them.
 competition_id: 107
 netuid: 114
 wallet: tony-miner
 
+# ---- focal research set (the 5 submissions under study) ----
 miners:
-  m1:  { hotkey: 5CmLSfa3BT79PSn5JyddzLBimd8UeJZ9uz7k2qoCsAn37neq, version: v2,    note: "early, weak" }
-  m2:  { hotkey: 5FCRm5fGMYtiii42ProB2cTGoYdYkj7Navn1FPN3ZoP3YpyX, version: v4,    note: "" }
-  m3:  { hotkey: 5Cqek9Ddsmxa1kPL3DZ91VbWYGAZKScoRrUN62jNF7GSofTZ, version: v6,    note: "aggressive harvest" }
-  m5:  { hotkey: 5EP1eurVw3QWQX617GMt12cmZ1E4RV948Lyjsz1UbDrAKEj6, version: v7,    note: "failed/broken" }
-  m6:  { hotkey: 5GKM3GACUxC87qn6VecDGASrNyYDKmJRX5hLDsBaXtdCGvPF, version: v8,    note: "" }
-  m7:  { hotkey: 5GsHHNmexGGkrdjZPHW5jyCcgfUodazHeEhPBx4Rpxmy17KB, version: v11.1, note: "BEST confirmed 1.279 — protect/replicate" }
-  m8:  { hotkey: 5EF8nHthtDV3woo6oK2rNk3vGJ8ag6X1fzPMJuLhAZAMjmtc, version: v15,   note: "persistent-fail routing; Medium leaked to 1.183 on platform" }
-  m9:  { hotkey: 5CFqU2SsJbZjGwWS8cwjcCWrXxEo7gEpsE76SagDCihCmsMY, version: v22,   note: "flip-richness + release; pending eval" }
-  m10: { hotkey: 5GL4KxdashDdVd7twAGNoooPwTdkoxmcYKiEMiUBAQQaJKPh, version: v18,   note: "flip-richness; pending eval (v18 subset of v22)" }
-  m11: { hotkey: 5F26J6aGytyLoCT9T4EXqj6BNwrTJEmLtF3XsAXE436SmtTE, version: v24,   note: "flip + firm-stop decisiveness; pending eval" }
-  m12: { hotkey: 5Dz7JaCBw6t9ktdRVaLYi3ntEzvCDfb5XmTHyzPdDyT6KS9j, version: v26,   note: "depth-gated threshold; built+validated, NOT registered on subnet, NOT shipped" }
+  m7:  { hotkey: 5GsHHNmexGGkrdjZPHW5jyCcgfUodazHeEhPBx4Rpxmy17KB, label: m7,  version: v11.1, total: 1.279, easy: 1.127, medium: 1.421, hard: 1.281, avg_ratio: 2.99, broke_baseline: 1, negative_score: 3, barely_compressed: 8,  notes: "BEST confirmed. m7-style harvest. Protect/replicate. 1 fragile task (sympy-17139)." }
+  m8:  { hotkey: 5EF8nHthtDV3woo6oK2rNk3vGJ8ag6X1fzPMJuLhAZAMjmtc, label: m8,  version: v15,   total: 1.159, easy: 1.057, medium: 1.183, hard: 1.230, avg_ratio: 2.84, broke_baseline: 0, negative_score: 2, barely_compressed: 10, notes: "persistent-fail routing; Medium leaked 1.421->1.183. Net negative vs m7." }
+  m9:  { hotkey: 5CFqU2SsJbZjGwWS8cwjcCWrXxEo7gEpsE76SagDCihCmsMY, label: m9,  version: v22,   total: 0.937, easy: 1.165, medium: 0.931, hard: 0.728, avg_ratio: 2.64, broke_baseline: 3, negative_score: 9, barely_compressed: 14, notes: "flip-richness + release-on-pass. WORST. 3 broken baselines, 9 neg tasks. Drop flip." }
+  m10: { hotkey: 5GL4KxdashDdVd7twAGNoooPwTdkoxmcYKiEMiUBAQQaJKPh, label: m10, version: v18,   total: 0.916, easy: 1.029, medium: 1.073, hard: 0.653, avg_ratio: 2.66, broke_baseline: 2, negative_score: 8, barely_compressed: 15, notes: "flip-richness (subset of v22). Worst Hard 0.653. Drop flip." }
+  m11: { hotkey: 5F26J6aGytyLoCT9T4EXqj6BNwrTJEmLtF3XsAXE436SmtTE, label: m11, version: v24,   total: 1.038, easy: 0.943, medium: 1.030, hard: 1.135, avg_ratio: 2.70, broke_baseline: 1, negative_score: 7, barely_compressed: 12, notes: "flip + firm-stop decisiveness. Best of the flip bets but still < m7." }
 
-# Known rival hotkeys of interest (for context; not ours)
-rivals:
-  king:        { hotkey_prefix: 5DhHqmB1, note: "overall leader ~1.410, Hard specialist 1.751" }
-  failed_2nd:  { hotkey_prefix: 5EFLeDNS, note: "2nd 1.386 (E1.433/M1.417) — FAILED REVIEW (disqualified)" }
-  medium_lead: { hotkey_prefix: 5Dk5CXJq, note: "Medium element leader ~1.557" }
-  easy_lead:   { hotkey_prefix: 5GgUhFiG, note: "Easy element leader ~1.373 (among scored)" }
-  em_pair:     { hotkey_prefix: 5CJs9EmL, note: "(Easy,Medium) pair winner ~1.322" }
+# ---- other historical hotkeys (kept so legacy tooling still flags them 'ours') ----
+historical:
+  m1:  { hotkey: 5CmLSfa3BT79PSn5JyddzLBimd8UeJZ9uz7k2qoCsAn37neq, version: v2,  notes: "early, weak (0.884)" }
+  m2:  { hotkey: 5FCRm5fGMYtiii42ProB2cTGoYdYkj7Navn1FPN3ZoP3YpyX, version: v4,  notes: "1.003" }
+  m3:  { hotkey: 5Cqek9Ddsmxa1kPL3DZ91VbWYGAZKScoRrUN62jNF7GSofTZ, version: v6,  notes: "aggressive harvest (1.080)" }
+  m5:  { hotkey: 5EP1eurVw3QWQX617GMt12cmZ1E4RV948Lyjsz1UbDrAKEj6, version: v7,  notes: "broken/negative (-2.507)" }
+  m6:  { hotkey: 5GKM3GACUxC87qn6VecDGASrNyYDKmJRX5hLDsBaXtdCGvPF, version: v8,  notes: "1.034" }
+  m12: { hotkey: 5Dz7JaCBw6t9ktdRVaLYi3ntEzvCDfb5XmTHyzPdDyT6KS9j, version: v26, notes: "depth-gated; built+validated, NEVER registered (404 on dashboard)" }
