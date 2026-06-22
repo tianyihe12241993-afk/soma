@@ -1,0 +1,77 @@
+diff --git a/src/soma_bench/benchmark/backends/openclaw.py b/src/soma_bench/benchmark/backends/openclaw.py
+index 38d556b..2d50284 100644
+--- a/src/soma_bench/benchmark/backends/openclaw.py
++++ b/src/soma_bench/benchmark/backends/openclaw.py
+@@ -111,6 +111,11 @@ def _run_command(
+ 
+ 
+ def _host_docker_binary() -> str | None:
++    # macOS: the host CLI is a Mach-O binary on an unshared path; allow pointing
++    # the gateway mount at a Linux docker CLI on a Docker-Desktop-shared path.
++    override = os.getenv("SOMA_HOST_DOCKER_BINARY", "").strip()
++    if override and os.path.isabs(override) and os.path.isfile(override):
++        return override
+     docker_binary = shutil.which("docker")
+     if docker_binary and os.path.isabs(docker_binary):
+         return docker_binary
+@@ -3104,6 +3109,28 @@ def _build_message(context: RuntimeExecutionContext, *, repo_path: str) -> str:
+     return "\n".join(parts)
+ 
+ 
++def _sqlite_state_tmpfs_args(openclaw_user: str | None = None) -> list[str]:
++    """Keep the gateway's sqlite (WAL + shm) off host bind mounts.
++
++    On macOS, virtiofs cannot back WAL shared-memory coordination, so schema
++    written by one connection is invisible to others ("no such table"). A
++    nested tmpfs over the state/ subdir keeps sqlite on a native filesystem
++    while the rest of the state dir stays host-visible for artifact capture.
++    Opt out with SOMA_OPENCLAW_STATE_TMPFS=0 (e.g. on Linux hosts).
++    """
++    flag = os.getenv("SOMA_OPENCLAW_STATE_TMPFS", "").strip().lower()
++    if flag in {"0", "false", "no", "off"}:
++        return []
++    options = "rw,size=512m,mode=1777"
++    if openclaw_user:
++        match = re.fullmatch(r"(\d+)(?::(\d+))?", openclaw_user.strip())
++        if match:
++            options += f",uid={match.group(1)}"
++            if match.group(2):
++                options += f",gid={match.group(2)}"
++    return ["--tmpfs", f"{OPENCLAW_CONTAINER_STATE_DIR}/state:{options}"]
++
++
+ def _cli_base_args(context: RuntimeExecutionContext, *, gateway_name: str) -> list[str]:
+     state_dir = _state_dir(context)
+     openclaw_user = _resolve_openclaw_user(context)
+@@ -3117,6 +3144,7 @@ def _cli_base_args(context: RuntimeExecutionContext, *, gateway_name: str) -> li
+         f"container:{gateway_name}",
+         "-v",
+         f"{state_dir}:{OPENCLAW_CONTAINER_STATE_DIR}",
++        *_sqlite_state_tmpfs_args(openclaw_user),
+     ]
+     args.extend(_openclaw_container_hardening_args())
+     args.extend(_plugin_mount_args(context))
+@@ -3187,6 +3215,7 @@ def _start_gateway_container(
+         network_name,
+         "-v",
+         f"{state_dir}:{OPENCLAW_CONTAINER_STATE_DIR}",
++        *_sqlite_state_tmpfs_args(openclaw_user),
+         "-v",
+         f"{problems_root}:{OPENCLAW_CONTAINER_PROBLEMS_ROOT}",
+     ]
+@@ -3247,6 +3276,15 @@ def _wait_for_gateway_ready(context: RuntimeExecutionContext, *, gateway_name: s
+             )
+         probe = _run_openclaw_cli(context, gateway_name=gateway_name, cli_args=["health", "--json"])
+         if probe.returncode == 0:
++            # The health probe can pass while sqlite schema migrations are still
++            # running (slow on macOS virtiofs mounts); allow an extra settle.
++            settle_raw = os.getenv("SOMA_OPENCLAW_GATEWAY_SETTLE_SECONDS", "").strip()
++            try:
++                settle_seconds = float(settle_raw) if settle_raw else 0.0
++            except ValueError:
++                settle_seconds = 0.0
++            if settle_seconds > 0:
++                time.sleep(settle_seconds)
+             return
+         last_error = (probe.stderr or probe.stdout or "").strip()
+         time.sleep(OPENCLAW_GATEWAY_START_SLEEP_SECONDS)
