@@ -1,40 +1,53 @@
 #!/usr/bin/env python3
-"""SOMA miner H1M_m7_deeper_safe_v1 — DERIVATIVE of m7/v11.1 (DO NOT SUBMIT; research).
+"""SOMA miner H3_cache_stable_depth_v1 — DERIVATIVE of H1M/m7 (DO NOT SUBMIT; research).
 
-Difference vs m7/v11.1: ONLY the HARVEST (shallow / pass-stable) path is compressed
-deeper — exactly the regime where Medium/Easy pass-stable tasks live — via a lower
-harvest target + tighter progressive truncation caps (older tool output / stale
-reasoning trim harder; the digest already collapses dropped+duplicate interactions).
-The RICH path (deep / still-failing / flip tasks) and all protections (load-bearing
-results, ERROR_MARKERS, active paths, recent-intact window, digest path-preservation)
-are UNCHANGED, and the error-guard fires one hit sooner — so fragile / still-failing
-tasks fall back to m7 behavior automatically (the fragile-signature guard). No
-flip-mode, no persistent-failure routing, no rich rescue, no workflow steering,
-coach unchanged (loop+stop only). Compression deepened purely ALGORITHMICALLY and
-generalized by transcript structure — NO task-ID logic. Select profile with env
-H1M_PROFILE = light | medium (default) | deep ; H1M_PROFILE=m7 reproduces baseline.
+WHY: H1M's HARVEST path realizes only ~+8% compression in a real eval because it
+REBUILDS the digest and RE-TRUNCATES the entire history EVERY turn, and it INJECTS a
+GROWING digest into the FIRST user message. The provider caches the prompt PREFIX
+(observed as large cache_read counts). Any byte change to an early message invalidates
+the cache from that point on → every turn is a cache MISS → it costs MORE tokens.
 
-Strategy vs the reference baseline (which keeps only the first user message and
-the last 4 tool results):
+WHAT CHANGED vs H1M@deep — only the HARVEST path is re-architected to be CACHE-STABLE.
+The PASSTHROUGH path and the RICH path (compress_gently) are kept INTACT, and every
+protection (load-bearing content, ERROR_MARKERS, active paths, recent-intact tail,
+orphan/pairing guard, fragile-guard routing to rich) is preserved.
 
-- Keep ALL user/system messages verbatim (task statement + follow-up instructions).
-- Keep assistant text everywhere (the agent's plan and findings), truncating only
-  old, long text under budget pressure.
-- Keep recent tool interactions intact; head+tail-truncate older tool results
-  instead of deleting them; fully drop only the oldest interactions, and only
-  when the token budget requires it.
-- Every fully dropped interaction leaves a one-line digest (tool + args + result
-  snippet) inside a sentinel-marked block appended to the first user message, so
-  discovered facts (paths, line numbers, error strings) survive compression.
-  The digest is parsed back out and regenerated on later rounds (no nesting).
-- Exact-duplicate tool results (same file read twice) are dropped first.
-- toolCall/toolResult pairing is preserved by construction: a result is dropped
-  if and only if its invoking toolCall block is stripped in the same step. A
-  final orphan check falls back to sanitize-only output if pairing ever breaks.
+New cache-stable HARVEST design (`compress_cache_stable`):
+- FROZEN HEAD: the system message(s) + the FIRST user message (the task statement) are
+  emitted BYTE-IDENTICAL. No digest is injected or grown in the first message. The whole
+  `inject_digest`/digest-rebuild mechanism is dropped from this path.
+- RECENT-INTACT TAIL: the last RICH_INTACT_MSGS messages are byte-intact.
+- OLD MESSAGES (between head and tail): each is compressed as a PURE FUNCTION OF ITS OWN
+  CONTENT — not of global state, not of position-from-end. So the same old message always
+  compresses to the same bytes; as the trajectory grows by appending, already-compressed
+  old messages stay byte-identical, and the cached prefix only changes at the ONE message
+  that just crossed the tail boundary. That is the cache win.
+- MASK TOOL-RESULT BODIES IN PLACE (−4 defense): never drop a tool message, never break
+  tool_call/tool_result pairing. A stale tool-result body is replaced with a deterministic
+  marker that PRESERVES command, exit/status, failing-test names, assertion lines, the
+  traceback tail, file paths and line numbers (extracted with the existing helpers).
+- SUPERSEDED FILE-VIEW ELISION: if the same path is read/shown again later, earlier full
+  views collapse to a one-line ref; the LATEST view stays high fidelity.
+- STICKY KEEP-LIST: load-bearing items (active file paths, failing-test names, assertion
+  lines, traceback tails, current patch/diff) are ALWAYS preserved, regardless of depth.
+- MINIMIZE PRUNE EVENTS: only drop oldest messages if, after masking/elision, the result
+  still exceeds a HARD cap; prefer masking over dropping. Between prunes the head + old
+  region stays byte-stable.
 
-Protocol (same as the reference): `python improved_miner.py assemble` with the
-connector payload on stdin, a single JSON object on stdout. Stdlib only;
-tiktoken is used for the reported token estimate when available.
+FRAGILE-GUARD HARDENING (general transcript signals only, NO task-id logic): borderline
+error-dense / repeated-failure / large-still-failing transcripts fall back to the RICH
+path EARLIER than h1m@deep (lower recent error-hit threshold, plus oscillating-failure
+and large-still-failing detectors).
+
+Profiles (env H3_PROFILE, default cache_safe) — control how aggressively masked bodies /
+elided views are truncated; deeper = shorter kept head/tail. cache_safe ≈ h1m@deep depth
+but cache-stable; cache_king ≈ king-like deeper; cache_ultra = over-push (locate the
+break boundary). Kept-bytes monotonic: ultra ⊆ king ⊆ safe.
+
+Protocol (same as the reference): `python h3_miner.py assemble` with the connector
+payload on stdin, a single JSON object on stdout. Stdlib only; tiktoken is used for the
+reported token estimate when available. run_event / cli_main / plugin entry contract are
+identical to H1M so the existing driver can run this as `base_miner.py`.
 """
 
 from __future__ import annotations
@@ -187,33 +200,50 @@ TEST_LINE_PATTERN = re.compile(
 
 
 # ===========================================================================
-# H1M PROFILE LAYER — the ONLY behavioural change vs m7/v11.1.
-# Overrides harvest-path knobs only (TARGET + progressive truncation caps).
-# RICH_* / GENTLE_PROTECTED_CAP / ERROR_MARKERS / digest-preservation untouched,
-# so protected content and the rich/flip path stay exactly as m7. The error-guard
-# fires one hit sooner so borderline still-failing tasks bail to rich (= m7).
-# Select with env H1M_PROFILE; H1M_PROFILE=m7 reproduces the baseline exactly.
+# H3 CACHE-STABLE HARVEST CONSTANTS.
+# A masked old tool-result body keeps a HEAD + TAIL of its own text (so command
+# echoes, leading diagnostics and the traceback tail survive) and replaces the
+# stale middle with a deterministic, content-derived marker. These caps are a
+# PURE FUNCTION OF THE PROFILE — never of position-from-end — so the same old
+# message masks to the same bytes on every turn (the cache invariant).
+HARD_CAP_TOKENS = 60_000       # only PRUNE (drop oldest) if masking still exceeds this
+MASK_BODY_MAX = 1_400          # bodies shorter than this are never masked (cheap; keep intact)
+SUPERSEDED_VIEW_MIN_CHARS = 400  # only elide superseded file views at least this large
+
+# ---------------------------------------------------------------------------
+# H3 PROFILE LAYER — selects masking/elision DEPTH for the cache-stable harvest.
+# Kept-bytes are MONOTONIC: ultra ⊆ king ⊆ safe. Each field is a budget on the
+# HEAD/TAIL of a masked tool-result body or a per-message stale cap; deeper
+# profiles keep less. RICH path / GENTLE_PROTECTED_CAP / ERROR_MARKERS untouched.
+# Select with env H3_PROFILE (default cache_safe). The real driver bakes the
+# value into the file, so reading os.environ at import is sufficient.
 import os as _os
-_H1M_PROFILES = {
-    # (TARGET_TOKENS, MID_HEAD, MID_TAIL, MID2_HEAD, MID2_TAIL,
-    #  ASSIST_HEAD, ASSIST_TAIL, TAIL_RESULT_CAP, ERROR_GUARD_MIN_HITS)
-    "m7":     (8_000, 1_000, 400, 500, 200, 1_200, 300, 16_000, 4),  # exact baseline
-    "light":  (7_000,   850, 350, 450, 180, 1_000, 280, 13_000, 3),
-    "medium": (6_000,   650, 280, 380, 160,   850, 250, 11_000, 3),  # target ~4.0x
-    "deep":   (5_200,   520, 220, 320, 140,   700, 220,  9_000, 3),  # target ~4.5-5.0x
-    # king-depth sweep (2026-06-22): push toward the depth-kings' ~4.8-5.0x mean ratio while keeping
-    # protections + rich/flip path intact (only stale-content truncation tightens). The real-eval
-    # sweep finds where passes start breaking = the pass-safe depth ceiling. t10 shows crude over-push
-    # crashes pass-rate (5.24x but 33 passes) — so each level is validated, not assumed.
-    "king":   (3_600,   360, 150, 230, 100,   520, 170,  6_500, 3),  # aim ~king ratio (~4.8x)
-    "ultra":  (2_400,   240, 100, 150,  70,   360, 120,  4_500, 3),  # over-push to locate the break point
+_H3_PROFILES = {
+    # (MASK_HEAD, MASK_TAIL, PROTECTED_MASK_HEAD, PROTECTED_MASK_TAIL,
+    #  STALE_CAP, ASSIST_HEAD, ASSIST_TAIL, ERROR_GUARD_MIN_HITS)
+    # MASK_*            : head/tail bytes kept around a masked stale (non-load-bearing) body
+    # PROTECTED_MASK_*  : head/tail bytes kept when masking a LOAD-BEARING body (error/test/diff)
+    #                     — never below what the sticky keep-list needs; bigger than MASK_*
+    # STALE_CAP         : per-message extractive cap for stale bodies before masking kicks in
+    # ASSIST_*          : head/tail bytes for old assistant prose
+    # ERROR_GUARD_MIN_HITS: recent error-bearing results that route to RICH (lower = earlier bail)
+    "cache_safe":  (520, 220, 1_400, 1_200, 9_000, 700, 220, 3),  # ~h1m@deep depth, cache-stable
+    "cache_king":  (360, 150,   900,   800, 6_500, 520, 170, 2),  # king-like deeper
+    "cache_ultra": (240, 100,   600,   520, 4_500, 360, 120, 2),  # over-push (locate break boundary)
 }
-H1M_PROFILE = _os.environ.get("H1M_PROFILE", "medium").strip().lower()
-if H1M_PROFILE not in _H1M_PROFILES:
-    H1M_PROFILE = "medium"
-(TARGET_TOKENS, MID_HEAD, MID_TAIL, MID2_HEAD, MID2_TAIL,
- ASSIST_HEAD, ASSIST_TAIL, TAIL_RESULT_CAP, ERROR_GUARD_MIN_HITS) = _H1M_PROFILES[H1M_PROFILE]
-# conclude-now governor depth tracks the (possibly lower) harvest target
+H3_PROFILE = _os.environ.get("H3_PROFILE", "cache_safe").strip().lower()
+if H3_PROFILE not in _H3_PROFILES:
+    H3_PROFILE = "cache_safe"
+(MASK_HEAD, MASK_TAIL, PROTECTED_MASK_HEAD, PROTECTED_MASK_TAIL,
+ STALE_CAP, ASSIST_HEAD, ASSIST_TAIL, ERROR_GUARD_MIN_HITS) = _H3_PROFILES[H3_PROFILE]
+# Legacy h1m harvest knobs retained for the old (now unused) compress_structurally
+# helper which we keep for reference but no longer route to. TARGET_TOKENS only
+# governs the conclude-now governor depth below.
+TARGET_TOKENS = 5_200
+MID_HEAD, MID_TAIL = 520, 220
+MID2_HEAD, MID2_TAIL = 320, 140
+TAIL_RESULT_CAP = 9_000
+# conclude-now governor depth tracks the harvest target
 GOVERNOR_TARGET_TOKENS = min(GOVERNOR_TARGET_TOKENS, TARGET_TOKENS)
 
 
@@ -672,6 +702,78 @@ def recent_errors(messages: list[Any], window: int = ERROR_GUARD_WINDOW) -> int:
         if seen >= window:
             break
     return hits
+
+
+# ---------------------------------------------------------------------------
+# H3 FRAGILE-GUARD HARDENING — general transcript signals only, NO task-id logic.
+# H1M rejected a fragile task (django-14493) the baseline kept; the fix is to make
+# borderline error-dense / repeated-failure / large-still-failing transcripts fall
+# back to the RICH (m7-like) path EARLIER. These are the extra signals layered on
+# top of H1M's recent-error-window count.
+# ---------------------------------------------------------------------------
+
+# Tunables for the hardened guard (general signals; no instance ids anywhere).
+OSCILLATION_WINDOW = 14        # recent tool results scanned for recurring failure signatures
+OSCILLATION_MIN_REPEAT = 2     # a failing test/assertion recurring this many times = oscillating
+LARGE_FAILING_MSGS = 60        # a transcript at least this deep that is STILL error-bearing -> rich
+ERROR_DENSITY_WINDOW = 8       # recent tool results scanned for error density
+ERROR_DENSITY_MIN_HITS = 4     # this many error-bearing in the recent (wider) window -> rich
+_FAIL_SIG_PATTERN = re.compile(
+    r"(?:FAILED|FAIL|ERROR)[: ]\s*(\S+)"          # FAILED path::test
+    r"|(\S+\.py::\S+)"                              # pytest node id
+    r"|(AssertionError[^\n]{0,120})",              # assertion text
+    re.M,
+)
+
+
+def _failure_signatures(text: str) -> list[str]:
+    """Stable signatures of what is failing: failing-test node ids and assertion
+    lines. Used to detect the SAME failure recurring across rounds (oscillation)."""
+    sigs: list[str] = []
+    for m in _FAIL_SIG_PATTERN.finditer(text[:40_000]):
+        sig = collapse_ws(next((g for g in m.groups() if g), "")).lower()
+        if sig and len(sig) >= 4:
+            sigs.append(clip(sig, 100))
+    return sigs
+
+
+def oscillating_failures(messages: list[Any], window: int = OSCILLATION_WINDOW) -> bool:
+    """True if the SAME failing test / assertion recurs across multiple recent rounds.
+    A bug that keeps producing the identical failure is not being resolved and needs
+    rich context to flip — exactly the H1M break case. Generic; no task ids."""
+    rounds: list[set[str]] = []
+    seen = 0
+    for message in reversed(messages):
+        if not isinstance(message, dict) or normalize_role(message.get("role")) != "toolResult":
+            continue
+        if is_error_bearing(message):
+            sigs = set(_failure_signatures(extract_text(message.get("content"))))
+            if sigs:
+                rounds.append(sigs)
+        seen += 1
+        if seen >= window:
+            break
+    counts: dict[str, int] = {}
+    for sigs in rounds:
+        for s in sigs:  # count distinct ROUNDS a signature appears in
+            counts[s] = counts.get(s, 0) + 1
+    return any(n >= OSCILLATION_MIN_REPEAT for n in counts.values())
+
+
+def fragile_transcript(messages: list[Any], msg_depth: int) -> bool:
+    """Hardened route-to-rich trigger (general signals). Fires EARLIER than
+    h1m@deep's single recent-window count by also catching:
+      - wider-window error density (still grinding errors recently),
+      - oscillating failures (same failing test/assertion recurring),
+      - large transcripts that are still error-bearing at the tail.
+    NO instance-id logic."""
+    if recent_errors(messages, ERROR_DENSITY_WINDOW) >= ERROR_DENSITY_MIN_HITS:
+        return True
+    if oscillating_failures(messages):
+        return True
+    if msg_depth >= LARGE_FAILING_MSGS and recent_errors(messages, 2) >= 1:
+        return True
+    return False
 
 
 # ---------------------------------------------------------------------------
@@ -1136,6 +1238,314 @@ def inject_digest(message: Any, entries: list[str]) -> Any:
     return message
 
 
+# ===========================================================================
+# H3 CACHE-STABLE HARVEST — the central re-architecture vs H1M.
+#
+# The invariant: an OLD message (between the frozen head and the recent-intact
+# tail) is compressed as a PURE FUNCTION OF ITS OWN CONTENT plus a small set of
+# trajectory-wide, append-monotonic facts (the set of later-read file paths, and
+# the global sticky keep-list). None of these depend on position-from-end or on a
+# per-turn rebuilt digest, so as the trajectory grows by appending, an already-old
+# message masks to the SAME bytes every turn → the cached prefix is stable up to
+# the single message that just crossed the tail boundary.
+# ===========================================================================
+
+# Body lines that must NEVER be elided from a tool result, regardless of profile.
+# (Command echoes, exit/status, failing tests, assertions, traceback frames,
+# file:line refs, diff/patch lines.) These are extracted and pinned into the mask.
+_CMD_ECHO_PATTERN = re.compile(
+    r"^\s*(?:\$|#|>|PS[ >]|running:|cmd:|command:|exit(?:\s*code)?[:=]|status[:=]|"
+    r"return\s*code[:=]).*$",
+    re.M | re.I,
+)
+_TRACE_FRAME_PATTERN = re.compile(r'^\s*File "[^"]+", line \d+', re.M)
+_LINE_REF_PATTERN = re.compile(r"\b[\w./-]+\.[A-Za-z]{1,4}:\d+\b")
+
+
+def _pinned_lines(text: str) -> list[str]:
+    """The load-bearing lines of a tool-result body, in original order: command
+    echoes / exit codes, failing-test ids, assertion lines, traceback frames,
+    file:line refs, diff lines, and error-marker lines. Pure function of text."""
+    out: list[str] = []
+    for line in text.split("\n"):
+        s = line.strip()
+        if not s:
+            continue
+        low = s.lower()
+        if (
+            _CMD_ECHO_PATTERN.match(line)
+            or TEST_LINE_PATTERN.search(line)
+            or _TRACE_FRAME_PATTERN.match(line)
+            or _DIFF_PATTERN.match(line)
+            or _LINE_REF_PATTERN.search(line)
+            or any(marker in low for marker in ERROR_MARKERS)
+        ):
+            out.append(s)
+    # de-dup while preserving order (keep the mask deterministic + compact)
+    seen: set[str] = set()
+    uniq: list[str] = []
+    for s in out:
+        if s not in seen:
+            seen.add(s)
+            uniq.append(s)
+    return uniq
+
+
+def mask_tool_body(text: str, head: int, tail: int, *, protected: bool) -> str:
+    """Replace a stale tool-result BODY with a deterministic, content-derived
+    marker that PRESERVES the load-bearing lines (command, exit/status, failing
+    tests, assertions, traceback tail, paths, line numbers). PURE function of
+    (text, head, tail, protected) — no global state, no position info — so the
+    same body always masks to the same bytes (the cache invariant)."""
+    n_lines = text.count("\n") + 1
+    pinned = _pinned_lines(text)
+    # Always keep a HEAD of the raw body (command echo + first diagnostics) and a
+    # TAIL (the traceback tail / final assertion). Profile sets head/tail depth.
+    head_text = text[:head].rstrip()
+    tail_text = text[-tail:].lstrip() if tail else ""
+    keep_pins = pinned if protected else pinned[: max(8, len(pinned) // 2 + 1)]
+    parts = [head_text]
+    if keep_pins:
+        # only surface pins not already visible in head/tail (keep bytes compact + stable)
+        extra = [p for p in keep_pins if p not in head_text and p not in tail_text]
+        if extra:
+            parts.append("[soma key lines: " + " ⏎ ".join(extra) + "]")
+    parts.append(f"[old output elided: {n_lines} lines]")
+    if tail_text:
+        parts.append(tail_text)
+    return "\n".join(p for p in parts if p)
+
+
+def _set_body_text(message: Any, new_text: str) -> Any:
+    """Return a copy of `message` with its first string text field replaced by
+    `new_text`. Preserves block structure / tool_call_id / role."""
+    out = copy.deepcopy(message)
+    content = out.get("content")
+    if isinstance(content, str):
+        out["content"] = new_text
+        return out
+    if isinstance(content, list):
+        for block in content:
+            if isinstance(block, dict):
+                for field in ("text", "content"):
+                    if isinstance(block.get(field), str):
+                        block[field] = new_text
+                        return out
+    return out
+
+
+# File-view detection: a tool result that is predominantly a file's contents
+# (associated with a path the agent read). We key superseding on the path.
+def _result_file_path(message: Any, call_message: Any, call_id: str | None) -> str | None:
+    """Best-effort path this tool result is a view OF: prefer the invoking
+    tool-call's path arg, else a path on the first body line. Pure per-interaction."""
+    if isinstance(call_message, dict) and call_id:
+        for block in iter_tool_call_blocks(call_message):
+            if block.get("id") != call_id:
+                continue
+            for field in ("arguments", "args", "input", "parameters"):
+                if field in block:
+                    args_text = extract_text(block[field])
+                    m = re.search(r'["\']?(?:path|file|filename|filepath)["\']?\s*[:=]\s*["\']?([\w./-]+\.[A-Za-z]{1,5})', args_text)
+                    if m:
+                        return m.group(1)
+                    found = PATH_PATTERN.findall(args_text)
+                    if found:
+                        return found[0].split(":")[0]
+    return None
+
+
+def superseded_view_ref(path: str, n_lines: int) -> str:
+    return f"[old file view elided: path={path}, {n_lines} lines, superseded by later read]"
+
+
+def _has_critical_content(message: Any) -> bool:
+    """Genuine ground-truth content the agent patches against: error/test output or
+    diff/patch lines. Unlike `_is_load_bearing`, this does NOT treat a mere
+    active-path mention as protected — used for superseded views, whose path content
+    is preserved by the LATEST (kept) view, so an earlier copy that only *mentions*
+    the path is safe to elide. Error/diff/test content is still always protected."""
+    if is_error_bearing(message):
+        return True
+    text = extract_text(message.get("content"))
+    for line in text.split("\n"):
+        if _DIFF_PATTERN.match(line) or TEST_LINE_PATTERN.search(line):
+            return True
+    return False
+
+
+def compress_cache_stable(
+    messages: list[Any], hard_cap_tokens: int = HARD_CAP_TOKENS
+) -> tuple[list[Any], dict[str, Any]]:
+    """Cache-stable HARVEST. Frozen head + recent-intact tail; old messages masked
+    as a pure function of their own content; tool bodies masked in place (never
+    dropped, pairing preserved); superseded file views elided; sticky keep-list
+    always preserved; prune (drop) only as a last resort past a hard cap."""
+    info: dict[str, Any] = {
+        "maskedToolResults": 0,
+        "elidedFileViews": 0,
+        "pruneEvents": 0,
+        "reason": "nothing_to_remove",
+    }
+    n = len(messages)
+    if n == 0:
+        return messages, {**info, "reason": "empty"}
+
+    call_ids_cache = [extract_tool_call_ids(m) for m in messages]
+
+    # ---- Frozen head: leading system message(s) + the FIRST user message. ----
+    first_user_index = next(
+        (i for i, m in enumerate(messages)
+         if isinstance(m, dict) and normalize_role(m.get("role")) == "user"),
+        None,
+    )
+    head_end = 0  # exclusive; messages[:head_end] are byte-frozen
+    i = 0
+    while i < n and isinstance(messages[i], dict) and normalize_role(messages[i].get("role")) == "system":
+        i += 1
+        head_end = i
+    if first_user_index is not None:
+        head_end = max(head_end, first_user_index + 1)
+
+    # ---- Recent-intact tail: the last RICH_INTACT_MSGS messages. ----
+    tail_start = max(head_end, n - RICH_INTACT_MSGS)
+
+    # ---- Sticky keep-list (load-bearing, trajectory-wide). ----
+    active = frozenset(active_paths(messages))
+
+    # ---- Superseded file views: a path read/shown again LATER supersedes its
+    #      earlier views. Computed once from the full trajectory (append-monotonic:
+    #      a path's "later read" set only grows, and the LATEST view is the tail-most
+    #      occurrence — so an old view's superseded status only ever flips ONCE). ----
+    #   For each interaction, find the path it views; the LAST interaction for a
+    #   path is authoritative (kept high-fidelity); earlier ones are superseded.
+    result_path_at: dict[int, str] = {}
+    last_view_index_for: dict[str, int] = {}
+    for idx in range(n):
+        msg = messages[idx]
+        if not isinstance(msg, dict) or normalize_role(msg.get("role")) != "toolResult":
+            continue
+        rids = extract_tool_result_ids(msg)
+        call_index = find_call_index(messages, idx, call_ids_cache)
+        call_msg = messages[call_index] if call_index is not None else None
+        call_id = next(iter(rids), None)
+        path = _result_file_path(msg, call_msg, call_id)
+        if path:
+            result_path_at[idx] = path
+            last_view_index_for[path] = idx
+
+    output: list[Any] = []
+    for idx, message in enumerate(messages):
+        if idx < head_end or idx >= tail_start:
+            output.append(message)  # frozen head / recent-intact tail: byte-identical
+            continue
+        role = normalize_role(message.get("role")) if isinstance(message, dict) else ""
+        if role != "toolResult":
+            # Old assistant prose / interstitial user notes: assistant text trimmed
+            # as a pure function of its own content (head/tail). Tool-call blocks
+            # are NEVER stripped here (pairing preservation).
+            if role == "assistant":
+                new_msg, did = truncate_message(message, ASSIST_HEAD, ASSIST_TAIL)
+                output.append(new_msg)
+            else:
+                output.append(message)
+            continue
+
+        body = extract_text(message.get("content"))
+        path = result_path_at.get(idx)
+
+        # 1) Superseded file-view elision: an earlier full view of a path that is
+        #    read again later → one-line ref. The LATEST view of the path is kept
+        #    high-fidelity, so an earlier copy that merely re-shows the path is
+        #    redundant. We only refuse to elide if the earlier copy carries genuine
+        #    ground-truth (error/test/diff) content — _has_critical_content, NOT the
+        #    broader active-path guard which would protect every view of an active
+        #    file and defeat the elision entirely.
+        if (
+            path
+            and last_view_index_for.get(path, idx) > idx
+            and len(body) >= SUPERSEDED_VIEW_MIN_CHARS
+            and not _has_critical_content(message)
+        ):
+            ref = superseded_view_ref(path, body.count("\n") + 1)
+            output.append(_set_body_text(message, ref))
+            info["elidedFileViews"] += 1
+            continue
+
+        # 2) Mask the stale body in place (message + tool_call_id kept). Small
+        #    bodies are left intact (cheap, and avoids churn). Load-bearing bodies
+        #    are masked with the deeper protected head/tail so all pinned lines
+        #    survive; everything pinned is re-surfaced regardless.
+        if len(body) <= MASK_BODY_MAX:
+            output.append(message)
+            continue
+        protected = _is_load_bearing(message, active)
+        if protected:
+            new_body = mask_tool_body(body, PROTECTED_MASK_HEAD, PROTECTED_MASK_TAIL, protected=True)
+        else:
+            new_body = mask_tool_body(body, MASK_HEAD, MASK_TAIL, protected=False)
+        if new_body != body:
+            output.append(_set_body_text(message, new_body))
+            info["maskedToolResults"] += 1
+        else:
+            output.append(message)
+
+    # ---- Prune (drop oldest) ONLY if still over the hard cap after masking. ----
+    #   Prefer masking over dropping; this keeps prune events at 0 under the cap and
+    #   keeps the head+old region byte-stable between prunes. We drop oldest WHOLE
+    #   interactions (toolCall block + its toolResult) so pairing is never broken.
+    hard_cap_chars = hard_cap_tokens * CHARS_PER_TOKEN
+    if sum(message_cost(m) for m in output) > hard_cap_chars:
+        output, dropped = _prune_oldest_interactions(output, head_end, hard_cap_chars)
+        info["pruneEvents"] = dropped
+
+    if info["maskedToolResults"] or info["elidedFileViews"] or info["pruneEvents"]:
+        info["reason"] = "cache_stable"
+    info["headEnd"] = head_end
+    info["tailStart"] = tail_start
+    return output, info
+
+
+def _prune_oldest_interactions(
+    messages: list[Any], head_end: int, hard_cap_chars: int
+) -> tuple[list[Any], int]:
+    """Drop oldest whole (toolCall + toolResult) interactions past the frozen head
+    until under the hard cap. Removes the toolResult AND strips the matching
+    toolCall block from its assistant message, so no orphan is ever created."""
+    call_ids_cache = [extract_tool_call_ids(m) for m in messages]
+    result_indices = [
+        i for i, m in enumerate(messages)
+        if i >= head_end and isinstance(m, dict) and normalize_role(m.get("role")) == "toolResult"
+    ]
+    drop_result: set[int] = set()
+    strip_by_call: dict[int, set[str]] = {}
+    total = sum(message_cost(m) for m in messages)
+    dropped = 0
+    for ridx in result_indices:  # oldest first
+        if total <= hard_cap_chars:
+            break
+        rids = extract_tool_result_ids(messages[ridx])
+        cidx = find_call_index(messages, ridx, call_ids_cache)
+        if not rids or cidx is None or cidx < head_end:
+            continue  # un-droppable without breaking pairing/head → skip
+        drop_result.add(ridx)
+        strip_by_call.setdefault(cidx, set()).update(rids)
+        total -= message_cost(messages[ridx])
+        dropped += 1
+    if not dropped:
+        return messages, 0
+    out: list[Any] = []
+    for idx, message in enumerate(messages):
+        if idx in drop_result:
+            continue
+        if idx in strip_by_call:
+            message = strip_tool_call_blocks(message, strip_by_call[idx])
+            if assistant_is_empty(message):
+                continue
+        out.append(message)
+    return out, dropped
+
+
 # ---------------------------------------------------------------------------
 # Structural compression
 # ---------------------------------------------------------------------------
@@ -1380,6 +1790,42 @@ def compress_structurally(
 
 
 # ---------------------------------------------------------------------------
+# Cache metrics: hash the emitted prefix up to the recent-tail boundary so we can
+# verify offline that the cached prefix stays byte-stable turn over turn.
+# ---------------------------------------------------------------------------
+
+def prefix_boundary(messages: list[Any]) -> int:
+    """Index where the recent-intact tail begins (the prefix is messages[:this]).
+    Mirrors compress_cache_stable's tail_start."""
+    n = len(messages)
+    head_end = 0
+    i = 0
+    while i < n and isinstance(messages[i], dict) and normalize_role(messages[i].get("role")) == "system":
+        i += 1
+        head_end = i
+    first_user_index = next(
+        (j for j, m in enumerate(messages)
+         if isinstance(m, dict) and normalize_role(m.get("role")) == "user"),
+        None,
+    )
+    if first_user_index is not None:
+        head_end = max(head_end, first_user_index + 1)
+    return max(head_end, n - RICH_INTACT_MSGS)
+
+
+def prefix_bytes(messages: list[Any]) -> bytes:
+    """Canonical bytes of the cache-stable prefix (head + masked old region),
+    excluding the recent-intact tail. The provider caches this region; we hash it
+    to detect cache invalidation."""
+    boundary = prefix_boundary(messages)
+    return canonical_json(messages[:boundary]).encode("utf-8")
+
+
+def prefix_hash(messages: list[Any]) -> str:
+    return hashlib.sha256(prefix_bytes(messages)).hexdigest()
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
@@ -1415,20 +1861,24 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
     # Cumulative raw tokens processed this session (monotonic; secondary "large"
     # net for deep/wander tasks). estimate on raw input so harvest can't shrink it.
     cumulative_observed = int(extras.get("cumulativeObserved") or 0) + estimate_tokens(raw_messages)
-    # Break guard: a task past a few rounds whose RECENT results are still
-    # error-bearing is working hard and still failing (e.g. sympy's dimension
-    # error) — it needs rich context, not the harvest. This is the only signal
-    # that separates hard-but-shallow tasks from harvest-safe medium tasks.
+    # Break guard (H1M): a task past a few rounds whose RECENT results are still
+    # error-bearing is working hard and still failing — it needs rich context, not
+    # the harvest. H3 HARDENS this with general signals (no task-id logic): wider-
+    # window error density, oscillating failures (same failing test/assertion
+    # recurring), and large transcripts still error-bearing at the tail. Borderline
+    # fragile transcripts thus fall back to RICH (m7-like) EARLIER than h1m@deep.
     still_failing = (
         msg_depth >= ERROR_GUARD_MIN_MSGS
         and recent_errors(working) >= ERROR_GUARD_MIN_HITS
     )
+    fragile = msg_depth >= ERROR_GUARD_MIN_MSGS and fragile_transcript(working, msg_depth)
     if (
         prev_mode == "rich"
         or msg_depth >= LARGE_THRESHOLD_MSGS
         or observed >= LARGE_THRESHOLD_TOKENS
         or cumulative_observed >= CUM_THRESHOLD
         or still_failing
+        or fragile
     ):
         mode = "rich"
     elif prev_mode == "harvest" or observed >= PASS_THROUGH_TOKENS:
@@ -1451,16 +1901,16 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
         info: dict[str, Any] = {"reason": "below_activation_threshold"}
         changed = False
     elif mode == "harvest":
-        # v6-style aggressive drop-with-digest: compress the trajectory toward an
-        # 8k target by truncating old tool output and dropping the oldest
-        # interactions (a one-line digest is left behind in the first user
-        # message), recovering the pass-task token bonus on shallow tasks.
+        # H3 CACHE-STABLE harvest: frozen head (system + first user, byte-identical,
+        # NO injected digest) + recent-intact tail; old messages masked as a PURE
+        # FUNCTION OF THEIR OWN CONTENT (tool bodies masked in place, never dropped;
+        # superseded file views elided; sticky keep-list always preserved). Prunes
+        # only past a hard cap. → the cached prefix stays byte-stable turn over turn.
         # Orphan-guarded; never ships pairing we broke ourselves.
         sanitized = working
-        result_messages, info = compress_structurally(
-            working, escalation, target_tokens=TARGET_TOKENS
-        )
-        pruned = info.get("reason") == "pruned"
+        prefix_before = prefix_hash(working)
+        result_messages, info = compress_cache_stable(working)
+        pruned = info.get("pruneEvents", 0) > 0
         in_result_orphans, in_call_orphans = orphan_ids(sanitized)
         out_result_orphans, out_call_orphans = orphan_ids(result_messages)
         if not (out_result_orphans <= in_result_orphans and out_call_orphans <= in_call_orphans):
@@ -1471,6 +1921,13 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
             result_messages = raw_messages
             info = {"reason": "empty_output_fallback"}
             pruned = False
+        # Cache metrics (offline inspection): prefix hash before/after, stable bytes.
+        info["prefixHashBefore"] = prefix_before
+        info["prefixHashAfter"] = prefix_hash(result_messages)
+        info["stablePrefixBytes"] = len(prefix_bytes(result_messages))
+        info.setdefault("pruneEvents", 0)
+        info.setdefault("maskedToolResults", 0)
+        info.setdefault("elidedFileViews", 0)
         result_messages = append_coach(
             strip_coach(result_messages), governor=observed >= GOVERNOR_TOKENS
         )

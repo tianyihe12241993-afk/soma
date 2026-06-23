@@ -32,3 +32,24 @@ Columns: total / Easy / Medium / Hard. As of ~2026-06-21 (mid-eval, provisional)
 Incentive split: 5EkiFXSR ~66.7%, 5FbqgypX ~14.3%, 5DhHqmB1 ~14.3%, 5GgUhFiG ~4.8%.
 **Us:** win nothing. Closest = Medium (m7 1.421) — now 3rd+ behind 1.620 and others.
 _(machine-truth: data/latest/category_winners.json — regenerate with `make reward`.)_
+
+## ⚠️ UPDATE 2026-06-22 — TOP MINERS FAILED REVIEW → standings reshuffled
+Dashboard re-check (per-miner comp-107 pages; a new competition cycle has opened so default /dashboard moved):
+**FAILED REVIEW (excluded from reward): t1 5EkiFXSR (1.460), t2 5E7hCCzj (1.436), t3 5FbqgypX (1.415=Medium
+king), t4 5DhHqmB1 (1.410=Hard king), t5 5GEUZcud (1.355), t7 5ERdwbn5 (1.263).** Survivors: t6 5G6J5dA1
+(1.335), t8 5EPkREJ9 (1.256), t9 5CJs9EmL (1.222), t10 5GgUhFiG (1.158) + our miners.
+
+**Recomputed element leaders among VALID miners (tracked set; ranks 11+ untracked → confirm vs full board):**
+| element | leader | score | m7 (us) |
+|---|---|---|---|
+| Overall (E,M,H) | t6 | 1.334 | **#2, 1.276** |
+| Medium | t9 | 1.423 | **1.421 (≈TIE — +0.003 wins)** |
+| (M,H) pair | t6 | 1.361 | **#2, 1.351** |
+| Hard | t6 | 1.525 | #3, 1.281 |
+| Easy | t10 | 1.373 | 1.127 |
+| (E,M) pair | t9 | 1.321 | #3, 1.274 |
+| (E,H) pair | t6 | 1.403 | 1.204 |
+
+**m7 is now top-tier and review-PASSING.** New effective king = **t6 (1.335, ratio only 2.88× — NOT a deep
+compressor; wins via Hard 1.525 + balance)**. ⚠️ WHY the top failed = unknown (NOT ratio-driven: t10 survived
+at 5.24×, t5 failed at 2.40×) → investigate before aggressive-compression bets.

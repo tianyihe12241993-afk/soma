@@ -1,0 +1,425 @@
+{
+  "computed_at": "2026-06-22T15:32:57Z",
+  "note": "Offline compliance + structural-safety + cache-stability for H4_compliant_cache_stable vs H3. Platform pass/fail = PENDING_EVAL (needs SOMA SWE-bench). Structural-safety is a pass-safety PROXY.",
+  "scanner": {
+    "h4": {
+      "target": "/Users/user/SOMA/experiments/candidates/H4_compliant_cache_stable/h4_miner.py",
+      "exit": 0,
+      "pass": true,
+      "report": "[PASS] /Users/user/SOMA/experiments/candidates/H4_compliant_cache_stable/h4_miner.py\n    no disallowed prompt edits found (only allowed CMP/BLOCK markers + allowed loop-reason strings).\n\nRESULT: PASS \u2014 compliant"
+    },
+    "h3_sanity_should_fail": {
+      "target": "/Users/user/SOMA/experiments/candidates/H3_cache_stable_depth_v1/h3_miner.py",
+      "exit": 1,
+      "pass": false,
+      "report": "[FAIL] /Users/user/SOMA/experiments/candidates/H3_cache_stable_depth_v1/h3_miner.py\n    - L1028: force-stop: STOP NOW -> found 'STOP NOW'\n    - L1023: force-stop: stop and return -> found 'stop and return'\n    - L1029: force-stop: do not explore -> found 'do not explore'\n    - L1018: steering: change your approach -> found 'change your approach'\n    - L1023: force-stop: tests pass, stop -> found 'tests pass, stop'\n    - L1028: force-stop: tests pass, stop -> found 'tests pass, stop'\n    - L152: private marker: [SOMA -> found '[SOMA'\n    - L154: private marker: [SOMA -> found '[SOMA'\n    - L175: private marker: [SOMA -> found '[SOMA'\n    - L176: private marker: [SOMA -> found '[SOMA'\n    - L175: private marker: CONTEXT NOTE -> found 'CONTEXT NOTE'\n    - L176: private marker: CONTEXT NOTE -> found 'CONTEXT NOTE'\n    - L152: private marker: COMPRESSED HISTORY -> found 'COMPRESSED HISTORY'\n    - L154: private marker: COMPRESSED HISTORY -> found 'COMPRESSED HISTORY'\n    - L157: private marker: COMPRESSED HISTORY -> found 'COMPRESSED HISTORY'\n\nRESULT: FAIL \u2014 disallowed prompt edits present"
+    }
+  },
+  "h4_fixture_checks": [
+    {
+      "case": "sample-1",
+      "ok": true,
+      "mode": "harvest",
+      "tokens_in": 5279,
+      "tokens_out": 4554,
+      "ratio": 1.159,
+      "task_preserved": true,
+      "failing_test_preserved": true,
+      "assertion_preserved": true,
+      "traceback_preserved": true,
+      "paths_preserved": true,
+      "diff_preserved": true,
+      "pairing_ok": true,
+      "masked_in_place": true,
+      "markers_ok": true,
+      "bad_markers": [],
+      "loop_reasons_ok": true,
+      "bad_loop_reasons": [],
+      "no_forbidden_output": true,
+      "forbidden_found": [],
+      "loopGuardFired": null
+    },
+    {
+      "case": "sample-2",
+      "ok": true,
+      "mode": "harvest",
+      "tokens_in": 3609,
+      "tokens_out": 2890,
+      "ratio": 1.249,
+      "task_preserved": true,
+      "failing_test_preserved": true,
+      "assertion_preserved": true,
+      "traceback_preserved": true,
+      "paths_preserved": true,
+      "diff_preserved": true,
+      "pairing_ok": true,
+      "masked_in_place": true,
+      "markers_ok": true,
+      "bad_markers": [],
+      "loop_reasons_ok": true,
+      "bad_loop_reasons": [],
+      "no_forbidden_output": true,
+      "forbidden_found": [],
+      "loopGuardFired": null
+    },
+    {
+      "case": "sample-3",
+      "ok": true,
+      "mode": "harvest",
+      "tokens_in": 5278,
+      "tokens_out": 3235,
+      "ratio": 1.632,
+      "task_preserved": true,
+      "failing_test_preserved": true,
+      "assertion_preserved": true,
+      "traceback_preserved": true,
+      "paths_preserved": true,
+      "diff_preserved": true,
+      "pairing_ok": true,
+      "masked_in_place": true,
+      "markers_ok": true,
+      "bad_markers": [],
+      "loop_reasons_ok": true,
+      "bad_loop_reasons": [],
+      "no_forbidden_output": true,
+      "forbidden_found": [],
+      "loopGuardFired": null
+    },
+    {
+      "case": "sample-4",
+      "ok": true,
+      "mode": "rich",
+      "tokens_in": 13826,
+      "tokens_out": 13784,
+      "ratio": 1.003,
+      "task_preserved": true,
+      "failing_test_preserved": true,
+      "assertion_preserved": true,
+      "traceback_preserved": true,
+      "paths_preserved": true,
+      "diff_preserved": true,
+      "pairing_ok": true,
+      "masked_in_place": true,
+      "markers_ok": true,
+      "bad_markers": [],
+      "loop_reasons_ok": true,
+      "bad_loop_reasons": [],
+      "no_forbidden_output": true,
+      "forbidden_found": [],
+      "loopGuardFired": null
+    },
+    {
+      "case": "sample-5",
+      "ok": true,
+      "mode": "harvest",
+      "tokens_in": 4081,
+      "tokens_out": 2315,
+      "ratio": 1.763,
+      "task_preserved": true,
+      "failing_test_preserved": true,
+      "assertion_preserved": true,
+      "traceback_preserved": true,
+      "paths_preserved": true,
+      "diff_preserved": true,
+      "pairing_ok": true,
+      "masked_in_place": true,
+      "markers_ok": true,
+      "bad_markers": [],
+      "loop_reasons_ok": true,
+      "bad_loop_reasons": [],
+      "no_forbidden_output": true,
+      "forbidden_found": [],
+      "loopGuardFired": null
+    },
+    {
+      "case": "synth-harvest-clean",
+      "ok": true,
+      "mode": "harvest",
+      "tokens_in": 20138,
+      "tokens_out": 2828,
+      "ratio": 7.121,
+      "task_preserved": true,
+      "failing_test_preserved": true,
+      "assertion_preserved": true,
+      "traceback_preserved": true,
+      "paths_preserved": true,
+      "diff_preserved": true,
+      "pairing_ok": true,
+      "masked_in_place": true,
+      "markers_ok": true,
+      "bad_markers": [],
+      "loop_reasons_ok": true,
+      "bad_loop_reasons": [],
+      "no_forbidden_output": true,
+      "forbidden_found": [],
+      "loopGuardFired": "loop_detected: repeated tool call signature"
+    },
+    {
+      "case": "synth-harvest-big",
+      "ok": true,
+      "mode": "harvest",
+      "tokens_in": 26808,
+      "tokens_out": 3080,
+      "ratio": 8.704,
+      "task_preserved": true,
+      "failing_test_preserved": true,
+      "assertion_preserved": true,
+      "traceback_preserved": true,
+      "paths_preserved": true,
+      "diff_preserved": true,
+      "pairing_ok": true,
+      "masked_in_place": true,
+      "markers_ok": true,
+      "bad_markers": [],
+      "loop_reasons_ok": true,
+      "bad_loop_reasons": [],
+      "no_forbidden_output": true,
+      "forbidden_found": [],
+      "loopGuardFired": "loop_detected: repeated tool call signature"
+    },
+    {
+      "case": "synth-errdense-rich",
+      "ok": true,
+      "mode": "rich",
+      "tokens_in": 7627,
+      "tokens_out": 7638,
+      "ratio": 0.999,
+      "task_preserved": true,
+      "failing_test_preserved": true,
+      "assertion_preserved": true,
+      "traceback_preserved": true,
+      "paths_preserved": true,
+      "diff_preserved": true,
+      "pairing_ok": true,
+      "masked_in_place": true,
+      "markers_ok": true,
+      "bad_markers": [],
+      "loop_reasons_ok": true,
+      "bad_loop_reasons": [],
+      "no_forbidden_output": true,
+      "forbidden_found": [],
+      "loopGuardFired": "loop_detected: repeated tool call signature"
+    },
+    {
+      "case": "synth-loop",
+      "ok": true,
+      "mode": "harvest",
+      "tokens_in": 5198,
+      "tokens_out": 3350,
+      "ratio": 1.552,
+      "task_preserved": true,
+      "failing_test_preserved": true,
+      "assertion_preserved": true,
+      "traceback_preserved": true,
+      "paths_preserved": true,
+      "diff_preserved": true,
+      "pairing_ok": true,
+      "masked_in_place": true,
+      "markers_ok": true,
+      "bad_markers": [],
+      "loop_reasons_ok": true,
+      "bad_loop_reasons": [],
+      "no_forbidden_output": true,
+      "forbidden_found": [],
+      "loopGuardFired": "loop_detected: repeated tool call signature"
+    }
+  ],
+  "h3_vs_h4_compression": [
+    {
+      "case": "sample-1",
+      "ok": true,
+      "mode_h4": "harvest",
+      "mode_h3": "harvest",
+      "tokens_in": 5279,
+      "tokens_out_h4": 4554,
+      "tokens_out_h3": 4606,
+      "ratio_h4": 1.159,
+      "ratio_h3": 1.146,
+      "ratio_delta_pct": 1.14,
+      "protection_regression": []
+    },
+    {
+      "case": "sample-2",
+      "ok": true,
+      "mode_h4": "harvest",
+      "mode_h3": "harvest",
+      "tokens_in": 3609,
+      "tokens_out_h4": 2890,
+      "tokens_out_h3": 2975,
+      "ratio_h4": 1.249,
+      "ratio_h3": 1.213,
+      "ratio_delta_pct": 2.94,
+      "protection_regression": []
+    },
+    {
+      "case": "sample-3",
+      "ok": true,
+      "mode_h4": "harvest",
+      "mode_h3": "harvest",
+      "tokens_in": 5278,
+      "tokens_out_h4": 3235,
+      "tokens_out_h3": 3310,
+      "ratio_h4": 1.632,
+      "ratio_h3": 1.595,
+      "ratio_delta_pct": 2.32,
+      "protection_regression": []
+    },
+    {
+      "case": "sample-4",
+      "ok": true,
+      "mode_h4": "rich",
+      "mode_h3": "rich",
+      "tokens_in": 13826,
+      "tokens_out_h4": 13784,
+      "tokens_out_h3": 13829,
+      "ratio_h4": 1.003,
+      "ratio_h3": 1.0,
+      "ratio_delta_pct": 0.33,
+      "protection_regression": []
+    },
+    {
+      "case": "sample-5",
+      "ok": true,
+      "mode_h4": "harvest",
+      "mode_h3": "harvest",
+      "tokens_in": 4081,
+      "tokens_out_h4": 2315,
+      "tokens_out_h3": 2497,
+      "ratio_h4": 1.763,
+      "ratio_h3": 1.634,
+      "ratio_delta_pct": 7.86,
+      "protection_regression": []
+    },
+    {
+      "case": "synth-harvest-clean",
+      "ok": true,
+      "mode_h4": "harvest",
+      "mode_h3": "harvest",
+      "tokens_in": 20138,
+      "tokens_out_h4": 2828,
+      "tokens_out_h3": 3253,
+      "ratio_h4": 7.121,
+      "ratio_h3": 6.191,
+      "ratio_delta_pct": 15.03,
+      "protection_regression": []
+    },
+    {
+      "case": "synth-harvest-big",
+      "ok": true,
+      "mode_h4": "harvest",
+      "mode_h3": "harvest",
+      "tokens_in": 26808,
+      "tokens_out_h4": 3080,
+      "tokens_out_h3": 3638,
+      "ratio_h4": 8.704,
+      "ratio_h3": 7.369,
+      "ratio_delta_pct": 18.12,
+      "protection_regression": []
+    },
+    {
+      "case": "synth-errdense-rich",
+      "ok": true,
+      "mode_h4": "rich",
+      "mode_h3": "rich",
+      "tokens_in": 7627,
+      "tokens_out_h4": 7638,
+      "tokens_out_h3": 7661,
+      "ratio_h4": 0.999,
+      "ratio_h3": 0.996,
+      "ratio_delta_pct": 0.3,
+      "protection_regression": []
+    },
+    {
+      "case": "synth-loop",
+      "ok": true,
+      "mode_h4": "harvest",
+      "mode_h3": "harvest",
+      "tokens_in": 5198,
+      "tokens_out_h4": 3350,
+      "tokens_out_h3": 3457,
+      "ratio_h4": 1.552,
+      "ratio_h3": 1.504,
+      "ratio_delta_pct": 3.19,
+      "protection_regression": []
+    }
+  ],
+  "prefix_stability": {
+    "h4": {
+      "ok": true,
+      "stable_transitions": 4,
+      "total_transitions": 51,
+      "stable_ratio": 0.0784,
+      "mean_boundary": 22.69
+    },
+    "h3": {
+      "ok": true,
+      "stable_transitions": 4,
+      "total_transitions": 51,
+      "stable_ratio": 0.0784,
+      "mean_boundary": 22.69
+    },
+    "h4_at_least_as_good": true
+  },
+  "test_table": [
+    {
+      "test": "1  task instruction preserved byte-identical",
+      "pass": true
+    },
+    {
+      "test": "2  failing-test names preserved",
+      "pass": true
+    },
+    {
+      "test": "3  assertion lines preserved",
+      "pass": true
+    },
+    {
+      "test": "4  traceback tail preserved",
+      "pass": true
+    },
+    {
+      "test": "5  file paths preserved",
+      "pass": true
+    },
+    {
+      "test": "6  active patch/diff preserved",
+      "pass": true
+    },
+    {
+      "test": "7  tool-call/tool-result pairing integrity",
+      "pass": true
+    },
+    {
+      "test": "8  tool-result bodies masked in place",
+      "pass": true
+    },
+    {
+      "test": "9  ONLY allowed markers in output",
+      "pass": true
+    },
+    {
+      "test": "10 ONLY allowed loop-reason strings in output",
+      "pass": true
+    },
+    {
+      "test": "11 NO force-stop/steering (output + source scan)",
+      "pass": true
+    },
+    {
+      "test": "12 prefix/cache-stability >= H3",
+      "pass": true
+    },
+    {
+      "test": "--  sanity: scanner FAILS on H3 (coach present)",
+      "pass": true
+    },
+    {
+      "test": "--  all fixtures ran ok",
+      "pass": true
+    },
+    {
+      "test": "--  loop guard fired on synth-loop with an allowed reason",
+      "pass": true
+    }
+  ]
+}

@@ -141,3 +141,6 @@ sessions/tool_audit.jsonl
 __pycache__/
 *.pyc
 .DS_Store
+
+# eval run OUTPUTS embed the OpenRouter key (gateway-state) + are large/reproducible — never commit
+experiments/runs/

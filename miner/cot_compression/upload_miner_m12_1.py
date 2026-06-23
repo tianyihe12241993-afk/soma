@@ -1,40 +1,91 @@
 #!/usr/bin/env python3
-"""SOMA miner H1M_m7_deeper_safe_v1 — DERIVATIVE of m7/v11.1 (DO NOT SUBMIT; research).
+"""SOMA miner m12.1 — reliability-tuned derivative of m12 (upload_miner_m7_compliant.py).
 
-Difference vs m7/v11.1: ONLY the HARVEST (shallow / pass-stable) path is compressed
-deeper — exactly the regime where Medium/Easy pass-stable tasks live — via a lower
-harvest target + tighter progressive truncation caps (older tool output / stale
-reasoning trim harder; the digest already collapses dropped+duplicate interactions).
-The RICH path (deep / still-failing / flip tasks) and all protections (load-bearing
-results, ERROR_MARKERS, active paths, recent-intact window, digest path-preservation)
-are UNCHANGED, and the error-guard fires one hit sooner — so fragile / still-failing
-tasks fall back to m7 behavior automatically (the fragile-signature guard). No
-flip-mode, no persistent-failure routing, no rich rescue, no workflow steering,
-coach unchanged (loop+stop only). Compression deepened purely ALGORITHMICALLY and
-generalized by transcript structure — NO task-ID logic. Select profile with env
-H1M_PROFILE = light | medium (default) | deep ; H1M_PROFILE=m7 reproduces baseline.
+WHAT'S NEW vs m12 (two algorithmic ROUTING changes; engine + prompts unchanged):
+  1a) NEVER-INFLATE GUARD. After compression (harvest OR rich), the final output's
+      token estimate is compared to the BASELINE raw input. If the "compressed"
+      output is >= the raw input (we did not actually save tokens — ratio < 1.0),
+      we discard it and emit PASS-THROUGH (raw messages, changed=False, reason
+      `never_inflate_passthrough`). This guarantees ratio >= 1.0: m12.1 can never
+      grow the context, killing the 10 token-inflated tasks (ratio < 1×) that
+      capped/negated m12's token bonus. Pure win, zero pass-risk.
+  1b) GENTLER ROUTING ON BREAK-PRONE TASKS. m12's hard breaks + run-variance came
+      from compressing tasks that were already at risk. m12.1 routes break-prone
+      transcripts to the RICH (gentle) path or pass-through EARLIER, using ONLY
+      general transcript signals (NO task-id logic, NO SWE hints):
+        - error-dense / still-failing recent window: the existing error guard now
+          fires EARLIER (lower min-msgs, wider window, lower hit threshold) so an
+          error-dense transcript bails to rich sooner.
+        - repeated / oscillating failures (the same failing test/assertion line
+          recurring across the recent tool results) -> route to rich.
+        - shallow / short tasks (low message depth AND small context — the Easy-like
+          band that breaks under aggression) -> prefer gentle/pass-through over the
+          deep harvest.
+      Conservative + signal-gated: tasks that are NOT break-prone keep m12's full
+      harvest compression (that is our scoring edge). The goal is to catch the
+      break-prone minority, not soften everything.
 
-Strategy vs the reference baseline (which keeps only the first user message and
-the last 4 tool results):
+Both 1a and 1b are ROUTING/algorithmic changes — they pick a gentler path or revert
+to native; they emit no new prompt text and therefore stay fully compliant (only the
+allowed [[CMP]]/[[BLOCK N]] markers and the two loop-reason strings are ever emitted).
 
-- Keep ALL user/system messages verbatim (task statement + follow-up instructions).
-- Keep assistant text everywhere (the agent's plan and findings), truncating only
-  old, long text under budget pressure.
-- Keep recent tool interactions intact; head+tail-truncate older tool results
-  instead of deleting them; fully drop only the oldest interactions, and only
-  when the token budget requires it.
-- Every fully dropped interaction leaves a one-line digest (tool + args + result
-  snippet) inside a sentinel-marked block appended to the first user message, so
-  discovered facts (paths, line numbers, error strings) survive compression.
-  The digest is parsed back out and regenerated on later rounds (no nesting).
-- Exact-duplicate tool results (same file read twice) are dropped first.
-- toolCall/toolResult pairing is preserved by construction: a result is dropped
-  if and only if its invoking toolCall block is stripped in the same step. A
-  final orphan check falls back to sanitize-only output if pairing ever breaks.
+Below is m12's original header, unchanged (the engine it describes is intact):
 
-Protocol (same as the reference): `python improved_miner.py assemble` with the
-connector payload on stdin, a single JSON object on stdout. Stdlib only;
-tiktoken is used for the reported token estimate when available.
+SOMA miner m7_compliant — NEXT-ROUND RULE-COMPLIANT derivative of m7 (v11).
+
+WHAT THIS IS: m7's proven compression ENGINE kept intact, with every prompt-side
+behavior-steering construct removed so the miner complies with
+miner/README_prompting.md. The README permits exactly two prompt-edit categories
+next round:
+  1) Compression markers — metadata wrappers that preserve instruction meaning,
+     order, requirements, tool/safety/role policy and the output contract EXACTLY.
+  2) Loop-detection guards — fire only on objective repeated/no-progress signals,
+     fail fast with a clear loop reason, and never change strategy/reasoning/tool
+     policy.
+
+REMOVED vs m7 (all prompt-side, now illegal):
+  - The entire injected coach message and the force-stop governor that told the
+    agent how/whether to proceed (the conclude-now/halt governor, the approach-
+    changing steering, the failing-test restatement). These steered the agent's
+    workflow and are now gone.
+  - The first-user-message HISTORY DIGEST injection. m7's harvest path appended a
+    growing one-line digest of dropped interactions, wrapped in a private marker,
+    INTO the first user message — which both used a banned private marker and
+    changed the first message's content. The digest injection/parse/regenerate
+    machinery is removed; the frozen head (system + first user message) is now
+    emitted byte-identical. The harvest engine still drops the oldest interactions
+    for the token win, it simply no longer leaves a private-marker trail.
+  - All custom/private bracketed markers m7 emitted (the compressed-history digest
+    sentinels, the context-note marker, and the prose soma-prefixed elided/dedup
+    markers). The dead digest/coach helpers and constants that produced them are
+    removed too.
+
+MARKERS USED (the ONLY allowed strings, from README sections 5.1/5.2):
+  - The CMP start/end marker pair (aliased once to the spelled-out start/end
+    strings) wraps a truncated tool-result region — see CMP_START / CMP_END below.
+    The kept head/tail sit OUTSIDE the markers; the elided middle is the wrapped
+    region (metadata only — no instruction meaning changes).
+  - The BLOCK open/close marker pair labels the surviving latest copy of a
+    duplicated / near-duplicate tool result; the earlier copy becomes the allowed
+    back-reference string built by same_response_ref().
+  - Loop detection emits ONLY the two allowed loop-reason strings — see
+    LOOP_REASON_ASSISTANT / LOOP_REASON_TOOLCALL — nothing else.
+
+KEPT vs m7 (the compression ENGINE, unchanged): depth-adaptive
+passthrough/harvest/rich routing, the v6 HARVEST structural drop+truncate path
+(compress_structurally), the RICH skeleton (compress_gently), the fragile/error
+guards, the load-bearing allowlist, error markers, active-file preservation,
+recent-intact window, extractive content-preservation of bulky tool output,
+tool-call/tool-result pairing integrity, the orphan guard, and passthrough. The
+truncation/dedup PRESERVES load-bearing content (failing-test names, assertion
+lines, traceback tail, file paths, line numbers, current patch/diff, active file)
+exactly as m7 did — the allowed markers merely WRAP it.
+
+Protocol (same as the reference): `python upload_miner_m7_compliant.py assemble`
+with the connector payload on stdin, a single JSON object on stdout. Stdlib only;
+tiktoken is used for the reported token estimate when available. run_event /
+cli_main / the plugin entry contract are identical to m7 so the existing driver
+can run this unchanged.
 """
 
 from __future__ import annotations
@@ -81,8 +132,9 @@ PRESSURE_RELIEF = 0.75
 #     with the RICHER stale cap (6k, not v10's 2k) → maximum context for flips.
 # Monotonic: passthrough -> harvest -> rich, never reverts. A task that ends
 # shallow was harvested throughout (bonus); one that goes deep gets rich for the
-# deciding rounds (flip). Coach stays loop+stop only (compliant). Ship rule:
-# ship v11 only if Easy tokens improve without breaking v10's reliability, else v10.
+# deciding rounds (flip). The only prompt-side surface is the compliant loop guard
+# (an allowed loop-reason string, appended only on an objective loop) — there is no
+# coach / governor / history-digest injection in this compliant derivative.
 RICH_INTACT_MSGS = 10          # last N messages kept byte-intact (never compressed)
 RICH_STALE_CAP = 6_000         # v11 rich/deep path: richer stale cap for flips (v9 value; v10 used 2k)
 RICH_PROTECTED_CAP = 30_000    # "full" for practical purposes (guards pathological logs)
@@ -103,9 +155,36 @@ LARGE_THRESHOLD_TOKENS = 120_000  # token safety net: any single context this bi
 # the full context to flip/solve, not the harvest. Cumulative is a secondary
 # net for deep/wander cases.
 CUM_THRESHOLD = 600_000        # cumulative raw tokens processed -> treat as large -> rich
-ERROR_GUARD_MIN_MSGS = 40      # don't apply the error guard until the task has some depth (~12 rounds)
-ERROR_GUARD_WINDOW = 4         # how many of the most recent tool results to scan for unresolved errors
-ERROR_GUARD_MIN_HITS = 4       # this many error-bearing results in the recent window = "still failing" -> rich
+# m12.1 (1b): the error guard fires EARLIER than m12. m12 only bailed to rich on a
+# very error-dense recent window (>=4 of the last 4 results error-bearing, and only
+# after 40 msgs). That left "working hard, still failing" tasks in the aggressive
+# harvest long enough to break. m12.1 widens the window, lowers the depth gate, and
+# lowers the hit count so an error-dense / still-failing transcript bails to the
+# gentle rich path sooner. (m12 values were MIN_MSGS=40, WINDOW=4, MIN_HITS=4.)
+ERROR_GUARD_MIN_MSGS = 24      # apply the error guard sooner (was 40)
+ERROR_GUARD_WINDOW = 6         # scan a wider recent window for unresolved errors (was 4)
+ERROR_GUARD_MIN_HITS = 3       # fewer error-bearing recent results trip "still failing" -> rich (was 4)
+
+# m12.1 (1b): REPEATED / OSCILLATING FAILURE guard. The same failing test name or
+# assertion line recurring across the recent tool results is an objective "stuck on
+# the same break" signal (general — derived from transcript test/error lines, no
+# task-id or SWE hints). A task that keeps re-hitting the SAME failure needs rich
+# context to flip it, not aggressive harvest. Gated on depth so brand-new tasks that
+# legitimately re-run one test once or twice are not swept in.
+REPEAT_FAIL_MIN_MSGS = 24      # only consider repeated-failure routing past this depth
+REPEAT_FAIL_WINDOW = 8         # scan this many recent tool results for a recurring failure line
+REPEAT_FAIL_THRESHOLD = 3      # the SAME normalized failure line appearing >= this many times -> rich
+
+# m12.1 (1b): SHALLOW / SHORT guard (the Easy-like band that breaks under aggression).
+# A shallow conversation (few messages) carrying only a small context has little
+# expendable bulk to harvest yet is the band where over-compression loses winnable
+# Easy tasks. For these we prefer the gentle path (rich, truncation-only, never drops
+# a message) over the deep harvest. BOTH conditions must hold (depth AND size) so we
+# only soften the genuinely small/shallow tasks — a shallow-but-large context still
+# harvests (real bulk to win), and a deep-but-small one is handled by the depth/error
+# routes. Conservative by design: this is a narrow band, not a blanket softening.
+SHALLOW_MAX_MSGS = 24          # at/under this message depth a task counts as shallow
+SHALLOW_MAX_TOKENS = 12_000    # AND at/under this observed token size -> route to gentle rich
 GENTLE_RESULT_CAP = 1_200      # (legacy, unused in v9)
 GENTLE_PROTECTED_CAP = 5_000   # (legacy, unused in v9)
 # Tool results carrying these markers are the ground truth the agent patches
@@ -136,44 +215,12 @@ MID_HEAD, MID_TAIL = 1_000, 400
 MID2_HEAD, MID2_TAIL = 500, 200
 ASSIST_HEAD, ASSIST_TAIL = 1_200, 300
 
-DIGEST_BEGIN = "[SOMA COMPRESSED HISTORY"
-DIGEST_HEADER = (
-    "[SOMA COMPRESSED HISTORY v1 — earlier agent steps were removed to save "
-    "context; one-line summaries below, oldest first]"
-)
-DIGEST_END = "[/SOMA COMPRESSED HISTORY]"
-DIGEST_ARGS_CHARS = 110
-DIGEST_RESULT_CHARS = 150
-DIGEST_MAX_ENTRIES = 40
-DIGEST_ENTRY_EST_CHARS = 320
-DIGEST_MAX_PATHS = 6
-
 # Paths like /a/b/c.py, django/utils/html.py:236 — the facts agents rediscover.
 PATH_PATTERN = re.compile(r"(?:/)?[\w.-]+(?:/[\w.-]+)+\.[A-Za-z]{1,4}(?::\d+)?")
 
-# Tight-mode coach, COMPLIANT with the CoT-Compression-3 organizer ruling
-# (2026-06-12): only the three explicitly-permitted classes are used —
-# (a) context-management notes ("here is a summary"), (b) loop detection,
-# (c) forced stopping at a clear stopping condition. The earlier generic
-# behavioral directives ("edit the real file", "delete scratch files", etc.)
-# were dropped: they are neither loop-detection nor forced-stopping, so under
-# the ruling's catch-all they count as disallowed "other prompt injection".
-# Appended always-last so only its own tokens re-bill (cache-cheap).
-COACH_MARKER = "[SOMA CONTEXT NOTE]"
-COACH_HEADER = "[SOMA CONTEXT NOTE]"
-# v5: dynamic coach — surface the concrete failing tests from the latest test
-# output (flip conversion is the scoreboard lever: 2-of-5-run flips need to
-# become 4-of-5), and a conclude-now governor once a session has burned enough
-# tokens that further grinding feeds the per-category token penalty instead of
-# the pass rate.
-GOVERNOR_TOKENS = 150_000
-GOVERNOR_TARGET_TOKENS = 6_000
-TEST_STATUS_MAX_LINES = 5
-TEST_STATUS_LINE_CLIP = 130
-# v5.1: re-state the original issue at end-of-context (attention there beats
-# position-1 on 100k contexts), and break do-nothing loops (same tool call
-# with identical output repeating = the wandering that loses partial flips).
-ISSUE_REINJECT_CLIP = 1_500
+# Objective loop detection (compliant): identical repeated assistant response, or
+# identical repeated tool-call signature, within a recent window. Detection only —
+# the ONLY emitted text is one of the two allowed LOOP_REASON_* strings.
 LOOP_WINDOW = 12
 LOOP_THRESHOLD = 3
 LOOP_SIG_ARGS_CLIP = 120
@@ -185,36 +232,47 @@ TEST_LINE_PATTERN = re.compile(
     re.M,
 )
 
-
 # ===========================================================================
-# H1M PROFILE LAYER — the ONLY behavioural change vs m7/v11.1.
-# Overrides harvest-path knobs only (TARGET + progressive truncation caps).
-# RICH_* / GENTLE_PROTECTED_CAP / ERROR_MARKERS / digest-preservation untouched,
-# so protected content and the rich/flip path stay exactly as m7. The error-guard
-# fires one hit sooner so borderline still-failing tasks bail to rich (= m7).
-# Select with env H1M_PROFILE; H1M_PROFILE=m7 reproduces the baseline exactly.
-import os as _os
-_H1M_PROFILES = {
-    # (TARGET_TOKENS, MID_HEAD, MID_TAIL, MID2_HEAD, MID2_TAIL,
-    #  ASSIST_HEAD, ASSIST_TAIL, TAIL_RESULT_CAP, ERROR_GUARD_MIN_HITS)
-    "m7":     (8_000, 1_000, 400, 500, 200, 1_200, 300, 16_000, 4),  # exact baseline
-    "light":  (7_000,   850, 350, 450, 180, 1_000, 280, 13_000, 3),
-    "medium": (6_000,   650, 280, 380, 160,   850, 250, 11_000, 3),  # target ~4.0x
-    "deep":   (5_200,   520, 220, 320, 140,   700, 220,  9_000, 3),  # target ~4.5-5.0x
-    # king-depth sweep (2026-06-22): push toward the depth-kings' ~4.8-5.0x mean ratio while keeping
-    # protections + rich/flip path intact (only stale-content truncation tightens). The real-eval
-    # sweep finds where passes start breaking = the pass-safe depth ceiling. t10 shows crude over-push
-    # crashes pass-rate (5.24x but 33 passes) — so each level is validated, not assumed.
-    "king":   (3_600,   360, 150, 230, 100,   520, 170,  6_500, 3),  # aim ~king ratio (~4.8x)
-    "ultra":  (2_400,   240, 100, 150,  70,   360, 120,  4_500, 3),  # over-push to locate the break point
-}
-H1M_PROFILE = _os.environ.get("H1M_PROFILE", "medium").strip().lower()
-if H1M_PROFILE not in _H1M_PROFILES:
-    H1M_PROFILE = "medium"
-(TARGET_TOKENS, MID_HEAD, MID_TAIL, MID2_HEAD, MID2_TAIL,
- ASSIST_HEAD, ASSIST_TAIL, TAIL_RESULT_CAP, ERROR_GUARD_MIN_HITS) = _H1M_PROFILES[H1M_PROFILE]
-# conclude-now governor depth tracks the (possibly lower) harvest target
-GOVERNOR_TARGET_TOKENS = min(GOVERNOR_TARGET_TOKENS, TARGET_TOKENS)
+# ALLOWED COMPRESSION MARKERS — the ONLY bracketed strings this miner emits.
+# Per miner/README_prompting.md §5.1 these are metadata wrappers; they preserve
+# instruction meaning/order/requirements/tool-policy/safety/role-policy/output-
+# contract exactly. We alias [[CMP]]/[[/CMP]] to the spelled-out start/end markers
+# ONCE (allowed by the README) so the two forms are interchangeable downstream.
+# ===========================================================================
+CMP_START = "[[CMP]]"            # alias of "Compressed text starts here"
+CMP_END = "[[/CMP]]"             # alias of "Compressed text ends here"
+CMP_START_LONG = "Compressed text starts here"
+CMP_END_LONG = "Compressed text ends here"
+
+
+def cmp_block(inner: str = "") -> str:
+    """Wrap a compressed/truncated region in the allowed [[CMP]]…[[/CMP]] markers.
+    Empty/fully-elided regions become "[[CMP]][[/CMP]]". The kept head/tail lines go
+    OUTSIDE the markers; only the elided middle is wrapped — the marker is metadata
+    only and changes no instruction meaning."""
+    inner = inner.strip("\n")
+    if not inner:
+        return f"{CMP_START}{CMP_END}"
+    return f"{CMP_START}\n{inner}\n{CMP_END}"
+
+
+def block_open(n: int) -> str:
+    return f"[[BLOCK {n}]]"
+
+
+def block_close(n: int) -> str:
+    return f"[[/BLOCK {n}]]"
+
+
+def same_response_ref(n: int) -> str:
+    """The literal allowed back-reference string for a deduped/superseded copy."""
+    return f"Same response as in [[BLOCK {n}]]."
+
+
+# Allowed loop-detection reason strings (README §5.2). These are the ONLY strings
+# the loop guard may emit — nothing else, no steering, no task restatement.
+LOOP_REASON_ASSISTANT = "loop_detected: repeated assistant response"
+LOOP_REASON_TOOLCALL = "loop_detected: repeated tool call signature"
 
 
 # ---------------------------------------------------------------------------
@@ -534,25 +592,6 @@ def extract_tool_call_ids(message: Any) -> set[str]:
     return ids
 
 
-def describe_tool_call(message: Any, call_id: str) -> str:
-    for block in iter_tool_call_blocks(message):
-        if block.get("id") != call_id:
-            continue
-        name = block.get("name") or block.get("toolName")
-        if not name and isinstance(block.get("function"), dict):
-            name = block["function"].get("name")
-        args = None
-        for field in ("arguments", "args", "input", "parameters"):
-            if field in block:
-                args = block[field]
-                break
-        if args is None and isinstance(block.get("function"), dict):
-            args = block["function"].get("arguments")
-        args_text = clip(collapse_ws(extract_text(args)), DIGEST_ARGS_CHARS)
-        return f"{name or 'tool'}({args_text})"
-    return "tool(?)"
-
-
 def strip_tool_call_blocks(message: Any, remove_ids: set[str]) -> Any:
     """Remove the toolCall blocks for `remove_ids`, keeping everything else."""
     if not isinstance(message, dict) or not remove_ids:
@@ -610,8 +649,9 @@ def orphan_ids(messages: list[Any]) -> tuple[set[str], set[str]]:
 def truncate_text(value: str, head: int, tail: int) -> str:
     if len(value) <= head + tail + 80:
         return value
-    trimmed = len(value) - head - tail
-    return f"{value[:head]}\n…[soma: trimmed {trimmed} chars]…\n{value[-tail:] if tail else ''}"
+    # Kept head/tail sit OUTSIDE the markers; the elided middle is the compressed
+    # region, wrapped in the allowed empty [[CMP]][[/CMP]] marker (metadata only).
+    return f"{value[:head]}\n{cmp_block()}\n{value[-tail:] if tail else ''}"
 
 
 def truncate_message(message: Any, head: int, tail: int) -> tuple[Any, bool]:
@@ -672,6 +712,45 @@ def recent_errors(messages: list[Any], window: int = ERROR_GUARD_WINDOW) -> int:
         if seen >= window:
             break
     return hits
+
+
+def _failure_lines(message: Any) -> set[str]:
+    """Normalized failing-test / assertion lines from a tool result. A line is a
+    'failure line' if it matches TEST_LINE_PATTERN (FAILED/ERROR/pytest-node/
+    AssertionError) — the recurring, comparable signature of a specific break.
+    Normalized like near-dup detection (lowercased, digits dropped, non-letters
+    collapsed) so the same failure with shifting line numbers/counts compares equal."""
+    if not isinstance(message, dict) or normalize_role(message.get("role")) != "toolResult":
+        return set()
+    text = extract_text(message.get("content"))[:20_000]
+    out: set[str] = set()
+    for line in text.split("\n"):
+        if TEST_LINE_PATTERN.search(line):
+            norm = _norm_for_neardup(line)
+            if len(norm) >= 8:  # ignore trivially short normalized lines
+                out.add(norm)
+    return out
+
+
+def repeated_failure(messages: list[Any], window: int = REPEAT_FAIL_WINDOW) -> bool:
+    """True if the SAME normalized failure line recurs across the recent `window`
+    tool results at least REPEAT_FAIL_THRESHOLD times — an objective 'stuck on the
+    same break, oscillating' signal. General transcript signal only: no task-id, no
+    SWE-specific hints. A task re-hitting the identical failure round after round
+    needs rich context to flip it, so route it to the gentle path."""
+    counts: dict[str, int] = {}
+    seen = 0
+    for message in reversed(messages):
+        if not isinstance(message, dict) or normalize_role(message.get("role")) != "toolResult":
+            continue
+        seen += 1
+        for norm in _failure_lines(message):
+            counts[norm] = counts.get(norm, 0) + 1
+            if counts[norm] >= REPEAT_FAIL_THRESHOLD:
+                return True
+        if seen >= window:
+            break
+    return False
 
 
 # ---------------------------------------------------------------------------
@@ -817,121 +896,86 @@ def extractive_message(message: Any, target_chars: int, active: frozenset) -> tu
     return message, False
 
 
-def is_coach_message(message: Any) -> bool:
+# ---------------------------------------------------------------------------
+# COMPLIANT LOOP DETECTION (README §2 + §5.2).
+# Detection is purely OBJECTIVE and the ONLY emitted text is one of the two
+# allowed reason strings. There is NO steering, NO task restatement, NO forced
+# completion, NO strategy/tool-policy change. A loop-guard user message carries
+# nothing but the matching allowed LOOP_REASON_* string, so successful (non-loop)
+# behavior is left entirely unchanged. The guard is OPTIONAL — it appends a
+# message only when an objective loop is detected.
+# ---------------------------------------------------------------------------
+
+def _is_loop_guard_message(message: Any) -> bool:
+    """A loop-guard message we appended on a prior turn: a user message whose text
+    is exactly one of the allowed loop-reason strings. Identified so we can strip
+    our own prior guard before re-deciding (idempotent across turns)."""
     if not isinstance(message, dict) or normalize_role(message.get("role")) != "user":
         return False
-    return extract_text(message.get("content")).startswith(COACH_MARKER)
+    text = extract_text(message.get("content")).strip()
+    return text in (LOOP_REASON_ASSISTANT, LOOP_REASON_TOOLCALL)
 
 
-def strip_coach(messages: list[Any]) -> list[Any]:
-    return [m for m in messages if not is_coach_message(m)]
+def strip_loop_guard(messages: list[Any]) -> list[Any]:
+    return [m for m in messages if not _is_loop_guard_message(m)]
 
 
-def extract_test_status(messages: list[Any]) -> str:
-    """Failing-test lines from the most recent error-bearing tool result."""
-    for message in reversed(messages):
-        if not isinstance(message, dict) or normalize_role(message.get("role")) != "toolResult":
-            continue
-        if not is_error_bearing(message):
-            continue
-        text = extract_text(message.get("content"))[-30_000:]
-        lines: list[str] = []
-        for match in TEST_LINE_PATTERN.finditer(text):
-            line = collapse_ws(match.group(0))
-            if line and line not in lines:
-                lines.append(clip(line, TEST_STATUS_LINE_CLIP))
-            if len(lines) >= TEST_STATUS_MAX_LINES:
-                break
-        return "\n".join(lines)
-    return ""
-
-
-def extract_issue_text(messages: list[Any]) -> str:
-    """The original task statement (first user message, digest stripped)."""
+def detect_loop_reason(messages: list[Any]) -> str:
+    """Return the matching allowed loop-reason string if an OBJECTIVE loop is
+    present in the recent window, else "". Two objective signals:
+      - repeated ASSISTANT response: an identical assistant message (same
+        normalized text + tool-call signatures) recurs >= LOOP_THRESHOLD times;
+      - repeated TOOL-CALL signature: the same tool name+args (regardless of
+        result) recurs >= LOOP_THRESHOLD times.
+    No content beyond the recurrence count drives the decision; nothing about the
+    task, strategy, or desired outcome is considered."""
+    # ---- repeated assistant response ----
+    assistant_sigs: list[str] = []
     for message in messages:
-        if isinstance(message, dict) and normalize_role(message.get("role")) == "user":
-            if is_coach_message(message):
-                continue
-            text = extract_text(message.get("content"))
-            cut = text.find(DIGEST_BEGIN)
-            if cut >= 0:
-                text = text[:cut]
-            text = text.strip()
-            if len(text) > ISSUE_REINJECT_CLIP:
-                head = int(ISSUE_REINJECT_CLIP * 0.8)
-                tail = ISSUE_REINJECT_CLIP - head
-                text = f"{text[:head]}\n…\n{text[-tail:]}"
-            return text
-    return ""
+        if not isinstance(message, dict) or normalize_role(message.get("role")) != "assistant":
+            continue
+        text = collapse_ws(extract_text(message.get("content")))
+        call_sig = "|".join(sorted(
+            f"{(b.get('name') or b.get('toolName') or 'tool')}"
+            f"({clip(collapse_ws(extract_text(b.get('arguments') or b.get('args') or b.get('input') or '')), LOOP_SIG_ARGS_CLIP)})"
+            for b in iter_tool_call_blocks(message)
+        ))
+        digest = hashlib.sha256(f"{text}#{call_sig}".encode("utf-8")).hexdigest()
+        assistant_sigs.append(digest)
+    recent_assist = assistant_sigs[-LOOP_WINDOW:]
+    acounts: dict[str, int] = {}
+    for sig in recent_assist:
+        acounts[sig] = acounts.get(sig, 0) + 1
+    if any(n >= LOOP_THRESHOLD for n in acounts.values()):
+        return LOOP_REASON_ASSISTANT
 
-
-def detect_loop(messages: list[Any]) -> str:
-    """Same tool call producing the identical result LOOP_THRESHOLD+ times in
-    the recent window — repetition that yields no new information."""
-    result_hash: dict[str, str] = {}
-    for message in messages:
-        ids = extract_tool_result_ids(message)
-        if ids:
-            digest = hashlib.sha256(
-                collapse_ws(extract_text(message.get("content"))).encode("utf-8")
-            ).hexdigest()
-            for rid in ids:
-                result_hash[rid] = digest
-    recent: list[tuple[str, str]] = []  # (signature, args preview)
+    # ---- repeated tool-call signature ----
+    call_sigs: list[str] = []
     for message in messages:
         for block in iter_tool_call_blocks(message):
-            call_id = (block.get("id") or "").strip()
-            if call_id not in result_hash:
-                continue
             name = block.get("name") or block.get("toolName") or "tool"
             args = clip(collapse_ws(extract_text(
                 block.get("arguments") or block.get("args") or block.get("input") or ""
             )), LOOP_SIG_ARGS_CLIP)
-            recent.append((f"{name}|{args}|{result_hash[call_id]}", f"{name}({args})"))
-    recent = recent[-LOOP_WINDOW:]
-    counts: dict[str, int] = {}
-    preview: dict[str, str] = {}
-    for sig, prev in recent:
-        counts[sig] = counts.get(sig, 0) + 1
-        preview[sig] = prev
-    for sig, n in counts.items():
-        if n >= LOOP_THRESHOLD:
-            return preview[sig]
+            call_sigs.append(f"{name}|{args}")
+    recent_calls = call_sigs[-LOOP_WINDOW:]
+    ccounts: dict[str, int] = {}
+    for sig in recent_calls:
+        ccounts[sig] = ccounts.get(sig, 0) + 1
+    if any(n >= LOOP_THRESHOLD for n in ccounts.values()):
+        return LOOP_REASON_TOOLCALL
+
     return ""
 
 
-def build_coach_text(messages: list[Any], *, governor: bool) -> str:
-    # v6-clean: STRICTLY the two permitted techniques only — loop detection and
-    # forced stopping. No task restatement, no failing-test naming, no
-    # minimal-change/source-file framing — all of which the organizers ruled
-    # out as steering workflow / going beyond context compression (2026-06-13).
-    parts = [COACH_HEADER]
-
-    # Loop detection.
-    loop = detect_loop(messages)
-    if loop:
-        parts.append(
-            f"Loop detected: you have repeated the same action with an identical "
-            f"result multiple times ({loop}). Repeating it will not produce new "
-            f"information — change your approach."
-        )
-
-    # Forced stopping (generic; no goal-steering content).
-    parts.append(
-        "If your change is complete and the tests pass, stop and return your final "
-        "answer instead of continuing to explore."
-    )
-    if governor:
-        parts.append(
-            "You have spent substantial effort already. If the tests pass, STOP NOW "
-            "and return the final answer; do not explore further."
-        )
-    return "\n".join(parts)
-
-
-def append_coach(messages: list[Any], *, governor: bool = False) -> list[Any]:
-    text = build_coach_text(messages, governor=governor)
-    return [*messages, {"role": "user", "content": [{"type": "text", "text": text}]}]
+def append_loop_guard(messages: list[Any]) -> list[Any]:
+    """If an objective loop is detected, append a user message whose ONLY content
+    is the matching allowed loop-reason string. Otherwise return messages
+    unchanged. This is the entire prompt-side surface of the miner — no other text."""
+    reason = detect_loop_reason(messages)
+    if not reason:
+        return messages
+    return [*messages, {"role": "user", "content": [{"type": "text", "text": reason}]}]
 
 
 # ---------------------------------------------------------------------------
@@ -939,7 +983,10 @@ def append_coach(messages: list[Any], *, governor: bool = False) -> list[Any]:
 # Never drops a message, never touches user/system/assistant content, keeps
 # toolCall/toolResult pairing untouched by construction. Old bulky tool
 # results get head+tail truncation (error-bearing ones keep larger budgets);
-# exact-duplicate old results collapse to a one-line marker.
+# exact-duplicate / near-duplicate old results are replaced with the allowed
+# "Same response as in [[BLOCK N]]." back-reference to the surviving latest copy,
+# which is labelled [[BLOCK N]]…[[/BLOCK N]]. The message envelope + tool_call_id
+# are always kept — only the body/content text changes.
 # ---------------------------------------------------------------------------
 
 def _replace_text_fields(message: Any, marker: str) -> Any:
@@ -955,6 +1002,25 @@ def _replace_text_fields(message: Any, marker: str) -> Any:
                     if isinstance(block.get(field), str):
                         block[field] = marker
                         break
+    return out
+
+
+def _wrap_first_text_field(message: Any, open_str: str, close_str: str) -> Any:
+    """Wrap the FIRST string text field of a message in open_str…close_str without
+    changing the field's content. Used to label a surviving copy [[BLOCK N]]…
+    [[/BLOCK N]]; the body between the markers is byte-identical to the original."""
+    out = copy.deepcopy(message)
+    content = out.get("content")
+    if isinstance(content, str):
+        out["content"] = f"{open_str}\n{content}\n{close_str}"
+        return out
+    if isinstance(content, list):
+        for block in content:
+            if isinstance(block, dict):
+                for field in ("text", "content"):
+                    if isinstance(block.get(field), str):
+                        block[field] = f"{open_str}\n{block[field]}\n{close_str}"
+                        return out
     return out
 
 
@@ -985,11 +1051,12 @@ def _norm_for_neardup(text: str) -> str:
 
 
 def compress_gently(messages: list[Any]) -> tuple[list[Any], dict[str, Any]]:
-    # v10 RICH+RELIABLE+HARVEST compression. NEVER drops a message and never
-    # touches the recent working window or any load-bearing result. vs v9: the
-    # stale-bulk cap is tighter (2k) and near-duplicate old results collapse to a
-    # marker in addition to exact duplicates — both restricted to old,
-    # non-load-bearing content, so reliability and hard flips are unaffected.
+    # RICH+RELIABLE compression. NEVER drops a message and never touches the recent
+    # working window or any load-bearing result. Exact-duplicate AND near-duplicate
+    # old, non-load-bearing tool results are replaced with the allowed
+    # "Same response as in [[BLOCK N]]." back-reference to the surviving latest copy
+    # (labelled [[BLOCK N]]…[[/BLOCK N]]). Everything else is preserved or lightly
+    # extractive-trimmed — reliability and hard flips are unaffected.
     info: dict[str, Any] = {
         "truncatedResultCount": 0,
         "duplicateResultCount": 0,
@@ -1006,16 +1073,18 @@ def compress_gently(messages: list[Any]) -> tuple[list[Any], dict[str, Any]]:
     intact = set(range(max(0, len(messages) - RICH_INTACT_MSGS), len(messages)))
     active = frozenset(active_paths(messages))
 
-    # Newest-first registries: exact-duplicate hash (v9) plus a normalized
-    # near-duplicate hash (v10). Older copies collapse to a marker; the newest
-    # copy is always kept. Exact-dup collapse is safe for any result (an identical
-    # later copy survives); near-dup collapse is restricted to old, non-load-bearing
-    # content (the copies are NOT identical, so we must not drop one the agent needs).
-    seen_hashes: set[str] = set()
-    seen_norm: set[str] = set()
-    duplicate_indices: set[int] = set()
-    near_duplicate_indices: set[int] = set()
-    for index in reversed(result_indices):
+    # Newest-first registries: exact-duplicate hash plus a normalized near-duplicate
+    # hash. Older copies become a "Same response as in [[BLOCK N]]." back-reference;
+    # the newest (latest) copy is the SURVIVOR, labelled [[BLOCK N]]…[[/BLOCK N]].
+    # Exact-dup back-ref is safe for any result (an identical later copy survives);
+    # near-dup back-ref is restricted to old, non-load-bearing content (the copies
+    # are NOT identical, so we must not collapse one the agent needs). We map each
+    # duplicate index -> the survivor index it references, then number survivors.
+    survivor_for_hash: dict[str, int] = {}      # exact-dup hash -> survivor index
+    survivor_for_norm: dict[str, int] = {}      # near-dup hash  -> survivor index
+    dup_ref: dict[int, int] = {}                # duplicate index -> survivor index
+    near_dup_ref: dict[int, int] = {}           # near-dup index  -> survivor index
+    for index in reversed(result_indices):      # newest first → first seen is survivor
         text = collapse_ws(extract_text(messages[index].get("content")))
         digest = hashlib.sha256(text.encode("utf-8")).hexdigest()
         norm = _norm_for_neardup(text)
@@ -1024,32 +1093,36 @@ def compress_gently(messages: list[Any]) -> tuple[list[Any], dict[str, Any]]:
             if len(norm) >= NEARDUP_MIN_CHARS
             else ""
         )
-        if digest in seen_hashes and index not in intact:
-            duplicate_indices.add(index)
+        if digest in survivor_for_hash and index not in intact:
+            dup_ref[index] = survivor_for_hash[digest]
         elif (
             norm_hash
-            and norm_hash in seen_norm
+            and norm_hash in survivor_for_norm
             and index not in intact
             and not _is_load_bearing(messages[index], active)
         ):
-            near_duplicate_indices.add(index)
-        seen_hashes.add(digest)
+            near_dup_ref[index] = survivor_for_norm[norm_hash]
+        survivor_for_hash.setdefault(digest, index)
         if norm_hash:
-            seen_norm.add(norm_hash)
+            survivor_for_norm.setdefault(norm_hash, index)
+
+    # Assign a stable [[BLOCK N]] number to each survivor that is actually
+    # referenced by at least one earlier copy (numbered by document order so the
+    # label is deterministic). Survivors with no referrer are left untouched.
+    referenced_survivors = sorted(set(dup_ref.values()) | set(near_dup_ref.values()))
+    block_number: dict[int, int] = {idx: n for n, idx in enumerate(referenced_survivors, 1)}
 
     output: list[Any] = []
     for index, message in enumerate(messages):
         role = normalize_role(message.get("role")) if isinstance(message, dict) else ""
         if role == "toolResult" and index not in intact:
-            if index in duplicate_indices:
-                message = _replace_text_fields(
-                    message, "[soma: identical to a later tool result in this session]"
-                )
+            if index in dup_ref:
+                n = block_number[dup_ref[index]]
+                message = _replace_text_fields(message, same_response_ref(n))
                 info["duplicateResultCount"] += 1
-            elif index in near_duplicate_indices:
-                message = _replace_text_fields(
-                    message, "[soma: near-identical to a later tool result in this session]"
-                )
+            elif index in near_dup_ref:
+                n = block_number[near_dup_ref[index]]
+                message = _replace_text_fields(message, same_response_ref(n))
                 info["nearDuplicateResultCount"] += 1
             elif _is_load_bearing(message, active):
                 # keep full (guard only against pathological size)
@@ -1060,7 +1133,21 @@ def compress_gently(messages: list[Any]) -> tuple[list[Any], dict[str, Any]]:
                 # clearly stale, unrelated bulk → light extractive trim, generous cap
                 message, did = extractive_message(message, RICH_STALE_CAP, active)
                 info["truncatedResultCount"] += int(did)
+        elif role == "toolResult" and index in block_number:
+            # Survivor copy referenced by an earlier duplicate (and in the intact
+            # tail): label it [[BLOCK N]]…[[/BLOCK N]] so the back-reference resolves.
+            message = _wrap_first_text_field(message, block_open(block_number[index]), block_close(block_number[index]))
         output.append(message)
+
+    # Survivors NOT in the intact tail also need their [[BLOCK N]] label. The branch
+    # above only labels intact-tail survivors; label the rest here (the non-intact
+    # survivors fell through to extractive trim, which we must wrap, not skip).
+    for index in referenced_survivors:
+        if index in intact:
+            continue
+        msg = output[index]
+        if isinstance(msg, dict) and normalize_role(msg.get("role")) == "toolResult":
+            output[index] = _wrap_first_text_field(msg, block_open(block_number[index]), block_close(block_number[index]))
 
     if (
         info["truncatedResultCount"]
@@ -1069,71 +1156,6 @@ def compress_gently(messages: list[Any]) -> tuple[list[Any], dict[str, Any]]:
     ):
         info["reason"] = "gentle"
     return output, info
-
-
-# ---------------------------------------------------------------------------
-# Digest block (lives inside the first user message, sentinel delimited)
-# ---------------------------------------------------------------------------
-
-def _split_digest(text: str) -> tuple[str, list[str]]:
-    begin = text.find(DIGEST_BEGIN)
-    if begin < 0:
-        return text, []
-    end = text.find(DIGEST_END, begin)
-    segment = text[begin : end + len(DIGEST_END)] if end >= 0 else text[begin:]
-    entries = [line.strip() for line in segment.splitlines() if line.strip().startswith("- ")]
-    cleaned = (text[:begin] + (text[end + len(DIGEST_END) :] if end >= 0 else "")).rstrip()
-    return cleaned, entries
-
-
-def extract_existing_digest(message: Any) -> tuple[Any, list[str]]:
-    if not isinstance(message, dict):
-        return message, []
-    content = message.get("content")
-    if isinstance(content, str):
-        if DIGEST_BEGIN not in content:
-            return message, []
-        cleaned_text, entries = _split_digest(content)
-        cleaned = copy.deepcopy(message)
-        cleaned["content"] = cleaned_text
-        return cleaned, entries
-    if isinstance(content, list):
-        entries: list[str] = []
-        new_blocks: list[Any] = []
-        changed = False
-        for block in content:
-            text = block.get("text") if isinstance(block, dict) else None
-            if isinstance(text, str) and DIGEST_BEGIN in text:
-                cleaned_text, block_entries = _split_digest(text)
-                entries.extend(block_entries)
-                changed = True
-                if cleaned_text.strip():
-                    new_block = copy.deepcopy(block)
-                    new_block["text"] = cleaned_text
-                    new_blocks.append(new_block)
-                continue
-            new_blocks.append(block)
-        if not changed:
-            return message, []
-        cleaned = copy.deepcopy(message)
-        cleaned["content"] = new_blocks
-        return cleaned, entries
-    return message, []
-
-
-def inject_digest(message: Any, entries: list[str]) -> Any:
-    if not entries or not isinstance(message, dict):
-        return message
-    digest_text = "\n".join([DIGEST_HEADER, *entries[-DIGEST_MAX_ENTRIES:], DIGEST_END])
-    content = message.get("content")
-    out = copy.deepcopy(message)
-    if isinstance(content, str):
-        out["content"] = f"{content.rstrip()}\n\n{digest_text}"
-        return out
-    if isinstance(content, list):
-        out["content"] = [*content, {"type": "text", "text": digest_text}]
-        return out
-    return message
 
 
 # ---------------------------------------------------------------------------
@@ -1265,9 +1287,10 @@ def compress_structurally(
                 total += min(cost, ASSIST_HEAD + ASSIST_TAIL + 80)
             else:
                 total += cost
-        # The rendered digest is capped at DIGEST_MAX_ENTRIES regardless of
-        # how many interactions were dropped.
-        total += min(dropped_count, DIGEST_MAX_ENTRIES) * DIGEST_ENTRY_EST_CHARS
+        # Dropped interactions now leave NO trace (no digest is injected — the
+        # private history-digest marker is banned next round), so a dropped
+        # interaction contributes 0 chars. dropped_count is tracked only for info.
+        _ = dropped_count
         return total
 
     # Budget levers, applied in order of increasing risk. Escalation flags are
@@ -1304,27 +1327,17 @@ def compress_structurally(
     truncated_protected = {
         item["result_index"] for item in interactions if item["mode"] == "trunc-protected"
     }
+    # Determine which call blocks to strip for each dropped interaction. No digest
+    # is built or injected (the private history-digest marker is banned next round):
+    # the frozen head (first user message) is left byte-identical. A dropped
+    # interaction's toolResult is removed and its invoking toolCall block stripped,
+    # so pairing is preserved and the dropped facts simply leave no marker trail.
     strip_by_call: dict[int, set[str]] = {}
-    digest_entries: list[str] = []
     for item in interactions:
         if item["mode"] != "drop":
             continue
         call_index = item["call_index"]
         strip_by_call.setdefault(call_index, set()).update(item["ids"])
-        call_id = next(iter(item["ids"]))
-        call_text = describe_tool_call(messages[call_index], call_id)
-        if item["duplicate"]:
-            snippet = "[duplicate of a later identical result]"
-        else:
-            result_text = collapse_ws(extract_text(messages[item["result_index"]].get("content")))
-            snippet = clip(result_text, DIGEST_RESULT_CHARS)
-            paths = list(dict.fromkeys(PATH_PATTERN.findall(result_text)))
-            unseen = [p for p in paths if p not in snippet][:DIGEST_MAX_PATHS]
-            if unseen:
-                snippet += " | files: " + ", ".join(clip(p, 80) for p in unseen)
-        # rstrip: extraction strips lines, so the written form must match the
-        # re-extracted form byte-for-byte or the digest flaps across rounds.
-        digest_entries.append(f"- {call_text} -> {snippet}".rstrip())
         info["droppedInteractionCount"] += 1
         if item["duplicate"]:
             info["duplicateResultCount"] += 1
@@ -1364,12 +1377,8 @@ def compress_structurally(
             continue
         output.append(message)
 
-    # Carry forward + inject the digest into the first user message.
-    for index, message in enumerate(output):
-        if isinstance(message, dict) and normalize_role(message.get("role")) == "user":
-            cleaned, previous_entries = extract_existing_digest(message)
-            output[index] = inject_digest(cleaned, [*previous_entries, *digest_entries])
-            break
+    # NOTE: no digest is injected into the first user message — the frozen head
+    # stays byte-identical (the private history-digest marker is banned next round).
 
     info["reason"] = "pruned" if (dropped or info["truncatedResultCount"] or info["truncatedAssistantCount"]) else "nothing_to_remove"
     info["targetChars"] = target_chars
@@ -1405,7 +1414,7 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
     # uniformly small ≤90k, so token size can't separate easy from hard; depth
     # can). Monotonic + sticky: passthrough -> harvest -> rich, never reverts.
     #   passthrough: tiny context, send native (cache-warm).
-    #   harvest    : shallow -> v6 drop-with-digest (target 8k) -> pass-task bonus.
+    #   harvest    : shallow -> v6 drop+truncate (target 8k) -> pass-task bonus.
     #   rich       : deep    -> v9/v10 truncation-only rich skeleton -> hard flips.
     # Depth MUST be measured on raw_messages (the connector's full native
     # trajectory, monotonically growing) — NOT on `working`, which harvest itself
@@ -1421,7 +1430,21 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
     # that separates hard-but-shallow tasks from harvest-safe medium tasks.
     still_failing = (
         msg_depth >= ERROR_GUARD_MIN_MSGS
-        and recent_errors(working) >= ERROR_GUARD_MIN_HITS
+        and recent_errors(working, ERROR_GUARD_WINDOW) >= ERROR_GUARD_MIN_HITS
+    )
+    # m12.1 (1b): repeated/oscillating failure — same break recurring across the
+    # recent results -> route to rich (gentle). General transcript signal only.
+    repeated_fail = (
+        msg_depth >= REPEAT_FAIL_MIN_MSGS
+        and repeated_failure(working, REPEAT_FAIL_WINDOW)
+    )
+    # m12.1 (1b): shallow AND small (the Easy-like band that breaks under aggression)
+    # -> prefer the gentle rich path over the deep harvest. Both conditions required.
+    # Never downgrade a task already in harvest/rich (mode is monotonic, sticky).
+    shallow_small = (
+        prev_mode == "passthrough"
+        and msg_depth <= SHALLOW_MAX_MSGS
+        and observed <= SHALLOW_MAX_TOKENS
     )
     if (
         prev_mode == "rich"
@@ -1429,17 +1452,24 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
         or observed >= LARGE_THRESHOLD_TOKENS
         or cumulative_observed >= CUM_THRESHOLD
         or still_failing
+        or repeated_fail
     ):
         mode = "rich"
     elif prev_mode == "harvest" or observed >= PASS_THROUGH_TOKENS:
-        mode = "harvest"
+        # m12.1 (1b): if this is a genuinely shallow+small task that has not yet
+        # entered harvest, prefer the gentle rich path (truncation-only, never drops)
+        # instead of the aggressive harvest — but only when there is enough context
+        # to be worth compressing at all (i.e. above passthrough).
+        mode = "rich" if shallow_small else "harvest"
     else:
         mode = "passthrough"
     escalation = dict(extras.get("escalation") or {})
 
-    # Our coach message from previous rounds rides in via state; remove it so
-    # compression never sees it, and re-append at the end (rich mode only).
-    working = strip_coach(working)
+    # A loop-guard message we appended on a prior turn may ride in via state; remove
+    # it so compression never sees it, then re-decide and re-append (if an objective
+    # loop is still present) at the end. The guard carries ONLY an allowed loop-reason
+    # string — never steering — so stripping/re-adding it is purely idempotent.
+    working = strip_loop_guard(working)
 
     sanitize_changed = False
     pruned = False
@@ -1451,11 +1481,12 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
         info: dict[str, Any] = {"reason": "below_activation_threshold"}
         changed = False
     elif mode == "harvest":
-        # v6-style aggressive drop-with-digest: compress the trajectory toward an
-        # 8k target by truncating old tool output and dropping the oldest
-        # interactions (a one-line digest is left behind in the first user
-        # message), recovering the pass-task token bonus on shallow tasks.
-        # Orphan-guarded; never ships pairing we broke ourselves.
+        # v6-style aggressive drop+truncate: compress the trajectory toward an 8k
+        # target by truncating old tool output (wrapped in the allowed [[CMP]]…[[/CMP]]
+        # markers) and dropping the oldest interactions, recovering the pass-task token
+        # bonus on shallow tasks. The frozen head (first user message) stays
+        # byte-identical — NO history-digest injection. Orphan-guarded; never ships
+        # pairing we broke ourselves.
         sanitized = working
         result_messages, info = compress_structurally(
             working, escalation, target_tokens=TARGET_TOKENS
@@ -1471,12 +1502,15 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
             result_messages = raw_messages
             info = {"reason": "empty_output_fallback"}
             pruned = False
-        result_messages = append_coach(
-            strip_coach(result_messages), governor=observed >= GOVERNOR_TOKENS
-        )
+        # Compliant loop guard: appends ONLY an allowed loop-reason string, and only
+        # when an objective repeated/no-progress loop is detected. No steering.
+        result_messages = strip_loop_guard(result_messages)
+        info["loopGuardFired"] = detect_loop_reason(result_messages) or None
+        result_messages = append_loop_guard(result_messages)
         changed = fingerprint_messages(result_messages) != fingerprint_messages(raw_messages)
     else:
-        # Rich mode: byte-identical except dedup + light stale-trim of old bulk.
+        # Rich mode: byte-identical except dedup (allowed BLOCK back-reference) +
+        # light stale-trim of old bulk.
         sanitized = working
         result_messages, info = compress_gently(working)
         pruned = info.get("reason") == "gentle"
@@ -1491,10 +1525,40 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
             result_messages = raw_messages
             info = {"reason": "empty_output_fallback"}
             pruned = False
-        result_messages = append_coach(
-            strip_coach(result_messages), governor=observed >= GOVERNOR_TOKENS
-        )
+        # Compliant loop guard: appends ONLY an allowed loop-reason string, and only
+        # when an objective repeated/no-progress loop is detected. No steering.
+        result_messages = strip_loop_guard(result_messages)
+        info["loopGuardFired"] = detect_loop_reason(result_messages) or None
+        result_messages = append_loop_guard(result_messages)
         changed = fingerprint_messages(result_messages) != fingerprint_messages(raw_messages)
+
+    # -----------------------------------------------------------------------
+    # m12.1 (1a): NEVER-INFLATE GUARD — applied as the final step before return,
+    # for harvest AND rich (passthrough never compresses, so it is exempt by the
+    # `changed` gate below). Compare the FINAL output's token estimate (after the
+    # loop guard) to the BASELINE raw input. If we did not actually save tokens —
+    # the compressed output's estimate is >= the raw input's estimate, i.e. ratio
+    # would be < 1.0 — we discard the compressed form and emit PASS-THROUGH: return
+    # the raw messages with changed=False. This guarantees ratio >= 1.0 (m12.1 can
+    # never grow the context) and kills the inflated-task drag. Uses the file's own
+    # final_token_estimate over raw_messages as the immutable baseline. We only run
+    # the comparison when we actually changed something (a no-op output is already
+    # the raw input). final_token_estimate is reused for the returned estimate.
+    output_token_estimate = final_token_estimate(result_messages)
+    raw_token_estimate = final_token_estimate(raw_messages)
+    never_inflate_triggered = False
+    if changed and output_token_estimate >= raw_token_estimate:
+        info = {
+            "reason": "never_inflate_passthrough",
+            "preGuardMode": mode,
+            "preGuardOutputTokens": int(output_token_estimate),
+        }
+        result_messages = raw_messages
+        output_token_estimate = raw_token_estimate
+        changed = False
+        pruned = False
+        never_inflate_triggered = True
+        mode = "passthrough"
 
     metadata = {
         **state_metadata,
@@ -1506,6 +1570,11 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
         "observedTokens": observed,
         "cumulativeObserved": cumulative_observed,
         "stillFailing": still_failing,
+        "repeatedFailure": repeated_fail,
+        "shallowSmall": shallow_small,
+        "neverInflateTriggered": never_inflate_triggered,
+        "rawTokenEstimate": int(raw_token_estimate),
+        "outputTokenEstimate": int(output_token_estimate),
         "msgDepth": msg_depth,
         "originalMessageCount": len(raw_messages),
         "messageCount": len(result_messages),
@@ -1530,7 +1599,7 @@ def handle_assemble(payload: dict[str, Any]) -> dict[str, Any]:
     return {
         "assembled": True,
         "messages": result_messages,
-        "estimatedTokens": final_token_estimate(result_messages),
+        "estimatedTokens": output_token_estimate,
         "baseMiner": metadata,
     }
 

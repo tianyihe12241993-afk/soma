@@ -16,6 +16,8 @@ miners:
   m9:  { hotkey: 5CFqU2SsJbZjGwWS8cwjcCWrXxEo7gEpsE76SagDCihCmsMY, label: m9,  version: v22,   total: 0.937, easy: 1.165, medium: 0.931, hard: 0.728, avg_ratio: 2.64, broke_baseline: 3, negative_score: 9, barely_compressed: 14, notes: "flip-richness + release-on-pass. WORST. 3 broken baselines, 9 neg tasks. Drop flip." }
   m10: { hotkey: 5GL4KxdashDdVd7twAGNoooPwTdkoxmcYKiEMiUBAQQaJKPh, label: m10, version: v18,   total: 0.916, easy: 1.029, medium: 1.073, hard: 0.653, avg_ratio: 2.66, broke_baseline: 2, negative_score: 8, barely_compressed: 15, notes: "flip-richness (subset of v22). Worst Hard 0.653. Drop flip." }
   m11: { hotkey: 5F26J6aGytyLoCT9T4EXqj6BNwrTJEmLtF3XsAXE436SmtTE, label: m11, version: v24,   total: 1.038, easy: 0.943, medium: 1.030, hard: 1.135, avg_ratio: 2.70, broke_baseline: 1, negative_score: 7, barely_compressed: 12, notes: "flip + firm-stop decisiveness. Best of the flip bets but still < m7." }
+  # --- NEW ROUND (CoT-Compression-4 / comp 108) ---
+  m12: { hotkey: 5Dz7JaCBw6t9ktdRVaLYi3ntEzvCDfb5XmTHyzPdDyT6KS9j, label: m12, version: m7-compliant, competition: 108, key: "sk-or-...1e8a (current)", sha256: 47d3d685, uploaded: "2026-06-22 15:52 local", status: "uploaded — screening", notes: "FIRST new-round submission. m7 engine, coach/force-stop/digest-injection REMOVED, only [[CMP]]/[[BLOCK N]]/loop_detected markers. Review-safe baseline. solution=miner/cot_compression/upload_miner_m7_compliant.py" }
 
 # ---- other historical hotkeys (kept so legacy tooling still flags them 'ours') ----
 historical:

@@ -1,0 +1,25 @@
+{
+  "observed_at": "2026-06-22T14:53:02Z",
+  "source": "https://thesoma.ai/dashboard",
+  "miner_count": 2,
+  "miners": [
+    {
+      "hotkey": "5GYxeJjdvfatKWdcbeidX7F3VTnrK6n73pEHzMgpRb5gFpEH",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "in queue",
+      "eval_status": "in queue"
+    },
+    {
+      "hotkey": "5CwZBKyLsnzK3fqmD56qNntvBAcBi7D4Ss2sc4u6xhjNJHDc",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "in queue",
+      "eval_status": "in queue"
+    }
+  ]
+}

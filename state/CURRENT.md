@@ -1,75 +1,68 @@
-# CURRENT — detailed status & MacBook handoff (2026-06-22)
+# CURRENT — live status (2026-06-23)
 
-_**Mode: POST-COMPETITION RESEARCH** for competition 107 (CoT-Compression, SN114). Completed; we do
-NOT submit. Goal: design the strongest next-round miner, evidence-backed, files = source of truth._
+_**Mode: ACTIVE COMPETITION — CoT-Compression-4 (competition 108) on SOMA / SN114.** New round, new prompt
+policy (force-stop banned; only public compression markers + loop-detection). We submit compliant miners and
+iterate. Files = source of truth; read this + NEXT_ACTIONS + DECISIONS + DISCOVERIES + SCOREBOARD before acting._
 
-## ⏭ CONTINUE ON THE MACBOOK (this Windows/WSL2 box cannot run the real eval)
-The only thing left is the **real SWE-bench eval of the H1M candidate**, and it must run on a
-**real-Linux Docker host**. macOS Docker Desktop = a real Linux VM (LinuxKit), which works (your past
-laptop). WSL2 does NOT (see "Blocker resolution" below).
+## ⏭ IMMEDIATE NEXT: build m12.1b
+m12.1 was eval-rejected (over-routed Medium). Build **m12.1b** = m12 (`upload_miner_m7_compliant.py`) +
+**1a never-inflate ONLY** (pure win), with **1b tightened** so gentle routing fires only on persistent /
+genuinely break-prone signals — NOT on compressible Medium (m12.1's bug). Re-eval bar: **Medium tok/call ≈ m12
+AND breaks ≤ m12**. Build offline + `scripts/check_prompt_compliance.py` PASS, then real-eval vs m12 on the Mac.
 
-On the MacBook:
-```bash
-git clone https://github.com/tianyihe12241993-afk/soma.git && cd soma
-export OPENROUTER_API_KEY=sk-or-...            # your key; do NOT commit; ROTATE the one pasted in chat
-bash experiments/candidates/H1M_m7_deeper_safe_v1/run_real_eval.sh        # 2-task smoke, ~$ small
-# then gate the result:
-python3 experiments/candidates/H1M_m7_deeper_safe_v1/h1m_run.py \
-  --results experiments/runs/<stamp>_H1M_smoke_real_eval/h1m_smoke_gate.csv
-```
-STOP after the smoke; confirm before the full Medium-first set. On the FIRST successful solve, check the
-token-with/without field names in `output.jsonl` `metadata` (the gate-CSV converter flags them) — that's
-the one thing I couldn't finalize (every run here died pre-success due to the WSL2 bug).
+## What's LIVE
+- **m12 = our submission in comp 108.** Hotkey `5Dz7JaCBw6t9ktdRVaLYi3ntEzvCDfb5XmTHyzPdDyT6KS9j` (wallet
+  tony-miner, local hotkey label `m12`). Solution = `miner/cot_compression/upload_miner_m7_compliant.py`
+  (m7 engine, COMPLIANT: coach/force-stop/digest-injection removed, only `[[CMP]]`/`[[BLOCK N]]`/loop_detected
+  markers). Key attached = `sk-or-v1-…1e8a` (account ~$97). **SCORED 0.768, PASSED review, #2 among scored.**
+  Cats: Easy 0.412 / Medium 0.953 / Hard 0.919.
 
-## The thesis (proven from per-task data — do not relitigate)
-The gap to top miners is **compression DEPTH, not solving/consistency**. On 36 shared-pass tasks: mean
-score gap +0.157/task, ratio-model explains +0.231 (residual −0.074). m7 ~3.0× vs leaders ~4.9×.
-Flakiness is a near-universal floor (m7 15.3% neg-runs ≈ top-4 14%), NOT our gap. Flip-routing was
-net-negative and is permanently dropped. Next direction = **m7-style architecture + deeper pass-safe
-compression, Medium-first.**
+## Standings + strategy (the plan)
+- **New king = `5DFvymSeEw…` total 0.7801** (just +0.012 over m12). MIRROR IMAGE: king Easy 0.812 / Med 0.934 /
+  **Hard 0.596**; us Easy 0.412 / Med 0.953 / **Hard 0.919**. We WIN Hard (+0.32) + Medium, LOSE only Easy.
+- **7-element incentive math:** we already win (M,H)+M+H (~19%). Lifting **Easy to just ~0.49** flips Overall
+  (57%) + (E,H) → **~86% of pool** (plateaus there; (E,M)/Easy-single need Easy~0.8 = not worth chasing).
+- **STRATEGY (user, refined):** it's EARLY → **continuously GROW Hard+Medium** (extend the lead as the field
+  rises) + **keep Easy competitive (~0.49 floor, not maximal)**. Moat = our H+M gap (king stuck at Hard 0.60)
+  + iteration speed. Full plan: `reports/improvement_roadmap_comp108.md`.
+- **H+M growth levers (ranked):** (1) flip conversion on HARD (+4 each, but TIGHT routing — must NOT leak
+  Medium, the v15 lesson); (2) adaptive deeper-but-SAFE compression on H/M pass-pass; (3) cut H/M run-variance.
+  Easy floor via reliability (never-inflate + targeted break-routing). Every push EVAL-GATED (no break, no
+  Medium leak) before submit.
 
-## H1M_m7_deeper_safe_v1 — candidate status
-- **Built** (`experiments/candidates/H1M_m7_deeper_safe_v1/h1m_miner.py`): m7/v11.1 derivative; a PROFILE
-  layer deepens ONLY the harvest path (lower TARGET 8k→{7k,6k,5.2k} + tighter caps); RICH path + all
-  protections + coach UNCHANGED; fragile guard (ERROR_GUARD_MIN_HITS 4→3) routes still-failing tasks to m7.
-  Profiles via env H1M_PROFILE = light|medium|deep; =m7 reproduces baseline exactly. NO routing/flip.
-- **Offline-validated** (h1m_eval.py): h1m@deep **+13.7%** compression on 6/6 harvest cases, 0 regressions,
-  all protected content kept, no broken pairing, guard fires correctly. A/B (h1m@m7≡m7) holds.
-- **Decision gate IMPLEMENTED + PROVEN** (h1m_run.py --results): fixtures PASS→ACCEPT, FAIL→REJECT (rejects
-  on safety even when compression improved). Ready to ingest real eval output.
-- **Real-task projection** (experiments/runs/2026-06-22_005707_H1M_eval/): REAL m7 Medium-first baseline
-  7/7 pass, 0% neg-run, 0 broke, 3.02×, Medium est score 1.690; projected h1m@deep ~3.43×, h1m@medium ~3.34×.
-- **Verdict: ADVANCE (candidate-only).** Do NOT promote over m7 until the Mac eval gives real pass-rate /
-  neg-run / Medium score. Reports: experiments/reports/H1M_m7_deeper_safe_v1.md.
+## Scoring + gate mechanics (decoded from mcp_platform/app/api/routes/scoring.py)
+- Per-run score = `base + λ·clamp(ln(ratio),−2,+2)`; displayed per-task = mean of 5 runs. **break (base-pass→
+  fail) = −4 (flat); flip (base-fail→pass) = +4; pass→pass = +1; both-fail = 0.** ⇒ avoiding a −4 break ≈ 3
+  clean tasks; flips are gold; compression ratio is a secondary ±λ·ln bonus. Negatives on "passing" tasks =
+  run-variance (some of 5 runs broke).
+- **Qualification GATE = ≥10% WEIGHTED token savings** (input×1, cached×⅓, output×3). m12 cleared it; comp-108
+  "not qualified" miners failed it. Output weighted 3× → fewer agent steps / less wander = high gate value.
 
-## Blocker resolution (why the eval must move to the Mac)
-The real eval (`soma_bench` + OpenClaw + Docker-in-Docker) fails under WSL2 with
-`rm '.openclaw/sandbox-skills/skills': Device or resource busy`. CONFIRMED it's **WSL2, not Docker
-Desktop**: reproduces on Docker Desktop AND native docker.io 29.1.3, on openclaw 2026.6.9 + 2026.6.8-beta.2,
-root + non-root — only common factor is the WSL2 kernel's mount semantics under DinD. macOS = real Linux VM
-→ works. The whole stack + every config fix is captured in the turnkey `run_real_eval.sh`. Full writeup:
-reports/H1M_real_eval.md; machine: data/latest/h1m_real_eval_smoke.json.
+## Candidate inventory (all in miner/cot_compression/ unless noted)
+- `upload_miner_v11_m7.py` — ORIGINAL m7 (1.279 last round), NON-compliant (has coach). Do not submit as-is.
+- `upload_miner_m7_compliant.py` — **= m12 (LIVE).** Compliant, scored 0.768.
+- `upload_miner_m12_1.py` — **DO NOT SHIP** (over-routes Medium, +20% tok/call). Salvage → m12.1b.
+- `upload_miner_h4b_compliant.py` — h1m@deep-compliant (deeper). Reference; deeper breaks more (wrong this round).
+- `experiments/candidates/H3_cache_stable_depth_v1/h3_miner.py`, `H4_compliant_cache_stable/h4_miner.py` —
+  cache-stable; **falsified** (didn't beat h1m@deep). Reference only.
 
-## Where everything lives
-- Candidate + eval: `experiments/candidates/H1M_m7_deeper_safe_v1/` (h1m_miner.py, h1m_eval.py,
-  h1m_run.py [gate], run_real_eval.sh [Mac driver], fixtures/).
-- Manifests: `experiments/manifests/` (H1–H4 + H1M_real_eval_medium_first.yaml).
-- Reports: `reports/` (postmortem, top_miner_comparison, per_category_gap, compression_depth_risk,
-  m7_gap_analysis, h1_safe_compression_targets, next_round_strategy, experiment_backlog, label_mapping_audit,
-  run_variance) + `experiments/reports/H1M_*.md`.
-- Data: `data/raw/` (immutable scrapes + extension-sb114 per-run evidence), `data/processed/` (per-task +
-  per-run jsonl), `data/latest/` (json + csv).
-- Ops scripts: `scripts/` (collectors, import/normalize, compare, gaps, per_category_gap,
-  compression_depth_risk, rank_headroom, run/summarize experiments, checkpoint, setup_wsl_env.sh).
-- Config: `config/miners.yaml` (audited m7=v11.1…m11=v24; m9=v22/m10=v18 RESOLVED), top_miners.yaml,
-  experiments.yaml, task_categories.csv (E/M/H), secrets.env.example. **secrets.env is git-ignored.**
+## Eval pipeline (Mac, WORKS — real SWE-bench via SWE-rebench)
+- Driver: `experiments/candidates/H1M_m7_deeper_safe_v1/run_batch_eval.sh` (PROFILES/RUNS/TASKS env; bakes the
+  miner into SOMA-plugin/base_miner.py; profiles incl m7, h1m@*, h3@*, m12, m12_1). Needs OPENROUTER_API_KEY
+  (env or config/secrets.env). macOS Docker Desktop only — NOT WSL2.
+- Analyzer: `experiments/candidates/H1M_m7_deeper_safe_v1/analyze_batch.py` (per-task + per-category resolved/
+  breaks/tokens/cache; gate CSVs). Compliance: `scripts/check_prompt_compliance.py`.
+- Setup for a fresh machine: `setup/EVAL_PIPELINE.md`.
+
+## Open items
+- **Confirm upload cadence:** can we re-upload an improved solution to m12's hotkey mid-round, or does each
+  iteration need a fresh registered hotkey (burn) / next window? Sets iteration speed.
+- **Add known-Easy SWE-bench instances** (from config/task_categories.csv) to the eval — current regression set
+  is fragile+Medium only, so the Easy lift is an unvalidated platform bet.
+- Watch rivals each cycle (esp. `5CwZBKyL` in-queue 1.062, only 5 screeners done; the king 5DFvymSeEw).
 
 ## Hard rules (still in force)
-Do not submit. Do not modify m7 or live miner code. Don't revive flip-routing. Files = source of truth,
-not chat. Never commit secrets. Separate observed-platform / local-replay / manual-interpretation.
-
-## Reminders
-- **ROTATE** the OpenRouter key and the WSL sudo password (both were pasted in chat).
-- To restore this Windows box's Docker: `sudo apt remove docker.io` + re-enable Docker Desktop WSL
-  integration (or just keep native docker.io — harmless).
-- On the Mac, run `make`/scripts via the repo; the eval is self-contained in run_real_eval.sh.
+Compliant only (scanner-clean: no coach/force-stop/steering, only allowed markers + 2 loop reasons). Never
+commit secrets. Don't submit/replace m12 until a candidate BEATS it on the Mac eval (no break, no Medium leak).
+Platform upload + git push to the backup repo are classifier-blocked for me → user runs those (external
+terminal). Backup repo (private): `github.com/tianyihe12241993-afk/soma` (remote `myrepo`).

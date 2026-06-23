@@ -50,6 +50,10 @@ COMPACT_BENCH_COMPRESSION_SERVICE_CONTEXT=$REPO/sandbox_service/compression_serv
 COMPACT_BENCH_PLUGIN_TEMPLATE_PATH=$PLUGIN
 SOMA_OPENCLAW_PLUGIN_PATH=$PLUGIN
 SOMA_OPENCLAW_PLUGIN_REINSTALL_ON_RUN_START=true
+# macOS gateway fixes (Docker Desktop / LinuxKit) — see soma-bench-macos-setup memory + setup/EVAL_PIPELINE.md
+SOMA_HOST_DOCKER_BINARY=$B/.docker-cli/docker
+SOMA_OPENCLAW_GATEWAY_IMAGE=alpine/openclaw:2026.5.27
+SOMA_OPENCLAW_GATEWAY_SETTLE_SECONDS=20
 SOMA_SWEREBENCH_EVAL=true
 SOMA_SWEREBENCH_HARNESS_ROOT=$FORK
 SOMA_SWEREBENCH_HARNESS_PYTHON=$WORK/.venv-swerebench/bin/python
@@ -57,20 +61,29 @@ EOF
 chmod 600 "$B/.env"
 mkdir -p "$RD"
 
-declare -A BASE=( [m7]="$REPO/miner/cot_compression/upload_miner_v11_m7.py"
-                  [h1m@medium]="$REPO/experiments/candidates/H1M_m7_deeper_safe_v1/h1m_miner.py"
-                  [h1m@deep]="$REPO/experiments/candidates/H1M_m7_deeper_safe_v1/h1m_miner.py" )
-declare -A PROF=( [m7]="" [h1m@medium]="medium" [h1m@deep]="deep" )
+# Bash 3.2-compatible (macOS default ships 3.2) — no associative arrays.
+M7_MINER="$REPO/miner/cot_compression/upload_miner_v11_m7.py"
+H1M_MINER="$REPO/experiments/candidates/H1M_m7_deeper_safe_v1/h1m_miner.py"
 
 echo "== SMOKE: 3 profiles x ${INSTANCES} (PAID from here) =="
 for prof in m7 h1m@medium h1m@deep; do
-  cp "${BASE[$prof]}" "$PLUGIN/base_miner.py"
+  case "$prof" in
+    m7)         src="$M7_MINER";  profenv="" ;;
+    h1m@medium) src="$H1M_MINER"; profenv="medium" ;;
+    h1m@deep)   src="$H1M_MINER"; profenv="deep" ;;
+  esac
+  # bake the profile INTO the miner file — H1M_PROFILE env does NOT reach the compression container
+  if [ -n "$profenv" ]; then
+    sed "s|^H1M_PROFILE = _os\.environ.*|H1M_PROFILE = \"$profenv\"  # baked by run_real_eval.sh|" "$src" > "$PLUGIN/base_miner.py"
+  else
+    cp "$src" "$PLUGIN/base_miner.py"
+  fi
   for inst in $INSTANCES; do
     out="$RD/${prof//[@\/]/_}__${inst}"; mkdir -p "$out"
     echo "  [$(date -u +%H:%M:%S)] $prof / $inst"
-    ( cd "$B" && set -a && . ./.env && set +a && H1M_PROFILE="${PROF[$prof]}" \
+    ( cd "$B" && set -a && . ./.env && set +a && H1M_PROFILE="$profenv" \
       uv run python -m soma_bench benchmark-solve --agent-name openclaw \
-        --benchmark SWE-bench/SWE-bench_Verified --instance-id "$inst" --execute \
+        --benchmark SWE-bench/SWE-bench_Verified --instance-id "$inst" --execute --openclaw-current-user \
         --openclaw-plugin-path "$PLUGIN" --openclaw-plugin-reinstall-on-run-start \
         --openclaw-command "--timeout 1800" --swerebench-eval --output-dir "$out" ) \
       > "$out/solve.log" 2>&1 && echo "    ok" || echo "    FAILED (see $out/solve.log)"
