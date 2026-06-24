@@ -144,3 +144,7 @@ __pycache__/
 
 # eval run OUTPUTS embed the OpenRouter key (gateway-state) + are large/reproducible — never commit
 experiments/runs/
+
+# stray editor/script temp files
+state/*.tmp
+*.md.tmp
