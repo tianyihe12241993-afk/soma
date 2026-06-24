@@ -1,5 +1,26 @@
 # DECISIONS (durable; don't relitigate)
 
+- **m12.1b (=m13) SUBMITTED + REJECTED by the platform (2026-06-23): 0.571 vs m12 0.768.** Submitted to a
+  fresh hotkey (m12 untouched). Hard COLLAPSED 0.919→0.434, Medium 0.953→0.718; only Easy rose 0.412→0.561.
+  The aggressiveness-cap + gentler-routing design is FALSIFIED — m12's aggressive harvest is net-positive on
+  H+M; softening it traded away our edge. KEEP m12 LIVE/BEST. **Run-variance-from-over-compression thesis is
+  dead** (the 10-20x "outliers" were a symptom of failing short runs, not the cause). **Local eval is
+  unreliable for H+M** (showed fragile +3; Hard actually collapsed) → validate H+M candidates ON THE PLATFORM.
+  ONE extractable win: never-inflate/gentleness lifts EASY. NEXT: m12 + never-inflate ONLY (isolate the Easy
+  lift, don't touch the H+M harvest), platform-validate. Full: `reports/m13_platform_result.md`. Below entry
+  (the local NO-SUBMIT call) was overturned by the platform — submitting was the right move.
+- **m12.1b_run_stability — local eval said NO-SUBMIT (2026-06-23), platform OVERTURNED it (see above).**
+  (`reports/m121b_eval_results.md`, run 2026-06-23_050906_H1M_pbatch, 100/100 ok): m12_1b 34/50 vs m12 33/50
+  = a TIE, composition shifting Hard↑ Easy↓. WINS: HardFragile 6→9 (+3, incl django-14493 **1/5→5/5** — the
+  textbook partial-flip→clean-flip the candidate targeted); Medium preserved (17→18, tok/call +1.0%,
+  (in+out)/call −18%); never-inflate + cap structurally hold (offline-proven). BUT does NOT clear the gate:
+  **Easy regressed 10/10→7/10** (the spec's explicit reject trigger) and 2 fragile tasks slipped −1 each.
+  The Easy drop is most likely AGENT NOISE (m12_1b is mechanism-inert on small Easy contexts; compression
+  matched m12 within 3%) but n=10 can't prove it. Verdict: don't replace the live #2 on an ambiguous wash.
+  m12_1b is KEPT as the lead candidate; the never-inflate + aggressiveness-cap + determinism design is sound.
+  NEXT: targeted RUNS=10 re-eval (2 Easy + 4 fragile only) to separate signal from noise before any submit.
+  The build/verify/eval pipeline (parallel driver + verify_m121b.py + analyze_runvariance.py) is validated.
+
 - **m7 / v11.1 is our confirmed best (1.279) and the recipe to protect/replicate.** Everything built on top
   (v15→v18→v22→v24) added persistent-failure flip-routing that, on the platform, *leaked Medium* (v15 → 1.183).
 - **Compression is at its ceiling.** Six levers tried (v14 richer, v17 harder, v19 loop-coach, v20 snapshot,

@@ -1,7 +1,24 @@
 # SCOREBOARD
 
-_Hand-maintained snapshot; `make reward` writes the live machine version to data/latest/ + reports/.
-Columns: total / Easy / Medium / Hard. As of ~2026-06-21 (mid-eval, provisional)._
+## ★ COMP 108 (CoT-Compression-4) — current standings (2026-06-24, scrape 070944 — all SCORED)
+_Caveat: platform temporally noisy; an EVALUATING score is NOT final — see the 5DAh2rUM collapse below._
+| # | miner | total | Easy | Medium | Hard | status / note |
+|---|-------|-------|------|--------|------|------|
+| 1 | 5DFvymSeEw (king) | 0.780 | 0.812 | 0.934 | 0.596 | scored. beats us ONLY on Easy |
+| 2 | **m12 (us)** | **0.768** | 0.412 | **0.953** | **0.919** | scored. 0.012 from #1; field-best M AND H; LIVE |
+| 3 | 5DtEz84j | 0.714 | 0.837 | 0.499 | 0.813 | scored |
+| 4 | 5GYxeJjd | 0.661 | 0.117 | 0.661 | 0.569 | scored |
+| ✗ | 5DAh2rUM (failed king) | **0.051** | 0.853 | 0.976 | **−3.600** | scored. WAS 0.887 evaluating → Hard COLLAPSED |
+**5DAh2rUM COLLAPSE (the big lesson):** showed 0.887 #1 while EVALUATING (E/M only), then Hard finished → **H=−3.600**
+(its LIGHT compression, 1.41×, broke nearly every Hard run) → total crashed to 0.051. VALIDATES: (1) never trust
+evaluating scores; (2) m12's aggressive harvest → **Hard 0.919 is a massive durable moat** (field-best by a mile;
+the light competitor got −3.6); (3) "go lighter for reliability" is DANGEROUS, not promising — the reliability A/B
+is shelved (the one light miner imploded on Hard; + EXP-1b lighter broke more). 7-element: king wins Overall+E+
+(E,M)+(E,H); m12 wins M+H+(M,H) ≈19%. (E,H) is close — m12 needs Easy≥0.49 to take it (we lose by 0.038). HOLD m12.
+
+---
+_Below: comp-107 (COMPLETED, different task set — historical). Hand-maintained; `make reward` writes the live
+machine version. Columns: total / Easy / Medium / Hard._
 
 ## Our miners
 | slot | ver | total | Easy | Medium | Hard | status |

@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """Aggregate the latest H1M batch across runs-per-task; compare m7 vs h1m@deep by category;
 emit the h1m@deep gate CSV. Pass/F2P/P2P from evaluation-summary.json (NOT output.jsonl)."""
-import json, csv, re, statistics as st
+import json, csv, re, sys, statistics as st
 from pathlib import Path
 from collections import defaultdict
 
 ROOT = Path("/Users/user/SOMA")
-RD = sorted(ROOT.glob("experiments/runs/*_H1M_batch"), key=lambda p: p.stat().st_mtime)[-1]
+# explicit run dir as argv[1], else newest serial(_H1M_batch) OR parallel(_H1M_pbatch) run by mtime
+if len(sys.argv) > 1:
+    RD = Path(sys.argv[1]).resolve()
+else:
+    RD = sorted(ROOT.glob("experiments/runs/*_H1M_*batch"), key=lambda p: p.stat().st_mtime)[-1]
 
 cat = {}
 if (RD / "tasks.tsv").exists():

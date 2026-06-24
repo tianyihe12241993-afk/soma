@@ -1,0 +1,3372 @@
+{
+  "observed_at": "2026-06-23T17:52:08Z",
+  "source": "https://thesoma.ai/dashboard (server-action getSweTaskRunsAction)",
+  "competition_id": 108,
+  "leaderboard": [
+    {
+      "hotkey": "5DFvymSeEwuGdHzYQqTnrGYXQX6x89AS9V2mv7sBtQBcEKmS",
+      "total_score": 0.7800993102967295,
+      "last_submit": "2026-06-22T22:18:46.382655Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": 0.812245334449325,
+        "Medium": 0.9341159117480773,
+        "Hard": 0.5958276272899994
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5Dz7JaCBw6t9ktdRVaLYi3ntEzvCDfb5XmTHyzPdDyT6KS9j",
+      "total_score": 0.7684598316056688,
+      "last_submit": "2026-06-22T19:52:00.873943Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": 0.41172031608338777,
+        "Medium": 0.9533980234664732,
+        "Hard": 0.9192764778834821
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5GYxeJjdvfatKWdcbeidX7F3VTnrK6n73pEHzMgpRb5gFpEH",
+      "total_score": 0.6611654993031877,
+      "last_submit": "2026-06-22T14:02:10.450074Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": 0.11679615778570973,
+        "Medium": 0.6609478804904372,
+        "Hard": 0.5689381830065683
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5FqfEPFi937maZ9JvxVKF3GZTqPtwihayWsMzgwZeJahYuwA",
+      "total_score": 0.6364645370352671,
+      "last_submit": "2026-06-23T02:01:57.453220Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": 0.45690486666890884,
+        "Medium": 0.5695254075046368,
+        "Hard": 0.5798493380202112
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5CApy5s5NvzuaxgGnKiBmGpwtqvTFysjzdHHiPiwxwxdwEFz",
+      "total_score": 0.5711039914536338,
+      "last_submit": "2026-06-23T11:04:37.393948Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": 0.5614388501729675,
+        "Medium": 0.717711224665619,
+        "Hard": 0.4335933617999226
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5CwZBKyLsnzK3fqmD56qNntvBAcBi7D4Ss2sc4u6xhjNJHDc",
+      "total_score": 0.5299031705058006,
+      "last_submit": "2026-06-22T14:00:07.493310Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": 0.7553085580231986,
+        "Medium": 0.6041772125093932,
+        "Hard": 0.2434828814270098
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5DRi5yU6ZVuzJpTGsfdewMcMxz1t3wTbirwLd3Z6bZymiDSD",
+      "total_score": 0.4004323866499524,
+      "last_submit": "2026-06-23T13:47:25.362748Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": 0.4193469500817315,
+        "Medium": 0.5601122077379825,
+        "Hard": 0.22295062350848394
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5GQevo9beEAVLz9Ub3guvGrtkf5oZSsxNbmdo6B8fV7mPtp4",
+      "total_score": -1.4131488945058317,
+      "last_submit": "2026-06-22T18:33:07.135333Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": -1.6949302833948,
+        "Medium": -1.817620804885026,
+        "Hard": -0.7434709710546712
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5HgzWVGvoCz431PKrA9Q2yaSYY3A1WriLzLcyt9gKUnieKYf",
+      "total_score": -1.9409890561529615,
+      "last_submit": "2026-06-23T02:54:04.111782Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": -2.56858047593327,
+        "Medium": -2.709863290438314,
+        "Hard": -0.5814405444273119
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5Fy6PV198MhS8jRhbGkMrW4bh5magWxKLHErENqbNzT2qghv",
+      "total_score": -1.97834942127364,
+      "last_submit": "2026-06-23T13:57:53.317278Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": -2.3888196419131953,
+        "Medium": -2.7756041839515664,
+        "Hard": -0.7947697450526015
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5HLBjkGJVbgeQv3WpU2ND4cYAFNS5YQ2Dnb1Gh1MgsiQAyWy",
+      "total_score": -2.0457280733001517,
+      "last_submit": "2026-06-23T02:52:49.099034Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": -2.6866478835904,
+        "Medium": -2.869009138918077,
+        "Hard": -0.6192283627031605
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5G1UeLtFbPNJjqXgQ5Mxr5NprQBbV3WPSsXZrpSFvqfL9f8U",
+      "total_score": -2.075087327179179,
+      "last_submit": "2026-06-23T01:47:24.938229Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": -2.898558583896357,
+        "Medium": -2.7585053778638384,
+        "Hard": -0.61663750546658
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5Cvk1FdGYiL2c7KPztRUUwsPxvozhvrk6YFDBgMfDLpe3NcV",
+      "total_score": -2.101300871134881,
+      "last_submit": "2026-06-23T01:46:55.095230Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": -2.8080665774784177,
+        "Medium": -2.921125175191973,
+        "Hard": -0.616285314048564
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5GgUhFiG3Vx8EGPcq29FeXeWXRDXQq91fiXdBDueae3W5rkj",
+      "total_score": -2.1308414270790976,
+      "last_submit": "2026-06-22T21:40:31.495494Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": -2.800194346354426,
+        "Medium": -2.9733694438398484,
+        "Hard": -0.65833419217685
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5Cck2JNmqwxE4ASv8qcrEJp9YCnrSp5cVYRaFKVMRF3Ciu8a",
+      "total_score": -2.1870503746008167,
+      "last_submit": "2026-06-22T21:16:31.729670Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -0.2346507384775669,
+        "Hard": -1.311811643047533
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5FxZizynNryfbK115oPGuc1NsdZS49rz9ay6VNVfFfMnbSgP",
+      "total_score": -2.274359649199265,
+      "last_submit": "2026-06-22T18:40:42.387439Z",
+      "status": "scored",
+      "category_scores": {
+        "Easy": -3.057373903747705,
+        "Medium": -3.0117647058823525,
+        "Hard": -0.8000000000000003
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5DG4k8dazLNEDBgbtvtntz6YwFT93yFkLFufS4mgiSyDdbqM",
+      "total_score": 1.058231891511939,
+      "last_submit": "2026-06-23T14:05:11.263213Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": 1.058231891511939
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5DWdSTwgy8tTGr4JsKZ1vGtQ92koumw7kysJSdAv28qZ3rCX",
+      "total_score": 0.9548967878908341,
+      "last_submit": "2026-06-22T18:18:45.259051Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": 0.9548967878908341
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5DvZs56KL9hNhtzRDDCwfyURFMKn2wuDdhCdHoT9F8SRrqKB",
+      "total_score": 0.9410603751225599,
+      "last_submit": "2026-06-22T18:21:27.370726Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": 0.9410603751225599
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5EX5r3URph5cwiLxh5GeYXbysFSA7we8rKUZKzL711DMPLi9",
+      "total_score": 0.5410627217301371,
+      "last_submit": "2026-06-23T15:53:46.464292Z",
+      "status": "evaluating",
+      "category_scores": {
+        "Easy": 0.5410627217301371
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5GRRZUYceeswCMT4AQoKMKLRvXgK1Njwfm6XMKaturFqP626",
+      "total_score": 0.5055014273266245,
+      "last_submit": "2026-06-23T15:40:17.786775Z",
+      "status": "evaluating",
+      "category_scores": {
+        "Easy": 0.5069515352530756,
+        "Medium": 0.6307790228984675,
+        "Hard": 0.37683201015977286
+      },
+      "screener_passed": true
+    },
+    {
+      "hotkey": "5EqUfva34661TWvCGipFg1me3tyhMZaLWya56Biisuo8KGX9",
+      "total_score": 0.3629791506814293,
+      "last_submit": "2026-06-23T12:52:14.806814Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": 0.3629791506814293
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5DaLJdXcfRRUKrxffcugknibYsvXhBF73KRepJjrt7tJDBV6",
+      "total_score": 0.13179991389656998,
+      "last_submit": "2026-06-22T18:22:00.853997Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": 0.13179991389656998
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5GjMnovtmZz5cjasUG1Mope2zWeoHMgXYL7sV3CtykRodo4L",
+      "total_score": -0.2983257415345557,
+      "last_submit": "2026-06-23T02:51:10.285977Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -0.2983257415345557
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5HDyuvMkearX3WHsqQitQ8uyEfkQdeyqiprqWfd9rns6tdpM",
+      "total_score": -1.6851053271596022,
+      "last_submit": "2026-06-23T13:59:06.765025Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -1.6851053271596022
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5GsnC1vdzMM4FbAwEWmPaDxsQHne9dPVGiycEnapmgGR4Fjy",
+      "total_score": -2.0616868256837337,
+      "last_submit": "2026-06-22T18:40:21.427698Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -2.0616868256837337
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5FstwyuekNJwiYNh5kup25sbEZUsGnXuqo2G33QPWwFqcnig",
+      "total_score": -3.109703018118815,
+      "last_submit": "2026-06-23T08:34:59.895904Z",
+      "status": "in queue",
+      "category_scores": {
+        "Easy": -3.109703018118815
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5EJ65CAaEH1xDaHsUyQfZg6GH3UDeS26iuz6E4H117MJyg3C",
+      "total_score": -3.660736372195523,
+      "last_submit": "2026-06-23T09:25:07.781752Z",
+      "status": "in queue",
+      "category_scores": {
+        "Easy": -3.660736372195523
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5D581UDhZYmDP8QMwuKgsp5iadbVRDZGzLvgztGBSPdS1b2m",
+      "total_score": -3.8071562613649843,
+      "last_submit": "2026-06-22T19:27:18.995761Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -3.8071562613649843
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5CRnr7QSW8Q5xYqyDZDoT2a5NaAyEM7sUBzG4JHf9jVa3xuq",
+      "total_score": -4,
+      "last_submit": "2026-06-23T01:09:54.571046Z",
+      "status": "in queue",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5CUKPpDTp8wJ9dFgpH6rF8La2xEqHTPmMfMvqKDAsMbVrjib",
+      "total_score": -4,
+      "last_submit": "2026-06-22T22:14:19.359373Z",
+      "status": "in queue",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5CvzwVncDBW4oLcWvRWFZwDFvGhSbPxzCG21xwZ4zQc9SUWg",
+      "total_score": -4,
+      "last_submit": "2026-06-22T20:09:51.209729Z",
+      "status": "in queue",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5D2bpwf9JFurNyhzQkBv9fVu4oQNUwasdPmaijFboD2i9d5F",
+      "total_score": -4,
+      "last_submit": "2026-06-23T14:53:23.725824Z",
+      "status": "in queue",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5E2TP68WLmQJcwFhQqTaMwbh3bQj6rAy7TSYKTtQnt6iTPvP",
+      "total_score": -4,
+      "last_submit": "2026-06-22T19:45:30.703132Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5ECfdygSqeMH9h9uamHhD6VpZrtSCpA4PPBpVAuJQ7Y2VaN5",
+      "total_score": -4,
+      "last_submit": "2026-06-22T18:18:14.167974Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5EHLsayYAiJa26doZMfXKhrpeuoK6kqAud5wj43VjJgmwS46",
+      "total_score": -4,
+      "last_submit": "2026-06-23T01:03:04.406213Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5EhD3GfXGQhrp9wsvamGcC46HA2ksaXWnAETHZpQczNo178P",
+      "total_score": -4,
+      "last_submit": "2026-06-22T20:54:09.833292Z",
+      "status": "in queue",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5EqFgCwpUTfADEG2ecFFgoVNSyVMtEMZ2g8MFhoamVAczcoZ",
+      "total_score": -4,
+      "last_submit": "2026-06-22T21:09:26.714337Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5EyhoYp17rKjUJmKJ6ZrZvkap4zxtaqb5Hy1kUESNc2iSWNy",
+      "total_score": -4,
+      "last_submit": "2026-06-22T21:46:34.770149Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    },
+    {
+      "hotkey": "5GsYoWcDVN9iuZKWuWcy453HVyoCS4D6vsznW9GWYo8Ue1QK",
+      "total_score": -4,
+      "last_submit": "2026-06-22T19:29:03.855421Z",
+      "status": "not qualified",
+      "category_scores": {
+        "Easy": -4
+      },
+      "screener_passed": false
+    }
+  ],
+  "miner_count": 1,
+  "miners": [
+    {
+      "hotkey": "5DFvymSeEwuGdHzYQqTnrGYXQX6x89AS9V2mv7sBtQBcEKmS",
+      "competition_id": 108,
+      "summary": {
+        "hotkey": "5DFvymSeEwuGdHzYQqTnrGYXQX6x89AS9V2mv7sBtQBcEKmS",
+        "total_score": 0.7800993102967295,
+        "screener_passed": true,
+        "category_scores": {
+          "Easy": 0.812245334449325,
+          "Medium": 0.9341159117480773,
+          "Hard": 0.5958276272899994
+        },
+        "task_count": 50,
+        "screener_task_count": 5
+      },
+      "penalties": {
+        "comp_id": 108,
+        "hotkey": "5DFvymSeEwuGdHzYQqTnrGYXQX6x89AS9V2mv7sBtQBcEKmS",
+        "categories": {
+          "Easy": -3.3306690738754696e-16,
+          "Medium": 0,
+          "Hard": -2.220446049250313e-16
+        },
+        "total": 0.0006303141990707806
+      },
+      "tasks": [
+        {
+          "task_id": 267,
+          "task_name": "django__django-11095",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1843373,
+          "tokens_with_compression": 877413,
+          "platform_score": 1.3770931206370942,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71202,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1194330,
+              "platform_score": 1.2078778991742205,
+              "time_taken_seconds": 584.3864,
+              "agent_steps": 63
+            },
+            {
+              "run_id": 71203,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 603552,
+              "platform_score": 1.5491321175776658,
+              "time_taken_seconds": 462.5564,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 71204,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 699540,
+              "platform_score": 1.4753367299254185,
+              "time_taken_seconds": 584.4187,
+              "agent_steps": 42
+            },
+            {
+              "run_id": 71205,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 871522,
+              "platform_score": 1.365427663775082,
+              "time_taken_seconds": 558.3151,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 71206,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1018121,
+              "platform_score": 1.2876911927330845,
+              "time_taken_seconds": 614.9972,
+              "agent_steps": 58
+            }
+          ]
+        },
+        {
+          "task_id": 268,
+          "task_name": "django__django-12039",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1420122,
+          "tokens_with_compression": 528258.4,
+          "platform_score": -1.350788512371448,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71207,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 673133,
+              "platform_score": -2.367825182267923,
+              "time_taken_seconds": 542.7584,
+              "agent_steps": 39
+            },
+            {
+              "run_id": 71208,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 523207,
+              "platform_score": -2.3577465521300423,
+              "time_taken_seconds": 670.6375,
+              "agent_steps": 36
+            },
+            {
+              "run_id": 71209,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 442542,
+              "platform_score": -2.351048879967629,
+              "time_taken_seconds": 519.5059,
+              "agent_steps": 32
+            },
+            {
+              "run_id": 71210,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 525024,
+              "platform_score": 2.6767585329865233,
+              "time_taken_seconds": 550.9524,
+              "agent_steps": 38
+            },
+            {
+              "run_id": 71211,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 477386,
+              "platform_score": -2.3540804804781685,
+              "time_taken_seconds": 650.8213,
+              "agent_steps": 35
+            }
+          ]
+        },
+        {
+          "task_id": 269,
+          "task_name": "django__django-13033",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 2184757,
+          "tokens_with_compression": 732419.8,
+          "platform_score": 0.35570528867496004,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71212,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 557808,
+              "platform_score": -4,
+              "time_taken_seconds": 476.3152,
+              "agent_steps": 40
+            },
+            {
+              "run_id": 71213,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 531331,
+              "platform_score": 1.6004116061064373,
+              "time_taken_seconds": 663.4634,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 71214,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 928949,
+              "platform_score": 1.343522462109841,
+              "time_taken_seconds": 633.7391,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 71215,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1030837,
+              "platform_score": 1.291486195601074,
+              "time_taken_seconds": 900.198,
+              "agent_steps": 52
+            },
+            {
+              "run_id": 71216,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 613174,
+              "platform_score": 1.5431061795574474,
+              "time_taken_seconds": 679.4533,
+              "agent_steps": 38
+            }
+          ]
+        },
+        {
+          "task_id": 270,
+          "task_name": "django__django-13810",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 811377,
+          "tokens_with_compression": 542788.2,
+          "platform_score": 1.158610810832462,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71217,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 588608,
+              "platform_score": 1.0975267811560703,
+              "time_taken_seconds": 518.2805,
+              "agent_steps": 36
+            },
+            {
+              "run_id": 71218,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 538282,
+              "platform_score": 1.1422157015937764,
+              "time_taken_seconds": 480.6455,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 71219,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 287970,
+              "platform_score": 1.4549788407744089,
+              "time_taken_seconds": 509.9522,
+              "agent_steps": 20
+            },
+            {
+              "run_id": 71220,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 610777,
+              "platform_score": 1.0790410362453042,
+              "time_taken_seconds": 622.1784,
+              "agent_steps": 42
+            },
+            {
+              "run_id": 71221,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 688304,
+              "platform_score": 1.0192916943927506,
+              "time_taken_seconds": 554.3735,
+              "agent_steps": 47
+            }
+          ]
+        },
+        {
+          "task_id": 271,
+          "task_name": "django__django-15037",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": false,
+          "tokens_without_compression": 2077670,
+          "tokens_with_compression": 993812.8,
+          "platform_score": -2.372902411763597,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71222,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 924859,
+              "platform_score": -2.3749014459493565,
+              "time_taken_seconds": 681.6789,
+              "agent_steps": 49
+            },
+            {
+              "run_id": 71223,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1422750,
+              "platform_score": -2.392129670110246,
+              "time_taken_seconds": 596.0808,
+              "agent_steps": 74
+            },
+            {
+              "run_id": 71224,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 331000,
+              "platform_score": -2.3338005292259996,
+              "time_taken_seconds": 378.9848,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 71225,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1463720,
+              "platform_score": -2.3932652509868664,
+              "time_taken_seconds": 1025.459,
+              "agent_steps": 65
+            },
+            {
+              "run_id": 71226,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 826735,
+              "platform_score": -2.3704151625455165,
+              "time_taken_seconds": 686.4265,
+              "agent_steps": 57
+            }
+          ]
+        },
+        {
+          "task_id": 272,
+          "task_name": "django__django-11149",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1587104,
+          "tokens_with_compression": 745306.8,
+          "platform_score": 1.0908133078182423,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71227,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 485331,
+              "platform_score": 3.9838725388153455,
+              "time_taken_seconds": 465.6422,
+              "agent_steps": 34
+            },
+            {
+              "run_id": 71228,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 749052,
+              "platform_score": -0.7389035928071945,
+              "time_taken_seconds": 416.2436,
+              "agent_steps": 40
+            },
+            {
+              "run_id": 71229,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 814310,
+              "platform_score": -0.7455862105572293,
+              "time_taken_seconds": 428.5686,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 71230,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 823592,
+              "platform_score": -0.7464929411787763,
+              "time_taken_seconds": 564.663,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 71231,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 854249,
+              "platform_score": 3.7011767448190662,
+              "time_taken_seconds": 433.4659,
+              "agent_steps": 40
+            }
+          ]
+        },
+        {
+          "task_id": 273,
+          "task_name": "django__django-12050",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1296208,
+          "tokens_with_compression": 577835.6,
+          "platform_score": 1.4140513327439321,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71232,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 568945,
+              "platform_score": 1.389218745465174,
+              "time_taken_seconds": 426.6868,
+              "agent_steps": 39
+            },
+            {
+              "run_id": 71233,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 389437,
+              "platform_score": 1.5787595765878675,
+              "time_taken_seconds": 401.3122,
+              "agent_steps": 26
+            },
+            {
+              "run_id": 71234,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1022794,
+              "platform_score": 1.095963941212986,
+              "time_taken_seconds": 556.3518,
+              "agent_steps": 59
+            },
+            {
+              "run_id": 71235,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 423970,
+              "platform_score": 1.5362792807822712,
+              "time_taken_seconds": 370.3307,
+              "agent_steps": 27
+            },
+            {
+              "run_id": 71236,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 484032,
+              "platform_score": 1.4700351196713608,
+              "time_taken_seconds": 427.3749,
+              "agent_steps": 31
+            }
+          ]
+        },
+        {
+          "task_id": 274,
+          "task_name": "django__django-13121",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 2180746,
+          "tokens_with_compression": 1218601.4,
+          "platform_score": 0.052348550313468946,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71237,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1222429,
+              "platform_score": 0.050225882086942786,
+              "time_taken_seconds": 715.3089,
+              "agent_steps": 70
+            },
+            {
+              "run_id": 71238,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1563854,
+              "platform_score": 0.025594539645806158,
+              "time_taken_seconds": 627.4302,
+              "agent_steps": 65
+            },
+            {
+              "run_id": 71239,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 931081,
+              "platform_score": 0.07745076861074203,
+              "time_taken_seconds": 550.6517,
+              "agent_steps": 57
+            },
+            {
+              "run_id": 71240,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1366007,
+              "platform_score": 0.03912067982537108,
+              "time_taken_seconds": 651.442,
+              "agent_steps": 74
+            },
+            {
+              "run_id": 71241,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1009636,
+              "platform_score": 0.06935088139848271,
+              "time_taken_seconds": 573.6625,
+              "agent_steps": 67
+            }
+          ]
+        },
+        {
+          "task_id": 275,
+          "task_name": "django__django-13820",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1078132,
+          "tokens_with_compression": 599494.8,
+          "platform_score": 1.9704691207712244,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71242,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 629626,
+              "platform_score": 1.831201462749408,
+              "time_taken_seconds": 716.2185,
+              "agent_steps": 41
+            },
+            {
+              "run_id": 71243,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 383956,
+              "platform_score": 2.07850047756056,
+              "time_taken_seconds": 377.2197,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 71244,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1437214,
+              "platform_score": 1.4185335607275247,
+              "time_taken_seconds": 874.6704,
+              "agent_steps": 85
+            },
+            {
+              "run_id": 71245,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 208687,
+              "platform_score": 2.3818552778682456,
+              "time_taken_seconds": 392.7767,
+              "agent_steps": 15
+            },
+            {
+              "run_id": 71246,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 337991,
+              "platform_score": 2.142254824950384,
+              "time_taken_seconds": 298.8196,
+              "agent_steps": 16
+            }
+          ]
+        },
+        {
+          "task_id": 276,
+          "task_name": "django__django-15103",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1366202,
+          "tokens_with_compression": 878656.4,
+          "platform_score": 0.21242948970077058,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 70677,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 683508,
+              "platform_score": 1.3225760721627264,
+              "time_taken_seconds": 714.1119,
+              "agent_steps": 47
+            },
+            {
+              "run_id": 70678,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 850380,
+              "platform_score": 1.2133535982382089,
+              "time_taken_seconds": 646.1592,
+              "agent_steps": 52
+            },
+            {
+              "run_id": 70679,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 812906,
+              "platform_score": 1.2358875115881645,
+              "time_taken_seconds": 632.8344,
+              "agent_steps": 59
+            },
+            {
+              "run_id": 70680,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1317447,
+              "platform_score": -4,
+              "time_taken_seconds": 750.7209,
+              "agent_steps": 62
+            },
+            {
+              "run_id": 70681,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 729041,
+              "platform_score": 1.2903302665147534,
+              "time_taken_seconds": 619.8985,
+              "agent_steps": 49
+            }
+          ]
+        },
+        {
+          "task_id": 277,
+          "task_name": "django__django-11292",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1553993,
+          "tokens_with_compression": 683364.4,
+          "platform_score": 0.6103841410241662,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71247,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 626078,
+              "platform_score": 2.5851518986443685,
+              "time_taken_seconds": 441.3199,
+              "agent_steps": 37
+            },
+            {
+              "run_id": 71248,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 437113,
+              "platform_score": 2.7620787266864206,
+              "time_taken_seconds": 434.2929,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 71249,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 630758,
+              "platform_score": -2.3537587688840502,
+              "time_taken_seconds": 448.2576,
+              "agent_steps": 47
+            },
+            {
+              "run_id": 71250,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 863150,
+              "platform_score": 2.4245951365016203,
+              "time_taken_seconds": 544.2804,
+              "agent_steps": 52
+            },
+            {
+              "run_id": 71251,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 859723,
+              "platform_score": -2.3661462878275286,
+              "time_taken_seconds": 588.6208,
+              "agent_steps": 56
+            }
+          ]
+        },
+        {
+          "task_id": 278,
+          "task_name": "django__django-12143",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1124602,
+          "tokens_with_compression": 522117.4,
+          "platform_score": 1.3721733367631823,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71252,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 470834,
+              "platform_score": 1.4057622024914393,
+              "time_taken_seconds": 487.0349,
+              "agent_steps": 38
+            },
+            {
+              "run_id": 71253,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 485460,
+              "platform_score": 1.3904665501078814,
+              "time_taken_seconds": 450.9014,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 71254,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 819828,
+              "platform_score": 1.1284677165523578,
+              "time_taken_seconds": 531.3509,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 71255,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 381005,
+              "platform_score": 1.5116087484316978,
+              "time_taken_seconds": 426.2578,
+              "agent_steps": 31
+            },
+            {
+              "run_id": 71256,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 453460,
+              "platform_score": 1.4245614662325348,
+              "time_taken_seconds": 428.7337,
+              "agent_steps": 32
+            }
+          ]
+        },
+        {
+          "task_id": 279,
+          "task_name": "django__django-13158",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1898032,
+          "tokens_with_compression": 1190448.6,
+          "platform_score": 0.5110569278208851,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71257,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 847794,
+              "platform_score": 2.5960571018403216,
+              "time_taken_seconds": 560.7497,
+              "agent_steps": 49
+            },
+            {
+              "run_id": 71258,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1362779,
+              "platform_score": 2.358735304608173,
+              "time_taken_seconds": 794.6344,
+              "agent_steps": 73
+            },
+            {
+              "run_id": 71259,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1418431,
+              "platform_score": -2.3843118586413077,
+              "time_taken_seconds": 789.8197,
+              "agent_steps": 64
+            },
+            {
+              "run_id": 71260,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 944301,
+              "platform_score": -2.368037393086141,
+              "time_taken_seconds": 548.5092,
+              "agent_steps": 51
+            },
+            {
+              "run_id": 71261,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1378938,
+              "platform_score": 2.3528414843833803,
+              "time_taken_seconds": 721.9042,
+              "agent_steps": 65
+            }
+          ]
+        },
+        {
+          "task_id": 280,
+          "task_name": "django__django-13925",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1774572,
+          "tokens_with_compression": 1084276.2,
+          "platform_score": 1.0325980082550896,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71262,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 746833,
+              "platform_score": 3.8111061641976924,
+              "time_taken_seconds": 494.583,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 71263,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1110747,
+              "platform_score": -0.7662885750806354,
+              "time_taken_seconds": 592.8116,
+              "agent_steps": 68
+            },
+            {
+              "run_id": 71264,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1014331,
+              "platform_score": 3.6580346833798494,
+              "time_taken_seconds": 698.4369,
+              "agent_steps": 56
+            },
+            {
+              "run_id": 71265,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1797770,
+              "platform_score": -0.804809714760917,
+              "time_taken_seconds": 771.4402,
+              "agent_steps": 80
+            },
+            {
+              "run_id": 71266,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 751700,
+              "platform_score": -0.7350525164605425,
+              "time_taken_seconds": 426.6533,
+              "agent_steps": 42
+            }
+          ]
+        },
+        {
+          "task_id": 281,
+          "task_name": "django__django-15161",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 853594,
+          "tokens_with_compression": 803335.8,
+          "platform_score": 0.36300916400583577,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71267,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1253194,
+              "platform_score": -2.4041759338084567,
+              "time_taken_seconds": 723.997,
+              "agent_steps": 69
+            },
+            {
+              "run_id": 71268,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 817052,
+              "platform_score": 2.1256362341614325,
+              "time_taken_seconds": 472.8197,
+              "agent_steps": 61
+            },
+            {
+              "run_id": 71269,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 676370,
+              "platform_score": 2.220117472530808,
+              "time_taken_seconds": 461.2046,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 71270,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 633376,
+              "platform_score": -2.3768804726610617,
+              "time_taken_seconds": 503.8775,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 71271,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 636687,
+              "platform_score": 2.250348519806457,
+              "time_taken_seconds": 405.2883,
+              "agent_steps": 46
+            }
+          ]
+        },
+        {
+          "task_id": 282,
+          "task_name": "django__django-11333",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 523463,
+          "tokens_with_compression": 536782,
+          "platform_score": -0.002315347093842455,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71272,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 667904,
+              "platform_score": -0.027991876833732877,
+              "time_taken_seconds": 394.3672,
+              "agent_steps": 26
+            },
+            {
+              "run_id": 71273,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 376912,
+              "platform_score": 0.029221394384657456,
+              "time_taken_seconds": 397.9798,
+              "agent_steps": 22
+            },
+            {
+              "run_id": 71274,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 370943,
+              "platform_score": 0.030817727030705778,
+              "time_taken_seconds": 317.85,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 71275,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 722513,
+              "platform_score": -0.03585097306074733,
+              "time_taken_seconds": 534.706,
+              "agent_steps": 42
+            },
+            {
+              "run_id": 71276,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 545638,
+              "platform_score": -0.007773006990095294,
+              "time_taken_seconds": 438.7184,
+              "agent_steps": 25
+            }
+          ]
+        },
+        {
+          "task_id": 283,
+          "task_name": "django__django-12155",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 617994,
+          "tokens_with_compression": 498820.2,
+          "platform_score": 1.596970836099087,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71277,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 669730,
+              "platform_score": 1.438409449687046,
+              "time_taken_seconds": 578.3365,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 71278,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 567567,
+              "platform_score": 1.519010404505398,
+              "time_taken_seconds": 603.8693,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 71279,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 462542,
+              "platform_score": 1.6213211247156967,
+              "time_taken_seconds": 499.667,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 71280,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 338550,
+              "platform_score": 1.7773539105699885,
+              "time_taken_seconds": 420.7716,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 71281,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 455712,
+              "platform_score": 1.6287592910173072,
+              "time_taken_seconds": 491.7279,
+              "agent_steps": 33
+            }
+          ]
+        },
+        {
+          "task_id": 284,
+          "task_name": "django__django-13315",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1219323,
+          "tokens_with_compression": 1421587.2,
+          "platform_score": 0.7165242394111486,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71282,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 2064424,
+              "platform_score": -0.08297915872908372,
+              "time_taken_seconds": 726.214,
+              "agent_steps": 80
+            },
+            {
+              "run_id": 71283,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1846510,
+              "platform_score": -0.07628592581317858,
+              "time_taken_seconds": 731.2098,
+              "agent_steps": 69
+            },
+            {
+              "run_id": 71284,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 917542,
+              "platform_score": 3.8283766592785327,
+              "time_taken_seconds": 463.8055,
+              "agent_steps": 55
+            },
+            {
+              "run_id": 71285,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1546630,
+              "platform_score": -0.06565278577990506,
+              "time_taken_seconds": 533.6827,
+              "agent_steps": 68
+            },
+            {
+              "run_id": 71286,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 732830,
+              "platform_score": -0.020837591900622073,
+              "time_taken_seconds": 500.4803,
+              "agent_steps": 44
+            }
+          ]
+        },
+        {
+          "task_id": 285,
+          "task_name": "django__django-13964",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 992579,
+          "tokens_with_compression": 594146.4,
+          "platform_score": 1.255940608731701,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 70682,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 517857,
+              "platform_score": 1.3125739730077481,
+              "time_taken_seconds": 656.242,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 70683,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 674985,
+              "platform_score": 1.1800783099917302,
+              "time_taken_seconds": 672.4813,
+              "agent_steps": 43
+            },
+            {
+              "run_id": 70684,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 491206,
+              "platform_score": 1.3389917483224036,
+              "time_taken_seconds": 528.7491,
+              "agent_steps": 36
+            },
+            {
+              "run_id": 70685,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 821488,
+              "platform_score": 1.0818648792208294,
+              "time_taken_seconds": 638.8268,
+              "agent_steps": 43
+            },
+            {
+              "run_id": 70686,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 465196,
+              "platform_score": 1.3661941331157934,
+              "time_taken_seconds": 592.7599,
+              "agent_steps": 33
+            }
+          ]
+        },
+        {
+          "task_id": 286,
+          "task_name": "django__django-15278",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1300327,
+          "tokens_with_compression": 968519.2,
+          "platform_score": 1.154570348941794,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71287,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 706611,
+              "platform_score": 1.2902212422898547,
+              "time_taken_seconds": 497.2805,
+              "agent_steps": 42
+            },
+            {
+              "run_id": 71288,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 649785,
+              "platform_score": 1.3321406239736227,
+              "time_taken_seconds": 492.3424,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 71289,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1196873,
+              "platform_score": 1.0267275927703063,
+              "time_taken_seconds": 491.2801,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 71290,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1400904,
+              "platform_score": 0.9480248826923281,
+              "time_taken_seconds": 496.2118,
+              "agent_steps": 49
+            },
+            {
+              "run_id": 71291,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 888423,
+              "platform_score": 1.1757374029828587,
+              "time_taken_seconds": 503.7748,
+              "agent_steps": 51
+            }
+          ]
+        },
+        {
+          "task_id": 287,
+          "task_name": "django__django-11551",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1114234,
+          "tokens_with_compression": 812690.6,
+          "platform_score": 1.1769486931030289,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 70687,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 745426,
+              "platform_score": 1.1814087310527657,
+              "time_taken_seconds": 642.6596,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 70688,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 587089,
+              "platform_score": 1.3007984512047848,
+              "time_taken_seconds": 571.8533,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 70689,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1059605,
+              "platform_score": 1.0055609264974084,
+              "time_taken_seconds": 713.546,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 70690,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 412144,
+              "platform_score": 1.4777002631483742,
+              "time_taken_seconds": 516.4932,
+              "agent_steps": 25
+            },
+            {
+              "run_id": 70691,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1259189,
+              "platform_score": 0.9192750936118113,
+              "time_taken_seconds": 743.6929,
+              "agent_steps": 49
+            }
+          ]
+        },
+        {
+          "task_id": 288,
+          "task_name": "django__django-12754",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1575380,
+          "tokens_with_compression": 1268285,
+          "platform_score": 1.0915604800771543,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71292,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1665983,
+              "platform_score": 0.9431971935937641,
+              "time_taken_seconds": 712.7938,
+              "agent_steps": 72
+            },
+            {
+              "run_id": 71293,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1362882,
+              "platform_score": 1.0436040757831104,
+              "time_taken_seconds": 700.2346,
+              "agent_steps": 55
+            },
+            {
+              "run_id": 71294,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1389330,
+              "platform_score": 1.0339940551253264,
+              "time_taken_seconds": 731.2416,
+              "agent_steps": 63
+            },
+            {
+              "run_id": 71295,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 917441,
+              "platform_score": 1.2414883665483374,
+              "time_taken_seconds": 588.0479,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 71296,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1005789,
+              "platform_score": 1.1955187093352344,
+              "time_taken_seconds": 525.9983,
+              "agent_steps": 49
+            }
+          ]
+        },
+        {
+          "task_id": 289,
+          "task_name": "django__django-13343",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1772132,
+          "tokens_with_compression": 781639.4,
+          "platform_score": 2.006912776677015,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71297,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 538754,
+              "platform_score": 2.173473048401416,
+              "time_taken_seconds": 435.1015,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 71298,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 534430,
+              "platform_score": 2.1775022022079353,
+              "time_taken_seconds": 490.1905,
+              "agent_steps": 39
+            },
+            {
+              "run_id": 71299,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 830062,
+              "platform_score": 1.9573523829955934,
+              "time_taken_seconds": 581.8492,
+              "agent_steps": 47
+            },
+            {
+              "run_id": 71300,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1025280,
+              "platform_score": 1.8517420688936554,
+              "time_taken_seconds": 622.6174,
+              "agent_steps": 51
+            },
+            {
+              "run_id": 71301,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 979671,
+              "platform_score": 1.8744941808864737,
+              "time_taken_seconds": 664.9297,
+              "agent_steps": 47
+            }
+          ]
+        },
+        {
+          "task_id": 290,
+          "task_name": "django__django-14017",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1846383,
+          "tokens_with_compression": 859727,
+          "platform_score": 0.07674617554580218,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71302,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 559790,
+              "platform_score": 0.11672286653272353,
+              "time_taken_seconds": 463.0617,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 71303,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1052043,
+              "platform_score": 0.05363011117393176,
+              "time_taken_seconds": 575.3647,
+              "agent_steps": 56
+            },
+            {
+              "run_id": 71304,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1034501,
+              "platform_score": 0.05531159148906606,
+              "time_taken_seconds": 614.7575,
+              "agent_steps": 63
+            },
+            {
+              "run_id": 71305,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 697273,
+              "platform_score": 0.09476133660292027,
+              "time_taken_seconds": 520.3374,
+              "agent_steps": 40
+            },
+            {
+              "run_id": 71306,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 955028,
+              "platform_score": 0.06330497193036934,
+              "time_taken_seconds": 630.1025,
+              "agent_steps": 54
+            }
+          ]
+        },
+        {
+          "task_id": 291,
+          "task_name": "django__django-15375",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1014857,
+          "tokens_with_compression": 661467.6,
+          "platform_score": 1.2059426941481182,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 70692,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 797011,
+              "platform_score": 1.0901821466057362,
+              "time_taken_seconds": 670.1254,
+              "agent_steps": 45
+            },
+            {
+              "run_id": 70693,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 592076,
+              "platform_score": 1.238798884320223,
+              "time_taken_seconds": 620.5487,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 70694,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 583341,
+              "platform_score": 1.2462304263214024,
+              "time_taken_seconds": 674.4964,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 70695,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 387509,
+              "platform_score": 1.4507468496664464,
+              "time_taken_seconds": 491.8792,
+              "agent_steps": 28
+            },
+            {
+              "run_id": 70696,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 947401,
+              "platform_score": 1.0037551638267828,
+              "time_taken_seconds": 836.9409,
+              "agent_steps": 55
+            }
+          ]
+        },
+        {
+          "task_id": 292,
+          "task_name": "django__django-11740",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1731176,
+          "tokens_with_compression": 993801.2,
+          "platform_score": 1.2731173771192452,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71307,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 838962,
+              "platform_score": 1.354028249861757,
+              "time_taken_seconds": 498.6372,
+              "agent_steps": 53
+            },
+            {
+              "run_id": 71308,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 971233,
+              "platform_score": 1.280827757419766,
+              "time_taken_seconds": 567.0889,
+              "agent_steps": 51
+            },
+            {
+              "run_id": 71309,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 966289,
+              "platform_score": 1.2833794759192536,
+              "time_taken_seconds": 688.0195,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 71310,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 968942,
+              "platform_score": 1.2820085792862532,
+              "time_taken_seconds": 630.2557,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 71311,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1223580,
+              "platform_score": 1.1653428231091962,
+              "time_taken_seconds": 696.0334,
+              "agent_steps": 59
+            }
+          ]
+        },
+        {
+          "task_id": 293,
+          "task_name": "django__django-12774",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1845687,
+          "tokens_with_compression": 948777.4,
+          "platform_score": -0.15045632359000932,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71312,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1230123,
+              "platform_score": 1.7641664265934238,
+              "time_taken_seconds": 570.4973,
+              "agent_steps": 62
+            },
+            {
+              "run_id": 71313,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 823537,
+              "platform_score": -3.1970243557592517,
+              "time_taken_seconds": 649.7729,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 71314,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 902732,
+              "platform_score": -3.1988607006012373,
+              "time_taken_seconds": 573.5879,
+              "agent_steps": 57
+            },
+            {
+              "run_id": 71315,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 672370,
+              "platform_score": 2.066196756157171,
+              "time_taken_seconds": 631.9187,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 71316,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1115125,
+              "platform_score": 1.813240255659848,
+              "time_taken_seconds": 801.7155,
+              "agent_steps": 74
+            }
+          ]
+        },
+        {
+          "task_id": 294,
+          "task_name": "django__django-13516",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 959565,
+          "tokens_with_compression": 671948.8,
+          "platform_score": 1.1826814219449073,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 70697,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 525519,
+              "platform_score": 1.2840201588615028,
+              "time_taken_seconds": 503.2961,
+              "agent_steps": 42
+            },
+            {
+              "run_id": 70698,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 656956,
+              "platform_score": 1.172404809133492,
+              "time_taken_seconds": 487.7227,
+              "agent_steps": 39
+            },
+            {
+              "run_id": 70699,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 603642,
+              "platform_score": 1.2147226782251743,
+              "time_taken_seconds": 455.8944,
+              "agent_steps": 32
+            },
+            {
+              "run_id": 70700,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 488094,
+              "platform_score": 1.3209593265868569,
+              "time_taken_seconds": 397.519,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 70701,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1085533,
+              "platform_score": 0.9213001369175103,
+              "time_taken_seconds": 535.0533,
+              "agent_steps": 62
+            }
+          ]
+        },
+        {
+          "task_id": 295,
+          "task_name": "django__django-14122",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1702891,
+          "tokens_with_compression": 1172351,
+          "platform_score": -1.9479216557902348,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71317,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1082695,
+              "platform_score": -4,
+              "time_taken_seconds": 608.6734,
+              "agent_steps": 62
+            },
+            {
+              "run_id": 71318,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1608218,
+              "platform_score": 1.013179181925217,
+              "time_taken_seconds": 702.5503,
+              "agent_steps": 60
+            },
+            {
+              "run_id": 71319,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1136250,
+              "platform_score": -4,
+              "time_taken_seconds": 566.846,
+              "agent_steps": 61
+            },
+            {
+              "run_id": 71320,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1007085,
+              "platform_score": 1.247212539123609,
+              "time_taken_seconds": 496.2804,
+              "agent_steps": 43
+            },
+            {
+              "run_id": 71321,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1027507,
+              "platform_score": -4,
+              "time_taken_seconds": 581.1113,
+              "agent_steps": 56
+            }
+          ]
+        },
+        {
+          "task_id": 296,
+          "task_name": "sympy__sympy-18698",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 3627380,
+          "tokens_with_compression": 1184278.8,
+          "platform_score": 1.3933401349231502,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71322,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 988880,
+              "platform_score": 3.4034751523703037,
+              "time_taken_seconds": 591.4358,
+              "agent_steps": 52
+            },
+            {
+              "run_id": 71323,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1496359,
+              "platform_score": 3.196366595656349,
+              "time_taken_seconds": 813.2635,
+              "agent_steps": 63
+            },
+            {
+              "run_id": 71324,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1284302,
+              "platform_score": -1.5240534732501851,
+              "time_taken_seconds": 525.2321,
+              "agent_steps": 57
+            },
+            {
+              "run_id": 71325,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 976776,
+              "platform_score": 3.40963297092505,
+              "time_taken_seconds": 586.1859,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 71326,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1175077,
+              "platform_score": -1.518720571085766,
+              "time_taken_seconds": 643.4658,
+              "agent_steps": 41
+            }
+          ]
+        },
+        {
+          "task_id": 297,
+          "task_name": "sympy__sympy-23262",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 3242879,
+          "tokens_with_compression": 2476404.2,
+          "platform_score": 1.2718336671970154,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71327,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1814616,
+              "platform_score": 1.280846890630397,
+              "time_taken_seconds": 485.8879,
+              "agent_steps": 74
+            },
+            {
+              "run_id": 71328,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 6898820,
+              "platform_score": 0.6131086369298588,
+              "time_taken_seconds": 1333.0478,
+              "agent_steps": 292
+            },
+            {
+              "run_id": 71329,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 915354,
+              "platform_score": 1.623006029813523,
+              "time_taken_seconds": 481.5878,
+              "agent_steps": 55
+            },
+            {
+              "run_id": 71330,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1249714,
+              "platform_score": 1.4673264656050178,
+              "time_taken_seconds": 598.0851,
+              "agent_steps": 75
+            },
+            {
+              "run_id": 71331,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1503517,
+              "platform_score": 1.3748803130062797,
+              "time_taken_seconds": 591.3357,
+              "agent_steps": 94
+            }
+          ]
+        },
+        {
+          "task_id": 298,
+          "task_name": "sympy__sympy-11618",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 969723,
+          "tokens_with_compression": 900958.4,
+          "platform_score": 1.0269520920323114,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71332,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1088371,
+              "platform_score": 0.9108705711139624,
+              "time_taken_seconds": 616.5706,
+              "agent_steps": 52
+            },
+            {
+              "run_id": 71333,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 976295,
+              "platform_score": 0.9652068546621034,
+              "time_taken_seconds": 681.8526,
+              "agent_steps": 51
+            },
+            {
+              "run_id": 71334,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 973454,
+              "platform_score": 0.9666639663265514,
+              "time_taken_seconds": 587.6438,
+              "agent_steps": 52
+            },
+            {
+              "run_id": 71335,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1007781,
+              "platform_score": 0.9493361705221632,
+              "time_taken_seconds": 565.5557,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 71336,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 458891,
+              "platform_score": 1.3426828975367768,
+              "time_taken_seconds": 404.7463,
+              "agent_steps": 28
+            }
+          ]
+        },
+        {
+          "task_id": 299,
+          "task_name": "sympy__sympy-19040",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 2037031,
+          "tokens_with_compression": 1187886.2,
+          "platform_score": 0.052030354180436625,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71337,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 829233,
+              "platform_score": 0.0854125987142222,
+              "time_taken_seconds": 457.9208,
+              "agent_steps": 45
+            },
+            {
+              "run_id": 71338,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1603450,
+              "platform_score": 0.01947143274498181,
+              "time_taken_seconds": 612.9616,
+              "agent_steps": 79
+            },
+            {
+              "run_id": 71339,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1009213,
+              "platform_score": 0.06577010661328046,
+              "time_taken_seconds": 497.5316,
+              "agent_steps": 66
+            },
+            {
+              "run_id": 71340,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1155893,
+              "platform_score": 0.05219986799123337,
+              "time_taken_seconds": 563.0115,
+              "agent_steps": 64
+            },
+            {
+              "run_id": 71341,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1341642,
+              "platform_score": 0.037297764838465246,
+              "time_taken_seconds": 494.501,
+              "agent_steps": 54
+            }
+          ]
+        },
+        {
+          "task_id": 300,
+          "task_name": "sympy__sympy-23413",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 2403146,
+          "tokens_with_compression": 1875451.6,
+          "platform_score": 0.036176513698652005,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71342,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 534538,
+              "platform_score": 0.1324428785994453,
+              "time_taken_seconds": 472.2827,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 71343,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 4964776,
+              "platform_score": -0.09042918512375661,
+              "time_taken_seconds": 1656.2262,
+              "agent_steps": 133
+            },
+            {
+              "run_id": 71344,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1355881,
+              "platform_score": 0.03936249018760053,
+              "time_taken_seconds": 934.6805,
+              "agent_steps": 62
+            },
+            {
+              "run_id": 71345,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 949984,
+              "platform_score": 0.07493864660657898,
+              "time_taken_seconds": 624.7448,
+              "agent_steps": 61
+            },
+            {
+              "run_id": 71346,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1572079,
+              "platform_score": 0.024567738223391804,
+              "time_taken_seconds": 882.8367,
+              "agent_steps": 75
+            }
+          ]
+        },
+        {
+          "task_id": 301,
+          "task_name": "sympy__sympy-13647",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1103837,
+          "tokens_with_compression": 626176,
+          "platform_score": 1.2748095732543914,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71347,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 573942,
+              "platform_score": 1.3065324999651482,
+              "time_taken_seconds": 551.6722,
+              "agent_steps": 34
+            },
+            {
+              "run_id": 71348,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 476002,
+              "platform_score": 1.4000856449725054,
+              "time_taken_seconds": 548.6201,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 71349,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 698586,
+              "platform_score": 1.2082675268782548,
+              "time_taken_seconds": 628.1691,
+              "agent_steps": 42
+            },
+            {
+              "run_id": 71350,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 863170,
+              "platform_score": 1.1024908434552618,
+              "time_taken_seconds": 723.2332,
+              "agent_steps": 39
+            },
+            {
+              "run_id": 71351,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 519180,
+              "platform_score": 1.3566713510007866,
+              "time_taken_seconds": 473.1151,
+              "agent_steps": 28
+            }
+          ]
+        },
+        {
+          "task_id": 302,
+          "task_name": "sympy__sympy-19346",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 864711,
+          "tokens_with_compression": 1601386.2,
+          "platform_score": 1.575108910310402,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71352,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 989335,
+              "platform_score": 2.5674968029106546,
+              "time_taken_seconds": 441.4522,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 71353,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1243187,
+              "platform_score": 2.476136593942898,
+              "time_taken_seconds": 496.5129,
+              "agent_steps": 69
+            },
+            {
+              "run_id": 71354,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 2828940,
+              "platform_score": 2.156914459748689,
+              "time_taken_seconds": 689.0158,
+              "agent_steps": 52
+            },
+            {
+              "run_id": 71355,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1749632,
+              "platform_score": 2.3394456993761454,
+              "time_taken_seconds": 685.4108,
+              "agent_steps": 79
+            },
+            {
+              "run_id": 71356,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1195837,
+              "platform_score": -1.664449004426379,
+              "time_taken_seconds": 459.5464,
+              "agent_steps": 62
+            }
+          ]
+        },
+        {
+          "task_id": 303,
+          "task_name": "sympy__sympy-23824",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 841278,
+          "tokens_with_compression": 667368.6,
+          "platform_score": 1.9820752248520042,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71357,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 564674,
+              "platform_score": 2.9703885241255543,
+              "time_taken_seconds": 463.7565,
+              "agent_steps": 27
+            },
+            {
+              "run_id": 71358,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 678516,
+              "platform_score": 2.8785587806485724,
+              "time_taken_seconds": 539.6467,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 71359,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 880644,
+              "platform_score": 2.748186081858969,
+              "time_taken_seconds": 581.9976,
+              "agent_steps": 40
+            },
+            {
+              "run_id": 71360,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 569198,
+              "platform_score": -1.5915674708497485,
+              "time_taken_seconds": 448.974,
+              "agent_steps": 25
+            },
+            {
+              "run_id": 71361,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 643811,
+              "platform_score": 2.904810208476672,
+              "time_taken_seconds": 511.98,
+              "agent_steps": 26
+            }
+          ]
+        },
+        {
+          "task_id": 304,
+          "task_name": "sympy__sympy-13757",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 2474747,
+          "tokens_with_compression": 696818.2,
+          "platform_score": 0.04064982174582936,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71362,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 432150,
+              "platform_score": 0.07468818991444336,
+              "time_taken_seconds": 388.4886,
+              "agent_steps": 24
+            },
+            {
+              "run_id": 71363,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 616972,
+              "platform_score": 0.046204118570299775,
+              "time_taken_seconds": 532.7498,
+              "agent_steps": 34
+            },
+            {
+              "run_id": 71364,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1107395,
+              "platform_score": 0.0016198200326265316,
+              "time_taken_seconds": 632.3923,
+              "agent_steps": 59
+            },
+            {
+              "run_id": 71365,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 650770,
+              "platform_score": 0.04193750775664469,
+              "time_taken_seconds": 473.7601,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 71366,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 676804,
+              "platform_score": 0.03879947245513249,
+              "time_taken_seconds": 385.9114,
+              "agent_steps": 43
+            }
+          ]
+        },
+        {
+          "task_id": 305,
+          "task_name": "sympy__sympy-20154",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1400583,
+          "tokens_with_compression": 747492,
+          "platform_score": 0.9772342935912917,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71367,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 883804,
+              "platform_score": 2.6656166652285855,
+              "time_taken_seconds": 591.8287,
+              "agent_steps": 60
+            },
+            {
+              "run_id": 71368,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 568497,
+              "platform_score": 2.8105792091184703,
+              "time_taken_seconds": 479.5755,
+              "agent_steps": 37
+            },
+            {
+              "run_id": 71369,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 579747,
+              "platform_score": -1.6529199528927456,
+              "time_taken_seconds": 404.576,
+              "agent_steps": 43
+            },
+            {
+              "run_id": 71370,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 716379,
+              "platform_score": 2.7286244538505313,
+              "time_taken_seconds": 597.4413,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 71371,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 989033,
+              "platform_score": -1.665728907348382,
+              "time_taken_seconds": 576.6629,
+              "agent_steps": 63
+            }
+          ]
+        },
+        {
+          "task_id": 306,
+          "task_name": "sympy__sympy-24066",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1734528,
+          "tokens_with_compression": 1010977,
+          "platform_score": 1.6780247921459193,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71372,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 731315,
+              "platform_score": 0.07903612244938008,
+              "time_taken_seconds": 603.0573,
+              "agent_steps": 44
+            },
+            {
+              "run_id": 71373,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 871684,
+              "platform_score": 0.06147785350679218,
+              "time_taken_seconds": 555.5077,
+              "agent_steps": 49
+            },
+            {
+              "run_id": 71374,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 733934,
+              "platform_score": 0.07867864016628766,
+              "time_taken_seconds": 557.8666,
+              "agent_steps": 34
+            },
+            {
+              "run_id": 71375,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1386995,
+              "platform_score": 4.075155346286353,
+              "time_taken_seconds": 613.9686,
+              "agent_steps": 74
+            },
+            {
+              "run_id": 71376,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1330957,
+              "platform_score": 4.095775998320784,
+              "time_taken_seconds": 707.6501,
+              "agent_steps": 65
+            }
+          ]
+        },
+        {
+          "task_id": 307,
+          "task_name": "sympy__sympy-14531",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 2327671,
+          "tokens_with_compression": 949095.2,
+          "platform_score": 1.9239718249430102,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71377,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 945828,
+              "platform_score": 1.9218028034330215,
+              "time_taken_seconds": 388.4489,
+              "agent_steps": 59
+            },
+            {
+              "run_id": 71378,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1067571,
+              "platform_score": 1.8612625438877402,
+              "time_taken_seconds": 515.9589,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 71379,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 814947,
+              "platform_score": 1.9927731844317074,
+              "time_taken_seconds": 641.7895,
+              "agent_steps": 47
+            },
+            {
+              "run_id": 71380,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 737927,
+              "platform_score": 2.032484455124758,
+              "time_taken_seconds": 415.9559,
+              "agent_steps": 46
+            },
+            {
+              "run_id": 71381,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1179203,
+              "platform_score": 1.8115361378378225,
+              "time_taken_seconds": 479.5071,
+              "agent_steps": 64
+            }
+          ]
+        },
+        {
+          "task_id": 308,
+          "task_name": "sympy__sympy-20590",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 907740,
+          "tokens_with_compression": 670563.8,
+          "platform_score": 2.280495353257453,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71382,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 603208,
+              "platform_score": 2.3210869923074435,
+              "time_taken_seconds": 541.2132,
+              "agent_steps": 35
+            },
+            {
+              "run_id": 71383,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 438329,
+              "platform_score": 2.480733146928412,
+              "time_taken_seconds": 351.4251,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 71384,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 693646,
+              "platform_score": 2.2512371599535173,
+              "time_taken_seconds": 463.386,
+              "agent_steps": 36
+            },
+            {
+              "run_id": 71385,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 781822,
+              "platform_score": 2.1914044853339605,
+              "time_taken_seconds": 392.4547,
+              "agent_steps": 39
+            },
+            {
+              "run_id": 71386,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 835814,
+              "platform_score": 2.158014981763933,
+              "time_taken_seconds": 496.8588,
+              "agent_steps": 43
+            }
+          ]
+        },
+        {
+          "task_id": 309,
+          "task_name": "sympy__sympy-24213",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 768922,
+          "tokens_with_compression": 644320.6,
+          "platform_score": 0.0669204482132613,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71387,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 535606,
+              "platform_score": 1.159179245743485,
+              "time_taken_seconds": 499.7536,
+              "agent_steps": 33
+            },
+            {
+              "run_id": 71388,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1024842,
+              "platform_score": 0.8347317871409039,
+              "time_taken_seconds": 366.1762,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 71389,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 612667,
+              "platform_score": -4,
+              "time_taken_seconds": 368.2153,
+              "agent_steps": 31
+            },
+            {
+              "run_id": 71390,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 546366,
+              "platform_score": 1.1492341133932158,
+              "time_taken_seconds": 387.8366,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 71391,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 502122,
+              "platform_score": 1.1914570947887015,
+              "time_taken_seconds": 349.9927,
+              "agent_steps": 28
+            }
+          ]
+        },
+        {
+          "task_id": 310,
+          "task_name": "sympy__sympy-14976",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": false,
+          "tokens_without_compression": 1577307,
+          "tokens_with_compression": 990603.4,
+          "platform_score": -1.6187944757539168,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71392,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 939367,
+              "platform_score": -1.6168548772256366,
+              "time_taken_seconds": 551.0442,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 71393,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1104699,
+              "platform_score": -1.623339754605014,
+              "time_taken_seconds": 538.9011,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 71394,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1080480,
+              "platform_score": -1.6224530540918873,
+              "time_taken_seconds": 466.764,
+              "agent_steps": 58
+            },
+            {
+              "run_id": 71395,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 981268,
+              "platform_score": -1.6186004519739232,
+              "time_taken_seconds": 428.2832,
+              "agent_steps": 37
+            },
+            {
+              "run_id": 71396,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 847203,
+              "platform_score": -1.612724240873123,
+              "time_taken_seconds": 433.4837,
+              "agent_steps": 51
+            }
+          ]
+        },
+        {
+          "task_id": 311,
+          "task_name": "sympy__sympy-20801",
+          "is_screener": false,
+          "pass_without_compression": false,
+          "pass_with_compression": true,
+          "tokens_without_compression": 3074977,
+          "tokens_with_compression": 1299619.4,
+          "platform_score": 1.3528221916287115,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71397,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 890983,
+              "platform_score": 3.3415918027485363,
+              "time_taken_seconds": 384.4953,
+              "agent_steps": 53
+            },
+            {
+              "run_id": 71398,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 888242,
+              "platform_score": 3.3428242504348837,
+              "time_taken_seconds": 496.2594,
+              "agent_steps": 50
+            },
+            {
+              "run_id": 71399,
+              "attempt_no": 3,
+              "pass_with_compression": false,
+              "tokens_with_compression": 2698239,
+              "platform_score": -1.5918843055653429,
+              "time_taken_seconds": 615.6155,
+              "agent_steps": 117
+            },
+            {
+              "run_id": 71400,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1204715,
+              "platform_score": 3.194137794306959,
+              "time_taken_seconds": 434.0853,
+              "agent_steps": 60
+            },
+            {
+              "run_id": 71401,
+              "attempt_no": 5,
+              "pass_with_compression": false,
+              "tokens_with_compression": 815918,
+              "platform_score": -1.522558583781477,
+              "time_taken_seconds": 417.6157,
+              "agent_steps": 49
+            }
+          ]
+        },
+        {
+          "task_id": 312,
+          "task_name": "sympy__sympy-24661",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 2509637,
+          "tokens_with_compression": 1395155.4,
+          "platform_score": 2.4512108169248648,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71402,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1532678,
+              "platform_score": 2.4006608380180787,
+              "time_taken_seconds": 505.2716,
+              "agent_steps": 82
+            },
+            {
+              "run_id": 71403,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1187918,
+              "platform_score": 2.5280680066059307,
+              "time_taken_seconds": 506.4315,
+              "agent_steps": 69
+            },
+            {
+              "run_id": 71404,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1304939,
+              "platform_score": 2.4810909559069594,
+              "time_taken_seconds": 523.2177,
+              "agent_steps": 73
+            },
+            {
+              "run_id": 71405,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1644500,
+              "platform_score": 2.36545091077704,
+              "time_taken_seconds": 543.3737,
+              "agent_steps": 86
+            },
+            {
+              "run_id": 71406,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1305742,
+              "platform_score": 2.480783373316316,
+              "time_taken_seconds": 549.513,
+              "agent_steps": 62
+            }
+          ]
+        },
+        {
+          "task_id": 313,
+          "task_name": "sympy__sympy-15349",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 600060,
+          "tokens_with_compression": 517496.6,
+          "platform_score": 0.07713829937316605,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71407,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 706851,
+              "platform_score": 0.898345000838785,
+              "time_taken_seconds": 545.5491,
+              "agent_steps": 40
+            },
+            {
+              "run_id": 71408,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 583867,
+              "platform_score": -4,
+              "time_taken_seconds": 459.2189,
+              "agent_steps": 29
+            },
+            {
+              "run_id": 71409,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 578992,
+              "platform_score": 0.9981106175825577,
+              "time_taken_seconds": 397.0409,
+              "agent_steps": 30
+            },
+            {
+              "run_id": 71410,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 420039,
+              "platform_score": 1.1585811658038043,
+              "time_taken_seconds": 509.0786,
+              "agent_steps": 21
+            },
+            {
+              "run_id": 71411,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 297734,
+              "platform_score": 1.330654712640683,
+              "time_taken_seconds": 392.0993,
+              "agent_steps": 16
+            }
+          ]
+        },
+        {
+          "task_id": 314,
+          "task_name": "sympy__sympy-22456",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1258321,
+          "tokens_with_compression": 1101572.4,
+          "platform_score": 1.6153835286041898,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71412,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 2248556,
+              "platform_score": 1.1958476217363456,
+              "time_taken_seconds": 663.4835,
+              "agent_steps": 88
+            },
+            {
+              "run_id": 71413,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1137284,
+              "platform_score": 1.5366702560910308,
+              "time_taken_seconds": 589.7535,
+              "agent_steps": 45
+            },
+            {
+              "run_id": 71414,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 544068,
+              "platform_score": 1.905332257910887,
+              "time_taken_seconds": 404.9003,
+              "agent_steps": 38
+            },
+            {
+              "run_id": 71415,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 798036,
+              "platform_score": 1.7137925228258273,
+              "time_taken_seconds": 530.1991,
+              "agent_steps": 54
+            },
+            {
+              "run_id": 71416,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 779918,
+              "platform_score": 1.7252749844568573,
+              "time_taken_seconds": 540.0939,
+              "agent_steps": 45
+            }
+          ]
+        },
+        {
+          "task_id": 315,
+          "task_name": "sympy__sympy-16792",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": false,
+          "tokens_without_compression": 5125752,
+          "tokens_with_compression": 1671637,
+          "platform_score": -0.3063130316424013,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71417,
+              "attempt_no": 1,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1219084,
+              "platform_score": -2.343396369822476,
+              "time_taken_seconds": 465.9041,
+              "agent_steps": 69
+            },
+            {
+              "run_id": 71418,
+              "attempt_no": 2,
+              "pass_with_compression": false,
+              "tokens_with_compression": 1217693,
+              "platform_score": -2.3433507029386837,
+              "time_taken_seconds": 476.2577,
+              "agent_steps": 69
+            },
+            {
+              "run_id": 71419,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1776382,
+              "platform_score": 2.72752792240712,
+              "time_taken_seconds": 512.0318,
+              "agent_steps": 96
+            },
+            {
+              "run_id": 71420,
+              "attempt_no": 4,
+              "pass_with_compression": false,
+              "tokens_with_compression": 2613079,
+              "platform_score": -2.3738935483209893,
+              "time_taken_seconds": 668.2159,
+              "agent_steps": 108
+            },
+            {
+              "run_id": 71421,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1531947,
+              "platform_score": 2.801547540463022,
+              "time_taken_seconds": 500.6219,
+              "agent_steps": 87
+            }
+          ]
+        },
+        {
+          "task_id": 316,
+          "task_name": "sympy__sympy-22914",
+          "is_screener": false,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 803467,
+          "tokens_with_compression": 846822,
+          "platform_score": 1.4196211808055632,
+          "run_count": 5,
+          "runs": [
+            {
+              "run_id": 71422,
+              "attempt_no": 1,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1164961,
+              "platform_score": 1.26178093901605,
+              "time_taken_seconds": 502.9008,
+              "agent_steps": 59
+            },
+            {
+              "run_id": 71423,
+              "attempt_no": 2,
+              "pass_with_compression": true,
+              "tokens_with_compression": 612454,
+              "platform_score": 1.5620759402683195,
+              "time_taken_seconds": 424.5976,
+              "agent_steps": 31
+            },
+            {
+              "run_id": 71424,
+              "attempt_no": 3,
+              "pass_with_compression": true,
+              "tokens_with_compression": 747788,
+              "platform_score": 1.4622531013757782,
+              "time_taken_seconds": 431.136,
+              "agent_steps": 43
+            },
+            {
+              "run_id": 71425,
+              "attempt_no": 4,
+              "pass_with_compression": true,
+              "tokens_with_compression": 1000619,
+              "platform_score": 1.3226084596416279,
+              "time_taken_seconds": 476.7694,
+              "agent_steps": 48
+            },
+            {
+              "run_id": 71426,
+              "attempt_no": 5,
+              "pass_with_compression": true,
+              "tokens_with_compression": 708288,
+              "platform_score": 1.4893874637260425,
+              "time_taken_seconds": 542.5056,
+              "agent_steps": 37
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

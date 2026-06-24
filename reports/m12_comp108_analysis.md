@@ -11,8 +11,11 @@ is not yet possible; per-task score/pass/ratio only._
   over 45 → mean **0.738** → total 0.768.
 
 ## What's working (the positives — don't lose these)
-- **7 FLIPS** (baseline failed → m12 passes): scores **+1.31, +1.79, +1.85, +2.24, +2.56, +2.69, +3.01** —
-  our single biggest scorers. Flip conversion is a real strength, not a weakness.
+- **7 FLIPS** (baseline failed → m12 passes): scores **+1.31, +1.79, +1.85, +2.24, +2.56, +2.69, +3.01**.
+  ⚠ **CORRECTION (2026-06-23, per-run scrape — see `reports/m12_run_variance_analysis.md`):** these are NOT
+  clean wins. Only 2 of 7 flip on all 5 runs (302,303); the rest are 3/5 or 4/5 (a flipping run scores ≥3.0,
+  so any flip <3.0 has failing runs). They're our biggest UNTAPPED lever (run-reliability), not just a
+  strength to "protect." Plus 2 near-flips missed here (306,310 at 1/5 → +4.28/+2.75 if made reliable).
 - **20 tasks score > +1** (strong); **34/45 positive**.
 - Strong compression where it's safe: ratios up to ~4× on clean passes (e.g. +0.77@4.01×, +1.56@3.12×,
   +2.25@3.58×).

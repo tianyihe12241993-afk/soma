@@ -16,15 +16,11 @@ B="$WORK/SOMA-benchmark"; PLUGIN="$WORK/SOMA-plugin"; FORK="$WORK/SWE-bench-fork
 STAMP="$(date -u +%Y-%m-%d_%H%M%S)"
 RD="$REPO/experiments/runs/${STAMP}_H1M_batch"
 
-# task:category — Medium-first(7) + Hard fragile-guard(4) + Hard bonus(2) + Easy(2)
-TASKS="${TASKS:-\
-django__django-15851:Medium django__django-11119:Medium sympy__sympy-24539:Medium \
-django__django-14580:Medium django__django-14855:Medium django__django-10914:Medium \
-django__django-11603:Medium \
-sympy__sympy-17139:HardFragile sympy__sympy-16766:HardFragile django__django-11239:HardFragile \
-django__django-14493:HardFragile \
-django__django-14752:Hard django__django-13363:Hard \
-django__django-16255:Easy django__django-13741:Easy}"
+# task:category — COMP-108 task set (baseline-status labels Pass/Flip). The comp-107 set is GONE (0 overlap);
+# E/M/H is a platform-relative difficulty RANK we cannot reproduce locally, so we group by baseline status and
+# rely on PLATFORM category scores. Regenerate config/comp108_tasks.txt per competition from the dashboard scrape.
+# Override with TASKS="inst:Lab ..." for a cheap subset.
+TASKS="${TASKS:-$(cat "$REPO/config/comp108_tasks.txt" 2>/dev/null)}"
 
 KEY="${OPENROUTER_API_KEY:-}"
 [ -z "$KEY" ] && KEY="$(grep -E '^OPENROUTER_API_KEY=' "$REPO/config/secrets.env" 2>/dev/null | head -1 | cut -d= -f2- | tr -d '"')" || true
@@ -71,6 +67,8 @@ H1M_MINER="$REPO/experiments/candidates/H1M_m7_deeper_safe_v1/h1m_miner.py"
 H3_MINER="$REPO/experiments/candidates/H3_cache_stable_depth_v1/h3_miner.py"
 M12_MINER="$REPO/miner/cot_compression/upload_miner_m7_compliant.py"
 M121_MINER="$REPO/miner/cot_compression/upload_miner_m12_1.py"
+M121B_MINER="$REPO/miner/cot_compression/upload_miner_m12_1b.py"
+M14_MINER="$REPO/miner/cot_compression/upload_miner_m14.py"
 ntasks=$(echo $TASKS | wc -w | tr -d ' '); total=0
 echo "== BATCH: profiles=[$PROFILES] x ${ntasks} tasks x RUNS=$RUNS (PAID from here) $(date -u +%H:%M:%S) =="
 for tok in $TASKS; do
@@ -87,6 +85,8 @@ for tok in $TASKS; do
       h3@cache_ultra) src="$H3_MINER"; profvar="H3_PROFILE"; profval="cache_ultra" ;;
       m12)            src="$M12_MINER";  profvar=""; profval="" ;;
       m12_1)          src="$M121_MINER"; profvar=""; profval="" ;;
+      m12_1b)         src="$M121B_MINER"; profvar=""; profval="" ;;
+      m14)            src="$M14_MINER"; profvar=""; profval="" ;;
       *) echo "  skip unknown profile $prof"; continue ;;
     esac
     if [ -n "$profvar" ]; then
