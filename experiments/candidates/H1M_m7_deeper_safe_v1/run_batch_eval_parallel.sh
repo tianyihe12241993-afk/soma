@@ -116,6 +116,8 @@ M12_DEEPER_MINER="$REPO/miner/cot_compression/upload_miner_m12_deeper.py"
 M12_LIGHTER_MINER="$REPO/miner/cot_compression/upload_miner_m12_lighter.py"
 M17_MINER="$REPO/miner/cot_compression/upload_miner_m17.py"
 M18_MINER="$REPO/miner/cot_compression/upload_miner_m18.py"
+M20B_MINER="$REPO/miner/cot_compression/upload_miner_m20_blind.py"
+M20BV2_MINER="$REPO/miner/cot_compression/upload_miner_m20b_v2.py"
 
 # run ONE solve in a fully isolated per-solve plugin dir (bg-safe; logs its own status).
 run_one() {
@@ -176,6 +178,8 @@ for tok in $TASKS; do
       m12_lighter)    src="$M12_LIGHTER_MINER"; profvar=""; profval="" ;;
       m17)            src="$M17_MINER"; profvar=""; profval="" ;;
       m18)            src="$M18_MINER"; profvar=""; profval="" ;;
+      m20b)           src="$M20B_MINER"; profvar=""; profval="" ;;
+      m20bv2)         src="$M20BV2_MINER"; profvar=""; profval="" ;;
       *) echo "  skip unknown profile $prof"; continue ;;
     esac
     run=1

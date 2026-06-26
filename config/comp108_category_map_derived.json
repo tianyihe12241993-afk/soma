@@ -1,0 +1,663 @@
+{
+  "_meta": {
+    "purpose": "Derived comp-108 Easy/Medium/Hard category map (platform does not expose it). Reconciled from 3 independent solvers + validator re-optimization.",
+    "model": "reported_C ~= simple unweighted mean of platform_score over the category-C tasks, shared partition across all 15 miners, with the 5 SCREENER tasks EXCLUDED from the means.",
+    "winning_model": "screener-OUT (excluding screeners beats including them: 0.2121 vs 0.2344, and beats random-5-exclusion controls, so exclusion is real signal not an artifact)",
+    "fit_total_squared_err": 0.21214,
+    "fit_rmse_per_cell": 0.0687,
+    "fit_cells": "15 miners x 3 categories = 45",
+    "fit_for_reference_screener_IN": 0.43025,
+    "near_zero_reachable": false,
+    "near_zero_diagnosis": "NOT reachable. Floor RMSE/cell ~0.069 (not ~0). So reported E/M/H is an APPROXIMATE simple mean, not exact. Residuals are concentrated in a few miners (5GYxeJjdvfat, 5FqfEPFi937m, 5DADzDbZb3y6), consistent with platform_score noise or a leaderboard-vs-scores snapshot drift rather than a different aggregation formula. Tested transforms (clipping to [0,1] etc.) all made fit WORSE, so raw scores are the right inputs.",
+    "screeners_excluded_from_means": true,
+    "screener_question": "RESOLVED: screeners are OUT of the means. Each screener flip changes the OUT objective by EXACTLY 0.0 -> their category is unrecoverable from the means. They are all baseline-passing (pw=1.0) but do NOT cleanly land Easy; nearest score-centroid puts 2 in Easy (13964,11551) and 3 in Medium (15103,15375,13516). The 'screeners are Easy' hint is NOT confirmed by data.",
+    "sizes_incl_screener_labels": {
+      "Easy": 13,
+      "Medium": 17,
+      "Hard": 20
+    },
+    "sizes_45_scored_only": {
+      "Easy": 11,
+      "Medium": 14,
+      "Hard": 20
+    },
+    "category_grandmean_score": {
+      "Easy": 0.5045,
+      "Medium": 0.7001,
+      "Hard": 0.5911
+    },
+    "category_grandmean_note": "Non-monotonic (Easy<Hard<Medium): platform 'difficulty' is NOT 'high score'; baseline-pass is necessary-not-sufficient for Easy, as stated in the task.",
+    "reliability": "PARTIAL. The global optimum is narrow/hard to reach (only ~1/80 random restarts find it; median random restart 0.35), but a band of near-optima within floor+0.04 (114 distinct local optima) disagree on 12 of 45 scored tasks. 33/45 scored tasks are STABLE (>=0.90 label agreement across all 114 near-optima) = trustworthy. 12/45 are SWING (4 near coin-flips). Combined with the model being only approximate (RMSE 0.069), per-task labels for the swing set are NOT reliable.",
+    "n_near_optima_sampled": 114,
+    "verdict": "Trustworthy for the 33 HIGH-confidence scored tasks and for category SIZES/proportions. NOT trustworthy at single-task granularity for the 12 swing tasks or the 5 screeners. Safe to steer Easy-targeted work using only HIGH-confidence Easy tasks; do NOT hard-target a swing/screener task as 'Easy'.",
+    "tasks": {
+      "django__django-11095": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.99,
+        "near_optimum_votes": {
+          "Hard": 113,
+          "Medium": 1
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-12039": {
+        "category": "Easy",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Easy": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-13033": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.99,
+        "near_optimum_votes": {
+          "Medium": 113,
+          "Hard": 1
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-13810": {
+        "category": "Medium",
+        "confidence": "LOW",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.55,
+        "near_optimum_votes": {
+          "Medium": 63,
+          "Hard": 51
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-15037": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Hard": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-11149": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.98,
+        "near_optimum_votes": {
+          "Hard": 112,
+          "Medium": 2
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "django__django-12050": {
+        "category": "Hard",
+        "confidence": "MEDIUM",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.79,
+        "near_optimum_votes": {
+          "Hard": 90,
+          "Medium": 24
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-13121": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.99,
+        "near_optimum_votes": {
+          "Hard": 113,
+          "Medium": 1
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "django__django-13820": {
+        "category": "Easy",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Easy": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-15103": {
+        "category": "Medium",
+        "confidence": "UNCONSTRAINED-screener",
+        "solver_consensus": "split",
+        "near_optimum_agreement": null,
+        "near_optimum_votes": "excluded-from-means",
+        "is_screener": true,
+        "pw_rate": 1.0
+      },
+      "django__django-11292": {
+        "category": "Medium",
+        "confidence": "MEDIUM",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.89,
+        "near_optimum_votes": {
+          "Medium": 102,
+          "Hard": 12
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-12143": {
+        "category": "Medium",
+        "confidence": "MEDIUM",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.74,
+        "near_optimum_votes": {
+          "Medium": 84,
+          "Hard": 25,
+          "Easy": 5
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-13158": {
+        "category": "Hard",
+        "confidence": "MEDIUM",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.83,
+        "near_optimum_votes": {
+          "Hard": 95,
+          "Medium": 19
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-13925": {
+        "category": "Hard",
+        "confidence": "MEDIUM",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.89,
+        "near_optimum_votes": {
+          "Hard": 101,
+          "Medium": 13
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "django__django-15161": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.96,
+        "near_optimum_votes": {
+          "Medium": 110,
+          "Hard": 4
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-11333": {
+        "category": "Hard",
+        "confidence": "LOW",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.5,
+        "near_optimum_votes": {
+          "Hard": 57,
+          "Easy": 53,
+          "Medium": 4
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "django__django-12155": {
+        "category": "Easy",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Easy": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-13315": {
+        "category": "Easy",
+        "confidence": "MEDIUM",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.82,
+        "near_optimum_votes": {
+          "Easy": 93,
+          "Medium": 21
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "django__django-13964": {
+        "category": "Easy",
+        "confidence": "UNCONSTRAINED-screener",
+        "solver_consensus": "split",
+        "near_optimum_agreement": null,
+        "near_optimum_votes": "excluded-from-means",
+        "is_screener": true,
+        "pw_rate": 1.0
+      },
+      "django__django-15278": {
+        "category": "Hard",
+        "confidence": "MEDIUM",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.72,
+        "near_optimum_votes": {
+          "Hard": 82,
+          "Medium": 32
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-11551": {
+        "category": "Easy",
+        "confidence": "UNCONSTRAINED-screener",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": null,
+        "near_optimum_votes": "excluded-from-means",
+        "is_screener": true,
+        "pw_rate": 1.0
+      },
+      "django__django-12754": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.98,
+        "near_optimum_votes": {
+          "Hard": 112,
+          "Medium": 2
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-13343": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Medium": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-14017": {
+        "category": "Medium",
+        "confidence": "LOW",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.53,
+        "near_optimum_votes": {
+          "Medium": 60,
+          "Hard": 54
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "django__django-15375": {
+        "category": "Medium",
+        "confidence": "UNCONSTRAINED-screener",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": null,
+        "near_optimum_votes": "excluded-from-means",
+        "is_screener": true,
+        "pw_rate": 1.0
+      },
+      "django__django-11740": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Hard": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-12774": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.92,
+        "near_optimum_votes": {
+          "Medium": 105,
+          "Hard": 9
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "django__django-13516": {
+        "category": "Medium",
+        "confidence": "UNCONSTRAINED-screener",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": null,
+        "near_optimum_votes": "excluded-from-means",
+        "is_screener": true,
+        "pw_rate": 1.0
+      },
+      "django__django-14122": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Hard": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-18698": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.93,
+        "near_optimum_votes": {
+          "Hard": 106,
+          "Medium": 8
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-23262": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.99,
+        "near_optimum_votes": {
+          "Medium": 113,
+          "Hard": 1
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-11618": {
+        "category": "Easy",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Easy": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-19040": {
+        "category": "Easy",
+        "confidence": "LOW",
+        "solver_consensus": "split",
+        "near_optimum_agreement": 0.61,
+        "near_optimum_votes": {
+          "Easy": 70,
+          "Hard": 30,
+          "Medium": 14
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-23413": {
+        "category": "Easy",
+        "confidence": "MEDIUM",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.82,
+        "near_optimum_votes": {
+          "Easy": 94,
+          "Hard": 15,
+          "Medium": 5
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-13647": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.99,
+        "near_optimum_votes": {
+          "Hard": 113,
+          "Medium": 1
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-19346": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "split",
+        "near_optimum_agreement": 0.94,
+        "near_optimum_votes": {
+          "Medium": 107,
+          "Hard": 7
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-23824": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.98,
+        "near_optimum_votes": {
+          "Hard": 112,
+          "Medium": 2
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-13757": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.94,
+        "near_optimum_votes": {
+          "Hard": 107,
+          "Medium": 7
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-20154": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Medium": 114
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-24066": {
+        "category": "Easy",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Easy": 114
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-14531": {
+        "category": "Easy",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Easy": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-20590": {
+        "category": "Easy",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.96,
+        "near_optimum_votes": {
+          "Easy": 109,
+          "Hard": 2,
+          "Medium": 3
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-24213": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Hard": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-14976": {
+        "category": "Easy",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Easy": 114
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-20801": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 0.97,
+        "near_optimum_votes": {
+          "Hard": 111,
+          "Medium": 3
+        },
+        "is_screener": false,
+        "pw_rate": 0.0
+      },
+      "sympy__sympy-24661": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.97,
+        "near_optimum_votes": {
+          "Hard": 111,
+          "Medium": 3
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-15349": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Medium": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-22456": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.95,
+        "near_optimum_votes": {
+          "Medium": 108,
+          "Hard": 6
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-16792": {
+        "category": "Hard",
+        "confidence": "HIGH",
+        "solver_consensus": "3way",
+        "near_optimum_agreement": 1.0,
+        "near_optimum_votes": {
+          "Hard": 114
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      },
+      "sympy__sympy-22914": {
+        "category": "Medium",
+        "confidence": "HIGH",
+        "solver_consensus": "2of3",
+        "near_optimum_agreement": 0.98,
+        "near_optimum_votes": {
+          "Medium": 112,
+          "Hard": 2
+        },
+        "is_screener": false,
+        "pw_rate": 1.0
+      }
+    }
+  },
+  "map": {
+    "django__django-11095": "Hard",
+    "django__django-12039": "Easy",
+    "django__django-13033": "Medium",
+    "django__django-13810": "Medium",
+    "django__django-15037": "Hard",
+    "django__django-11149": "Hard",
+    "django__django-12050": "Hard",
+    "django__django-13121": "Hard",
+    "django__django-13820": "Easy",
+    "django__django-15103": "Medium",
+    "django__django-11292": "Medium",
+    "django__django-12143": "Medium",
+    "django__django-13158": "Hard",
+    "django__django-13925": "Hard",
+    "django__django-15161": "Medium",
+    "django__django-11333": "Hard",
+    "django__django-12155": "Easy",
+    "django__django-13315": "Easy",
+    "django__django-13964": "Easy",
+    "django__django-15278": "Hard",
+    "django__django-11551": "Easy",
+    "django__django-12754": "Hard",
+    "django__django-13343": "Medium",
+    "django__django-14017": "Medium",
+    "django__django-15375": "Medium",
+    "django__django-11740": "Hard",
+    "django__django-12774": "Medium",
+    "django__django-13516": "Medium",
+    "django__django-14122": "Hard",
+    "sympy__sympy-18698": "Hard",
+    "sympy__sympy-23262": "Medium",
+    "sympy__sympy-11618": "Easy",
+    "sympy__sympy-19040": "Easy",
+    "sympy__sympy-23413": "Easy",
+    "sympy__sympy-13647": "Hard",
+    "sympy__sympy-19346": "Medium",
+    "sympy__sympy-23824": "Hard",
+    "sympy__sympy-13757": "Hard",
+    "sympy__sympy-20154": "Medium",
+    "sympy__sympy-24066": "Easy",
+    "sympy__sympy-14531": "Easy",
+    "sympy__sympy-20590": "Easy",
+    "sympy__sympy-24213": "Hard",
+    "sympy__sympy-14976": "Easy",
+    "sympy__sympy-20801": "Hard",
+    "sympy__sympy-24661": "Hard",
+    "sympy__sympy-15349": "Medium",
+    "sympy__sympy-22456": "Medium",
+    "sympy__sympy-16792": "Hard",
+    "sympy__sympy-22914": "Medium"
+  }
+}

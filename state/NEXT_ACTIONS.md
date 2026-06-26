@@ -3,7 +3,110 @@
 _Mode: ACTIVE comp 108 (CoT-Compression-4). Files are the source of truth. Full live status: state/CURRENT.md.
 Eval runs on the Mac (Docker Desktop), NOT WSL2._
 
-## ⏭ TOP OF QUEUE (2026-06-24 latest) — ★ m19 cache-stable REJECTED on offline validation. HOLD m12.
+## TOP OF QUEUE (2026-06-25 ~20:55) — ★ RE-ANALYSIS DONE: PORTFOLIO path + new Hard-variance RISK. Plan below.
+**Full: state/CURRENT.md top (workflow wiz2yq9to, 25 agents). Verified ownership: m12 holds Single-H (0.919, +0.107); share 4.76%.**
+- [ ] ★ **NEW RISK: defend Single-Hard.** King's Hard is volatile under re-eval (drew up to 0.981 > our 0.919). Register
+      ONE more BYTE-IDENTICAL m12 hotkey (insurance twin) → best-of-2 max cuts P(lose our 4.76%) from ~12-17% to ~1-3%,
+      AND passively captures Pair(M,H) if king re-draws low Hard. USER action (upload, separate hotkey, same acct). Reliable, zero downside.
+- [x] ~~GROWTH: EH-passthrough specialist (raise PASS_THROUGH_TOKENS)~~ — **VALIDATED NO-GO** (reports/m24_ehpass_verdict.md,
+      validator /tmp/m24_ehpass_validator.py). Sweep over real comp-108 m12 trajectories: NO threshold satisfies Hard-routing==m12
+      AND savings≥10% AND material Easy lift. Any raise >3500 re-routes Hard (≥20k → 6 Hard tasks, 449 diffs); the deep break-prone
+      Easy tasks (django-12039 92% still harvest @10k) need ≥20k which craters Hard, while the safe window only rescues small
+      already-passing Easy tasks. Easy lift far short of Pair(E,H) (need E>0.731) / Single-E (>0.923). Same Easy↔Hard size-overlap
+      wall that put m12 on depth-routing. (Untested variant: DEPTH-gated passthrough — same Hard-early-route risk, platform-only outcome.)
+- [ ] ★ **NOW THE TOP RELIABLE MOVE: register the byte-identical INSURANCE TWIN** (defense + passive Pair(M,H)). USER action.
+      I'll give the exact upload command (reports/platform_commands.md cmd #1, new hotkey, same OpenRouter acct). Protects 4.76%
+      (king Hard volatile, drew 0.981>0.919) AND holds passive position for Pair(M,H) → ~14.3% if king re-draws Hard <0.592.
+- [x] ~~Probe depth-gated passthrough~~ — **NO-GO** (reports/depth_gated_passthrough_verdict.md). Per-category depths
+      FULLY OVERLAP in comp-108 (Easy 12-89 med56 / Med 20-112 med49 / Hard 10-98 med53; Easy median DEEPER than Hard).
+      No depth gate separates Easy from M/H; any D_pt lifting Easy_PT floods Med_PT(+1518 route chg)/Hard_PT(+2313) and
+      halves savings. ROOT CAUSE proven on BOTH axes: comp-108 E/M/H are NON-SEPARABLE by any per-call signal -> active
+      single-miner growth space CLOSED (see DISCOVERIES top).
+## TOP OF QUEUE (2026-06-26) — ★ m25 BUILT + VERIFIED; USER to upload (the M,H coin-flip). Then gate on scored.
+**Full: reports/m25_build.md + state/CURRENT.md top. m25 = upload_miner_m25.py sha 52fe47f9. m12 LIVE untouched/git-clean.**
+- [ ] **USER: register a NEW hotkey + upload m25** (SAME OpenRouter acct as m12, …1e8a lineage). Cmd:
+      `.venv/bin/python miner/upload_miner_with_openrouter_key.py --platform_url https://platform.thesoma.ai
+      --wallet_name tony-miner --hotkey_name <NEW_M25_LABEL> --solution_file miner/cot_compression/upload_miner_m25.py
+      --openrouter_api_key <OPENROUTER_KEY>`  then `make collect` (read score ONLY when status=scored).
+- [ ] **ACCEPT GATE (>=3 scrapes):** Medium UP AND Hard>=0.919 AND flip-count >= m12. Else REJECT (m25 = rejected reference;
+      m12 stays LIVE). Same gate that correctly killed m22.
+- [ ] **What m25 is:** m12 + gated gentle break-fix (extractive truncation-sites only, NO drop-spans) + RESOLVED-gate +
+      DECOUPLED state (emit break-fix, save m12-exact -> rich/Hard reads clean). Targets the real +4.958 Medium break-fix
+      gains while hedging the m22 craters (deep-Hard via decouple, active-flip turns via gate). HONEST: coin-flip ~15-25%;
+      residual shallow-flip leak (201 ships) + non-gateable pass-task new-breaks remain. Update miners.yaml m25sub hotkey post-upload.
+- [ ] If m25 REJECTED: the active space is then fully exhausted (every combination tried) -> revert to MONITOR + next-round prep.
+
+## (superseded by m25 build) TOP OF QUEUE (2026-06-25 ~23:00) — FULL-RESET: STOP active comp-108 work; MONITOR + NEXT-ROUND PREP.
+**Full: reports/comp108_full_reset_analysis.md + state/CURRENT.md top (workflow wohsbvkmr; all numbers main-session-verified).**
+- [ ] **POSTURE = HOLD m12 frozen + MONITOR. Do NOT build, do NOT spend a hotkey.** Active dethroning proven unrealistic
+      (all 7 experimental hotkeys drop M AND H; E/M/H non-separable). We own only Single-H (4.76%, +0.107 cushion).
+- [ ] **MONITOR each window via `make collect`:** (a) **5CaFqLaPBYTQ review_status** — if it flips scored→ it sweeps ALL
+      7 elements incl our Single-H (existential; H=3.15 cheat-signature, currently failed review); (b) **king's (M,H) pair
+      avg** — if it re-draws <0.9363, m12 auto-captures Pair(M,H) → ~14.3% (free, passive, the only positive-EV upside);
+      (c) any new high-Hard rival that could take Single-H.
+- [ ] **INSURANCE TWIN = KILLED** (do not register). Defends wrong threat (twin also ~0.919, can't beat a rival >0.919;
+      m12 no observed downward variance). Supersedes the earlier twin recommendation.
+- [ ] **NEXT-ROUND PREP (the one forward lever, CONDITIONAL, not authorized now):** global Medium safety-tuning to cut
+      BREAK rate (m12 15% → toward newking 6%) WITHOUT category routing. Pre-build gate (all 4): zero Hard-route divergence
+      vs m12 + savings≥10% + per-turn Medium break-RISK reduction + projected delta > 2.67pt variance floor. Build only
+      into a LIVE next round, never against the frozen comp-108 board, never on projected lift alone.
+- [ ] m12 (5Dz7) LIVE/untouched. All active single-miner levers exhausted+closed this session (see DISCOVERIES top).
+
+### Validated DEAD/closed levers (do NOT rebuild)
+- [x] ~~loop-detection-threshold sweep~~ — **NO-GO/no-op** (reports/loopguard_probe_verdict.md). The guard ALREADY
+      fires on 67% of runs + ALL wander-prone runs (recur 4-12 >> 3); those break on-platform anyway. Loops = NORMAL
+      behavior (re-reads/re-runs) across all categories incl. Medium → tuning down (2/12→90%) = false-positive nagging,
+      up = less coverage. ~9% of breaks have no loop (premature patch). Guard is SATURATED, not under-tuned. Last
+      compliant active lever CLOSED.
+- [ ] ★ **ONLY position-improving move left = register the INSURANCE TWIN** (byte-identical m12, 2nd hotkey, same acct).
+      Defends Single-Hard vs king's volatile Hard (drew 0.981>0.919) AND holds passive position for Pair(M,H) → ~14.3%
+      if king re-draws Hard <0.592. USER action; cmd = reports/platform_commands.md #1 with a NEW hotkey label. Zero downside.
+- [ ] (Monitor) fresh `make collect` each window to confirm standings + whether king Hard re-drew (opens Pair(M,H)).
+- [ ] **Do NOT relitigate:** all single-miner CONTENT levers dead (13 falsified); break-fix family closed (m22/m23);
+      beating the king on Overall is not reachable (agent-side consistency, banned to steer). Portfolio is the only new surface.
+- [ ] Eval: MAXJOBS=3 on this Mac. Driver run_batch_eval_parallel.sh (50 comp-108 tasks; subset to 11 Easy+20 Hard for #1).
+
+## (superseded) TOP OF QUEUE (2026-06-25 ~20:30) — m23 RESOLVED-gate audit = NO-GO. HOLD m12. Both break-fix paths now closed.
+**Full: reports/m23_gate_audit.md + state/DECISIONS.md top + state/CURRENT.md top.**
+- [ ] **m23 (RESOLVED-only break-fix + determinism pass) = NO-GO** after the mandatory pre-build gate audit. The gate
+      CANNOT causally separate settled-Easy from flip turns (early flip-exploration is signal-identical). Real flip
+      task sympy-24066 leaks 217/104/70 fires (lenient/strict/resolution-sig); only an overfit gate (G4) hit 0 and it
+      misses a real Easy target. Determinism half = no-op (m12 already deterministic). m23 NOT built. Do NOT relitigate
+      without NEW evidence (e.g., a gate that provably zero-fires on ≥the 3 flips AND django-13925/14017 trajectories).
+- [ ] **HOLD m12 (5Dz7) LIVE** — 0.768 / Hard 0.919 field-best / 4.8% Single-Hard. It beats every candidate built
+      (m17/m18/m20b-v2/m21/m22 + m23-blocked) and is our compliant ceiling. Decide ONLY on scored.
+- [ ] **CLOSED levers (do NOT propose):** (a) smarter flip-preserving selector (<15%, zero-sum, lost 3×);
+      (b) RESOLVED-gated break-fix (gate leaks, this audit); cache/freeze (RAW-token score); savings-floor (saturated);
+      compress-harder (wander); keep-more (m21); m20b superseded-collapse. King's edge = consistency = agent-side, not
+      our compliant lever.
+- [ ] **Only structurally-new growth lever left:** favorable platform re-eval window OR a 2nd-hotkey portfolio
+      specialist — both still blocked on the same agent-stochasticity wall (research track, not ready). m12 LIVE meanwhile.
+- [ ] (Optional, NOT recommended) targeted local eval to capture django-13925/14017/sympy-16792/django-15037 m12
+      trajectories — would harden the NO-GO; the causal leak already makes the call clear. MAXJOBS=3 on this Mac.
+
+### Validated DEAD-ENDS (do NOT rebuild): cache/freeze lever (score uses RAW tokens — AOW-lite/AOW-bet structural
+wall); m20b-v2 superseded-collapse (net −2.67, dented Hard 0.808); "improve the 10 break tasks" as a success
+criterion (it green-lit m20b-v2, a loser → gate on NET 50-task mean); compress-harder-via-blind-drop (wander).
+See state/DECISIONS.md + DISCOVERIES.md (top entries).
+
+## (superseded) TOP OF QUEUE — ★ m20-BLIND A/B REJECTED (ratio backfired -> wander). Compress-harder family CLOSED.
+Gated A/B (m12 vs m20-blind, 6 large/deep tasks x3): ratio went DOWN not up - m20b +21..74% tokens + more steps
+(dropping superseded-view middles = needed content -> agent WANDERS to recover). Resolved nominally 11 vs 9 but
+n=3 noise on capability-bound flips, swamped by token blow-up. Fails accept gate (ratio-up=NO). The A/B was the
+oracle offline lacked: even the NARROWEST compress-harder cut fails the same wander way. ENTIRE compress-harder
+family now closed (depth/m17/m18/m20-extractive/m20-blind). Ratio-bonus headroom real in formula but NOT
+capturable - m12 keeps exactly what the agent needs. m20_blind sha 328fdcfa reference-only. Report:
+m20_blind_ab_verdict.md. HOLD m12. Growth = portfolio specialist (2nd hotkey) or favorable re-eval window.
+
+## (superseded) m20 (ratio-bonus / superseded-view) REJECTED offline. HOLD m12.
+Ratio-bonus headroom is REAL (score=base+0.5*ln(ratio); m12 at +0.28 of max +1.0) BUT not safely capturable:
+m20's safe collapse (extractive) PINS code signatures -> ZERO shrink on real code reads; truly-redundant re-reads
+already caught by m12 near-dup; actual gain needs BLIND-dropping needed code = proven wander/break family. m12
+already keeps exactly the safe content (signatures+error/test/diff+latest view). m20 sha 0be44494, reference-only.
+Report: m20_superseded_verdict.md. Optional last-resort: m20-BLIND variant gated on same-window A/B (oracle we
+lack offline); expectation modest-to-negative. HOLD m12.
+
+## (superseded) m19 cache-stable REJECTED on offline validation. HOLD m12.
 m19 (surgical cache-stable: froze truncation depth + drops-to-target) built + validated OFFLINE → REJECT (no paid
 eval needed). FAILED: (1) churn NOT reduced (288=288 re-morph) — dominant churn is ASSISTANT TOOL-CALL STRIPPING
 inherent to m12's drop-based harvest, not truncation depth; (2) medium ratio +31% lighter = M/H regression (m13

@@ -1,5 +1,262 @@
 # DISCOVERIES (durable findings)
 
+## 2026-06-26 — ★ COMPRESSION RATIO is a SOLVED axis: m12 ties the king (1.61×); do NOT upgrade. Reference: reports/cross_miner_ratio_reference.md
+Apples-to-apples cohort (SAME 80.9M baseline): m12 1.61×/37.9% sav === king 1.61×/37.8% (we MATCH the king on ratio).
+Harder compressors score LOWER (5DtEz 1.79×→0.714, old-king 1.71×→0.780) — ratio is not the lever. Ratio term is minor
+(1.61→1.79 ≈ +0.05/task, < 0.25 gate). Both directions CLOSED: harder=wander/break (m17/m18/m20b; 5CwZBKyL's "3.39×" =
+404M-token wander-balloon ARTIFACT not real compression), lighter=savings PENALTY (5DCnA57 1.18×→ −0.243 → eff 0.701<m12).
+m12 is in the optimal safe band (~1.6×, ~38% sav: above the ~20% penalty floor, below the break zone). The king gap is
+100% pass/break/flip+consistency, NOT compression. CAVEAT: tokens_without baseline varies per miner (agent-trajectory
+length) → cross-miner ratio only comparable within a shared-baseline cohort. Full table: reports/cross_miner_ratio_reference.md.
+
+## 2026-06-25 — ★★ m22 is a REDISTRIBUTION, not a uniform crater — break-fix gains are REAL but entangled with non-gateable collateral
+Per-task decomposition of m22 vs m12 from the per-run platform JSONs (corrects the earlier coarse "uniform Hard crater" framing):
+- **The break-fix METHOD works.** On Medium it delivers **+4.958** of real gains (django-13810 −1.976→+0.146, django-13033
+  +1.056, sympy-15349 +0.949, django-11292 +0.831); on Hard big wins too (django-14122 −1.017→+1.091, django-11740 +1.112).
+  It genuinely fixes the breaks m12 has. The net-negative (Medium −0.211, Hard −0.355) is COLLATERAL, not method failure.
+- **Two entangled collateral sources** (Medium): (1) FLIP-KILL −4.251 (baseline-FAIL tasks: django-14017 2.564→0.049 etc. —
+  break-fix drops the exploration they need to flip); (2) NEW-BREAKS on baseline-PASS tasks −3.940, dominated by django-12774
+  (0.964→−2.186) — the content change destabilizes tasks m12 was passing.
+- **Why no combination closes it:** even PERFECT flip-gating leaves Medium at **+0.057 mean** (need +0.136 for Pair(M,H)) —
+  the pass-task new-breaks remain. Those are (a) baseline-PASS so a flip-gate can't catch them; (b) MECHANISM-2 (model directly
+  sees destabilizing harvest), so the OUTPUT/STATE DECOUPLING idea (save m12-exact state so rich reads clean) CANNOT fix them
+  (it only addresses mechanism-1 = deep-task rich reading drifted state; craters include SHALLOW tasks e.g. sympy-13647 H 10-57,
+  likely django-12774); (c) unpredictable (non-separability: can't tell which passing task will destabilize at compression time).
+- **DECOUPLING idea (NEW, never tried; output break-fix + save m12-exact state):** could fix mechanism-1 IF the platform
+  connector feeds NATIVE (source-match) — but that feed-mode is UNVERIFIABLE offline (local session logs are native regardless;
+  m12's own code hedges both; trajectory trace captured only turn 1). And it does NOT address mechanism-2 (shallow-task direct breaks).
+- **VERDICT:** Pair(M,H) via active break-fix is BORDERLINE-UNREACHABLE and only PLATFORM-testable (not offline-confirmable):
+  best-evidenced experiment we have (gains real) but a coin-flip (~20-30%), because the gains/losses are entangled and the
+  pass-task new-breaks are non-gateable + non-decoupling-fixable. Confirms full-reset's "no OFFLINE-confirmable path" while
+  identifying the one defensible hotkey coin-flip if the user chooses to spend it. Evidence: per-run JSONs m22_5Cffmt/m12_5Dz7.
+
+## 2026-06-25 — ★★ ROOT CAUSE: comp-108 E/M/H are NON-SEPARABLE by ANY per-call signal (size OR depth). This is why every Easy/Medium active lever fails.
+Three offline validators (m23 RESOLVED-gate, m24 token-passthrough, depth-gated passthrough) over real comp-108 m12
+trajectories converge on one mechanism: **at compression time, an Easy task is indistinguishable from a Medium/Hard task
+by every observable signal.**
+- TOKEN size (m24): Easy peaks overlap Hard (Easy 6-58k, Hard 14-85k). No PASS_THROUGH_TOKENS separates them — raises
+  that lift Easy (≥20k) re-route 6 Hard tasks; the safe window (≤10k) only rescues SMALL already-passing Easy tasks while
+  the deep break-prone Easy tasks (django-12039 92% still-harvest) stay exactly as m12 had them. (reports/m24_ehpass_verdict.md)
+- DEPTH (this probe): measured per-category max-depth — Easy 12-89 (median 56), Medium 20-112 (median 49), Hard 10-98
+  (median 53). FULLY OVERLAPPING; Easy median is DEEPER than Hard/Medium. No depth gate D has Easy<D<=M/H. The m12 code
+  comment ("easy ends shallow ~67, hard ~125") was COMP-107 data — does NOT hold for comp-108 (different tasks). Sweep:
+  any D_pt lifting Easy_PT (40->61.8%) equally floods Medium_PT (58.5%) + Hard_PT (48.2%) -> 1518 Medium + 2313 Hard
+  route changes, savings 79%->38%. (reports/depth_gated_passthrough_verdict.md)
+- RESOLVED-gate (m23): early flip-exploration is signal-identical to settled-Easy (no errors yet). (reports/m23_gate_audit.md)
+**Implication (durable):** a single COMPLIANT miner CANNOT win Easy without damaging Medium/Hard, because the only thing
+that distinguishes the categories is the eventual OUTCOME (seen only after the fact), not anything readable when we must
+decide. m12's "compress everything uniformly + protect via depth-stickiness + protect error/diff content" is a defensible
+LOCAL OPTIMUM, not a failure of imagination. The active single-miner growth space is CLOSED. Growth, if any, = PORTFOLIO
+(2nd-hotkey, but it inherits the same non-separability) or TIMING (passive Pair(M,H) via the king's volatile Hard) + the
+insurance twin to defend Single-Hard.
+
+## 2026-06-25 — ★★ MEDIUM IS 100% BREAK-FIXABLE (overshoots king); conservative ceiling = 95.2% of pool (m23)
+Workflow wtbmsdg47 RESOLVED the Medium flips-vs-breaks question: it is BREAKS, not flips. m12's Medium pass-pass runs
+average +1.66 (so "pass-pass caps at 1.0" is FALSIFIED), the king wins Medium PURELY on pass-pass (not flips), and m12
+already FLIPS MORE Medium than the king (12 vs 10). => Medium needs ZERO net-new flips; 100% of the 0.953->1.281 gap is
+break-fix (10 excess break-runs across 5 baseline-PASS Medium tasks). CEILINGS (modeled from per-run): Medium 0.953 ->
+1.48 (excess-fix) -> up to 1.68 (OVERSHOOTS king 1.281); Easy 0.412 -> 0.76 (break-only) -> ~0.98, with ~0.13 residual
+CAPABILITY-bound (django-13315: king flips 3/5, m12 0/5 — a flip we cannot manufacture -> we lose Single(E), only 4.8%);
+Hard hold 0.919. HARD-SAFE PROVEN (not assumed): m12 Medium token envelope 916K is BELOW king 979K; on 5/8 break-fix
+targets the king keeps FEWER tokens than m12 yet passes (sympy-15349 king 529K vs m12 908K) — the king retains the RIGHT
+spans at <= budget. A smarter selector reallocating the SAME budget keeps rich-entry ~= m12 -> Hard 0.919 held.
+ELEMENT MATH: current 4.8% (Single-H). m23 CONSERVATIVE (E0.76/M1.48/H held) = 95.2% of pool (wins Overall + Pair(E,M)
++ Pair(E,H) + Pair(M,H) + Single(M) + Single(H); loses only Single(E)). Optimistic (E0.98/M1.68) = 100%. Predicted
+deltas Medium +0.69, Easy +0.35 — BOTH CLEAR the 0.25 measurability gate (Medium ~2.8x) = first lever with effect
+ABOVE the noise floor. THE MEDIUM LEVER IS THE WHOLE BALLGAME (M>1.089 flips Pair(M,H); M>1.281 flips Single(M); with
+E>0.657 flips Pair(E,M)+Overall).
+m23 DESIGN (iteration on m22, gated on m22's scored break-suppression signal): m22's weakness = it pins lines by
+ISOLATED pattern match, SHATTERING contiguous code/diff/test structure. m23 fixes via SMARTER CONTIGUOUS selection at
+<= m12 budget (compliant, no task-id): (1) DIFF-HUNK-CONTIGUOUS (keep whole @@ hunk + context as a unit, not scored
++/- lines) -> django Medium breaks (13810/15161/13033); (2) TEST/TRACEBACK-AS-UNIT (keep source frame + assertion +
+expected/actual contiguous, drop stdlib frames) -> sympy Medium breaks (15349/23262); (3) RECENCY-TIERED thinning
+(recent view fuller, old views thinner = the budget-funder); (4/5) dependency-repetition reweight + block-boundary-
+only elision (never mid-block ellipsis). ACCEPTANCE: 9 break-target tasks toward pass-pass; Medium delta >=+0.3 AND >=3
+scrapes ZERO Hard regression.
+HONEST CAVEATS: (a) RUN-VARIANCE — every m12 break-target is FLAKY (passes 2-4/5, never 0/5); king is stable (4-5/5,
+7/8 at 0 breaks). Part of the gap is replay noise the selector only partially recovers -> anchor on the CONSERVATIVE
+95.2% (M1.48/E0.76), NOT optimistic. BUT the king's stable 4-5/5 on these SAME tasks proves the consistent-pass
+ceiling is reachable by selection, not luck. (b) Easy capability floor ~0.13 below king (lose Single-E, fine). (c) Do
+NOT chase Medium flips (we already win that). (d) m22 is the PREREQUISITE on-platform proof; m23 built only after.
+=> The "hold m12 at 4.8%" framing is SUPERSEDED: there's a Hard-safe, gate-clearing, modeled path to ~95% via break-
+fixing Medium+Easy with a smarter contiguous-structure selector. m22 (in queue) is the first test; m23 is the payoff.
+
+
+## 2026-06-25 — ★ A REPLICABLY-BETTER ALGORITHM EXISTS: m22 = extractive-not-blind harvest at CONSTANT byte budget
+Workflow wis9cygy0 (reverse-engineer 5DtEz/king + design + red-team). DECISIVE FINDINGS (verified from per-run data):
+- 5DtEz EXISTENCE PROOF (E0.837+H0.813) is real: it AVOIDS m12's runaway/collapse tail (m12 max 7.36M tok / 2 null
+  runs / 4.66x expansion; 5DtEz 4.09M / 0 null / 2.66x). Easy break-rate inversely tracks Easy score: king 10% <
+  oldking 13% < 5DtEz 17% < m12 23%.
+- THE LEVER IS METHOD (blind vs extractive), NOT AMOUNT: 3 of m12's 4 avoidable Easy break-runs are at NORMAL steps
+  (30/38/46) + HEALTHY tokens (528-791k) on sympy-11618/14531/20590 — tasks the kings ALL pass at 545-882k. m12
+  blind-truncated/dropped a task-CRITICAL span at a reasonable byte budget. Only 1 of 4 is a collapse run (14 steps).
+- QUANTIFIED: m12 Easy 0.398. Fix COLLAPSE-only -> 0.490 (+0.092, FAILS the 0.25 gate). Fix ALL avoidable (content-
+  quality) breaks -> 0.763 (+0.365, CLEARS gate, = king-level 0.756). The viable Easy gain lives ENTIRELY in the
+  content-quality breaks -> needs EXTRACTIVE selection replacing blind truncation, NOT floors/routing.
+- HARD-SAFE BY CONSTRUCTION: extractive at the SAME byte budget keeps harvest output ~= m12 size -> rich-entry ~= m12
+  -> NO coupling (this is keep-SAME, improve-QUALITY; orthogonal to the m21 keep-more Hard-crater). Verifiable pre-
+  upload: per-Hard-turn harvest_output_bytes <= m12.
+DECISION = build m22: m12 + (1) replace blind head/tail truncation AND whole-span drops in compress_structurally with
+deterministic EXTRACTIVE selection at constant byte budget (keep changed hunks + N context + error/traceback + sigs,
+elide interior, dedup) -> fixes the 3 content-quality breaks; (2) free safety clamps: Hard ceiling (kill 7.36M runaway)
++ min-step floor (kill the 1 collapse) — both only reduce/stabilize, cannot trigger m21's keep-more failure. rich path
+UNTOUCHED. TARGET E0.74(from 0.412)/M0.95(hold)/H0.919(hold) -> FLIPS Pair(E,H) to us (E+H 1.659 > 5DtEz 1.650) +
+retains Single-H => 14.3% share (from 4.8%, +9.5pts). The only Hard-decoupled, gate-clearing move on the board.
+REJECTED: floor/routing-only (+0.092, fails gate); match-king/5DtEz-clone (surrenders Hard moat); keep-more anything
+(Hard-incompatible). BIGGEST RISK: the extractive selector may keep the WRONG spans (we infer, not observe, which span
+the agent needed) -> MITIGATION: pre-upload local-replay diff on sympy-11618/14531/20590 (assert extractive RETAINS the
+changed-hunks/tracebacks m12 dropped + per-Hard-turn bytes <= m12); only upload if both pass + Easy is noisy so >=3
+scrapes to confirm Pair(E,H) flip. DISTINCT from m17 (only truncation sites, missed whole-span drops; DQd on screener
+variance) and m21 (kept MORE -> coupling). m12 LIVE 4.8% safe. reports: m12_cons_and_strategy.md.
+
+
+## 2026-06-25 — ★ m21 DIAGNOSIS CONCLUSIVE: keep-more was NEUTRALIZED by its own savings-floor; keep-more is Hard-INCOMPATIBLE
+Workflow wxx45mc3v (diagnose + independent verify, both agree). DEFINITIVE: m21 did NOT keep more on the platform.
+ROOT CAUSE: the savings-floor guard (HARVEST_MIN_SAVINGS=0.20) measures per-turn savings vs the CURRENT working input.
+Under the connector REWRITE model the input is ALREADY m21's own prior compressed output (~11k tok = the light build's
+target), so the light build finds ~nothing more to remove -> light_savings ~0-16% < 0.20 -> FALLS BACK to the m12-
+equivalent (legacy) build. Verified: m21 BYTE-IDENTICAL to m12 on ~all harvest turns (11-12/12) AND all rich turns ->
+tokens_with~=m12, steps~=m12. The guard CANNOT distinguish "I kept more (good)" from "nothing left because input is my
+own prior output (rewrite)" -> backfired, exact opposite of intent. Keep-more only ships in a NARROW large-result
+window (~60k-char results, ~6/12 turns) the design never stress-tested.
+HARD CRATER MECHANISM: in that narrow window keep-more ships -> output written to STATE -> next turn's rewrite prefix ->
+divergence COMPOUNDS (state poisoning) -> m21 tips into RICH one turn EARLIER than m12 and hands rich a LARGER/diff
+trajectory with extra pinned edit/test history (is_retention_critical never-drop class) that m12 would have dropped ->
+churns the Hard agent -> deterministic pass->soft-neg(~-2.3). Agent runs longer -> native session balloons -> tokens_
+without 5x (8.1M vs 1.6M) = DENOMINATOR ARTIFACT, NOT better compression (m21 with == m12 with). "87% savings" misleading.
+FUNDAMENTAL CONCLUSION: keeping MORE in harvest is HARD-INCOMPATIBLE by construction — Hard tasks transit harvest, and
+any extra harvest retention is persisted to state and feeds rich a different/bigger trajectory -> Hard churn. NOT a
+gate-able detail (the damage is in the early harvest turns, before we can know a task is Hard). A "fixed" keep-more
+(remove the broken floor, always keep more) would crater Hard WORSE. => the keep-more DIRECTION is CLOSED.
+COROLLARY: the Easy gap splits into truncation-case breaks (m17 smart-selection at SAME budget CAN fix, but only ~1-2)
+and DROP-case breaks (need keep-more = Hard-incompatible). So the bulk of the Easy gap is unfixable without Hard risk.
+m17-style (smart selection, same byte budget -> rich entry ~= m12 -> Hard-safe) is the ONLY safe lever, but too small
+to reach the Pair(E,H) Easy threshold (0.731) -> wins no new element. m12 is at its achievable compliant ceiling.
+m12 LIVE 4.8% SAFE (m21 separate hotkey, never touched live).
+
+
+## 2026-06-25 — ★ m21 REJECTED (0.597) but the EASY KEEP-MORE LEVER is PLATFORM-VALIDATED (+0.414 on confirmed-Easy)
+m21 (keep-more hybrid) scored 0.597 (E0.564/M0.766/H0.461) vs m12 0.768 (E0.412/M0.953/H0.919). By DERIVED category:
+EASY m12 +0.462 -> m21 +0.876 (+0.414 !!), MEDIUM +0.898->+0.684 (-0.213), HARD +0.857->+0.342 (-0.516 CRATERED).
+KEY: the keep-more thesis is PROVEN on the platform — on the 8 confirmed-Easy tasks m21 fixed EXACTLY the breaks we
+predicted (sympy-14531 -0.16->+1.78, sympy-14976 -0.76->+1.04, sympy-11618 +0.04->+1.29, sympy-20590 +1.21->+2.20).
+First candidate to ever MOVE Easy. The Pair(E,H) "Easy=breaks on baseline-passing tasks, fixable by keep-more" thesis
+is VALIDATED. BUT: the SAME global lightening CRATERS Hard (sympy-16792 +0.77->-2.34 clean break pw=True; django-15037
++0.54->-1.33; django-12050 +1.56->+0.24) — Hard tasks transit harvest, so lightening harvest destabilizes Hard-routed
+tasks. "Harvest-only + rich byte-identical = Hard-safe" is FALSE on platform (3rd confirmation: m18, AOW red-team #4
+prediction, now m21). The local "rich byte-identical on a pure-rich trajectory" check MISSED it (didn't test harvest->
+rich transition / Hard-but-shallow tasks). m12 LIVE UNTOUCHED -> our 4.8% SAFE (separate-hotkey discipline paid off).
+DEEPER: m21 is a crude GLOBAL lightening = a TRADEOFF (trade Hard for Easy, net -0.171). The KING gets high Easy WITHOUT
+cratering Hard via per-task content-SELECTION quality (light where safe, careful on Hard) — which a global knob can't
+replicate without BANNED task/category awareness. => Easy-gain and Hard-moat are COUPLED for us; can't have both via a
+global compression heuristic. OPEN: a heavily-GATED keep-more (lighten ONLY confident-shallow/easy, exact-m12 on any
+Hard/error/depth signal) MIGHT isolate part of the +0.414 Easy gain with less Hard harm — but we've hit the Hard-
+coupling wall 3x, so skeptical. m12 (Hard-strong) may be our best achievable point. Map+per-run: /tmp/m21_scores.json.
+
+
+## 2026-06-25 — comp-108 CATEGORY MAP derived (partially trustworthy) + Easy=breaks CONFIRMED on real Easy set
+Workflow wvwzhcb7v solved the E/M/H partition from 15 miners x 50 tasks vs reported E/M/H (3 independent methods ->
+reconcile). RESULTS: reported E/M/H = unweighted MEAN of platform_score over the category tasks, with the 5 SCREENER
+tasks EXCLUDED from the means (screener-OUT fit 0.212 < screener-IN 0.234; screeners are a separate QUALIFICATION gate,
+NOT counted in E/M/H, and do NOT cleanly land Easy). Near-zero fit NOT reachable (floor RMSE/cell ~0.069 = E/M/H is
+APPROXIMATE, residuals in a few noisy miners). SIZES: 13E/17M/20H incl screener-labels (11E/14M/20H of the 45 that
+enter the means) - Hard is BIGGER than the old 13/19/18 guess. Category grand-means NON-MONOTONIC: EASY 0.50 < Hard
+0.59 < Medium 0.70 -> EASY IS WHERE THE WHOLE FIELD BLEEDS (lowest avg), difficulty != high-score, baseline-pass is
+necessary-not-sufficient. RELIABILITY: 33/45 STABLE (>=0.90 agreement, trustworthy); 12 SWING (4 coin-flips:
+django-11333/14017/13810/sympy-19040). SAFE to steer using ONLY the 8 HIGH-CONFIDENCE EASY tasks: django-12039,
+django-12155, django-13820, sympy-11618, sympy-14531, sympy-14976, sympy-20590, sympy-24066. Map+per-task confidence
+in config/comp108_category_map_derived.json (_meta.tasks tags).
+EASY=BREAKS CONFIRMED on the REAL Easy set: on the 8 confident-Easy tasks, m12 mean +0.546 vs king +0.944 (gap
++0.397/task), and the gap is m12 BREAKING baseline-passing tasks the king passes CLEANLY: sympy-14531 (m12 2 breaks
+[-3.16x2] -> -0.16 vs king +2.00), sympy-11618 (m12 1 break [-4] -> +0.04 vs king +1.12), sympy-20590 (m12 1 partial-
+break -> +1.21 vs king +2.19). m12 break-runs 1+partials vs king 0 on these 8. m12 Easy 0.412 is BELOW even the field
+grand-mean 0.50. => on EASY specifically the breaks are differentially m12's (king avoids them) = FIXABLE, supporting
+the m21 keep-more thesis on real data (not a guess). CAVEAT: vs ONE survivor (selection bias possible); map approximate
+(8 high-conf solid, swing/screener tasks NOT); m21 scored result is the real test. NEW TOOL: when m21 scores, check its
+per-task behavior on these 8 confirmed-Easy tasks directly. m12 LIVE 4.8%, m21 in queue.
+
+
+## 2026-06-25 — ★ MECHANISM CORRECTION: savings multiplier is GLOBAL + SATURATED (floor lever DEAD) + measurability gate
+Workflow wgkcj0en4 (re-open compress-harder) re-verified against scoring.py + data and corrected a mechanism error:
+the savings multiplier (smoothstep) is applied ONCE over AGGREGATE tokens (adjust_miner_score_with_token_savings,
+build_swe_miner_scores:288), NOT per-run. compute_swe_run_score = base + lambda*clamp(ln(baseline/raw),+/-2), NO
+multiplier. Reconciled: raw mean of 250 m12 runs = 0.7685 = leaderboard 0.768 (4dp); king 0.9572=0.957. m12 GLOBAL
+savings = 38.55% -> multiplier = 1.000000, +18.5pp margin over the 20% floor (king 41.6%, all top miners saturated).
+=> the "27% of runs below 20% floor" cost m12 EXACTLY 0.000; the savings-multiplier-FLOOR lever is a NO-OP. My earlier
+per-run-multiplier framing (and the quick back-solve that gave +3.56) was WRONG.
+CONSEQUENCES: (1) score ~= mean of per-run BASE OUTCOMES (pass+1/flip+4/break-4/fail0) + a MINOR +/-0.5*ln ratio term;
+m12 ~= king on raw savings (26.7 vs 29.0% shared PP) so the ratio term is ~equal. The GAME IS PASS/BREAK (content-
+selection + agent behavior), NOT token compression. (2) ALL token-savings levers are minor-to-zero: cache (raw not
+weighted), compress-harder-pass-pass (m12 already there), savings-floor (saturated), freeze (structural wall) -
+ALL DEAD. (3) King's edge = pass-reliability + content-SELECTION on Easy+Medium (its breaks NOT hard-compressed:
+10 lower/9 higher tokens vs m12 22/9 -> better selection, not blind trim); likely unreplicable without BANNED logic.
+FLOOR LEVER NO-GO on all 4 counts (mechanism +0.000 / magnitude +0.016 vs +0.189 needed / safety = compress-harder
+DRIVES breaks, 71% of m12 breaks used FEWER tokens than passing runs, +2 Hard tasks transit harvest / validatability
+4x below noise). Added to dead-ends. MEASURABILITY GATE (standing): predicted category-mean delta > ~0.25 before any
+hotkey spend (single-read SE~0.12; within-task RAW-token swing median 2.4x); acceptance = >=3 scrapes, ZERO Hard
+regression. RESIDUAL: only signal above noise = pass-reliability (the 31 break runs, -0.414); but that = content-
+selection/agent behavior we cannot safely+compliantly+validatably move. m12 at ceiling. m12 LIVE 4.8%, m17 screening.
+
+
+## 2026-06-25 — ★ SCORE USES RAW TOKENS (cache is IRRELEVANT to score) — corrects the whole cache narrative
+Verified directly from per-run data: for clean pass-pass runs, platform_score = 1 + 0.5*clamp(ln(baseline_without /
+RAW tokens_with_compression), -2, 2) matches to ~0.01; the cache-discounted "weighted" prediction is systematically
++0.15..0.30 too high. => the score's savings ratio uses RAW total tokens; the dashboard "weighted"(=input+output+
+0.37*cached) column is a DISPLAY/cost metric, NOT the score input. IMPLICATIONS: (1) The CACHE LEVER WAS NEVER REAL
+for scoring — caching does not help the score. The earlier "weighted=0.37*cached drives score" claim (and the king-
+cache thesis) is WRONG. (2) AOW/freeze was correctly killed for the RIGHT reason: it kept RAW tokens high (0% raw
+savings) -> worse raw-token ratio -> worse score. The savings-vs-RAW guard was the correct metric. (3) The KING'S
+edge = genuinely FEWER RAW tokens on pass-pass tasks (compresses HARDER while still passing: ~34.6% vs m12 27.2% raw
+savings) + winning Easy — NOT a cache trick. (4) The breaks lever (keep MORE content) is in direct TENSION with the
+savings edge (compress HARDER). m12 cannot do both.
+
+## 2026-06-25 — BREAKS LEVER: rigorously DOWNGRADED (workflow w84tud2n2 build-spec + red-team)
+The "17/17 fixable, beat king by fixing breaks" optimism does NOT hold up: (a) SELECTION BIAS — pooled, the 3
+"clean survivors" break 20/150=13.3% on the same 10 tasks; "at least one survivor passes cleanly" is the expected
+max over 3x5-run lotteries (P~0.42), not proof of stable keepability. (b) 3 of 17 break-runs are premature collapses
+at <=15 steps (agent quits before compression bites) -> UNFIXABLE by retention. (c) King wins on the SAVINGS-
+MULTIPLIER on pass-pass (reproducible), NOT breaks (king 45/250 vs m12 58/250 by broad count, close; king has MORE
+task-level breaks). "Beat king by fixing breaks" is partly misattributed. (d) DECISIVE: the "fix the 10 tasks"
+success criterion is the EXACT one that green-lit m20bv2, which cut breaks 17->7 on the 10 (+10.64) but LOST -13.31
+off-target -> NET -2.67, Hard 0.919->0.808. Subset-improvement is NON-PREDICTIVE of the board. VERDICT: CONDITIONAL
+GO on m17 ONLY (upload_miner_m17.py, already built; extractive-then-cap in harvest; bytes<=m12, rich byte-identical
+-> ZERO downside surface, Hard-safe + ratio-bounded by construction) as a PROBE — but it only addresses ~1-2 of 10
+breaks (dominant cause is whole-interaction DROP, which m17 doesn't touch). NO-GO on m19 (drop->skeleton) until m17's
+powered A/B shows the lever moves the BOARD. Real blocker = validation power: nothing ships without paired A/B
+N>=15/task beating fresh-m12 on NET 50-task mean, Hard>=0.919 on a powered sample, off-target break-delta watched,
+raw-token parity +/-1% on E/M. Spec: reports/plan_beat_the_king.md (append pending) + workflow output.
+
+
+## 2026-06-25 — ★ ALL 17 m12 break-runs are RETENTION-FIXABLE (0 intrinsic) — the breaks lever is REAL
+Partitioned m12's 17 break-runs (10 tasks) using per-run snapshots: for EVERY break-prone task at least one surviving
+miner (king 5Ggq / old-king 5DFvym / 5DtEz) passes it CLEANLY (0 breaks, >=3/5 pass). ZERO tasks where all miners
+break. => the breaks are NOT irreducible agent variance; a better compression demonstrably keeps what the agent needs
+and passes. Tasks (clean survivor): django-13810(king,oldking) sympy-23262(oldking) django-11740(oldking,5DtEz)
+django-14122(king) sympy-15349(king) django-11095(all3) django-13033(king) django-11551(king,oldking)
+django-12754(oldking,5DtEz) sympy-11618(all3). HEADROOM: fix ~9/17 ties king (+0.189 mean -> 0.957); all 17 -> ~1.128.
+This is the path to #1 (the cache lever tops out at ~14%; this one can take Overall). Chosen direction (user): chase
+the breaks lever via a content-retention change to compress_structurally. Launched grounded design workflow w84tud2n2
+(forensic: what survivors keep that m12 drops -> design retention (m17-extractive / protect-more-from-drop /
+keep-more-bounded) -> red-team Hard/ratio/does-it-fix/can-validate -> build-spec). KEY RISK = validation: breaks are
+platform-only (don't reproduce locally) and the effect < single-read noise -> needs paired A/B N>=3 + a local
+mechanism check (does candidate KEEP the dropped content). m17 (upload_miner_m17.py, extractive harvest, offline-
+validated, never platform-tested) is a likely base. m12 LIVE/untouched.
+
+
+## 2026-06-24 — ★ PER-RUN DATA OVERTURNS "root=sampling": m12 breaks 17/250 runs vs king 7/250 (FIXABLE)
+Dashboard now embeds `sweRunsByTaskId` (5 runs/task: score, pass flag, token split, time, agent_steps).
+Head-to-head m12 vs king: m12 breaks the baseline on 17 of 250 runs, king on only 7. On 8 tasks m12 breaks
+but king is STABLE (django-13810 m12 3/5 vs king 0/5; sympy-23262 3/5 vs 0/5; django-11740 2/5 vs 0/5; +5).
+Platform runs the SAME agent (qwen3-coder) for all miners — only the COMPRESSED CONTEXT differs — so the
+king's stability where m12 breaks proves the -4 breaks are m12's compression dropping needed content, NOT
+intrinsic sampling. Prior "indistinguishable pass/fail → sampling" read was made without king per-run data.
+Variance tax: if split tasks scored like their passing runs, m12 mean 0.768→~1.67. Matching king break rate
+(17→7) ≈ +0.20 mean → ~0.97 (past #1). It's content-SELECTION quality (king kept MORE on sympy-23262 24%sv
+vs our 47%, but MORE-compressed on django-13810 33% vs 30%, stable both) = keep the right lines (m17 thesis).
+Reports: king_vs_m12_pertask_diagnosis.md, m12_runvariance_perrun.md. Snapshots: data/raw/platform_results/
+2026-06-24/{m12_5Dz7,king_5DFvym}_perrun.json. Running A/B includes django-13810+sympy-23262 = first read.
+
+
 - **★★ COMPREHENSIVE 50×5 ANALYSIS (2026-06-24): m12 is STATISTICALLY AT PARITY with the #1 king; the 0.012 gap is
   window/sampling NOISE, not a fixable deficit.** Across all 50 tasks × 5 runs, top-3 compared: (1) total fail-rate
   EQUAL — m12 81/225, king 82, 5DtEz 84, similar premature/mid/wander mixes. (2) baseline-PASS exposure IDENTICAL
@@ -524,3 +781,17 @@
   H+M). **FIX → m12.1b: keep 1a never-inflate (pure win, no downside); DROP/narrow the shallow_small→passthrough
   route + revert the over-sensitive error-guard so it fires ONLY on persistent/genuinely-break-prone signals,
   NOT shallow-Medium.** m12 stays live; do not replace with m12.1.
+
+- **★★ PASS and FAIL runs are OBSERVABLY INDISTINGUISHABLE (2026-06-24, wide research on flips/pass-fail per user).**
+  Checked tool-use patterns across all local m12 runs: winning runs re-read/re-edit the same file 8-14x — MORE
+  than failing runs (5-8x). Heavy file-iteration is normal SUCCESSFUL behavior, not a fail signature. So no
+  coarse loop/no-progress trigger discriminates fail from pass (would fire on winning runs → disrupt them →
+  policy-violating + score-lowering). CLOSES the behavioral lever: force-stop is BANNED next round (policy:
+  legal last round, out now), loop-detection is already maxed (m12 fires on both exact-repeat signals), and the
+  fail vs pass difference is whether the agent's edits are CORRECT (sampling/capability) — not an objective
+  in-trajectory signal we can detect/steer compliantly. Flip lever also closed (rich already pins error/test/diff;
+  remaining flips capability-bound/luck; 5 fail-fails solved by nobody). Easy's bleed = same indistinguishable
+  sampling variance. CONCLUSION: no compliant lever (compression OR behavioral) captures flips/pass-fail breaks.
+  m12 at true ceiling; gap to king (0.012) = window/sampling noise. DEFENSE: m12 Hard 0.919 field-best +
+  penalty/gate/multiplier-robust (all categories positive, 43% savings margin) — no rival beats M+H without
+  collapsing elsewhere (king weak-H, 5DAh dead-H, 5DtEz dead-M). Report: reports/flip_passfail_lever_research.md.

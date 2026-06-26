@@ -1,3 +1,22 @@
+# SCOREBOARD — comp 108 (CoT-Compression-4)
+
+## ★ 2026-06-24 ~22:20 — NEW KING 5GgqHgSdxgAL = 0.957 (did NOT collapse). OUR SHARE → 4.8%.
+| miner | total | E | M | H | status | incentive share |
+|-------|-------|---|---|---|--------|-----------------|
+| **5Ggq (NEW KING)** | **0.957** | 0.858 | **1.281** | 0.727 | scored/qual | **85.7%** |
+| 5DtEz84j | 0.714 | 0.837 | 0.499 | 0.813 | scored | 9.5% (wins Pair E,H) |
+| **m12 (OURS, 5Dz7)** | 0.768 | 0.412 | 0.953 | **0.919** | scored/LIVE | **4.8% (wins Single-H ONLY)** |
+| old king 5DFvym | 0.781 | 0.812 | 0.596 | 0.934 | scored | 0% (dethroned) |
+
+**7-element winners now:** 5Ggq takes Overall + Pair(E,M) + Pair(M,H) + Single(E) + Single(M);
+5DtEz takes Pair(E,H); **m12 keeps ONLY Single(H)** because Hard 0.919 is field-best (next 5DtEz 0.813).
+⚠️ Our ENTIRE 4.8% rests on Hard 0.919 being field-best — if anyone beats it, we go to 0%.
+5Ggq profile: 6/250 breaks, 85% cache, 4.03x weighted-ratio, 56 steps. Its +0.189 over m12 = our two known
+gaps (break/run-variance + inflation), same as old-king diagnosis but bigger. Snapshots + analysis:
+data/raw/platform_results/2026-06-24/newking_5Ggq_perrun.json, reports/m12_runvariance_perrun.md.
+
+---
+
 # SCOREBOARD
 
 ## ★ COMP 108 (CoT-Compression-4) — current standings (2026-06-24, scrape 070944 — all SCORED)

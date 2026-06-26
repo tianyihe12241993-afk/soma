@@ -1,9 +1,0 @@
-experiment: H1M_eval
-candidate: H1M_m7_deeper_safe_v1
-created: 2026-06-22T00:57:07Z
-profiles: [m7, h1m@medium, h1m@deep]
-medium_first: ['15851', '11119', '24539', '14580', '14855', '10914', '11603']
-fragile_guard: ['17139', '16766', '11239', '14493']
-solving_gap_excluded: ['14999', '22714']
-basis: real m7 baseline + offline candidate proxy; candidate pass/neg-run PENDING_EVAL
-gate: reject if new broken baseline / Medium neg-run up / Medium score down / ratio<8% / guard fails

@@ -1,7 +1,7 @@
-# LATEST — 2026-06-24T12:04:08Z
+# LATEST — 2026-06-26T02:07:46Z
 _auto-written by checkpoint (manual)_
 
-**Note:** m19 cache-stable BUILT + offline-VALIDATED -> REJECT (no paid eval). sha dc4e5189, compliant PASS, deterministic, 0 H3 markers. FAILED 2 ways: (1) churn NOT reduced (re-morph 288=288) - dominant churn is ASSISTANT TOOL-CALL STRIPPING inherent to drop-based harvest, NOT truncation depth (which I froze); extending drops made it no better. (2) medium ratio +31% LIGHTER = M/H regression (m13 risk). FUNDAMENTAL TENSION confirmed by measurement: cache-stability conflicts with m12's drop-based M/H aggressiveness; only churn-free path = H3 mask-in-place = lighter + noncompliant = changes M/H. NO compliant M/H-preserving cache-stable rewrite exists. With forensics (breaks=first-decision solver stochasticity, pre-churn), the king's 16-vs-6 -4 edge = window/sampling variance NOT a fixable m12 defect. Validation gauntlet did its job (caught offline, 0 eval cost). m19=reference-only. HOLD m12. Report: m19_cache_stable_verdict.md. Updated NEXT_ACTIONS.
+**Note:** Recorded cross-miner compression-ratio REFERENCE (reports/cross_miner_ratio_reference.md + DISCOVERIES top). VERDICT: ratio is a SOLVED axis - do NOT upgrade. Apples-to-apples (same 80.9M baseline): m12 1.61x/37.9pct sav === king 1.61x/37.8pct (we MATCH the king); old-king 1.71x->0.780, 5DtEz 1.79x->0.714 (harder compressors score LOWER - ratio not the lever). Ratio term minor (1.61->1.79 ~ +0.05/task < 0.25 gate). Both directions closed: harder=wander/break (5CwZBKyL 3.39x = 404M wander-balloon ARTIFACT), lighter=penalty (5DCnA57 1.18x -> eff 0.701<m12). m12 in optimal safe band ~1.6x/38pct. King gap is 100pct pass/break/flip+consistency NOT compression. Caveat: tokens_without baseline varies per miner -> only compare within shared-baseline cohort.
 
 **Best live miner:** m7=1.279 | pending: m12, m13, m14, m15
 **Our reward-element wins:** none
@@ -12,4 +12,4 @@ _auto-written by checkpoint (manual)_
 - - [ ] Re-run `make detail` periodically only if you want fresher rival scrapes (comp is over; board is static).
 - - [x] ~~WSL env + soma_shared~~ — DONE (env ready; soma_shared 0.1.0 in venv). Upload path needs only a wallet,
 
-_Full checkpoint: sessions/2026-06-24_120408_manual.md_
+_Full checkpoint: sessions/2026-06-26_020746_manual.md_
