@@ -3,7 +3,27 @@
 _Mode: ACTIVE comp 108 (CoT-Compression-4). Files are the source of truth. Full live status: state/CURRENT.md.
 Eval runs on the Mac (Docker Desktop), NOT WSL2._
 
-## TOP OF QUEUE (2026-06-25 ~20:55) — ★ RE-ANALYSIS DONE: PORTFOLIO path + new Hard-variance RISK. Plan below.
+## TOP OF QUEUE (2026-06-27 09:20Z) — PORTFOLIO 23.8% LOCKED (np2+np3 live). NEW PLAN: attack OVERALL (57%) + Single-E (near-free).
+**Full live status: state/CURRENT.md TOP (2026-06-27 corrected-picture section). Scores re-verified 4 ways. Report: reports/cache_stable_design.md.**
+_(Our 3 live miners: np1/m26 5Ekcy cap6k #5 0.610 · np2 5CPbtf cap16k #2 0.684 [wins Pair(E,M)+Single-M] · np3 5F9ZRe cap28k #3 0.682 [wins Pair(M,H)]. m12 5Dz7 0.130 LIVE/untouched. Rival #1 = 5DCnA57 0.697 wins Overall+Single-E.)_
+- [ ] ★★★ **DEEP-DIVE #1 5DCnA57 vs our 3 (IN PROGRESS):** cache% / weighted-vs-raw tokens / input·cached·output split / per-task platform_score.
+      GOAL = find HOW 5DCnA57 keeps Hard content without the Easy-wander our flat cap suffers (its Overall edge). Use detail-page token fields
+      (`*_with_compression`, `tokens_without_compression`) + `dissect_top_miners.py`. Output → reports/cache_stable_design.md §15.
+- [ ] ★★ **SINGLE-E (near-free, +4.8% → 28.6%):** m26 E1.066 vs 5DCnA57 1.067 (−0.001). Decide: re-eval may flip it; OR a dedicated MAX-EASY tweak
+      (even lighter touch on small results, pure-passthrough, never wrap Easy). Must stay cache-stable + compliant. Codex pre-upload audit → USER uploads SEPARATE hotkey.
+- [ ] ★★ **OVERALL (57%, beat 5DCnA57 0.703):** needs ONE miner HIGH-E-AND-H. Flat cap is ZERO-SUM E↔H (EXHAUSTED at 23.8%). Find a NEW mechanism from
+      the deep-dive (NOT a flat-cap tweak; better-extractive np4 = NO-GO, balanced-middle-cap wins nothing). With our M0.849 we need only (E+H)/2 > 0.630 (now 0.613).
+- [x] ~~ALL raw-token-era plans — m25 Easy-specialist, m27 Pair(E,H), the ~9.52% two-singles, whole-architecture frontier, m12-defense~~ — **OBSOLETE** after the
+      2026-06-26 weighted-token regime change. The E/M/H specialist / 7-element-ownership game is raw-token-era; do NOT pursue until re-derived under weighted tokens.
+      New game = CACHE-STABILITY (near-passthrough). See CLAUDE.md "ACTIVE comp-108 mode" + reports/cache_stable_design.md.
+- [x] ~~aow_bet cache-stable freeze candidate~~ — **NO-GO** (Codex: save_state carries the larger frozen output → rich sees a different trajectory than m12 = the
+      m21/m22 Hard-crater). Superseded by m26 (np1 STATELESS, single-mode → can't state-couple). Reports: cache_stable_design.md §8.
+- [ ] **MONITOR each window** (`make collect`): 5CaFqLaPBYTQ review_status (failed-review cheater; existential if reinstated); the re-score settling (field top ~0.697
+      5DCnA57 near-passthrough; everyone dropped; Hard is LOW for all, ~0.34 max); new cache-stable rivals climbing.
+- [ ] (Secondary, deferred) category-MAP recovery (scripts/trace_eval_categories.py + solve_eval_categories.py) — cache strategy is category-AGNOSTIC → LOW priority; resume only for a category-specific question.
+- [ ] (Optional, evidence-driven) provider-routing lever (block weak OpenRouter backends for consistency) — get provider-per-call data first; pays only on re-eval.
+
+## (superseded 2026-06-26) TOP OF QUEUE (2026-06-25 ~20:55) — RE-ANALYSIS: portfolio path + Hard-variance risk (insurance twin later KILLED)
 **Full: state/CURRENT.md top (workflow wiz2yq9to, 25 agents). Verified ownership: m12 holds Single-H (0.919, +0.107); share 4.76%.**
 - [ ] ★ **NEW RISK: defend Single-Hard.** King's Hard is volatile under re-eval (drew up to 0.981 > our 0.919). Register
       ONE more BYTE-IDENTICAL m12 hotkey (insurance twin) → best-of-2 max cuts P(lose our 4.76%) from ~12-17% to ~1-3%,

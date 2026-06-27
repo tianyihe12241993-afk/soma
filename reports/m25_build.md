@@ -61,3 +61,30 @@ Register a NEW hotkey, then (same OpenRouter account as m12, the …1e8a lineage
   --openrouter_api_key <OPENROUTER_KEY>
 ```
 Then `make collect`; read m25's score ONLY when status=`scored`. Gate as above. Harnesses: `/tmp/m25_safety.py`.
+
+---
+
+## Codex pre-upload audit + reconciliation (2026-06-26 — first dual-agent protocol run)
+Independent Codex (gpt-5-codex, ChatGPT auth) audited upload_miner_m25.py vs m12. Returned NO-GO w/ 3 blocking + 1 warning.
+Main-session reconciliation (verified against code; NOT rubber-stamped):
+1. **bare "…" not in allowed markers** — Codex BLOCKING → **NOT FATAL (over-flagged).** extractive_compress is BYTE-IDENTICAL
+   to m12; m12 emits the same "…" in its RICH path (L753/757, used L1031/1036) and PASSED platform review at 0.768 →
+   "…" is empirically review-compliant content-elision, not a governed bracketed marker. Harden later, not required.
+2. **clean-state diverges from m12 on loop-guard turns** — Codex BLOCKING → **REAL but BENIGN.** clean_messages snapshotted
+   before append_loop_guard; BUT resolve_stateful_messages (byte-identical m12) runs strip_loop_guard on load → washes out
+   next turn → post-strip working identical. The "byte-identical saved state" invariant was overstated on loop turns; nil effect.
+   (Phase-A gap: didn't test a loop-firing gate-off turn — good catch.)
+3. **break-fix reaches rich via output-match** — Codex BLOCKING → **KNOWN/DOCUMENTED, not new.** = the decouple mode-dependence
+   already flagged (decouple protects rich only under source-match; output-match ≈ gated-gentle-m22). The coin-flip residual.
+4. **token guard degrades to char/4 if tiktoken absent** — Codex WARNING → **PLATFORM-SAFE** (tiktoken present in the
+   compression-service image → exact on-platform). Optional fail-closed hardening.
+VERDICT: none fatal to the queued m25/m23 → let it run as the M,H-thesis test; m12 LIVE untouched. Codex value = caught the
+loop-guard state divergence + forced the output-match risk explicit; Claude caught the "…" over-flag via m12 review precedent.
+
+### m26 hardening backlog (IF m25 scores promising → build a refined contender with these):
+1. ★ FEED-MODE-ROBUST DECOUPLE: on output-match, reconstruct working = state["messages"](clean) + new_tail, not raw_messages
+   → decouple works under BOTH connector modes → shrinks the coin-flip residual (biggest win). Touches resolve_stateful_messages
+   (currently m12-identical) → re-verify rich/passthrough unaffected.
+2. wrap extractive elisions in [[CMP]]…[[/CMP]] (removes the "…" doubt).
+3. snapshot clean_messages AFTER append_loop_guard (exact byte-identical-state invariant).
+4. fail-closed to legacy on any tiktoken import/call failure.

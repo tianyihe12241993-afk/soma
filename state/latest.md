@@ -1,10 +1,10 @@
-# LATEST — 2026-06-26T02:07:46Z
+# LATEST — 2026-06-27T10:42:19Z
 _auto-written by checkpoint (manual)_
 
-**Note:** Recorded cross-miner compression-ratio REFERENCE (reports/cross_miner_ratio_reference.md + DISCOVERIES top). VERDICT: ratio is a SOLVED axis - do NOT upgrade. Apples-to-apples (same 80.9M baseline): m12 1.61x/37.9pct sav === king 1.61x/37.8pct (we MATCH the king); old-king 1.71x->0.780, 5DtEz 1.79x->0.714 (harder compressors score LOWER - ratio not the lever). Ratio term minor (1.61->1.79 ~ +0.05/task < 0.25 gate). Both directions closed: harder=wander/break (5CwZBKyL 3.39x = 404M wander-balloon ARTIFACT), lighter=penalty (5DCnA57 1.18x -> eff 0.701<m12). m12 in optimal safe band ~1.6x/38pct. King gap is 100pct pass/break/flip+consistency NOT compression. Caveat: tokens_without baseline varies per miner -> only compare within shared-baseline cohort.
+**Note:** np2b UPLOADED (5DG31BojWwvC43DXZuxAn9XLKDto1P5aRwbaf6oaTrENJ7Eh) = byte-identical np2 (sha a64231c9) on SEPARATE hotkey + DIFFERENT OpenRouter account (USER chose, thinks m14 confound was a false analysis). On board = SCREENING (read only at scored). Registered miners.yaml np2bsub. DUAL PURPOSE: (1) variance lottery for Overall element (57pct) - np2 0.684 vs #1 5DCnA57 0.697, gap 0.013 within run-variance -> fresh draw could top 0.697 -> win Overall. (2) CLEAN natural experiment on m14 account-confound (m14 changed code+account=confounded; np2b changes ONLY account, same code -> isolates it). READING at scored: np2b~0.684 => confound was FALSE (account-independent) + live Overall ticket; np2b<<0.684 (m14-like ~0.18) => confound REAL, biased-low draw, account matters. ADDITIVE/SAFE: m12+np2(5CPbtf)+np3(5F9ZRe) on ORIGINAL account hold 23.8pct untouched regardless. MONITOR each window to scored.
 
-**Best live miner:** m7=1.279 | pending: m12, m13, m14, m15
-**Our reward-element wins:** none
+**Best live miner:** np2sub=0.684 | pending: m7, m8, m9, m10, m11, np2bsub, m17sub, m1, m2, m3, m5, m6
+**Our reward-element wins:** ['Pair (E,M)', 'Pair (M,H)', 'Single (M)']
 
 **Top of NEXT_ACTIONS:**
 -       Add columns to the import schema when available.
@@ -12,4 +12,4 @@ _auto-written by checkpoint (manual)_
 - - [ ] Re-run `make detail` periodically only if you want fresher rival scrapes (comp is over; board is static).
 - - [x] ~~WSL env + soma_shared~~ — DONE (env ready; soma_shared 0.1.0 in venv). Upload path needs only a wallet,
 
-_Full checkpoint: sessions/2026-06-26_020746_manual.md_
+_Full checkpoint: sessions/2026-06-27_104219_manual.md_

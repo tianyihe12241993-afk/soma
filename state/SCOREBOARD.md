@@ -1,6 +1,62 @@
 # SCOREBOARD — comp 108 (CoT-Compression-4)
 
-## ★ 2026-06-24 ~22:20 — NEW KING 5GgqHgSdxgAL = 0.957 (did NOT collapse). OUR SHARE → 4.8%.
+## ★★★ 2026-06-27 ~08:57 — np3 SCORED; PORTFOLIO (np2+np3) = 23.8% (snap 085653, 70 legit; make reward)
+np3 (5F9ZRe, cap 28k) total 0.682, E0.859/M0.828/**H0.369** (field-HIGHEST Hard). vs np2: H **+0.196**, E **−0.193**, M −0.021, total −0.002.
+The cap is a ~ZERO-SUM **E↔H lever** (low cap=high E/low H = np2; high cap=high H/low E = np3). But on SEPARATE hotkeys it's
+ADDITIVE — np3 won the M+H corner np2 couldn't.
+| element | weight | winner | ours? |
+|---|---|---|---|
+| Overall | 1.0 | 5DCnA57 0.703 | — |
+| **Pair(E,M)** | 1/6 | **np2 0.951** | ✅ |
+| Pair(E,H) | 1/6 | 5GgVXzUB 0.760 | — (NEW rival, E~0.844/H0.676 = balanced-high) |
+| **Pair(M,H)** | 1/6 | **np3 0.599** | ✅ NEW |
+| Single(E) | 1/12 | 5DCnA57 1.067 | — (np2 1.052, −0.015, near-free) |
+| **Single(M)** | 1/12 | **np2 0.849** | ✅ |
+| Single(H) | 1/12 | 5GgVXzUB 0.676 | — (np3 0.369 far) |
+**SHARE: 5DCnA57 61.9% · np2 14.3% · 5GgVXzUB 14.3% (NEW) · np3 9.5%. OURS = np2 14.3% + np3 9.5% = 23.8%** (from 14.3%).
+- KEY STRATEGY: the reward model rewards SPECIALISTS (corners), not balance. np2=E+M corner, np3=M+H corner. A "balanced-cap" np4
+  (middle) would win NO corner → adds nothing. The CAP lever is now EXHAUSTED (we own both its endpoints' corners).
+- TO GROW past 23.8%: the remaining high-value elements (Overall 57%, Pair(E,H), Single-H) need a miner HIGH on E AND H at once
+  (5DCnA57/5GgVXzUB have it). Our cap lever gives E OR H (zero-sum) → can't. Needs a NEW mechanism (better extractive: keep big-block
+  critical content WITHOUT the E-wander) — np4 candidate for OVERALL, but UNCERTAIN (np3 showed Hard needed the EXTRA content, not
+  just better-selected 16k). Near-free: Single-E (−0.015, may flip on re-draw → 28.6%). DEFEND 23.8% (np2+np3 live; watch 5GgVXzUB).
+- m12 (5Dz7) 0.130 LIVE/untouched. np2 (5CPbtf) + np3 (5F9ZRe) LIVE = 23.8%. Detail: reports/cache_stable_design.md §15.
+
+## ★★★ 2026-06-27 ~01:30 — np2 SCORED #2; WINS Pair(E,M)+Single-M = 14.3% OF THE POOL (snap 012850, 64 legit; make reward)
+From m12 cratered (0% post-regime) → np2 **14.3%**. np2 (5CPbtf, upload_miner_np2.py) total 0.684 (E1.052/M0.849/H0.173), #2 Overall.
+| element | weight | winner | our miner? |
+|---|---|---|---|
+| Overall (E,M,H) | 1.0 | 5DCnA57 0.703 | — (np2 #2, 0.684, gap on Hard) |
+| **Pair (E,M)** | 1/6 | **np2sub (OURS) 0.951** | ✅ |
+| Pair (E,H) | 1/6 | 5DCnA57 0.695 | — |
+| Pair (M,H) | 1/6 | king 5Ggq 0.555 | — (np2 H drags it) |
+| Single (E) | 1/12 | 5DCnA57 1.067 | — (np2 #2, 1.052, −0.015 = contested/noise) |
+| **Single (M)** | 1/12 | **np2sub (OURS) 0.849** | ✅ |
+| Single (H) | 1/12 | 5DtEz 0.342 | — (np2 0.173 mid) |
+**Incentive share: 5DCnA57 71.4% · np2 (OURS) 14.3% · king 9.5% · 5DtEz 4.8%.**
+- WIN: np2 owns the E+M corner (top-tier Easy 1.052 + Medium 0.849). m26/np1 #4 (0.610), m25 0.449, m12 0.130 (LIVE).
+- GROW levers (all gated on HARD — np2 H=0.173 is the cap): Overall (57%, gap 0.019 on Hard), Pair(E,H)/Pair(M,H) (Hard), and the
+  near-free Single-E (np2 1.052 vs 5DCnA57 1.067, −0.015 → may flip on a re-draw). Lifting Hard (keep the biggest-task results fuller
+  without losing E+M) is the path to Overall. DEFEND 14.3%: keep np2 live (our income now); watch for a higher-E+M rival.
+- np2 = our LIVE BEST now. Full: reports/cache_stable_design.md §12-13. Detail: dissect np2 — cache 93%, ratio 1.49×, 11 neg (Hard over-compress on 315@2.57×/296@3.27× + wander).
+
+## 🚨 2026-06-26 ~16:25 — SCORING REGIME CHANGED → WEIGHTED TOKENS (commit b79fcaee). FULL RE-SCORE. (snap 162500, 115 miners)
+`weighted = 1·input + (1/3)·cached + 3·output`; FLIP 4→2; BREAK −4. **Cache-stability now dominates.** ALL boards below are RAW-TOKEN-ERA (superseded).
+| miner | total | E | M | H | status | note |
+|---|---|---|---|---|---|---|
+| **5DCnA57 (NEAR-PASSTHROUGH)** | **0.697** | 1.067 | 0.719 | 0.324 | scored | **FIELD #1** — light/cache-stable wins now |
+| king 5Ggq | 0.673 | 0.924 | 0.848 | 0.261 | scored | #2 (was 0.957) |
+| 5DFvym (old king) | 0.556 | 0.901 | 0.593 | 0.196 | scored | |
+| **m25 (OURS, 5GpB36)** | **0.449** | 0.917 | 0.289 | 0.169 | scored | **our BEST now (#9 of 54)** |
+| 5DtEz | 0.383 | 0.796 | 0.001 | 0.342 | scored | Medium collapsed |
+| 5GBPFA (Easy spec) | 0.373 | 0.940 | 0.121 | 0.091 | scored | |
+| **m12 (OURS, 5Dz7) LIVE** | **0.130** | 0.364 | −0.442 | 0.067 | scored | **CRATERED (was 0.768)** — cache-busting harvest |
+| **m26 (OURS, 5Ekcy) np1** | _pending_ | — | — | — | **SCREENING** | NEW cache-stable near-passthrough candidate (the recovery bet) |
+- **We win NOTHING now** (m12 lost Single-H; under weighted tokens Hard is LOW for ALL, field max 0.342). Our best = m25 0.449 (#9 of 54).
+- **WHY m12 cratered:** 56% cache vs king's 85% — its harvest rewrites the prefix → cache busts → weighted ratio collapses → Medium went negative.
+- **m26 (np1) is the recovery bet** (expected band 0.130 < m26 ≤ ~0.697). Full mechanism: state/CURRENT.md (top) + reports/cache_stable_design.md.
+
+## ★ 2026-06-24 ~22:20 — [RAW-TOKEN ERA, SUPERSEDED] NEW KING 5GgqHgSdxgAL = 0.957 (did NOT collapse). OUR SHARE → 4.8%.
 | miner | total | E | M | H | status | incentive share |
 |-------|-------|---|---|---|--------|-----------------|
 | **5Ggq (NEW KING)** | **0.957** | 0.858 | **1.281** | 0.727 | scored/qual | **85.7%** |

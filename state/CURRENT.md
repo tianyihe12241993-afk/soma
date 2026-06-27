@@ -1,20 +1,139 @@
-# CURRENT — live status (2026-06-25 ~23:00 UTC) — READ FIRST after compaction
+# CURRENT — live status (2026-06-26 ~10:50 UTC) — READ FIRST after compaction
 
-_Mode: comp 108 (CoT-Compression-4, SN114) — ACTIVE MINER WORK STOPPED per the full-reset verdict; posture = MONITOR
-+ NEXT-ROUND PREP. Files = source of truth. Read this + NEXT_ACTIONS + DISCOVERIES (top entries) before acting._
+_Mode: comp 108 (CoT-Compression-4, SN114). ⚠️ SCORING REGIME CHANGED 2026-06-26 — see top section. Dual-agent
+(Claude+Codex) protocol OPERATIONAL (see CLAUDE.md). Files = source of truth. Read this + NEXT_ACTIONS + DISCOVERIES (top) before acting._
 
-## ⏳ IN FLIGHT (2026-06-26) — m25 BUILT + Phase-A VERIFIED; awaiting USER hotkey upload (the M,H coin-flip)
-User reopened the M,H thesis (per-task decomposition showed m22 is a REDISTRIBUTION: break-fix gains +4.958 Medium are
-REAL, net-negative is entangled collateral) and authorized a build. **m25 = upload_miner_m25.py (sha 52fe47f9), SEPARATE
-hotkey, m12 LIVE untouched.** = m12 + (1) GENTLE break-fix (extractive at truncation sites ONLY, NO drop-spans), (2)
-RESOLVED-GATE (fire only on settled turns), (3) DECOUPLED STATE (emit break-fix, save m12-exact -> rich/Hard reads clean).
-- Phase-A PASS: 54 fns byte-identical to m12; rich+passthrough+gate-off byte-identical; gate-on <=m12 tok+chars + decoupled
-  clean state; deterministic; compliant; m12 git-clean. Real-traj: ACTIVE (ships 545x), targets Easy/Medium (32/43 content-
-  changes), Hard protected (6 changes/2315). RESIDUAL FLIP-LEAK: 201 ships on flips (decouple protects DEEP flips, not shallow).
-- HONEST: coin-flip ~15-25%. Strictly safer than m22 (gate skips active-failing; deep flips protected) but NOT flip-clean;
-  shallow-flip + non-gateable pass-task new-breaks remain. Local CANNOT predict break outcomes -> platform is the test.
-- **NEXT: USER registers a new hotkey + uploads (cmd in reports/m25_build.md / platform_commands.md, SAME OpenRouter acct).
-  ACCEPT GATE (>=3 scrapes): Medium UP AND Hard>=0.919 AND flips>=m12; else reject. m12 LIVE regardless.** Report: reports/m25_build.md.
+## ★★★ 2026-06-27 09:20Z — CORRECTED PICTURE + NEW PLAN (attack OVERALL 57% + Single-E). PORTFOLIO = 23.8%.
+**Re-verified ALL scores 4 ways (leaderboard == detail `category_scores` == per-task `platform_score`; 2 snapshots; current 09:20Z; penalties ~0 on ours).**
+- **LABELING FIX:** `5DCnA57` = the **#1 NEAR-PASSTHROUGH (0.697)**, NOT "the king" (I'd conflated them). Repo's "king" = `5Ggq` (#2, 0.673,
+  E0.924/M0.848/H0.261). 5DCnA57 wins the **Overall element (weight 1.0 = 57% of pool) + Single-E** → 61.9%.
+- **OUR 3 LIVE MINERS** (all USER-confirmed ours 2026-06-27): **np1/m26** (`5Ekcy`, cap 6k) #5 **0.610** E1.066/M0.620/H0.170 ·
+  **np2** (`5CPbtf`, cap 16k) #2 **0.684** E1.052/M0.849/H0.173 · **np3** (`5F9ZRe`, cap 28k) #3 **0.682** E0.859/M0.828/H0.369.
+  m12 (`5Dz7`) 0.130 LIVE/untouched.
+- **WE WIN: Pair(E,M) 0.951 + Single-M 0.849 (np2) + Pair(M,H) 0.599 (np3) = 23.8%.** m26 wins nothing yet, but **E1.066 = 0.001 from Single-E**.
+- **RIVALS:** `5GgVXzUB` (E0.845/M0.252/**H0.676**, LEGIT review=scored) wins Pair(E,H) 0.760 + Single-H 0.676 = 14.3%. 5DCnA57 = 61.9%.
+- **NEW PLAN (USER 2026-06-27) — attack BOTH:** **(1) Single-E** (+4.8% → 28.6%, NEAR-FREE: push m26's 1.066 past 5DCnA57's 1.067) and
+  **(2) the OVERALL element** (57%; beat 5DCnA57's 0.703). Overall math: our Medium (0.849 ≫ 5DCnA57's 0.719) means we need only
+  **(E+H)/2 > 0.630** (np2 0.613 / np3 0.614 — short ~0.03). The blocker: Overall needs ONE miner **HIGH-E-AND-H**; the flat per-message cap
+  is **ZERO-SUM E↔H** (np1 6k / np2 16k / np3 28k = the three points — can't get both) → Overall needs a **NEW mechanism, not a flat-cap tweak**
+  (better-extractive np4 = NO-GO: Hard-block critical content SPREAD 22–63k, np2 already keeps it; a "balanced middle cap" wins NO element).
+- **IN PROGRESS:** deep-dive **#1 5DCnA57 vs our 3** on **cache% / weighted-vs-raw tokens / input·cached·output split / per-task** — to find HOW
+  5DCnA57 keeps Hard content without the Easy-wander our cap suffers (the Overall edge). Report → `reports/cache_stable_design.md §15`.
+- Cap lever EXHAUSTED at 23.8% (own both E↔H corners). m12 + np1 + np2 + np3 all LIVE; uploads USER-run; read only at status=scored.
+
+## 🚨🚨 SCORING REGIME CHANGE (2026-06-26, commit b79fcaee, LIVE) — WEIGHTED TOKENS. m12 CRATERED 0.768→0.130, LOST EVERYTHING.
+**SOMA merged weighted-token scoring (announced by Matt). Verified from the commit (mcp_platform/.../scoring.py + docs/miner/scoring.md):**
+- **weighted_tokens = 1.0·input + (1/3)·cached_input + 3.0·output.** Ratio term AND the total savings-multiplier now use WEIGHTED tokens.
+- **FLIP base 4.0→2.0** (λ=0.5 unchanged). **BREAK −4.0 UNCHANGED.** pass-pass +1, fail-fail 0 unchanged. So break:flip asymmetry 4:4 → **4:2** (avoiding a break now worth 2× landing a flip → consistency matters even MORE).
+- **FULL RE-SCORE of the board (snap 104640):** king 0.957→**0.673** (#1, H0.727→0.261); oldking 0.780→0.556; 5DtEz 0.714→0.383;
+  5GBPFA 0.797→0.373; **m12 5Dz7 0.768→0.130 (E0.412→0.364, M0.953→−0.442, H0.919→0.067).** Everyone fell; **m12 fell HARDEST → we now win NOTHING (lost Single-Hard + the 4.76%).**
+- ★ **VERIFIED MECHANISM = CACHE, not output** (output ~1% of tokens for all = red herring). Cached fraction: m12 **56%** / 5DtEz 60% vs king **85%** / oldking 88%.
+  m12's blind-truncate HARVEST rewrites the context every turn → BUSTS the prompt cache → its tokens land in the 1× input bucket not the ⅓ cached bucket → weighted_with stays high → ratio bonus collapses (Medium went NEGATIVE). The king keeps a STABLE prefix (85% cached) → low weighted tokens → bonus survives. **m12 was built for raw-token scoring where cache was irrelevant; that regime just ended.**
+- ★★ **THE "CACHE LEVER" WE DECLARED DEAD IS NOW THE DOMINANT LEVER.** (Old CORRECTED-SCIENCE #3 "caching does not affect score / cache lever DEAD" is REVERSED.) Our shelved **AOW-lite/AOW-bet freeze prototypes (cache-stable compression) are now the RIGHT direction.** New optimal compressor = STABLE-PREFIX / append-only / minimal per-turn churn (maximize cached%) + avoid breaks (now 2× flips). Output reduction is minor.
+- ★ **LOCAL EVAL CONFIRMS MECHANISM + FIX (m25 calibration, 36 solves, 0 fail).** Local captures `cache_read_tokens` + the assemble MODE per run. By MODE: m12's **`pruned`/harvest-drop → ~0% cache** (django-13810: weighted/raw=**1.03** — compression is COUNTERPRODUCTIVE under weighted tokens); m12's **`gentle`/rich → 80-90% cache** (weighted/raw ≈0.45, like the king). ⇒ the cache-bust is SPECIFICALLY the **harvest DROP/PRUNE (rewrites the prefix → invalidates prompt cache)**; rich/gentle (never-drops, stable prefix) is ALREADY cache-good. **FIX = prefix-stable / no-prune / append-only (rich-everywhere or AOW-freeze).** m25 does NOT fix it (68% cache, also perturbs harvest). **We can now measure cache% per candidate LOCALLY** (token_usage.total: input/output/cache_read + mode) — the eval infra is validated for the cache regime. TENSION to solve: huge contexts still need size reduction WITHOUT rewriting the cached prefix (e.g. truncate only newest / append compact summary, never rewrite old turns).
+- **OBSOLETE (all raw-token-era, do NOT act on):** CORRECTED-SCIENCE #1-5 (esp. "game is PASS/BREAK not compression" — compression-CACHE now matters a lot), the whole-architecture frontier numbers, the two-singles / Single-E / m26 Easy-specialist plan, m25/m27 verdicts, the "defend Hard 0.919" strategy. ALL category means/standings below are raw-token-era unless marked NEW. Re-derive under weighted tokens.
+- **STILL VALID but now SECONDARY:** the category-MAP recovery (E/M/H assignment is task-intrinsic, formula-independent). DEPRIORITIZED because the NEW strategy (cache-stability) is category-AGNOSTIC — cache behavior tracks compression MODE/context-SIZE, not E/M/H. Trace STOPPED (5GhUtKrYP finished; map effort was also disrupted: caught it at task 8 not 0, AND the regime change mid-trace shifted means globally → corrupted attribution → only 14/45 mapped, unreliable). To get a CLEAN map later: catch a fresh miner from task~0 evaluating ENTIRELY under the new formula. The live-trace method + dual-agent protocol remain valid. NOTE: 5GhUtKrYP finished at total −0.92 (E−1.32/M−0.19/H−1.31) = another cache-buster scoring NEGATIVE → confirms cache-busting compression is catastrophic under weighted tokens.
+- ★ **OPPORTUNITY:** field reshuffled, everyone dropped, king only 0.673 (lots of headroom), m12 mis-built for the new regime. A purpose-built **cache-stable compressor** could leap. We have a head start (AOW prototypes + this verified mechanism). m12 stays LIVE/untouched (now low-scoring but not harmful); building a cache-optimized candidate on a separate hotkey is the obvious next move — USER decision, via dual-agent protocol.
+- ★ **OUR BEST SUBMISSION under weighted tokens = m25 (5GpB36) total 0.449, #9 of 54 legit** (E0.917 #6 / M0.289 #18 / H0.169 #12) — wins NOTHING but our strongest; the ordering INVERTED (m12 old-best now near our bottom 0.130; lighter m25/m22 rose). Our re-scored set: m25 0.449 > m22 0.429 > m21 0.362 > m13 0.338 > m14 0.176 > m12 0.130 > m15 −4.0(broken) ; m17 not-qualified.
+- ★★ **FIELD ARCHETYPE FLIPPED: 5DCnA57 (NEAR-PASSTHROUGH) is now #1 (0.697)**, king #2 (0.673). The light/near-passthrough compressor we dismissed as under-compression-penalty-capped under RAW tokens now WINS — minimal context rewrite → maximal cache + minimal agent disruption (consistency), accepting ~0 compression bonus. **⇒ the winning design may be NEAR-PASSTHROUGH (compress as little as possible, only when the window forces it, keep prefix maximally stable) — even simpler than aow_bet's freeze. Lean LIGHT + cache-stable.** Hard is low for everyone now (field max 0.342); field top total 0.697 (was 0.957) = depressed + beatable.
+- ★ **aow_bet cache-stable candidate = NO-GO as-is (Claude+Codex, 2026-06-26; reports/cache_stable_design.md §8).** Freeze MECHANISM validated deterministically (scripts/prefix_stability.py: aow_bet 99.9% prefix-stable in harvest vs m12 70%/min5.8%; window-bound PASS max 46k tok; compliance PASS; no corrupted output). BUT Codex caught the blocker I missed: **save_state persists the LARGER frozen output (line 503, NOT decoupled) → resolve_stateful_messages rebuilds `working` from it → on harvest→rich escalation, rich sees aow_bet's larger trajectory, NOT m12's → aow_bet ≠ m12 in rich → the PROVEN m21/m22/m25 Hard-crater mechanism** (m21 keep-more cratered Hard 0.461). My "strictly ≥ m12" was FALSE. Reconciled: compliance/corruption were Codex over-flags (holding raw bytes is compliant; fallbacks are m12-equivalent), but the state-coupling Hard risk is real → NO-GO stands. Built scripts/prefix_stability.py + window_bound_check.py + analyze_cache.py (reusable). NEXT BUILD = **near-passthrough** (path B: cache-stable across ALL modes, no harvest/rich state-coupling; the 5DCnA57 #1 archetype). Decoupling aow_bet (path A) fights the freeze (state-output mismatch → re-seed → cache lost; m25's tension). m12 LIVE/untouched; no hotkey spent.
+- ★ **np1 NEAR-PASSTHROUGH candidate BUILT + offline-validated (2026-06-26, upload_miner_np1.py; reports/cache_stable_design.md §10).**
+  STATELESS idempotent per-message cap (extractive-cap each tool result >6000 chars w/ active=frozenset; passthrough everything
+  else incl already-[[CMP]]/<=cap). NO mode-split, NO save_state, NO resolve_stateful_messages → the aow_bet/m21/m22 state-coupling
+  Hard-crater CANNOT occur (one mode). VALIDATED: prefix-stability **100%/min99.8%** (m12 70%/min5.8%; aow_bet 99.9%), 0 orphans/80
+  turns, IDEMPOTENT (np1 on own output = byte-identical), passthrough when small (changed=False native), output ≤ native always
+  (can't overflow worse than baseline), compliant (allowed markers only, no LLM/task-ID). Reuses all m12 compliant primitives; m12
+  git-clean/untouched. OPEN (platform-only): pass-rate (does 6k cap break agent? light+extractive→low risk), savings-floor vs
+  under-compression penalty (~0.70 cap like 5DCnA57; either way ≫ our m25 0.449). NP_RESULT_CAP=6000 = light first cut; tune down if it eats the savings penalty.
+  **CODEX PRE-UPLOAD AUDIT DONE (agent a551465a; reports/cache_stable_design.md §11): 1 hard blocker (no-inflation: 6001-char
+  result inflated to 6018 via the [[CMP]] wrapper when extractive couldn't shrink it) FOUND → FIXED (emit wrapped only if
+  len<orig, else passthrough) → RE-VALIDATED (6001→6001, all outputs ≤ input, idempotent, 100% prefix-stable, 0 orphans).
+  Compliance/idempotence/window all CONFIRM; corruption=accepted WARN (string-only on compressed results, m12-equivalent);
+  strategy=platform-only WARN (pass-rate + savings-floor unquantifiable offline). np1 is OFFLINE-CLEAR. **UPLOADED 2026-06-26 ~16:0x as label m26, hotkey 5EkcybHjWyP3Pi26Hr2FYsCNyVKHEDEyDC9abaJoheQDBgFP (USER-confirmed; in config/miners.yaml m26sub).** **SCORED #3 of 59: total 0.610 (E1.066 / M0.620 / H0.170)** — from m12's cratered 0.130 to #3. Cache-stable thesis VALIDATED.
+- GAP analysis (reports/cache_stable_design.md §12; dissect_top_miners.py): m26 cache 93% (BEST, > #1's 91%), ratio 1.64×, mean 0.575,
+  7 neg. vs #1 5DCnA57 (91%, 1.18×, 0.664, 6 neg), king (85%, 1.64×, 0.605, 9 neg). Easy 1.066 ≈ #1, BEATS king. Gap = MEDIUM+HARD,
+  NOT Easy → and it's **BREAKS from OVER-COMPRESSION**: m26's 2 worst losses are tasks 315 (BREAK @2.43×) + 297 (BREAK @2.86×), its
+  2 HARDEST-compressed tasks; #1 (light 1.18×) didn't break them. Net gap to #1 = −3.99/45, those 2 breaks = −4.33 → fix → PASS #1.
+- ★ **NEXT SHOT np2 = upload_miner_np2.py BUILT** (np1 + NP_RESULT_CAP 6000→16000 = LIGHTER → keep big results fuller → fewer
+  breaks; targets ~1.3×, toward #1's 1.18×, above 5HdTr7's 1.07× inflate-trap). Offline-validated (cache-stable 99.9%/idempotent/
+  ≤native/compliant — mechanism identical to np1). Cap is the platform-calibration knob. NEXT: Codex pre-upload audit → USER uploads →
+  platform calibrates. **UPDATE: Codex audit DONE (SAFE, only the cap changed; lighter = empirical calibration bet). Ratio pre-check
+  (scripts/ratio_compare.py): np2 = CLEAN near-passthrough — cap 16k passes results ≤16k (ratio 1.0×, NO inflation, guard holds),
+  compresses only >16k; KEEPS the break-task results (315/297 ~16-18k) ~full → should FIX m26's 2 over-compression breaks; BUT
+  near-passthrough on typical tasks → forgoes savings (under-compression-penalty risk, platform-only). KEY: flat-cap is BINARY (cant
+  hit 5DCnA57's uniform-light 1.18× — that needs cache-stable LOSSLESS DEDUP = the real np3 lever).** UPLOADED as np2 (5CPbtf3sUKrpGikpCuDVvMrpTe4VpPWMXNX5sFeTXHDSY7QS, np2sub).
+  **★★★ np2 SCORED #2 of 64: total 0.684 (E1.052/M0.849/H0.173) — and WINS Pair(E,M) 0.951 + Single-M 0.849 = 14.3% OF THE POOL.**
+  From m12 cratered/0% → np2 14.3% (Pair(E,M)+Single-M). Thesis CONFIRMED: lighter cap → Medium 0.620→0.849 (+0.229, recovered the
+  over-compression breaks), Easy held (~tied #1), NO under-compression penalty (total rose). Share: 5DCnA57 71.4% / np2 14.3% / king 9.5% / 5DtEz 4.8%.
+  np2 is now OUR LIVE BEST (m26/np1 → #4 0.610). np2 dissect: cache 93%, ratio 1.49×, 11 neg (more wander/inflation than m26 + the
+  VERY biggest Hard tasks 315@2.57×/296@3.27× still over-compressed). **GAP to grow = HARD** (np2 H0.173 caps Overall 57% gap-0.019,
+  Pair(E,H), Pair(M,H)); + near-free Single-E (np2 1.052 vs 5DCnA57 1.067, −0.015, may flip on re-draw). DEFEND 14.3% (keep np2 live;
+  watch for higher-E+M rival).
+- ★ **np3 BUILT + Codex-GO, READY TO UPLOAD (upload_miner_np3.py, sha 420de1cc; reports/cache_stable_design.md §14).** DIAGNOSIS
+  (repetition analysis of 6 comp-108 trajs): np2's Hard breaks are NOT from repeats (exact-dup ~10%, DEDUP WEAK) but from big
+  UNIQUE blocks (24k-64k; 4/6 tasks >16k) that np2's 16k cap shreds → Hard breaks. FIX = keep big blocks fuller. np3 = np2 +
+  NP_RESULT_CAP 16k→28k (keeps 24k blocks FULL, 56-64k to 28k). Codex audit GO (agent aabdb48e): integrity CONFIRM (only the cap;
+  rewriter-bug-free; Codex re-ran harnesses: 99.8% prefix-stable, 0 orphans, idempotent, ≤native), invariants CONFIRM, strategy
+  CONFIRM-the-bet-with-real-risk. **ADDITIVE BET — np2 stays LIVE holding 14.3%; np3 can only gain Overall (57%), never lose income.**
+  RISKS (platform-only): more near-passthrough → wander could drop E/M; some Hard may be agent-side (lighter won't help); if a big
+  block is mostly PINNED error/traceback lines the cap won't engage → np3==np2 → Hard flat + E/M wander for nothing. CONTINGENCIES:
+  E/M erodes → tune cap to 24k; Hard flat → agent-side → np4 = better extractive on the 56-64k blocks. USER uploads to a SEPARATE
+  hotkey (same OpenRouter acct), read at status=scored. m12 (5Dz7) LIVE/untouched; np2 (5CPbtf) LIVE = our 14.3%.**
+- CAVEAT: re-scoring may still be settling across all 104 miners; the RELATIVE picture (cache-stable on top, m12 near bottom) is STRUCTURAL and locked regardless of exact final numbers. Need fresh data with BASELINE split tokens (detail page now exposes them) to recompute exact new scores.
+
+## ★★ BOARD CHANGE 2026-06-26 ~08:34 (snap 083352, 103 miners) — SINGLE-E BAR JUMPED to 1.197; our Single-E play likely DEAD [RAW-TOKEN ERA — see regime change above; now OBSOLETE]
+
+## ★★ BOARD CHANGE 2026-06-26 ~08:34 (snap 083352, 103 miners) — SINGLE-E BAR JUMPED to 1.197; our Single-E play likely DEAD
+- **5GBPFAAeKQ (NEW) SCORED clean Easy specialist: E1.197 / M0.604 / H0.612 / tot0.797** (mean checks: (1.197+.604+.612)/3=0.80 ✓, no
+  hidden penalty). It is the m26 ARCHETYPE built BETTER than us — maxed Easy, cratered M/H to ~0.6. **Legit Single-E winner now = 1.197**
+  (the 1.259 above it is the failed-review cheater 5CaFqLaP). Our best Easy ever = m25 0.859 → now **+0.338 short** (was +0.064 vs old bar 0.923).
+- **5H4JafmQpK (evaluating): E0.950 / M1.330 / H0.101** — a high-E+high-M miner; if it scores its Pair(E,M)≈1.14 > king 1.07 → may take Pair(E,M). WATCH.
+- **IMPLICATION:** the Single-E lane is now contested by specialists we likely CANNOT out-build (m25 perturbation maxed at 0.859; 5GBPFA is 1.197
+  by an unknown stronger Easy mechanism). The two-singles ~9.52% plan is in JEOPARDY — Single-E may now be as out-of-reach as Overall/Medium.
+  Reachable set shrinks back toward HOLD Single-H (m12 0.919, still field-best Hard). m26 build does NOT clear the measurability gate (can't
+  predict +0.34). DESIGN NOTE (for any Easy specialist): do NOT try to "keep Medium" on it — portfolio takes MAX per element so m12 holds our
+  Medium(0.953)/Hard(0.919); keeping Medium on the Easy miner only steals its Easy budget. 5GBPFA proves Easy+Medium can't coexist (E1.197 but M0.604).
+
+## ★★ WHOLE-ARCHITECTURE DEEP-DIVE done (2026-06-26, user reframe "leave m12") — ceiling UNCHANGED ~9.52%. (report: whole_architecture_deepdive.md; Claude+Codex reconciled)
+User asked: stop anchoring on m12, is the architecture itself the ceiling? Re-derived from raw per-run JSON (matches board 3dp).
+- **The reframe was RIGHT that we anchored wrong:** m12 is the HARD VERTEX (field-best H0.919); stop improving it, ADD specialists.
+  Corrected the record: **flips are TIED** (m12 16 ≈ king 17, 6 shared tasks — NO m12 flip edge; the old "m12 out-flips king" was
+  overgeneralized from dj-14017). Gap to king = 100% breaks, re-confirmed (m12 17 / king 6); breaks sit on HIGH-VARIANCE tasks
+  (m12 already passes 7/10 break-tasks at 3-4/5) the king converts to 5/5, at NO consistent token strategy (ratio 0.45–1.72×).
+- **The reframe did NOT unlock a new reliable element.** Pair(E,H) LOOKED reopened: 5DtEz proves E0.837+H0.813 coexist (pair
+  0.825=9.5%), and the old m24 NO-GO used the WRONG constraint (it required preserving m12's H0.919; Pair(E,H) only needs the
+  pair>0.825, works at H0.813). BUT both models ruled **Pair(E,H) as a deliberate TARGET = NO-GO:** 5DtEz is the SAME perturbation
+  tradeoff as m25 (kills flips, makes new breaks) — its damage just landed on MEDIUM (M0.499) sparing Hard, while m25's landed on
+  HARD (0.536). We CANNOT steer which category the damage hits (W-NS), CANNOT validate offline (no comp-108 E/M/H map exists for
+  267-316), and our one real attempt (m25) put damage on HARD. "One observed outcome ≠ replicable mechanism" (Codex). It is m27 again.
+- **Frontier claim CORRECTED (Codex refuted my overclaim):** NOT "nobody is good at all 3" — the king IS balanced (E0.858∧M1.281∧
+  H0.727, all ≥0.7). The defensible statement: **no observed miner pairs king-level E/M with m12-level Hard (0.919);** pushing E/M
+  to king-level forces H to ~0.727. For US it's moot (our Easy lever craters our Hard) → Overall unreachable FOR US, not provably
+  for everyone. Bigger elements (Overall 57%, pairs) need the king's consistency mech (unreachable/banned) or category-steered damage.
+- **NET: reachable ceiling unchanged = ~9.52%** (m12 Single-H + m26 Single-E; Pair(E,H) only a free lottery upside of the m26 build,
+  never a target). The m26 Single-E decision below stands as the one open growth move. m12 LIVE/untouched throughout; nothing built.
+
+## ★★ m25 SCORED + m27 NO-GO → the reachable growth = a SINGLE-E specialist (m26). DECISION PENDING.
+**m25 (5GpB36, platform label "m23", upload_miner_m25.py) SCORED: E0.859 / M0.667 / H0.536 / tot0.684 — ZERO penalty (clean).**
+- FAILED as an m12 replacement (Hard 0.536 << 0.919, gate failed). m12 stays LIVE.
+- ★ **But Easy 0.412→0.859 (+0.447) = #2 in the FIELD** (behind only 5GCWaCnb 0.923, ABOVE the king 0.858). On the portfolio,
+  **m25 is #2 on Single-E (+0.064 to win)** — the closest we've ever been to a 2nd reward element.
+- **m25 MECHANISM (dual-agent verified):** the extractive (blind→signals) swap is a high-variance content PERTURBATION:
+  Easy gain = ~86% pass-pass BOOST (perturbation, +6.09 of +7.05) + ~14% ratio + a little break-fix; it is STRICTLY anti-flip
+  (gained 0 new flips, KILLED 3) and DESTABILIZES passing tasks (−10.6 over 18) → THAT is why M/H cratered (the "opposite result").
+- **m27 (Easy+Hard DUAL-MODE specialist, Pair(E,H)) = NO-GO** (Claude + Codex, reports/m27_eh_specialist.md). The
+  settled-vs-exploration router CANNOT separate where the perturbation helps from where it hurts — Codex measured: help-fires
+  and hurt-fires have IDENTICAL per-turn signal distributions (depth/tokens/ratio/still_failing all overlap). Hard protection
+  unachievable (router producing Easy = router perturbing Hard, shared fires; H stays ≈0.536). NO file built.
+- ★ **REACHABLE PLAY (the path, NOT yet built — user decision): TWO SINGLES.** Pair(E,H) needs ONE balanced miner = impossible
+  with this mechanism. Instead: m12 keeps Single-H, + an **EASY-ONLY specialist (m26)** that ABANDONS Hard entirely (no dual-mode,
+  nothing to protect) and pushes Easy 0.859→>0.923 to win Single-E → m12+m26 = 2 elements → **4.76%→~9.52% (double).** ~+0.064 gap,
+  field-demonstrated reachable (5GCWaCnb=0.923). HONEST risks: the +6.09 boost is perturbation (passthrough loses it → E may dip
+  <0.84) + savings-gate on a passthrough-heavy specialist. So m26 design is non-trivial — would go through the dual-agent protocol
+  (Claude design+offline-validate, Codex audit, separate hotkey) before any upload.
+- CAVEAT: confirm m25's key was SAME OpenRouter acct as m12 (zero penalty + Easy 0.859 imply a good backend, so likely fine).
+  Also flagged: a PROVIDER-ROUTING lever (block weak OpenRouter backends e.g. AtlasCloud) could lift CONSISTENCY (m14 proved
+  backend swings score ~0.35); evidence-driven + keep redundancy; pays only on re-eval. NOT acted on.
 
 ## ★★ FULL-RESET VERDICT (2026-06-25, workflow wohsbvkmr, 10 agents; report reports/comp108_full_reset_analysis.md). ALL load-bearing numbers independently re-verified by main session.
 **BLUNT: active dethroning of comp-108 is UNREALISTIC. STOP active miner work; prepare for the next round.** We own

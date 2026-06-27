@@ -1,5 +1,42 @@
 # DISCOVERIES (durable findings)
 
+## 2026-06-26 — ★★ SCORING REGIME CHANGED to WEIGHTED TOKENS → CACHE-STABILITY is the dominant lever (overturns all raw-token analysis)
+SOMA merged weighted-token scoring (commit b79fcaee, LIVE). Verified from scoring.py: per-run = base + λ·Trim(ln(weighted_B/weighted_A),−2,+2),
+**weighted = 1·input + (1/3)·cached + 3·output**; FLIP 4→2, BREAK −4 (unchanged), pp +1/ff 0; savings multiplier also weighted.
+- **DOMINANT LEVER = CACHE-STABILITY.** A byte-stable emitted PREFIX is cached at 1/3 weight → cheap. Cache-BUSTING compression (rewriting
+  the prefix each turn) now scores NEGATIVE. Verified mechanism: m12 cratered 0.768→0.130 because its harvest DROP/PRUNE rewrites the prefix
+  → only 56% cached vs the king's 85% → weighted ratio collapses (Medium went negative). The field re-scored: near-passthrough 5DCnA57 is #1
+  (0.697); everyone dropped; Hard is LOW for ALL (field max 0.342). Output is ~1% of tokens (the 3× weight is a near-red-herring in aggregate).
+- **CACHE-STABILITY MUST be judged by OUTPUT PREFIX-STABILITY, not local cache_read.** Local OpenRouter cache_read is NOISE (same mode/task
+  swings 0%↔85% across runs, TTL-dependent). Built scripts/prefix_stability.py (deterministic byte common-prefix of consecutive outputs — what
+  the provider cache actually rewards) + window_bound_check.py + analyze_cache.py. Measured: m12 harvest prefix-stability 70%/min 5.8% (churns);
+  rich also churns (~2%); a cache-stable design needs ~99%+.
+- **State carry-over from harvest into rich = the m21/m22 Hard-crater (re-confirmed via aow_bet).** A freeze that persists a LARGER output to
+  save_state feeds rich a different trajectory than m12 → Hard cratered. ⇒ cache-stable designs must be STATELESS / single-mode (np1) — no
+  cross-mode state coupling. (Codex caught this; reports/cache_stable_design.md §8.)
+- **The winning archetype is NEAR-PASSTHROUGH** (5DCnA57 #1): compress as little as needed, keep the prefix byte-stable, accept ~0 ratio bonus;
+  win on cache + consistency (avoiding breaks, now 2× a flip). Our np1 (m26) is a stateless near-passthrough: deterministic idempotent per-message
+  cap, prefix-stability 100% offline. Full: reports/cache_stable_design.md.
+- **OBSOLETED by this change:** the entire raw-token analysis chain — "game is PASS/BREAK not compression"; the E/M/H specialist / 7-element
+  ownership game; whole-architecture frontier; m25/m27 verdicts; "defend Hard 0.919". Re-derive anything category/element-related under weighted tokens.
+
+## 2026-06-26 — Per-task E/M/H is NOT recoverable from data we have; platform categorization is internal (not SWE-bench difficulty)
+User asked: can we get the exact per-task Easy/Medium/Hard label (vs only category MEANS)? Investigated exhaustively:
+1. KEYLESS dashboard detail (collect_miner_detail) per-task records have NO category field (only per-CATEGORY means in
+   category_scores). Confirmed.
+2. SWE-bench_Verified `difficulty` (the obvious dataset ground truth, cached at ~/.cache/huggingface) = "15 min - 1 hour"
+   for ALL 50 comp-108 tasks (uniform). => the platform's E/M/H is DEFINITIVELY NOT the SWE-bench difficulty; the comp-108
+   set is a uniform-SWE-difficulty slice, categorized by some PLATFORM-INTERNAL metric (not the dataset field).
+3. Cross-miner SCORE-RECONSTRUCTION (solve the partition matching reported category means) OVERFITS to noisy reported-mean
+   targets: naive 18-miner solve cut global residual 1.76->0.67 BUT got WORSE on the trustworthy miners (m12/king/5DtEz
+   sum|resid| 0.449->0.657; king's near-perfect ±0.03 degraded to ±0.15). REJECTED (quarantined /tmp). Lesson: equal-weighting
+   noisy leaderboard means chases noise; per-miner validation caught the overfit.
+CONCLUSION: exact comp-108 per-task E/M/H is NOT recoverable from any data we can access. The labels DO exist on the platform
+(comp-107's config/task_categories.csv came from an AUTHENTICATED extension scrape 'extension-sb114') — they're behind the
+authenticated dashboard view, not the keyless RSC. PATH to exact labels = replicate that authenticated per-task scrape for
+comp-108. UNTIL THEN: the derived map (config/comp108_category_map_derived.json) remains the best APPROXIMATION (king
+reconciles ±0.03; ~0.733 task-accuracy), and ALL per-task category attribution stays APPROXIMATE.
+
 ## 2026-06-26 — ★ COMPRESSION RATIO is a SOLVED axis: m12 ties the king (1.61×); do NOT upgrade. Reference: reports/cross_miner_ratio_reference.md
 Apples-to-apples cohort (SAME 80.9M baseline): m12 1.61×/37.9% sav === king 1.61×/37.8% (we MATCH the king on ratio).
 Harder compressors score LOWER (5DtEz 1.79×→0.714, old-king 1.71×→0.780) — ratio is not the lever. Ratio term is minor

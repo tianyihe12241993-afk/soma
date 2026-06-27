@@ -61,8 +61,13 @@ def load_miners() -> dict:
     """Parse config/miners.yaml (simple format) -> {name: {hotkey, version, note}}."""
     txt = read_text(CONFIG / "miners.yaml")
     out = {}
-    # match lines like:  m7:  { hotkey: 5Gs..., version: v11.1, note: "..." }
-    for m in re.finditer(r'^\s*(m\d+):\s*\{\s*hotkey:\s*([1-9A-HJ-NP-Za-km-z]{48})'
+    # match lines like:  m7: { hotkey: 5Gs..., version: v11.1, note: "..." }  AND every *sub entry
+    # (m16sub..m26sub, np2sub, and future labels). The key capture is (\w+) — any entry whose line
+    # starts a flow mapping with a valid 48-char ss58 hotkey is loaded; the hotkey pattern gates it,
+    # so a broad key match is safe (re.M ^ anchors to the entry line). NOTE: *sub entries put label:
+    # before version:, so the version capture (which expects ', version:' right after the hotkey) is
+    # empty for them — fine; hotkey_to_name only needs the hotkey->name mapping.
+    for m in re.finditer(r'^\s*(\w+):\s*\{\s*hotkey:\s*([1-9A-HJ-NP-Za-km-z]{48})'
                          r'(?:,\s*version:\s*([^,}]+))?(?:,\s*note:\s*"([^"]*)")?',
                          txt, re.M):
         out[m.group(1)] = {"hotkey": m.group(2),

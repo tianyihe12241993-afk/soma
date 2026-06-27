@@ -3,7 +3,7 @@
 # collect_dashboard.py fetches the HTML and extracts the per-miner records.
 leaderboard_url: "https://thesoma.ai/dashboard"
 miner_page_url: "https://thesoma.ai/dashboard/miner/{comp}/{hotkey}"   # per-miner detail (collect_miner_detail.py)
-competition_id: 107
+competition_id: 108   # CoT-Compression-4 (was 107; bumped 2026-06-26 — detail scraper was 404ing on comp-108-only miners)
 
 # Display column order on the rendered board is: total, Easy, Hard, Medium.
 # But the embedded JSON category_scores key order is {Easy, Medium, Hard} — the

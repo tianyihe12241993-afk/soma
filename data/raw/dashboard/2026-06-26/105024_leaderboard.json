@@ -1,0 +1,943 @@
+{
+  "observed_at": "2026-06-26T10:50:24Z",
+  "source": "https://thesoma.ai/dashboard",
+  "miner_count": 104,
+  "miners": [
+    {
+      "hotkey": "5DCnA57Dve8W4GwXMrTwpB4MGzSGpcVdhwfvnGra8JkFK2yD",
+      "total": 0.6965223363759163,
+      "easy": 1.0669614245177481,
+      "medium": 0.7186163685633504,
+      "hard": 0.32368741460383,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GgqHgSdxgALgAMbweEZ879sk3upkY7ZGjeecAan8zixcnVG",
+      "total": 0.6727671115105585,
+      "easy": 0.9240361554978476,
+      "medium": 0.8477067656392796,
+      "hard": 0.2613389453938,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5DFvymSeEwuGdHzYQqTnrGYXQX6x89AS9V2mv7sBtQBcEKmS",
+      "total": 0.5562897075853588,
+      "easy": 0.9005553012381284,
+      "medium": 0.5930231800253143,
+      "hard": 0.19554155876632606,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5HdTr7PisVFCpuAALrNiQcaYx4cxF545ywSWYboJv6j5gYiD",
+      "total": 0.551260358081521,
+      "easy": 0.8906531083449218,
+      "medium": 0.6354883629806034,
+      "hard": -0.08647181597138154,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5H6919WaPmWcrSgznipMDuz9ZBrdRaiGmZ4yUgvvFoqoVr9i",
+      "total": 0.5374976930278788,
+      "easy": 0.8583606770731826,
+      "medium": 0.5011579800971155,
+      "hard": 0.27184871509247444,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5EkCiYX2M39wytrXyHxi2ZVKmEDyjKqSyeYGMNQ32HJVEAkA",
+      "total": 0.5094669035120312,
+      "easy": 0.9395034569380778,
+      "medium": 0.4511731799316312,
+      "hard": 0.1630203415149758,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5CiErGTiJ9pgKJNEjPVyyNvFHkn7v7ERA4B7appDu4C9xz6i",
+      "total": 0.4604189404788315,
+      "easy": 0.9328808170050031,
+      "medium": 0.2231016787620117,
+      "hard": 0.253066200759255,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5H4JafmQpKm1xjarm67QaL4CxbCHcw2SsQWd5FXxuSQR3hC6",
+      "total": 0.45284645710871096,
+      "easy": 0.5958347188507584,
+      "medium": 0.5852097022003946,
+      "hard": 0.1859060244950994,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GpB36LUSTWKuL6DeYwoKrwQXSDMDBCw6zoEzQmREV8DMHy9",
+      "total": 0.44916771323651083,
+      "easy": 0.9173952584085301,
+      "medium": 0.2888701745999116,
+      "hard": 0.168780503475916,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5DADzDbZb3y6CQw3ETbYMTAk4wi9ivwmtfKhRsBj4oXYhBmr",
+      "total": 0.4409882121902804,
+      "easy": 0.7398729933639032,
+      "medium": 0.27244330152162455,
+      "hard": 0.3282297994014085,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5CffmtHw6Ug2voLWV6KXeJJzCkEPzDDvkCgtjffrFd9AJiG7",
+      "total": 0.42918996155466793,
+      "easy": 0.7628408654925405,
+      "medium": 0.35306102832289277,
+      "hard": 0.19129451460962166,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5CJRJ8kJPpBqwmQsEypJGZDiSEFHvdksAbfMwydpU8qJqsgh",
+      "total": 0.4239245069040214,
+      "easy": 0.8187562191884803,
+      "medium": 0.36120842893598226,
+      "hard": 0.11503426742786438,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5HjRhPLmdRYRTHynDYjpHmbTJCUqi8fjFYRN7e9b9JhZ4wEC",
+      "total": 0.4200994918953658,
+      "easy": 0.7304233175831767,
+      "medium": 0.2983377688575821,
+      "hard": 0.24979173193285664,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5EgyJKNYA8nkc8HdLfhHbNkt2v8t8dBqYA8EckFXfQHW5Lxt",
+      "total": 0.3953899719076839,
+      "easy": 0.6520273237755907,
+      "medium": 0.44568330468522177,
+      "hard": 0.10355560207799996,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5DtEz84j53Pf1V2umycYFoZoJEk4jAXnAHjqyj6caD5QBUcK",
+      "total": 0.38330040036746293,
+      "easy": 0.7957486630698796,
+      "medium": 0.0009595685069285764,
+      "hard": 0.3422637946964935,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5FcDg7yvYGXFReKGHz12xAokaThdUZsfzgKmXf6jxhdHLc6b",
+      "total": 0.3826696267604479,
+      "easy": 0.7196500011543909,
+      "medium": 0.2706161161085179,
+      "hard": 0.1524004548242912,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GBPFAAeKQ8KTesZyQWcXgvumdUAcrrexJiLEzE75ZzkjjxN",
+      "total": 0.3729808341214209,
+      "easy": 0.9403862862849248,
+      "medium": 0.12057703489700078,
+      "hard": 0.09135597248607219,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5ENtgEWhp3ZGW3sTMBtxUfxs9QvN3boH15TnQpE8foqa1BFu",
+      "total": 0.3619457518500777,
+      "easy": 0.6194237104192473,
+      "medium": 0.37882864325423693,
+      "hard": 0.10273066414552279,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5FqfEPFi937maZ9JvxVKF3GZTqPtwihayWsMzgwZeJahYuwA",
+      "total": 0.3483256586799959,
+      "easy": 0.7987609340856432,
+      "medium": 0.13473919725739325,
+      "hard": 0.13797303736787025,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5FUTAPjpKLKZU327F65vZGgf4ARe4JcpE8b9ZuLzHCBjU7zX",
+      "total": 0.34052240537216427,
+      "easy": 0.6295921576819987,
+      "medium": 0.6742473868662877,
+      "hard": -2.843025365688747,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5CApy5s5NvzuaxgGnKiBmGpwtqvTFysjzdHHiPiwxwxdwEFz",
+      "total": 0.3384704139943544,
+      "easy": 0.6029386742578273,
+      "medium": 0.33931959764479025,
+      "hard": 0.08870992656652987,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GCWaCnbJkwJGo7FUjqNn1TNUySrZtz2PrwSyQyjYMobnZkw",
+      "total": 0.3291765343736559,
+      "easy": 0.6865319137159522,
+      "medium": 0.199664727760811,
+      "hard": 0.12235386631139722,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5CwZBKyLsnzK3fqmD56qNntvBAcBi7D4Ss2sc4u6xhjNJHDc",
+      "total": 0.30692461834407947,
+      "easy": 0.736415485855078,
+      "medium": 0.2370399105851364,
+      "hard": -0.027417372730859313,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5DxrcCtcvrFaFKpLbZ2QCLvQ4VWN1VKbMMZEPyoXHDbuknmz",
+      "total": 0.2857647021962135,
+      "easy": 0.766118132441159,
+      "medium": 0.3013833770661192,
+      "hard": -0.5046161077335896,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5E1xf714Wiy2ioSnLDbYnSCK4bgsq4ntNmttPvCha23YVy6B",
+      "total": 0.2291301080274577,
+      "easy": 0.27822287396054346,
+      "medium": 0.17366715489086548,
+      "hard": 0.23838810499173402,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5DRi5yU6ZVuzJpTGsfdewMcMxz1t3wTbirwLd3Z6bZymiDSD",
+      "total": 0.17610958426621526,
+      "easy": 0.4450182384149395,
+      "medium": 0.1777614213192784,
+      "hard": -0.07863275080917687,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GuKUq7zQ6LUcNuKqb521WNNBjgEHopRsUXoXzTPAodjhhzc",
+      "total": 0.17579471255210155,
+      "easy": 0.5371010572168959,
+      "medium": 0.002827260434112411,
+      "hard": -0.13576476748364108,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5EFLSBvXcp9o2BCEYnNYku4fF78Tvv92xbkmVYrCFF8u1Nef",
+      "total": 0.1570486449423898,
+      "easy": 0.17751052005654167,
+      "medium": 0.3000083269194258,
+      "hard": -0.05795869446893276,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GRRZUYceeswCMT4AQoKMKLRvXgK1Njwfm6XMKaturFqP626",
+      "total": 0.13363347262350178,
+      "easy": 0.34786953697538703,
+      "medium": 0.2641651798505329,
+      "hard": -0.7667866161894707,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5Dz7JaCBw6t9ktdRVaLYi3ntEzvCDfb5XmTHyzPdDyT6KS9j",
+      "total": 0.13021373537491598,
+      "easy": 0.36429797068703884,
+      "medium": -0.4423935281476301,
+      "hard": 0.06676069267130469,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5HgDhuRjEwo193iY5LUiR4mHigUbwdHX8UEVW2igLPitbWCy",
+      "total": -0.2563482487154225,
+      "easy": 0.2501358445819637,
+      "medium": -0.15077800932363639,
+      "hard": -2.466776151087039,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GWXUTu3rxJsfeBHnd8n32jrbEVWpbsbpejJEXYTT7YWxTbM",
+      "total": -0.35978704009149354,
+      "easy": 0.05821397876998269,
+      "medium": -0.6586061685970579,
+      "hard": -0.4543806352202586,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5EkgEef8dy42cwjezNuN2mwcko3KgP8g1cQm8TJoLyVQtSvm",
+      "total": -0.391478633580566,
+      "easy": 0.6081585700520877,
+      "medium": 0.27234388005509214,
+      "hard": -2.902325792675434,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GxLcCzndqqhQRCiVN4wxouY5RWnE7bFCXzgemD7r9SMYYoB",
+      "total": -0.41083078332466183,
+      "easy": 0.6653298190911539,
+      "medium": -0.08490235317609418,
+      "hard": -1.8433015925440897,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5Dt8wmVq2gBpnboxgJFvTyTzaUa7ys7fwfPsWtQ8BavS2bct",
+      "total": -0.5223071895904754,
+      "easy": 0.7866347535150249,
+      "medium": -2.2193413533121493,
+      "hard": -1.5339870494456869,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5DkeUCZNYrcGneX7wJDUqYxENX7CicSbzFhnbwhpyyDqYok6",
+      "total": -0.5401995313584416,
+      "easy": -0.11498346293670014,
+      "medium": -0.4236467329652669,
+      "hard": -1.3165861046887657,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5EM1v8wvNszDybg2WfLTv5pU3vq35HpV3je5ADzCW1AKG1Av",
+      "total": -0.6911030279129831,
+      "easy": -0.8437434097812186,
+      "medium": -1.0034513235059128,
+      "hard": -0.2350931964440668,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5HaiCagRi7zErPvv1yFWR9zQeXHBZdv3MFdNDKnGWYNnz3ja",
+      "total": -1.0635220068300955,
+      "easy": -1.2027276006252747,
+      "medium": -1.3209632246167495,
+      "hard": -0.6750637595891607,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5DAh2rUM6HUdei6F5rrwv5ikDS6GHyDqJ4PCTTfWoFm3u4NS",
+      "total": -1.1712291182671488,
+      "easy": 0.8739769847945569,
+      "medium": 0.49189810019307956,
+      "hard": -3.9956895338259826,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5H6Qx5MXtpxtbi6hMjmnGCpY84Cnh5b63WFa2dMmKrGQ5kn1",
+      "total": -1.1732289908346196,
+      "easy": -1.7278092061522834,
+      "medium": -1.1017472081254631,
+      "hard": -0.7227529238330366,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5ETwa6smwUa7eB8aBfNjtRL8ujj1S5zWxVw2ZX3SEboiBZEY",
+      "total": -1.3060828719853665,
+      "easy": -1.0587504212855685,
+      "medium": -1.3049703686751255,
+      "hard": -1.5083744112102138,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GQevo9beEAVLz9Ub3guvGrtkf5oZSsxNbmdo6B8fV7mPtp4",
+      "total": -1.499404243141262,
+      "easy": -1.7510398153274522,
+      "medium": -1.9860409716854397,
+      "hard": -0.775934034892436,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5HgzWVGvoCz431PKrA9Q2yaSYY3A1WriLzLcyt9gKUnieKYf",
+      "total": -1.9571505619774587,
+      "easy": -2.5073492737264935,
+      "medium": -2.7630227541515753,
+      "hard": -0.6334442881571869,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5Fy6PV198MhS8jRhbGkMrW4bh5magWxKLHErENqbNzT2qghv",
+      "total": -1.9614792543165867,
+      "easy": -2.325583184054101,
+      "medium": -2.7851208000841052,
+      "hard": -0.7951516570314068,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5HLBjkGJVbgeQv3WpU2ND4cYAFNS5YQ2Dnb1Gh1MgsiQAyWy",
+      "total": -2.049550523067674,
+      "easy": -2.661401123093073,
+      "medium": -2.883258474022603,
+      "hard": -0.6399831838535421,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5E2Dcoh9G8AniLux2TqpMd2hq6VcnRPvfWnVn559ZM1YHhRK",
+      "total": -2.0840065791518256,
+      "easy": -2.5459507216581843,
+      "medium": -2.9405837460191484,
+      "hard": -0.792658454631459,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5G1UeLtFbPNJjqXgQ5Mxr5NprQBbV3WPSsXZrpSFvqfL9f8U",
+      "total": -2.084953805628763,
+      "easy": -2.844647757473918,
+      "medium": -2.8104305901900597,
+      "hard": -0.6444709487426081,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5Cvk1FdGYiL2c7KPztRUUwsPxvozhvrk6YFDBgMfDLpe3NcV",
+      "total": -2.103366782985723,
+      "easy": -2.779418303637897,
+      "medium": -2.9350285921323858,
+      "hard": -0.6354211896958315,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GgUhFiG3Vx8EGPcq29FeXeWXRDXQq91fiXdBDueae3W5rkj",
+      "total": -2.1399043526960235,
+      "easy": -2.812388260759419,
+      "medium": -2.978614758790273,
+      "hard": -0.6682679154832836,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5FxZizynNryfbK115oPGuc1NsdZS49rz9ay6VNVfFfMnbSgP",
+      "total": -2.2785900180548397,
+      "easy": -3.070593806421374,
+      "medium": -3.0117647058823525,
+      "hard": -0.8000000000000003,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5Cck2JNmqwxE4ASv8qcrEJp9YCnrSp5cVYRaFKVMRF3Ciu8a",
+      "total": -3.747752072283293,
+      "easy": -3.7077013977869653,
+      "medium": -3.8207669438962975,
+      "hard": -3.7118375949388276,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5EX5r3URph5cwiLxh5GeYXbysFSA7we8rKUZKzL711DMPLi9",
+      "total": -4.0,
+      "easy": -2.7313777877750516,
+      "medium": -4.0,
+      "hard": -4.0,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5GYxeJjdvfatKWdcbeidX7F3VTnrK6n73pEHzMgpRb5gFpEH",
+      "total": -4.0,
+      "easy": -3.77537262133866,
+      "medium": -4.0,
+      "hard": -4.0,
+      "review_status": "scored",
+      "eval_status": "scored"
+    },
+    {
+      "hotkey": "5CaFqLaPBYTQyBrEbAMcjErPmG8mrFtF9sEtX3HD4uPCqJHU",
+      "total": 1.442712874017789,
+      "easy": 1.3792666448700075,
+      "medium": 1.1721151528884564,
+      "hard": 1.773024693168562,
+      "review_status": "failed review",
+      "eval_status": "failed review"
+    },
+    {
+      "hotkey": "5GhUtKrYPzQ9orxbSoDxoZVM3KH6hheUeQGVs34mo7hq8yCG",
+      "total": 0.2967377322772551,
+      "easy": 0.3342447802356894,
+      "medium": 0.23774389448918853,
+      "hard": 0.3163342073715327,
+      "review_status": "evaluating",
+      "eval_status": "evaluating"
+    },
+    {
+      "hotkey": "5Fe2jAsi6YjwPDWTnw62KrC8NeprBJLGXgWzhRn8Y2NwgydA",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5E6zgcVJmJBA9MYiXb43PvGiJjmRn58BrfyvkjmND5WXJKnn",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "in queue",
+      "eval_status": "in queue"
+    },
+    {
+      "hotkey": "5Gzke3jJngi61o5j74vN5MSHjXwMwFNekVKPBVHGLUvi1KeT",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5GjMnovtmZz5cjasUG1Mope2zWeoHMgXYL7sV3CtykRodo4L",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5ECsyg7iGn5T7rqBS7QBAfX2tmJdrcN9yGCWSYeVXivcbyij",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5HDyuvMkearX3WHsqQitQ8uyEfkQdeyqiprqWfd9rns6tdpM",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5EPN2pxZRBU4zWAgBWjcWfLwdr7jXAQd21w1U46qYUgn2wvA",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5HZ3rJu1Cbd8zz7Qnj59rr826ux9YK983GiJMAgy2yrksP1P",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5GsnC1vdzMM4FbAwEWmPaDxsQHne9dPVGiycEnapmgGR4Fjy",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5FstwyuekNJwiYNh5kup25sbEZUsGnXuqo2G33QPWwFqcnig",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5DaLJdXcfRRUKrxffcugknibYsvXhBF73KRepJjrt7tJDBV6",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5GsikTb8bkTTF5Sf5wW5LPAeSN4wVAS4trnSuwiFNYUdVw78",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5HDtUf7YzSvf7oJN81MuCxmrRwWamjoUystg2EWQjSPF8Nad",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5D2oWK54HiEyMM3vcoGdWurmgXLjnfj3xYgHb7ouhnBckiML",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5Ctr6aoRBoffXyJgZpCCXMYteGGpZ8tieJHG4a8sn26G616J",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5CPNnhmFj3hERHD8Xc73cUkd573J9PLGuG9uuhtnEZ9ELYFs",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5D581UDhZYmDP8QMwuKgsp5iadbVRDZGzLvgztGBSPdS1b2m",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5Ctm5ycYHogNi9g8KtsviCYiiqnjKBHEurm1PSBGcgRV2cKd",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5DG4k8dazLNEDBgbtvtntz6YwFT93yFkLFufS4mgiSyDdbqM",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5DWdSTwgy8tTGr4JsKZ1vGtQ92koumw7kysJSdAv28qZ3rCX",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5DvZs56KL9hNhtzRDDCwfyURFMKn2wuDdhCdHoT9F8SRrqKB",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5EqUfva34661TWvCGipFg1me3tyhMZaLWya56Biisuo8KGX9",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5FqAHka1xB3NHeg4JKiXwcTEmAAxQuA1azNdWpKtfWB5RtC6",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5FvfUxyFSUH3emgYAsryUXNfhbyUm9BSXPbEt8hXMo4UDW3N",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5GmxAVmh5aELdJdLFv6PjTFeX7FaTXtJBGwt1xHzCKyx1rfB",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5CRnr7QSW8Q5xYqyDZDoT2a5NaAyEM7sUBzG4JHf9jVa3xuq",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5CUKPpDTp8wJ9dFgpH6rF8La2xEqHTPmMfMvqKDAsMbVrjib",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5CtUQrSjwxmpEpkNq7CjC1tYBdqP2y9bNvPdypE6jMJhyTc1",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5CvzwVncDBW4oLcWvRWFZwDFvGhSbPxzCG21xwZ4zQc9SUWg",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5D2bpwf9JFurNyhzQkBv9fVu4oQNUwasdPmaijFboD2i9d5F",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5DPqPRqxQukbsa5u9dxnbSDm8vkHJxA3AgND11MGiDwjQu4y",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5E2TP68WLmQJcwFhQqTaMwbh3bQj6rAy7TSYKTtQnt6iTPvP",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5ECfdygSqeMH9h9uamHhD6VpZrtSCpA4PPBpVAuJQ7Y2VaN5",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5EHLsayYAiJa26doZMfXKhrpeuoK6kqAud5wj43VjJgmwS46",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5EJ65CAaEH1xDaHsUyQfZg6GH3UDeS26iuz6E4H117MJyg3C",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5Eby7XgsmRYcd5KdXjLiAKX3eQfmv3F94EFPipFEVLYPked6",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5EhD3GfXGQhrp9wsvamGcC46HA2ksaXWnAETHZpQczNo178P",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5EqFgCwpUTfADEG2ecFFgoVNSyVMtEMZ2g8MFhoamVAczcoZ",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5EtYExxJaqSnYydJtnoAg2qKMam2qMFanyxzoe4yiXm395U6",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5EyhoYp17rKjUJmKJ6ZrZvkap4zxtaqb5Hy1kUESNc2iSWNy",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5FjDtVtHeB5cU5hcc5uDx5MoLp5CUTTTitzosebc8wLxEZua",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5G8puDRXw4xM5fuTzMsHNC2gfqdZk2a1yyzDeqFU5vFZFwvj",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5Gdw3Q9p5YfS6o3Nzk3Giv9QQhg1ApKzpAR5ayE3nSji49vE",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5GsYoWcDVN9iuZKWuWcy453HVyoCS4D6vsznW9GWYo8Ue1QK",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5HKwe95Tnt4nTv434rZXtW1rm673HSpdNZqYvV3dHtqjaMbF",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5HVbTeScEZ8XjM6we5gofwpM1E92FWg7q7RmT4CvXJFPp2xb",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "not qualified",
+      "eval_status": "not qualified"
+    },
+    {
+      "hotkey": "5DoPJqgvv7JFUuHoMyGtahARmVJbKdRfnMLJ6YKKWZDEPDvM",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "in queue",
+      "eval_status": "in queue"
+    },
+    {
+      "hotkey": "5H11C9R2ceiWDwyXn1ukFq3KmztuuogRNuEWNjroS1WvGKqa",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "in queue",
+      "eval_status": "in queue"
+    },
+    {
+      "hotkey": "5Giv8QciQYW42XPp26tyx8VxSFTuQdvapnf41J1V9cULSJun",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "no api key",
+      "eval_status": "no api key"
+    }
+  ]
+}

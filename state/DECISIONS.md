@@ -1,5 +1,56 @@
 # DECISIONS (durable; don't relitigate)
 
+## 2026-06-26 — ★★ WEIGHTED-TOKEN regime: DIRECTION = cache-stable / near-passthrough; raw-token plans SUPERSEDED
+Scoring changed to weighted tokens (commit b79fcaee; weighted = 1·input + (1/3)·cached + 3·output; flip 4→2). This is an
+EXTERNAL platform change, not a relitigation — it OVERTURNS the raw-token-era decisions below (they were correct then).
+- **DIRECTION (do not relitigate): build CACHE-STABLE compressors; the winning shape is NEAR-PASSTHROUGH / stateless
+  prefix-stable.** The dominant lever is cache-stability (stable emitted prefix → cached at 1/3). Aggressive harvest
+  drop/prune is DEAD (busts cache → negative score; m12 cratered 0.768→0.130). Avoiding breaks ≫ flips now (4:2).
+- **aow_bet (freeze-on-emit) = NO-GO** (Codex): its save_state carries the larger frozen output → rich sees a different
+  trajectory than m12 = the proven m21/m22 Hard-crater. ⇒ cache-stable candidates MUST be STATELESS / single-mode.
+- **np1 (m26, 5Ekcy) is the candidate** — stateless idempotent per-message cap, prefix-stability 100% offline, Codex-audited
+  (inflation blocker fixed), UPLOADED + screening. Decision on next steps gated on its SCORED result.
+- **SUPERSEDED (raw-token-era, do NOT pursue until re-derived under weighted tokens):** the E/M/H specialist game, the
+  7-element ownership analysis, two-singles ~9.52%, m25 Easy-specialist / m27 Pair(E,H) / whole-architecture frontier,
+  "defend Hard 0.919" (Hard is now low for everyone, field max 0.342). These remain in the record as raw-token-era history.
+
+## 2026-06-26 — WHOLE-ARCHITECTURE deep-dive ("leave m12"): ceiling UNCHANGED; Pair(E,H) as a TARGET = NO-GO; two record corrections
+User reframe: stop anchoring on m12, is the architecture itself the ceiling? Re-derived from raw per-run JSON (Claude+Codex, matches board 3dp; report whole_architecture_deepdive.md).
+- **Reframe was RIGHT on framing, WRONG on the hope.** RIGHT: m12 = the HARD vertex (field-best); don't improve it, ADD
+  specialists at other vertices (portfolio = MAX per element). WRONG: there is no from-scratch single miner that beats the king —
+  every Easy-capable miner in the field pays elsewhere (king pays Hard 0.727; 5DtEz pays Medium 0.499; m25 pays Hard 0.536).
+- **Pair(E,H) as a deliberate TARGET = NO-GO (both models).** 5DtEz proves E0.837+H0.813 coexist (pair 0.825), and the old m24
+  EH-NO-GO used the wrong constraint (preserve m12 H0.919; Pair(E,H) only needs pair>0.825). BUT 5DtEz is the SAME perturbation
+  tradeoff as m25 — kills flips, makes new breaks — its damage merely landed on MEDIUM not Hard. We can't steer which category
+  the damage hits (W-NS), can't validate offline (NO comp-108 E/M/H map for 267-316), and m25 (our only real attempt) put damage
+  on HARD. So: NEVER build a miner TARGETING Pair(E,H). It remains only an unbankable lottery upside of a Single-E (m26) build.
+- **RECORD CORRECTIONS (re-derived ground truth, supersede prior chain):** (1) **Flips are TIED** — m12 16 ≈ king 17 flip-runs,
+  6 shared tasks; m12 has NO flip edge (the "m12 out-flips king" claim was overgeneralized from dj-14017 alone). (2) **The
+  "frontier" is NOT "nobody is good at all 3"** — the king IS balanced (E0.858∧M1.281∧H0.727, all ≥0.7); the true statement is
+  "no observed miner pairs king-level E/M with m12-level Hard." Overall is unreachable FOR US (our Easy lever craters our Hard),
+  not provably impossible for everyone. (3) m12 does NOT already own Pair(M,H) — king Medium really is ~1.281 (board total
+  arithmetic confirms: mean(0.858,1.281,0.727)=0.955≈0.957; the per-run "0.909" reconstruction was wrong). Pair(M,H)=passive only.
+- **NET ceiling unchanged = ~9.52%** (m12 Single-H + m26 Single-E). The deep-dive verified the ceiling adversarially instead of
+  assuming it; it did not move it. m12 LIVE/untouched; nothing built.
+
+## 2026-06-26 — m25 SCORED (Easy-specialist proof); m27 Easy+Hard dual-mode = NO-GO; growth path = TWO SINGLES, not Pair(E,H)
+- **m25 (5GpB36) SCORED E0.859/M0.667/H0.536, zero penalty.** Failed as m12-replacement (Hard cratered) — m12 stays LIVE.
+  But Easy +0.447 = #2 field → #2 on Single-E (+0.064 to win). MECHANISM (Claude+Codex): the blind→extractive swap is a
+  high-variance content PERTURBATION; the Easy gain is ~86% pass-pass BOOST (perturbation), only ~14% ratio + a little
+  break-fix; it is STRICTLY anti-flip (0 new flips, killed 3) and destabilizes passing tasks (−10.6/18) → that is why M/H
+  cratered. This is the "opposite result" root cause.
+- **m27 (Easy+Hard DUAL-MODE specialist, Pair(E,H)) = NO-GO** (Claude+Codex independent, reports/m27_eh_specialist.md). The
+  settled-vs-exploration router CANNOT separate where the perturbation helps from where it hurts — the help-fires and
+  hurt-fires have IDENTICAL per-turn signal distributions (depth/tokens/ratio/still_failing). Hard protection unachievable
+  (the router producing Easy is the one perturbing Hard; H stays ≈0.536). The non-perturbing alternative (passthrough) loses
+  the 86%-perturbation boost (E<0.84) + balloons tokens on harvest turns (savings-gate fail). m27 = m25's gate relabeled, not distinct.
+- **DURABLE: Pair(E,H) needs ONE miner high on BOTH E and H — impossible with our mechanism** (Easy needs perturbing
+  compression of settled turns; Hard needs un-perturbed full trajectory; same router can't do both). So do NOT pursue a
+  Pair(E,H)/dual-mode miner. The reachable ~9.52% = TWO SINGLES: m12 (Single-H) + an EASY-ONLY specialist (m26, abandons
+  Hard, target Single-E >0.923). m26 is a SEPARATE candidate (user decision pending); design via the dual-agent protocol.
+- Dual-agent (Claude+Codex) protocol is now OPERATIONAL and codified in CLAUDE.md; used for the m25 pre-upload audit, the
+  beat-the-king re-analysis, the methods/recombination review, the m25 mechanism, and this m27 NO-GO.
+
 ## 2026-06-25 — FULL-RESET VERDICT (workflow wohsbvkmr): STOP active comp-108 miner work; HOLD m12 + MONITOR + NEXT-ROUND PREP
 Scientific reset (10 agents, real data, adversarially red-teamed; all load-bearing numbers independently re-verified by
 main session). Report: reports/comp108_full_reset_analysis.md. DURABLE conclusions:
