@@ -56,6 +56,11 @@ coverage.xml
 # Django stuff:
 *.log
 logs/
+
+# comp-status watcher runtime (machine state + launchd logs; NOT handoff — state/comp_watch.md IS tracked)
+data/latest/.comp_watch_state.json
+data/latest/comp_watch.launchd.out
+data/latest/comp_watch.launchd.err
 local_settings.py
 db.sqlite3
 db.sqlite3-journal

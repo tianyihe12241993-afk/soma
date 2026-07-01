@@ -166,6 +166,11 @@ for tok in $TASKS; do
   for prof in $PROFILES; do
     case "$prof" in
       m7)             src="$M7_MINER";  profvar=""; profval="" ;;
+      np16)           src="$REPO/miner/cot_compression/upload_miner_np2.py"; profvar=""; profval="" ;;
+      cap32)          src="$REPO/miner/cot_compression/upload_miner_uphard_cap32.py"; profvar=""; profval="" ;;
+      salience)       src="$REPO/miner/cot_compression/upload_miner_uphard_salience.py"; profvar=""; profval="" ;;
+      np14)           src="$REPO/miner/cot_compression/upload_miner_np_14000.py"; profvar=""; profval="" ;;
+      np20)           src="$REPO/miner/cot_compression/upload_miner_np_20000.py"; profvar=""; profval="" ;;
       h1m@medium)     src="$H1M_MINER"; profvar="H1M_PROFILE"; profval="medium" ;;
       h1m@deep)       src="$H1M_MINER"; profvar="H1M_PROFILE"; profval="deep" ;;
       h1m@king)       src="$H1M_MINER"; profvar="H1M_PROFILE"; profval="king" ;;

@@ -78,26 +78,34 @@ We are in an **ACTIVE** competition and **DO submit** (separate hotkeys; **m12 s
   cache-stable (np1/np2/np3) → from m12's 0% to **23.8% of the pool** (see below).
   Mechanism + numbers: `state/CURRENT.md` (top) + `reports/cache_stable_design.md`.
 
-**DIRECTION (do not relitigate; current 2026-06-27):** the cache-stable **near-passthrough** lineage is
-BUILT and WORKING (m12 0% → 23.8%). The flat per-message cap is a ~ZERO-SUM **E↔H lever** (np1 6k = max-Easy/
-low-M&H; np2 16k = max-Medium; np3 28k = max-Hard/lower-Easy) and we now own **BOTH its corners**:
-Pair(E,M)+Single-M (np2) and Pair(M,H) (np3). **NEXT TARGETS (USER-set 2026-06-27): (1) Single-E (+4.8%,
-NEAR-FREE — m26 E1.066 vs 5DCnA57 1.067, only −0.001) and (2) the OVERALL element (57%, 5DCnA57 0.703).**
-Overall needs ONE miner HIGH on E AND H at once — the flat cap CANNOT give that (zero-sum); it needs a NEW
-mechanism, **NOT a better flat cap** (better-extractive np4 was NO-GO: Hard-block critical content is SPREAD
-22–63k and np2 already keeps it; a "balanced middle cap" wins NO element — the reward pays SPECIALISTS/corners,
-not balance). DEAD: aggressive harvest drop/prune (busts cache); aow_bet state-carryover (m21/m22 Hard-crater).
+**DIRECTION (do not relitigate; current 2026-06-28 ~23:00Z):** Portfolio DROPPED 23.8% → **14.3%** — new king
+**5DZLFZj (0.728, E1.105/M0.832/H0.272)** took Overall + Pair(E,M) + Single-E (= 71.4% of pool). We hold only
+**np2 Single-M (4.8%) + np3 Pair(M,H) (9.5%) = 14.3%** (both SAFE from the king: its M0.832<np2's 0.849, its H0.272 too low for Pair(M,H)).
 
-**CURRENT SOLUTIONS** (hotkey→label in `config/miners.yaml`; m12 stays LIVE regardless; ALL uploads USER-run):
-- **m12** (`5Dz7…`, `upload_miner_m7_compliant.py`) — LIVE, 0.130 (cache-busting harvest). **UNTOUCHED.**
-- **m26 / np1** (`5Ekcy…`, `upload_miner_np1.py`) — cache-stable near-passthrough, cap 6k. **#5, 0.610**
-  (E1.066/M0.620/H0.170). Our **Easy weapon** — E1.066 is 0.001 from Single-E. Wins no element yet.
-- **np2** (`5CPbtf…`, `upload_miner_np2.py`) — cap 16k. **#2, 0.684** (E1.052/M0.849/H0.173). **WINS
-  Pair(E,M) 0.951 + Single-M 0.849 = 14.3%.** Our income.
-- **np3** (`5F9ZRe…`, `upload_miner_np3.py`) — cap 28k. **#3, 0.682** (E0.859/M0.828/H0.369). **WINS Pair(M,H) 0.599 = 9.5%.**
-- **PORTFOLIO = 23.8%** (np2 14.3% + np3 9.5%). RIVALS: **5DCnA57** #1 0.697 (wins Overall + Single-E = 61.9%);
-  **5GgVXzUB** (E0.845/M0.252/**H0.676**, legit-scored) wins Pair(E,H) + Single-H = 14.3%; **5Ggq** "old king" #2 0.673.
-- Raw-token-era & DEAD: m13/m14/m21/m22 rejected, m17 not-qualified, m25 (0.449) obsolete.
+⚠️ **#1 OPERATIONAL LESSON — ROUTING (recent craters were INFRASTRUCTURE, not algo/variance):** a **DeepInfra-ONLY pin
+= NO FALLBACK** → under heavy eval load DeepInfra saturates → solves TRUNCATE → −4 breaks. This (NOT credits/provider/algo)
+cratered m33 (scored 0.216, byte-identical np2), np2c, and likely np_prop (0.487). **FIX (PROVEN): allow ONLY DeepInfra +
+Venice** (both cache-effective: DeepInfra primary ~90% hit, Venice fallback 89%-off) and **BLOCK the no-cache providers
+(Novita/Google/Alibaba = 0% cache → tank weighted-savings) + AtlasCloud.** Proof: m33's 41 post-fix full-token tasks scored
+≈ np2 (1.04× tokens), the 9 pin-truncated tasks (−1.41, 5 breaks) poisoned its total. **KEEP every live miner on DeepInfra+Venice**
+— a re-eval under the pin would crater the 14.3% floor. (Provider cache map verified: see reports / 2026-06-28 checkpoints.)
+
+**CATEGORY MAP CRACKED (validated across all miners):** Hard = the **16 baseline-FAIL tasks** (model fails them UNCOMPRESSED)
+→ won by **FLIPPING** (+2), they CANNOT break. Easy/Medium = the 34 baseline-PASS tasks (Easy=small, Medium=big). Our −4
+breaks are on baseline-PASS Easy/Medium tasks, **NOT Hard**.
+
+**STRATEGY (UPDATED 2026-06-30 — gap DECOMPOSED into breaks + missed-flips; salience/cap32 are real partial levers; full status: `state/CURRENT.md` TOP + `reports/reanalysis_2026-06-29.md`):** The earlier "ALGO SPACE EXHAUSTED → just redraw" verdict was INCOMPLETE. Real per-run decomposition: our 0.044 gap to the king = ~**60% BREAKS** (baseline-pass→fail, −4; django 10% / sympy 13% — BROAD, not sympy-only) + ~**40% MISSED HARD FLIPS** (baseline-fail the king flips & we don't, mostly sympy where np2 OVER-compresses, e.g. sympy-18698 3.27x→1/5). Quality/savings ≈ 0 (we match the king per-token). **TWO LEVERS:** (1) **breaks ← `salience`** — root cause VERIFIED: the extractive pins def/class/errors/tests/diffs/paths but DROPS imports/decorators/raise/except → loses the file API → wrong edit → break; `_STRUCT_PATTERN` pins them (real 32k sympy read: keeps 30/30 imports vs np2's 11/30 at ~same compression). (2) **missed-flips ← `cap32`/fuller-keep** — np2 over-compresses huge Hard contexts; keep them fuller (cap32: ≤53k=np2, >53k cap 32k=np3's proven zone) → flip. **`uphard_salience` (sha 695b4fe4, Codex-GO) = cap32 + salience = BOTH levers**, the lead candidate. Local A/B: salience directionally edges np2 on import-heavy sympy breaks; **a missed-flip A/B (np2 vs cap32 vs salience on sympy-18698) is running** to test the flip lever. ⚠️ **LOCAL EVAL IS AN UNRELIABLE PROXY** (crashes ~50% of tasks, can't run the safe-set) → the **PLATFORM is the only arbiter**; next step = platform-test `uphard_salience` on a spare clean hotkey (read break rate vs np2's 10.6% + Hard flips). **BEST-OF-N is a TAIL LOTTERY, not the play** (DOWNGRADED): np2d1 0.49 + np3-redraw 0.464 = two clean redraws both ~0.46–0.49 ⇒ **0.684 is np2's FAVORABLE draw, not a floor** (~15%/draw beats king) ⇒ **DON'T disturb the live winners** (a re-eval likely redraws them ~0.49 → lose Single-M/Pair(M,H)); protecting the 14.3% floor > chasing. DEFEND: live miners on DeepInfra+Venice (block Google/Novita/Alibaba/AtlasCloud/WandB). New tools: `scripts/vet_draw.py` (account-clean check) + `scripts/check_readme_current.py` (compliance gate) — run BOTH before any hotkey.
+
+**CURRENT SOLUTIONS** (hotkey→label in `config/miners.yaml`; m12 LIVE; ALL uploads USER-run; read ONLY at scored + verify Easy~1.05 binding first; **keep all on DeepInfra+Venice routing**):
+- **m12** (`5Dz7…`) — LIVE 0.130. **UNTOUCHED.**
+- **np2** (`5CPbtf…`, cap 16k) — LIVE **0.684** (E1.052/M0.849/H0.173). **WINS Single-M (4.8%).** Income.
+- **np3** (`5F9ZRe…`, cap 28k) — LIVE **0.682** (E0.859/M0.828/H0.369). **WINS Pair(M,H) (9.5%).** Income.
+- **PORTFOLIO = 14.3%** (np2 Single-M + np3 Pair(M,H)). **LOST Pair(E,M)** to the new king.
+- **m26 / np1** (`5Ekcy…`, cap 6k) — 0.610 (E1.066).
+- **m33** (`5CM1JK…`, = np2 byte-identical redraw) — SCORED **0.216 POISONED** by the DeepInfra-only-pin truncation (9 pin-tasks −1.41/5 breaks). **DISCARD** (not variance — its 41 post-fix full-token tasks scored ≈ np2 = the routing fix PROVEN).
+- **VARIANCE DRAWS = THE ACTIVE PLAY** (`reports/variance_draw_plan.md`): **np2d1** (`5FPPav7s…`, np2 redraw, sha a64231c9) — evaluating **0.608** (1 break = django-11551 → likely a Pair(E,M) miss, recovering on total; re-draw for a clean django roll). Run more np2 draws (target Pair(E,M)) + np3 draws (target Overall), EACH on its OWN isolated DeepInfra+Venice account; read at scored (Easy≥0.85 binding → E+M>0.968 / total>0.728).
+- **DEAD:** **strelief** (`5DLMDwMm`, sha c70bd40a) SCORED **0.509** = clean fail (relief→WANDER, 7 breaks, no Hard flip); **ehspec** (sha 44caadda) Codex **NO-GO** (per-result Easy/Hard sizes overlap → size-tier can't separate); np_prop (`5FNrjmdT`) 0.487; np2c (`5GCWMTZk`) crater; np2b/np5; nptok (ba18fbd0, token-cap = wrong direction); hardspec (e31cf08a, ≈m26, SKIP); m13/m14/m21/m22/m25/m17 raw-era.
+- **NEW KING 5DZLFZj** 0.728 (E1.105/M0.832/H0.272) = Overall+Pair(E,M)+Single-E = **71.4%**. RIVALS: **5GgVXz** (H0.676) = Pair(E,H)+Single-H = 14.3% (the Hard-flip **19% zone**); **5DCnA57** old #1 0.697; **5Ggq** 0.673.
 
 **EVAL PIPELINE** (runs on this Mac, Docker Desktop — NOT WSL):
 - e2e local solve: `experiments/candidates/H1M_m7_deeper_safe_v1/run_batch_eval_parallel.sh`
@@ -109,9 +117,19 @@ not balance). DEAD: aggressive harvest drop/prune (busts cache); aow_bet state-c
   `cache_read` is NOISE** (TTL-dependent) — judge cache-stability by `prefix_stability`, the actual score by the PLATFORM.
 - **Keyless dashboard scrape:** `make collect` (leaderboard, works). `collect_miner_detail.py` = per-miner
   detail page (category means + per-task scores + token splits; comp_id FIXED 107→108 in `config/dashboard.yaml`).
-  `collect_runs.py` action-id auto-discovery is BROKEN (not needed — the detail page carries everything).
-- Category map (E/M/H per task) is task-intrinsic but NOT in the data; recover via live-trace
-  (`scripts/trace_eval_categories.py` + `solve_eval_categories.py`) — **SECONDARY** (cache strategy is category-agnostic).
+  `collect_runs.py` **FIXED 2026-06-29** — gives REAL per-RUN data (run_id/attempt_no/pass/tokens/score/steps, 5/task). The dashboard
+  stopped serving the `getSweTaskRunsAction` server action and now EMBEDS per-run rows inline in the page RSC under `sweRunsByTaskId`
+  (keyed by task_id); the script parses that directly (no action replay). `--hotkey HK [..]`; writes `*_swe_runs.json` (import-compatible).
+- **`scripts/vet_draw.py` (NEW 2026-06-29) — VET a draw's account before trusting its score.** `--hotkey HK` (scrapes per-run) or
+  `--from-file *_swe_runs.json`. Computes cache% / timeouts / break% and classifies: CLEAN (cache≥88% & break≤13% → trust) /
+  BAD DRAW (break>13%, cache OK → discard score, account fine to redraw) / BAD ACCOUNT (low cache → fix routing). Reference = np2-ORIG
+  (5CPbtf: cache 93.9%, break 10.6%, the 0.684 good-account draw). Use on EVERY redraw — the resubmit craters (m33 0.22 / np2b 0.13 / np2d1 0.49)
+  were caught by this signature. ⚠️ Calibrated for np2-CLASS light compressors; a Hard specialist (uphard/5GgVXz) breaks more BY DESIGN — judge those on Hard, not break%.
+- Category map (E/M/H per task) **CRACKED 2026-06-28** (validated across all miners): **Hard = the 16 baseline-FAIL
+  tasks** (per-miner mean over baseline-fail == published Hard, exact). Easy/Medium = baseline-PASS (Easy=small,
+  Medium=big baseline-tokens; approximate). Won't drive the miner (task-awareness banned) — it's a DIAGNOSTIC: Hard is
+  won by FLIPPING (can't break); our −4 breaks are on baseline-PASS Easy/Medium. Score-inference fails (compressed
+  scores cluster near pass-pass); use the baseline-fail signal. Live-trace (`trace_eval_categories.py`) = the other path.
 
 **Discipline (in addition to the Hard rules):**
 - Separate truth-levels: observed PLATFORM (`source:platform`, the only arbiter) vs LOCAL replay (NOISY,

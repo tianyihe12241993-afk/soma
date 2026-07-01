@@ -1,8 +1,10 @@
 {
-  "computed_at": "2026-06-27T08:57:57Z",
-  "eligible_miners": 71,
+  "computed_at": "2026-07-01T21:06:25Z",
+  "eligible_miners": 125,
   "excluded_failed_review": [
-    "5CaFqLaPBYTQyBrEbAMcjErPmG8mrFtF9sEtX3HD4uPCqJHU"
+    "5CaFqLaPBYTQyBrEbAMcjErPmG8mrFtF9sEtX3HD4uPCqJHU",
+    "5EeUAVZDbk2jSYbtFFbQMAoqtArnDe5JLHzfKg7oCYmQhXmk",
+    "5DZLFZj46PcVWstRzADK6PFs8eE9XhmHxXGuj72cbaGnC6VC"
   ],
   "elements": {
     "Overall (E,M,H)": {
@@ -46,11 +48,11 @@
       ]
     },
     "Single (E)": {
-      "score": 1.067,
+      "score": 1.0786,
       "weight": 0.083333,
       "winners": [
         {
-          "hotkey": "5DCnA57Dve8W4GwXMrTwpB4MGzSGpcVdhwfvnGra8JkFK2yD",
+          "hotkey": "5EKyJnbyNSa9hN6fHEdwUrisGvZMUfi1uxAgppwCQBVpyDrp",
           "name": ""
         }
       ]
@@ -77,10 +79,11 @@
     }
   },
   "incentive_share_of_pool": {
-    "5DCnA57Dve8W4GwXMrTwpB4MGzSGpcVdhwfvnGra8JkFK2yD": 0.619,
+    "5DCnA57Dve8W4GwXMrTwpB4MGzSGpcVdhwfvnGra8JkFK2yD": 0.5714,
     "5CPbtf3sUKrpGikpCuDVvMrpTe4VpPWMXNX5sFeTXHDSY7QS": 0.1429,
     "5GgVXzUBF9wDjMdqyRwHecTNHmFDDR3NCzzF1bPSPcULJtpS": 0.1429,
-    "5F9ZReArwp25LaG1D8cze9WgWEeo8uofCjbsLTKaJk5ft7Jp": 0.0952
+    "5F9ZReArwp25LaG1D8cze9WgWEeo8uofCjbsLTKaJk5ft7Jp": 0.0952,
+    "5EKyJnbyNSa9hN6fHEdwUrisGvZMUfi1uxAgppwCQBVpyDrp": 0.0476
   },
   "our_element_wins": [
     "Pair (E,M)",

@@ -1,6 +1,35 @@
 # SCOREBOARD — comp 108 (CoT-Compression-4)
 
-## ★★★ 2026-06-27 ~08:57 — np3 SCORED; PORTFOLIO (np2+np3) = 23.8% (snap 085653, 70 legit; make reward)
+## ★★★ 2026-06-30 ~11:55 — ✅ BOTH KINGS DQ'd (owner rule) → PROJECT 23.8% (snap 115258; both still show scored, DQ pending)
+Owner oli|SOMA: top-2 (5EeUAVZ 0.852 + 5DZLFZj 0.728) used unapproved `#source line N` → **cannot pass review**. Prompt list now FROZEN mid-comp.
+Projection with both excluded (category-mean proxy):
+| element | weight | winner | ours? |
+|---|---|---|---|
+| Overall | 1.0 | 5DCnA57 0.703 | — |
+| **Pair(E,M)** | 1/6 | **np2 0.951** | ✅ RECLAIMED (old king had it) |
+| Pair(E,H) | 1/6 | 5GgVXz 0.760 | — |
+| **Pair(M,H)** | 1/6 | **np3 0.599** | ✅ |
+| Single(E) | 1/12 | 5EKyJnby 1.079 | — |
+| **Single(M)** | 1/12 | **np2 0.849** | ✅ |
+| Single(H) | 1/12 | 5GgVXz 0.676 | — |
+**SHARE: 5DCnA57 57.1% · np2 14.3% (Pair(E,M)+Single-M) · 5GgVXz 14.3% · np3 9.5% (Pair(M,H)). OURS = 23.8%** (pending the platform applying the DQ).
+- nocap (5FXAR4) 0.416 = FAILED (E0.984/M0.266/H0.032; 17% breaks, uncapped-tail crater — predicted). DISCARD. m12 0.130, m26 0.610 LIVE.
+
+## ★★★ 2026-06-30 ~08:05 — ⚠️ NEW KING 5EeUAVZ → OUR SHARE 0% [SUPERSEDED by 11:55 — kings DQ'd] (snap 075706; `reports/new_king_5EeUAVZ_analysis.md`)
+**New scored miner `5EeUAVZDbk2j…` = 0.852 (E1.076/M0.959/H0.535) wins 5 of 7 elements = 90.5%.** Took Pair(M,H) from np3 AND Single-M from np2.
+| element | weight | winner | ours? |
+|---|---|---|---|
+| Overall | 1.0 | **5EeUAVZ 0.856** | — (was old king 0.728) |
+| Pair(E,M) | 1/6 | **5EeUAVZ 1.017** | — (lost) |
+| Pair(E,H) | 1/6 | **5EeUAVZ 0.805** | — |
+| Pair(M,H) | 1/6 | **5EeUAVZ 0.747** | ❌ LOST (np3 had it) |
+| Single(E) | 1/12 | 5EKyJnby 1.225 *(evaluating)* | — |
+| Single(M) | 1/12 | **5EeUAVZ 0.959** | ❌ LOST (np2 0.849 had it) |
+| Single(H) | 1/12 | 5GgVXzUB 0.676 | — |
+**SHARE: 5EeUAVZ 90.5% · 5EKyJnby 4.8% · 5GgVXz 4.8%. OURS = 0%** (was 14.3%). np2 0.684 / np3 0.682 still LIVE+scored (unchanged) — lost the elements, not points.
+- **King = "np2 but LIGHTER (1.33x vs 1.49x) + CLEANER": breaks 9.0% RUNS (np2 12.4%), flips 40% RUNS (np2 30%); savings+cache IDENTICAL.** Validates fuller-keep (cap32/nocap) + salience. Reclaim target = Single-M (need M>0.959). Detail + task-level flip/break diffs: `reports/new_king_5EeUAVZ_analysis.md`.
+
+## ★★★ 2026-06-27 ~08:57 — np3 SCORED; PORTFOLIO (np2+np3) = 23.8% (snap 085653, 70 legit; make reward) [SUPERSEDED by 06-30 above]
 np3 (5F9ZRe, cap 28k) total 0.682, E0.859/M0.828/**H0.369** (field-HIGHEST Hard). vs np2: H **+0.196**, E **−0.193**, M −0.021, total −0.002.
 The cap is a ~ZERO-SUM **E↔H lever** (low cap=high E/low H = np2; high cap=high H/low E = np3). But on SEPARATE hotkeys it's
 ADDITIVE — np3 won the M+H corner np2 couldn't.

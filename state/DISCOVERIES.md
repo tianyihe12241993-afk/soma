@@ -1,5 +1,46 @@
 # DISCOVERIES (durable findings)
 
+## 2026-06-29 — ★★★ CORRECTION: 0.684 is np2's FAVORABLE draw, NOT a floor → best-of-N was OVER-SOLD; protect live winners from re-eval
+User flagged: "resubmitted np2 several times, ALL bad — not just variance." RIGHT. Per-run provider signature (real data, `080832_swe_runs.json`)
+settles WHY:
+- **np2d1 (0.49) ran on a GOOD provider** — DeepInfra 93.1% cache, normal steps(50)/time(610s), 1 timeout — SAME as np2 ORIG (0.684, 93.9%, 0 timeout),
+  byte-identical code. So np2d1's 0.49 is NOT bad-routing (my earlier "starved/weak-provider" call was WRONG); it's genuine RUN-VARIANCE (broke 15.3% vs orig 10.6%).
+- The bad resubmits split TWO ways: **systematic account craters** (m33 0.22 = DeepInfra-only-pin truncation; np2b 0.13 = AtlasCloud no-cache) **vs clean-but-unlucky** (np2d1 0.49, good account).
+- ⇒ **0.684 is the FAVORABLE end of np2's range, not a reproducible floor.** Two clean draws (0.684, 0.49) ⇒ typical clean draw ~0.55–0.6. Reproducing 0.684 needs a clean account AND a lucky roll = compound low odds. **Best-of-N is a LONG SHOT, not a plan** (I over-sold it; the user's all-bad streak is the real signal).
+- **NEW TOP RISK: our held elements rest on FAVORABLE draws.** Live np2 (5CPbtf) holds Single-M and np3 holds Pair(M,H) because they drew high. A platform RE-EVALUATION could redraw them ~0.49 (like np2d1) → **we LOSE the elements.** ⇒ priority flips to **DON'T disturb the live winners**; a re-eval is a coin flip that can only cost us.
+- ACTIONS: (1) protect live np2/np3/m26 (don't trigger re-evals; keep accounts good). (2) best-of-N only as a long-shot lottery on a VERIFIED-clean account (replicate 5CPbtf: DeepInfra+Venice, fast, 0 timeout) — don't feed un-vetted accounts (m33/np2b pattern). (3) np2 = best COMPRESSOR (=king when clean) but volatile SCORE; "strongest" = best single result, not reliable.
+
+## 2026-06-29 — ★★★ REAL PER-RUN DATA (1000 runs): np2 is AS RELIABLE as the king (settles the user's reliability challenge)
+Fixed `collect_runs.py` (dashboard now embeds per-run inline under `sweRunsByTaskId`; old server-action gone) → pulled REAL per-run for
+np2/king/5GgVXz/np2d1 (`data/raw/platform_results/2026-06-29/080832_swe_runs.json`). No more inference. The REAL run-level rates:
+- **np2 (0.684): 10.6% break rate** (18/170 baseline-pass runs) + **30.0% Hard flip** (24/80). **KING (0.728): 10.0% break + 30.0% flip.**
+  → **np2 ≈ king reliability** (0.6% break diff, identical flip). Our agent is NOT "much less reliable than the king" — the per-run failures the
+  user sees on the dashboard are the benchmark's INHERENT difficulty (the king has the same rates). 5GgVXz: 19.4% break / 46.2% flip (its Hard specialty costs E/M reliability).
+- **np2 vs king break the same tasks only 43%** (6 of 14 broken baseline-pass tasks shared) → ~half systematic task-difficulty, ~half VARIANCE → best-of-N gains on the variance half.
+- **CONTROLLED TEST — np2d1 (BYTE-IDENTICAL np2, sha a64231c9) broke 15.3% vs np2's 10.6%** on the SAME code, + lower flip (27.5% vs 30%). Same code, worse rates ⇒ the −0.19 (0.49 vs 0.684) is the ACCOUNT/PROVIDER + draw, NOT the compressor. np2d1 is STARVED (Easy 0.725<0.85) → DISCARD, re-draw on a clean DeepInfra+Venice account.
+- **TAKEAWAY:** our score volatility (0.49↔0.684 on identical code) is EXTERNAL (provider quality + draw variance), controllable by locking DeepInfra+Venice routing + best-of-N. Reliability is not the problem; the provider lever + variance are.
+
+## 2026-06-29 — ★★ CORRECTION: the king's 0.044 edge is RUN-VARIANCE between TWIN compressors, not breaks/savings (Codex-verified)
+Re-derived from fresh per-task dump `data/raw/dashboard/2026-06-29/044246_miner_detail.json` (king 5DZLFZj + np2 5CPbtf + 5GgVXz, 50 tasks, full
+token splits). Full write-up: `reports/reanalysis_2026-06-29.md`. Both Claude and Codex re-derived independently.
+- **The prior verdict's reasoning was WRONG.** CLAUDE.md said "the king's gap = the BASE/outcomes term (breaks/flips), NOT savings." Actually:
+  gap decomposition (summed king−np2 = 2.187) is **66% (1.443) on SAME-outcome tasks** (mostly both-pass-pass where the king just scores higher
+  run-to-run), only 34% from break/flip diffs. AND **np2 compresses slightly MORE efficiently** (weighted-token ratio king/np2 = 1.036; cache
+  93.8% vs 93.9%; baseline-pass ratio 1.53x vs 1.52x). ⇒ king ≈ np2 TWIN; the gap is RUN-VARIANCE. **GOOD NEWS: the king's 0.728 is a lucky
+  draw, mathematically beatable by best-of-N** (not a better algorithm). This RAISES confidence in the variance play; conclusion unchanged.
+- **Hard-specialist lever STRUCTURALLY DEAD (ehspec NO-GO generalized).** 5GgVXz wins Hard by compressing HARDER (1.68x vs 1.53x) → more runs
+  flip; it flips only 6/16 Hard vs np2's 5/16 (same count). But it applies aggression UNIFORMLY → craters Medium 0.252. To win the Hard zone
+  without cratering E/M needs a Hard-vs-E/M discriminator — and NONE exists: every token feature overlaps (|Cohen's d| ≤ 0.81, best threshold =
+  28% misclass, Codex-confirmed). Reachable only by a separate uniform-aggressive sacrificial miner (must beat 5GgVXz Pair(E,H) 0.760 — low EV).
+- **Easy-lift via tighter cap REFUTED.** Hypothesis: np2 leaves Easy savings on the table → tighter cap lifts Easy toward king's 1.105. But
+  pass-pass Easy savings proxy np2 0.556 ≥ king 0.552 (np2 already at/above) → the small Easy gap is run-variance, not engineerable; and one new
+  Easy break ≈ −0.29 = ~10× the gap. Bad bet.
+- **E/M category map is fuzzy but UNNEEDED.** "Hard = baseline-fail exact" overstated (np2 Δ0.053); 3 on-disk maps disagree. Irrelevant — the
+  platform publishes per-miner Easy/Medium/Hard in `category_scores`; read element wins there at scored. The map only mattered for a
+  category-targeted compressor, which the no-discriminator result kills.
+- **NET:** algo truly exhausted (now with token-level proof); best-of-N is EV-max + higher-confidence. Scaling knob = # simultaneous live clean
+  draws (winner-take-all → our element score = MAX over live hotkeys). Each funded DeepInfra+Venice account = one ticket on Pair(E,M)+Overall.
+
 ## 2026-06-26 — ★★ SCORING REGIME CHANGED to WEIGHTED TOKENS → CACHE-STABILITY is the dominant lever (overturns all raw-token analysis)
 SOMA merged weighted-token scoring (commit b79fcaee, LIVE). Verified from scoring.py: per-run = base + λ·Trim(ln(weighted_B/weighted_A),−2,+2),
 **weighted = 1·input + (1/3)·cached + 3·output**; FLIP 4→2, BREAK −4 (unchanged), pp +1/ff 0; savings multiplier also weighted.

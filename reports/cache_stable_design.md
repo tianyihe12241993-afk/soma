@@ -317,3 +317,181 @@ IMPLICATION: with cap (zero-sum E↔H, §14), better-extractive (NO-GO §14), an
 compression lever cleanly beats #1's near-pure-passthrough on Overall under the cache-dominant regime.** #1's shape is near-
 optimal. Our 23.8% (E+M corner via np2, M+H corner via np3) is the compression-lever CEILING. Beating #1's Overall (57%) =
 out-executing its near-passthrough (marginal) or a re-eval VARIANCE win (the gap is 0.015, within run-variance). Single-E (0.001) same.
+
+---
+
+## §17 — OpenRouter provider research for qwen/qwen3-coder (2026-06-27, via /browse) — we're ALREADY on the best provider
+Triggered by np2b's −0.555 crater (AtlasCloud allowed). Pulled the provider table for `qwen/qwen3-coder` (Qwen3-Coder-480B-A35B, 1M ctx):
+| provider | CACHE hit | latency | tput | uptime | GPQA/TAU bench | token share | in/out $/M |
+|---|---|---|---|---|---|---|---|
+| **DeepInfra (Turbo)** | **~90%** | 0.47–0.82s | 16–43 | 99.67% | 62.5/49.5 | 57–81% | 0.30/1.00 |
+| AtlasCloud | **0.0%** | 1.70s | 42 | 100% | 63.0/47.0 | 6.9% | 0.78/3.80 |
+| Venice | 66.9% | 0.85–1.09s | 14 | 93.65% | 63.0/45.8 | 2.3% | 0.35/1.50 |
+| NovitaAI | 8.3% | 2.21s | 20 | 99.99% | – | 32.3% | 0.38/1.55 |
+| Weights&Biases | 7.1% | 3.66s | 40 | 99.92% | 65.6/47.7 | 0.9% | 1.00/1.50 |
+| Alibaba OSS | 0.0% | 1.08s | 44 | 99.91% | – | 0.1% | 0.975/4.875 |
+| Google Vertex | – | 2.92s | 25 | 77.60% | – | – | 0.22/1.80 |
+
+**Decisive finding: model QUALITY is ~equal across providers (GPQA ~62–66%, TAU ~46–50%, tool-call err all <0.7%). The one column that
+differs by 10× is CACHE HIT RATE — DeepInfra ~90% vs AtlasCloud 0.0%.** Under the weighted-token regime (cached = 1/3×), cache hit
+rate IS the score for a cache-stable miner. AtlasCloud's 0% cache (+ re-processing the full context every turn → slow → likely
+timeouts on long Medium tasks) is what cratered np2b — NOT a dumber model.
+**⇒ We are ALREADY on the right side of the lever.** np2's measured 94% cache matches DeepInfra (~90%), so the good account effectively
+routes to DeepInfra (the default: cheapest, fastest, best cache, 57–81% token share). Our 23.8% reflects GOOD routing — we are NOT handicapped.
+**So the provider lever is mostly DEFENSIVE, not a path past #1:**
+- DEFEND: ensure ALL our accounts IGNORE AtlasCloud + the 0%-cache providers (Alibaba OSS) so we never accidentally crater like np2b.
+- MARGINAL UPSIDE: if the good account uses Balanced routing, it may occasionally hit a non-DeepInfra (lower-cache) provider → a hidden
+  source of break/variance. PINNING DeepInfra (OpenRouter "Exacto" / provider order=[DeepInfra]) removes that roulette → possibly a few
+  fewer breaks. TEST on a FRESH hotkey (never re-route the live 23.8% blind). The gap to #1 is only 0.013, so even small consistency gains could matter.
+- HONEST: quality is equal across good providers + we're already on the best one, so there is NO "smarter provider" to unlock. The 0.013
+  gap to #1 is most likely genuine run-variance / #1's marginal edge, not a provider we're missing. Provider routing rules OUT "we're handicapped"; it is not a free 0.05.
+
+---
+
+## §18 — np5 = NEAR-PURE-PASSTHROUGH Overall-challenger (Bet 1). BUILT + offline-green 2026-06-27
+Premise (§15-E + §16-17): #1 (0.697) beats us on Overall PURELY by run-stability (9 breaks vs our 11-14); quality/provider/compression
+all ~equal; we've never fielded a near-pure-passthrough (np2/np3/m26 all extractive-CMP big results → byte-change → divergence → breaks).
+np5 = np2 lineage, NP_RESULT_CAP 16k→**48k** = the untested near-passthrough cap region = #1's winning shape.
+KEY DESIGN: Easy tasks have SMALL results (<16k) → np5 treats them BYTE-IDENTICALLY to np2 → inherits np2's HIGH Easy (~1.05), NOT
+np3's anomalous 0.859 (that was Easy-draw VARIANCE — np2/np3 treat Easy tasks identically). np5 diverges from np2 ONLY on big
+(Medium/Hard) results, keeping them fuller → fewer over-compression breaks (+Hard) at a slight Medium-ratio cost. NET BET: np2's Easy +
+fewer breaks + higher Hard → Overall toward/past #1's 0.697. ADDITIVE (wins no corner → can't cannibalize np2/np3's 23.8%).
+OFFLINE VALIDATION (all PASS): compiles; only the cap constant changed (no dedup/passthrough extras); np5==np2 BYTE-IDENTICAL on
+≤16k results (8k,16k) → Easy inherited; np5 keeps MORE on 24k/40k (24000/40011 vs np2's 16026) → the lighter-touch divergence;
+≤native always; idempotent; compliant (only [[CMP]]/[[BLOCK N]]); **prefix-stability 99.9% = np2's (vs np4-dedup's 16% crater).**
+48k = first cut, PLATFORM-calibrated (lighter 56-64k=fewer breaks/less ratio; heavier 40k=more ratio/more breaks). NEXT: Codex pre-upload audit → USER uploads fresh hotkey (good DeepInfra account).
+
+---
+
+## §19 — Lossless-redundancy measurement → the algorithmic search is EXHAUSTED (measured, not argued). 2026-06-27
+Measured intra-message redundancy across 4049 distinct comp-108 tool results (9.2M chars): trailing-ws 0.0%, blank-run-excess
+0.0%, consecutive-dup lines 0.4% → **LOSSLESS-SAFE TOTAL = 0.5%.** Aggressive/lossy (non-consecutive dup lines) = 6.7% more (7.1%
+total) but lossy (changes structure → break risk). After λ=0.5 + cache dilution (1/3×), realized score gain from the lossless edge ≈ noise.
+⇒ The lossless-compression lever (the one I argued was "non-break-trading") has NO FUEL on this task set — tool results are already clean.
+
+**CONCLUSION — every algorithmic lever is now MEASURED and empty/dead:**
+| lever | verdict | evidence |
+|---|---|---|
+| flat cap (param) | zero-sum E↔H, exhausted | §14, cap curve 6k/16k/28k peaks ~16k |
+| better extractive | NO-GO (Hard content spread 22-63k) | §14 |
+| cross-message dedup | cache-bust (84% prefix invalidated) | §16 |
+| reasoning (CoT) compression | uncapturable (15k micro-msgs, mean 736c) | §17-pre |
+| lossless redundancy removal | 0.5% fuel = noise | §19 (here) |
+| provider routing | we're already optimal (DeepInfra ~90% cache) | §17 |
+| breaks | variance-dominated, not code-controllable | §15-E |
+**⇒ The 0.68-0.70 Overall ceiling is STRUCTURAL: #1's near-passthrough is near-optimal AND the data leaves no free algorithmic lever.**
+Beating #1's Overall is NOT algorithmic. Remaining real paths: (1) np5 near-passthrough shape test (PENDING — the one live shot; could
+edge #1 via fewer breaks or underperform); (2) VARIANCE harvesting (run the best shape on multiple GOOD-account hotkeys → Overall
+element goes to the best draw); (3) DEFEND 23.8% (strong, 2nd on board) + NEXT-ROUND (propose a NEW allowed mechanism publicly to expand
+the toolkit — the only way to unlock genuinely new algorithm space). STOP hunting compression algorithms — the well is measured-dry.
+
+---
+
+## §20 — Extractive SELECTION fragments badly → coherent/structure-aware selection (np6 proposal). 2026-06-27
+User pushed back on "the well is dry": the cap is one knob, but the extractive SELECTION (what/how to keep within the cap) is a
+SEPARATE, never-changed knob. CONFIRMED empirically. extractive_compress (upload_miner_np2.py:751) is LINE-BASED: pins
+error/test/diff/sig lines + top TF-IDF lines, emits them in order with "…" at every gap. Applied to real break-task blocks (target 16k):
+| break task | input | "…" gaps | avg contiguous run |
+|---|---|---|---|
+| django-14122 | 64k/1397 lines | 166 | 3.4 lines |
+| django-12050 | 64k/1426 lines | 191 | 3.3 lines |
+| sympy-20590  | 64k/1969 lines | 221 | 3.3 lines |
+Output sample (django-12050): `def get_field_names_from_opts(opts): … def get_children_from_q(q): … class RawQuery: … def chain(self, using): …`
+= it keeps function SIGNATURES and DROPS the BODIES → a table-of-contents skeleton, not usable code. For a coding agent fixing a bug,
+this is near-useless → a PLAUSIBLE source of our compression-induced breaks (§15-E split: some breaks agent-variance e.g. sympy-15349,
+some compression-induced e.g. the 0.4x tasks #1 passed). §14's "keeps 8/8 critical LINES" was MISLEADING — keeps the lines, shreds the CONTEXT.
+PROPOSAL np6 = COHERENT / STRUCTURE-AWARE extractive: keep WHOLE load-bearing units (the function being touched, full traceback, full
+failing-test body, full diff hunk) intact + drop whole boilerplate units — quality over quantity. A coherent 16k beats a fragmented 16k
+skeleton for the agent. EXCITING COMBO: coherent + TIGHT cap (16k) = hard compression (ratio edge over #1) WITH usable context (fewer
+breaks) → targets BOTH gaps (breaks + balance). Compliant (structure heuristics, no task-awareness/LLM), cache-stable (per-message
+deterministic/idempotent), bounded (≤cap). CAVEATS: offline can't prove solve-rate/break reduction (platform-only); truly-spread Hard
+(§14, content 22-63k) still can't fit any 16k coherent-or-not. GATE: Codex design review (this build-fork) BEFORE building.
+
+---
+
+## §21 — np6 hybrid coherent-extractive: BUILT (Codex GO-WITH-CHANGES), validated, NO-GO (≈np2). 2026-06-27
+Built the Codex-approved hybrid (keep highest-confidence load-bearing UNIT coherent + np2 line-breadth + np2 fallback;
+upload_miner_np6.py, np2's 16k cap). Compiles, cap=16k, fallback works (no-anchor → exact np2). BUT VALIDATION = ≈np2:
+- 50% of >16k blocks have NO error/traceback/diff anchor → np2 fallback (no change).
+- On the 50% anchored blocks, gaps barely drop: np2 ~162 → np6 ~158-159; and at anchor budget 0.4/0.7/0.9 → 158/158/157 (flat).
+- Overall: mean "…" gaps np2 139 → np6 137; 75/127 blocks byte-identical to np2.
+WHY ≈np2 (two structural reasons): (1) the coherent window expands only to blank-line boundaries → structurally SMALL (one
+block), so a bigger budget fraction doesn't grow it; the breadth still scatters the rest. (2) DEEP WALL: the anchor is the
+ERROR/traceback, NOT the code the agent must FIX — and we can't identify the right code unit without TASK-AWARENESS (banned).
+So coherent selection can't target the needed content. VERDICT: NO-GO — np6 ≈ np2 offline → uploading reproduces np2's 0.684,
+a wasted hotkey. Matches Codex's predicted disappointment ("reduces visible fragmentation but moves Overall by noise") + the
+§15-E irreducible-variance floor. The fragmentation DIAGNOSIS was right + valuable; the FIX can't land within the no-task-awareness rule.
+
+## ⇒ COMPRESSION-ALGORITHM SPACE EXHAUSTIVELY VALIDATED DEAD
+cap (zero-sum §14) · better/coherent extractive (≈np2 §21, can't ID right content w/o task-awareness) · dedup (cache-bust §16) ·
+reasoning (uncapturable §17) · lossless redundancy (0.5% §19) · provider (already-optimal §17). #1's near-passthrough is near-optimal;
+the break-gap is irreducible variance + the task-awareness wall. REMAINING (non-algorithmic): np5 near-passthrough (PENDING, the
+one live shot) · variance-harvest Overall (best shape × N good-account hotkeys) · DEFEND 23.8% · NEXT-ROUND (propose a new allowed
+mechanism — the only way to unlock real new algorithm space, e.g. a compliant relevance signal that doesn't require task IDs).
+
+---
+
+## §22 — np5 (cap 48k near-passthrough) SCORED 0.25 = CRATER. USER RIGHT (cap, not provider). Bet 1 DEAD. 2026-06-27
+np5 (5CZxaU, cap 48k, GOOD DeepInfra account confirmed by user) scored total ~0.25 (E0.420/M0.247/H0.124) vs np2 0.684.
+I HYPOTHESIZED a provider crater (E should be ~1.05 if good provider). REFUTED by per-task detail: on IDENTICAL-TREATMENT tasks
+(np5 output byte-identical to np2 — small results), np5 ≈ np2: django-13820 1.46≈1.47, django-12155 1.39=1.39, django-12143
+1.16≈1.20, django-11333 -0.01≈-0.02 (+ high per-task variance: sympy-23824 np5 1.77 vs np2 0.43, sympy-14531 np5 -0.51 vs np2 1.32).
+np5≈np2 wherever output is identical ⇒ SAME good provider (user was right). The crater comes ENTIRELY from the BIG-result tasks
+where np5 diverges (keeps 16-48k results RAW vs np2 capping to 16k) → catastrophic agent WANDER → break.
+**KEY: 48k is a CLIFF, not a gentle slope.** np3 (28k) = 0.682; np5 (48k) = 0.25. Keeping the 16-48k results raw makes the agent
+wander/break catastrophically. NEAR-PASSTHROUGH IS CATASTROPHIC FOR US, not just suboptimal.
+⇒ **Bet 1 (near-pure-passthrough Overall challenger) is DEAD, decisively.** When WE go lighter than np2, we don't approach #1's
+0.697 — we fall off a cliff. #1's near-passthrough edge is NOT replicable via our cap. np2's 16k is the CONFIRMED cap sweet spot
+(6k m26=0.610 / 16k np2=0.684 / 28k np3=0.682 / 48k np5=0.25). The cap's lighter side is a cliff.
+CORRECTION: my "Easy<1.05 ⇒ provider crater" heuristic was WRONG for np5 — np5 DOES diverge from np2 on Easy tasks that have
+16-48k results (Codex's "easy peaks 6-58k" 3c point), so its Easy can crater from the CAP, not the provider. The decisive test is
+per-task on IDENTICAL-TREATMENT (byte-identical-output) tasks, NOT the Easy aggregate. m12/np2/np3 live = 23.8% untouched; np5 dead hotkey.
+
+---
+
+## §23 — Local cap-sweep around 16k (user request): 16k CONFIRMED sweet spot; small changes bad-to-neutral. 2026-06-28
+Ran np14/np16/np20 × 4 big-result Pass tasks (django-12050, django-13033, django-14122, sympy-20590) × RUNS=2 (24 solves, e2c key,
+run 2026-06-28_002514_H1M_pbatch). Per-category (Pass, 8 solves/cap):
+| cap | resolved | broke | neg | note |
+|---|---|---|---|---|
+| np16 16k | 8/8 | 0 | 0 | ONLY clean cap |
+| np14 14k | 7/8 | 1 | 1 | over-compression break (django-14122) |
+| np20 20k | 7/8 | 0 | 1 | wander non-resolve (django-13033) |
+⇒ 16k is the local sweet spot; a small change EITHER way (tighter 14k or looser 20k) each introduced one failure. No small tweak beats
+16k. CONFIRMS the platform verdict (6k 0.610 / 16k 0.684 peak / 28k 0.682 / 48k 0.25 cliff). CAVEAT: 8 solves/cap (RUNS=2) — the single
+failures are SUGGESTIVE not definitive (could be partial run-variance); token totals are confounded by trajectory length (broken/non-
+resolved runs end early → fewer tokens, so np14/np20's lower avg_total is NOT a cleaner-compression signal). NET: the cap lever is
+SETTLED at 16k (np2); small tweaks don't help. Local variant files upload_miner_np_14000.py / _20000.py are TEST-ONLY (not candidates).
+NOTE: sweep ran on a user-pasted OpenRouter key (now exposed in chat) — user to ROTATE it.
+
+---
+
+## §25 — np_prop = PROPORTIONAL/ratio cap (the king's method). BUILT + offline-clean. 2026-06-28
+The king's distinguishing pattern (§24) = uniform-light, never over-compress (ratio median 1.24x/max 2.02x/std 0.36) vs np2's
+bimodal absolute cap (std 0.61, 9 tasks >2x up to 4x = our over-compression breaks). np_prop replicates it: instead of an ABSOLUTE
+16k cap, keep NP_KEEP_FRAC (0.55) of EACH result floored at NP_FLOOR (10k) => uniform ~1.8x ceiling. upload_miner_np_prop.py
+(cap_tool_result rewritten: target = max(NP_FLOOR, len*NP_KEEP_FRAC)).
+OFFLINE VALIDATION (all PASS): compiles; proportional ratio confirmed (8k pass / 12k 1.27x / 20-64k UNIFORM 1.82x, never over-
+compresses); IDEMPOTENT (the [[CMP]] guard prevents re-compression -> resolves the original author's "fractional cap churns the
+prefix" concern); PREFIX-STABILITY 99.9% (cache-safe); compliant (allowed markers only); <=native.
+HONEST RISK (the catch): np_prop COMPRESSES the small/mid results (10-16k) that np2 PASSES THROUGH -> via the SAME fragmenting
+extractive (§20, signatures-without-bodies) -> could HURT Easy/Medium (np2's strength + our 14.3% income), where the king
+presumably compresses COHERENTLY. So np_prop trades: FEWER big-result over-compression breaks (good for Hard) for MORE small/mid
+fragmentation risk (risk for Easy/Medium). NET is platform-only. ADDITIVE Overall-challenger (np2/np3 hold the corners regardless).
+NEXT: Codex design review (new MECHANISM, like np6) to red-team the fragmentation-on-small risk + whether proportional beats np2/the
+king -> then local-test or upload. NOT a constant change — first genuinely new compression MECHANISM with a real basis.
+
+---
+
+## §26 — np_prop REVISED to the HYBRID (Codex GO-WITH-CHANGES). Built + validated. 2026-06-28
+Codex design review of np_prop-as-proportional: GO-WITH-CHANGES — compress-everything would RELOCATE breaks (fragment the 10-29k
+band np2 passes -> likely regress below np2, the np5/np6 dynamic). Endorsed the HYBRID: keep np2's EXACT behaviour for <=2*NP_CAP,
+apply a 2x ceiling only ABOVE it. IMPLEMENTED (upload_miner_np_prop.py): cap_tool_result target = max(NP_CAP=16k, native*0.5).
+VALIDATION (all PASS): BYTE-IDENTICAL to np2 for native <=32k (8k/16k/24k/32k: diff=0 -> Easy/Medium CANNOT regress, our 14.3%
+protected); >32k kept at 50% (48k->24k=2x, 64k->32k=2x) vs np2's 16k (3-4x over-compression); IDEMPOTENT; PREFIX-STABILITY 99.9%;
+compliant; <=native. So the hybrid is a SURGICAL fix: same E/M as np2 + huge Hard blocks kept at 50% (the king's never-over-compress
+principle) -> targets the over-compression breaks WITHOUT the np_prop/np5/np6 risks. Wander risk LOW: 64k->32k keep is between np3's
+safe 28k (scored 0.682, no crater) and np5's 48k (cratered 0.25), nearer np3. ADDITIVE Hard/Overall-challenger (np2/np3 hold corners).
+NOTE on local-eval (Codex rec): the local cap-sweep (§23) showed np16 was 8/8 CLEAN on the big tasks -> local does NOT reproduce the
+platform over-compression breaks -> a local test of the hybrid is likely INCONCLUSIVE (~np2 locally). The PLATFORM is the real test.
+NEXT: quick Codex pre-upload confirm of the built code -> USER uploads on the good (47b/DeepInfra) key as an additive challenger; read Hard vs np2 + Easy~1.05 binding at scored.

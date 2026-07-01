@@ -153,7 +153,12 @@ def parse_miner(comp_id, hk):
     flight = extract_flight(_req(f"{BASE}/dashboard/miner/{comp_id}/{hk}"))
     return {"summary": balanced(flight, "sweSummary") or {},
             "penalties": balanced(flight, "swePenalties") or {},
-            "tasks": balanced(flight, "sweTasks") or []}
+            "tasks": balanced(flight, "sweTasks") or [],
+            # 2026-06-29: the dashboard now EMBEDS all per-run rows inline in the page RSC
+            # flight under "sweRunsByTaskId" (keyed by task_id) instead of serving them via the
+            # on-demand getSweTaskRunsAction server action (which was renamed/removed -> the old
+            # action-id auto-discovery broke). Parse them straight from the page; no replay needed.
+            "runs_by_task": balanced(flight, "sweRunsByTaskId") or {}}
 
 
 def fetch_runs(comp_id, hk, task_id, action_id):
@@ -169,22 +174,13 @@ def fetch_runs(comp_id, hk, task_id, action_id):
     return None
 
 
-def scrape_miner(comp_id, hk, action_id, workers):
+def scrape_miner(comp_id, hk):
     info = parse_miner(comp_id, hk)
-    tasks = info["tasks"]
-    detail = {}
-    if tasks:
-        with ThreadPoolExecutor(max_workers=workers) as ex:
-            futs = {ex.submit(fetch_runs, comp_id, hk, t.get("task_id"), action_id): t
-                    for t in tasks if t.get("task_id") is not None}
-            for f in as_completed(futs):
-                t = futs[f]
-                try:
-                    detail[t.get("task_id")] = f.result() or {}
-                except Exception:
-                    detail[t.get("task_id")] = {}
-    for t in tasks:
-        t["runs"] = (detail.get(t.get("task_id")) or {}).get("runs", [])
+    runs_by_task = info.pop("runs_by_task", {}) or {}
+    for t in info["tasks"]:
+        tid = t.get("task_id")
+        # sweRunsByTaskId keys are STRINGS ("267"); sweTasks task_id is an int -> try both.
+        t["runs"] = runs_by_task.get(str(tid)) or runs_by_task.get(tid) or []
     return {"hotkey": hk, "competition_id": comp_id, **info}
 
 
@@ -224,16 +220,11 @@ def main() -> int:
     targets = _targets(args, board)
     if args.limit:
         targets = targets[:args.limit]
-    sample = targets[0] if targets else (board[0]["hotkey"] if board else None)
-    print("discovering server-action id…")
-    action_id = discover_action_id(comp_id, sample)
-    print("  action id:", action_id)
-
     names = hotkey_to_name()
     miners_out = []
 
     def work(hk):
-        return scrape_miner(comp_id, hk, action_id, args.workers)
+        return scrape_miner(comp_id, hk)
 
     with ThreadPoolExecutor(max_workers=args.miner_workers) as ex:
         futs = {ex.submit(work, hk): hk for hk in targets}
@@ -252,7 +243,7 @@ def main() -> int:
     if not miners_out:
         print("no miners scraped — refusing to write empty snapshot", file=sys.stderr)
         return 1
-    snap = {"observed_at": utc_now(), "source": f"{BASE}/dashboard (server-action getSweTaskRunsAction)",
+    snap = {"observed_at": utc_now(), "source": f"{BASE}/dashboard (inline sweRunsByTaskId in page RSC)",
             "competition_id": comp_id, "leaderboard": board,
             "miner_count": len(miners_out), "miners": miners_out}
     out_dir = PLATFORM_RESULTS / utc_now()[:10]
