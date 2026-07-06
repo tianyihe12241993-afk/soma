@@ -1,16 +1,14 @@
-# COMP WATCH ALERT — 2026-07-06T11:16:22Z
+# COMP WATCH ALERT — 2026-07-06T14:46:39Z
 
 _Auto-written by scripts/watch_comp_status.py. Monitor-only; verify on the platform before acting._
 
 ## What changed
-- **King review_status: scored → failed review.**
-- **King eval_status: scored → failed review.**
-- **King no longer #1 eligible (now rank None).**
+- **King 5GpLcd… DROPPED from the leaderboard entirely.**
 
 ## Current readings
 - README check exit=0  source_line=False  omit=False  removed=False
-- King 5GpLcd…: present=True review=failed review eval=failed review total=0.8249931394536301 rank_eligible=None
-- Our 3 pending uploads: cap32+pin (uphard_salience) 5DAbJi…=eval:scored/total:0.7227806290897751; np3+pin 5E4Y4j…=eval:scored/total:0.63648663464447; np2+pin 5FLUzi…=eval:scored/total:0.5161989379624057
+- King 5GpLcd…: present=False review=None eval=None total=None rank_eligible=None
+- Our 3 pending uploads: cap32+pin (uphard_salience) 5DAbJi…=eval:?/total:None; np3+pin 5E4Y4j…=eval:?/total:None; np2+pin 5FLUzi…=eval:?/total:None
 
 ## What to do
 - **One of OUR 3 pending uploads reached SCORED** → `python scripts/vet_draw.py --hotkey HK` (cache≥88%/break≤13%), then `make reward`; read E/M/H vs np2/np3 + **Overall vs 0.703**. Read scores ONLY at scored.

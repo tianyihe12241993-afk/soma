@@ -1,5 +1,13 @@
 # CURRENT — live status (2026-06-26 ~10:50 UTC) — READ FIRST after compaction
 
+## 🏆🏆 2026-07-06 — WON comp-108 (CoT-Compression-4). cap32+pin = CHAMPION. Confirmed on the platform (browse, archive `?comp=108`).
+**comp-108 ENDED. Our `cap32+pin` (5DAbJik) = platform-labeled "Highest score in this competition" / dashboard "Top score 0.723" = the WINNER (Overall crown).**
+- Final board (via /browse, dashboard archive): **cap32+pin Overall 0.723 (E1.044/H0.281/M0.862), status=scored, ⭐ top score.** ALL 23 miners with a higher raw Overall = **failed review** (every beyond-ceiling cheater DQ'd: 5CaFqLa 1.443, 5CcZeD 0.977, 5FWZGczz 0.888, 5EeUAVZ 0.852, 5GpLcd 0.825, 5Fjms 0.758, 5DZLFZj 0.728, +others). 204 scored / 36 failed-review / 83 not-qualified.
+- **Our reward elements (computed from the final scored rows):** **Overall (57.1%) = cap32+pin (CROWN)** + **Pair(M,H) (9.5%) = np3 0.599** ⇒ **~66.6% of the pool.** Specialist corners went to clean rivals: Single-M + Pair(E,M) → 5DMC61SU (M0.954), Single-E → 5D22vwFM/5GvYDY7h (E~1.15), Single-H + Pair(E,H) → 5F4g41c5 (H0.718). (Overall crown is platform-CONFIRMED; element split is my calc from the board — scraper can't parse the new JS page.)
+- **THE STRATEGY WORKED:** build a fully-compliant miner (cap32+pin, verified 3× vs README + the explicit rules), hold the floor, let review enforcement clear the cheaters. cap32+pin sat at the compliant frontier (~0.73) the whole time; everyone above it was beyond-ceiling and got DQ'd. Compliance rigor = the win.
+- **NEXT: comp-109 (CoT-Compression-5) is now LIVE** — uploads 06 Jul 14:30 → **13 Jul 14:30 UTC**, eval → 20 Jul. Fresh board (0 subs). Prize pool ~41,328 dTAO. If we defend the title, cap32+pin (695b4fe4) is the proven compliant base to re-submit. ⚠️ TOOLING: the dashboard changed (JS-loaded, archive via `?comp=108` URL param) → `collect_dashboard.py`/`collect_runs.py` need updating for the new page before they'll scrape comp-109.
+
+
 _Mode: comp 108 (CoT-Compression-4, SN114). ⚠️ SCORING REGIME CHANGED 2026-06-26 — see top section. Dual-agent
 (Claude+Codex) protocol OPERATIONAL (see CLAUDE.md). Files = source of truth. Read this + NEXT_ACTIONS + DISCOVERIES (top) before acting._
 
