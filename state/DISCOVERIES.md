@@ -1,5 +1,31 @@
 # DISCOVERIES (durable findings)
 
+## 2026-07-06 — ★★★ TEAM flagged 2 RIVALS non-compliant; VERIFIED our uploaded code is CLEAN (does not have the violation)
+Team/Discord flagged: **5Fjms** (not ours) emitted a string OUTSIDE the allowed list — `f"{CMP_START} pip index unreachable (offline sandbox): {len(net_idx)} retry/connection lines elided {CMP_END}"` (= a SEMANTIC/environment-specific description stuffed BETWEEN the CMP markers = introduces new semantic info + not on README §5.1 list). **5GpLcd** (the beyond-ceiling "king", not ours) = loop-prompt injection to force-shorten runs (violates README §2 "no forcing shortcuts to reduce tokens"). Neither is our hotkey (miners.yaml grep = 0). **5GpLcd being called out ⇒ likely DQ ⇒ helps our cap32+pin toward Overall.**
+**VERIFIED our 8 UPLOADED miners are COMPLIANT (do NOT have the 5Fjms pattern):**
+- Scanner PASS on all 8 (uphard_salience/np2/np3/np2_pin/np3_pin/np1[m26]/m7_compliant[m12]/uphard_nocap).
+- Live-emit grep: ZERO descriptive/semantic strings emitted. Only string constants that reach output = `[[CMP]]`/`[[/CMP]]` (+ spelled-out aliases), `[[BLOCK X]]`/`Same response as in [[BLOCK X]].`, and the 2 loop reasons — ALL on README §5.1/§5.2.
+- The `[[CMP]]` wraps EXTRACTED ORIGINAL LINES (a subset of the source), never a generated summary/count/description. That is the exact difference from 5Fjms (which put a description in the markers).
+- The m7→m12 lineage was DELIBERATELY cleaned of exactly this: the docstring documents that m7's "prose soma-prefixed elided/dedup markers" + "context-note marker" + history-digest were REMOVED for compliance.
+- Our loop guard: LOOP_THRESHOLD=3 in a 12-msg window (3 IDENTICAL sigs = a genuine loop), emits only the 2 allowed reasons — does NOT force-shorten progressing runs (the 5GpLcd violation).
+**⚠️ HYGIENE (never-upload list):** the DESCRIPTIVE-marker pattern (`[soma: trimmed N chars]` etc.) DOES exist in OLD non-uploaded experimental files — `improved_miner.py`, `upload_miner_8k.py`, `upload_miner_aow_bet.py`, `aow_lite.py`, `ehspec.py`, `hardspec.py`, `m14.py`, `m12_1.py`, `m12_deeper.py`. These were rejected experiments, NEVER uploaded, but must NEVER be uploaded (they'd fail review like 5Fjms). Only the 8 verified-clean files above are safe to submit.
+
+## 2026-07-04 — ★★★ COMPLIANT-CEILING cheat-screen + the top field is FLOODING with beyond-ceiling miners (outpacing DQs)
+**Diagnostic (reusable):** no COMPLIANT miner we've observed exceeds the per-category ceilings **E~1.10 / M~0.85 / H~0.37(general, np3) / 0.68(specialist, 5GgVXz)**. A miner with **M>0.88 AND H>0.42 simultaneously** (or E>~1.15) is beyond anything compliant methods have shown → a strong non-compliance signal (NOT proof — team must read the code; e.g. 5DZLFZj cheated `#source line N` yet landed within-ceiling M0.83/H0.27). Our **cap32+pin (0.729, E1.04/M0.86/H0.28) is INSIDE the ceiling on every category** → its score is achievable compliantly; combined with the verified-compliant code, doubly-confirmed legit.
+**Current beyond-ceiling roster (snap 2026-07-04/032720):**
+- 5CaFqLa 1.441 (E1.38/M1.17/H1.77) — failed review
+- **5CcZeD 0.987 (E1.50/M0.93/H0.53) — SCORED** ⚠️ (user-flagged; E1.50 absurd)
+- **5FWZGczz 0.919 (E1.19/M1.11/H0.46) — EVALUATING** ⚠️ (new, in pipeline)
+- 5EeUAVZ 0.856 (E1.08/M0.96/H0.53) — failed review
+- **5GpLcd 0.831 (E1.12/M0.94/H0.43) — SCORED** ⚠️ (current "king")
+**Implication:** 3 beyond-ceiling miners are now scored/evaluating ABOVE our cap32+pin (0.729), + 2 already failed-review. For cap32+pin to take Overall (→ our 81%), ALL of 5CcZeD + 5FWZGczz + 5GpLcd must be DQ'd — not just one. The influx is outpacing the review DQ rate → our position (floor AND crown) now depends on platform enforcement keeping up. Largely OUT of our control. ACTIONS: (1) flag ALL beyond-ceiling ones to the SOMA team with the objective ceiling list (2 already DQ'd for exactly this pattern = precedent); (2) HOLD our compliant miners (cap32+pin/np2/np3); (3) track the beyond-ceiling set for DQ.
+
+## 2026-07-02 — Chain upgrade spec 423/424 (subtensor v3.4.8/9): btcli 9.23.1 already installed; locked-alpha coldkey-swap fix improves our recovery option
+Mainnet upgraded (dynamic tempo, balancer, limit-orders pallet; hotfixes in 424). **Comp-108 impact: none** (scoring/eval is off-chain on the SOMA platform; only emission mechanics live on-chain). What matters for OUR ops:
+- **btcli 9.23.1 = the release-named compatible CLI — ALREADY installed** (uv tools; was 9.22.1 on 07-01). No action.
+- **"Allow locked alpha transfers in coldkey swaps" (424)** — directly improves the `swap-coldkey` recovery path for the **tony-miner no-seed-backup coldkey** (`5FX5SGtt…`): staked/locked alpha positions now move with the swap, removing the main blocker to migrating to a fresh, properly-backed-up coldkey WITHOUT unstaking everything first. If the seed-extraction route (recover_seed.py, offline) fails or is deemed too risky, swap-coldkey is now a cleaner Plan B (2-step announce→execute, ~5-day delay).
+- "Fixes recent increase in staking transaction cost" (424) — cheaper staking txs, minor.
+
 ## 2026-06-29 — ★★★ CORRECTION: 0.684 is np2's FAVORABLE draw, NOT a floor → best-of-N was OVER-SOLD; protect live winners from re-eval
 User flagged: "resubmitted np2 several times, ALL bad — not just variance." RIGHT. Per-run provider signature (real data, `080832_swe_runs.json`)
 settles WHY:

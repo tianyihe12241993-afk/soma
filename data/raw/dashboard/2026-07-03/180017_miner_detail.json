@@ -1,5 +1,9 @@
 {
-  "computed_at": "2026-07-03T18:00:17Z",
+  "observed_at": "2026-07-03T18:00:17Z",
+  "source": "https://thesoma.ai/dashboard/miner/108/<hotkey>",
+  "competition_id": 108,
+  "miner_count": 1,
+  "failed": [],
   "miners": [
     {
       "hotkey": "5GpLcdxSNZgDg2TBnxaqQgqhLD5wuDSABW3gom5YAMmF3J6w",
