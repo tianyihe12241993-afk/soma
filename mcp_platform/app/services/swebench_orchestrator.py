@@ -8,7 +8,7 @@ import uuid
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 
-from sqlalchemy import func, select, text
+from sqlalchemy import and_, case, func, literal, select, text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import settings
@@ -18,6 +18,9 @@ from app.services.sandbox.remote_compact_bench_manager import RemoteCompactBench
 from soma_shared.db.models.swe_bench_run import SweBenchRun
 from soma_shared.db.models.swe_bench_run_validation import SweBenchRunValidation
 from soma_shared.db.models.swe_bench_task import SweBenchTask
+from soma_shared.db.models.swe_bench_verified_validation import SweBenchVerifiedValidation
+from soma_shared.db.models.swe_explorer_edit_validation import SweExplorerEditValidation
+from soma_shared.db.models.swe_explorer_validation import SweExplorerValidation
 from soma_shared.db.models.competition import Competition
 from soma_shared.db.models.competition_config import CompetitionConfig
 from soma_shared.db.models.competition_timeframe import CompetitionTimeframe
@@ -26,13 +29,37 @@ from soma_shared.db.session import get_db_session, get_engine
 
 logger = get_logger(__name__)
 
+_BENCHMARK_TYPES = ("swebench_verified", "swe_explorer_explore", "swe_explorer_edit")
+
+
+def _all_types_resolved_joins_and_expr():
+    """Return (outerjoin_targets, resolved_case_expr) for querying resolved across all benchmark types."""
+    vv = SweBenchVerifiedValidation
+    ev = SweExplorerEditValidation
+    sev = SweExplorerValidation
+    resolved_expr = case(
+        (SweBenchRun.benchmark_type == "swebench_verified", vv.resolved),
+        (SweBenchRun.benchmark_type == "swe_explorer_edit", ev.resolved),
+        (SweBenchRun.benchmark_type == "swe_explorer_explore", sev.f1_score > 0),
+        else_=None,
+    ).label("resolved")
+    joins = [
+        (vv, and_(vv.validation_fk == SweBenchRunValidation.id, SweBenchRun.benchmark_type == "swebench_verified")),
+        (ev, and_(ev.validation_fk == SweBenchRunValidation.id, SweBenchRun.benchmark_type == "swe_explorer_edit")),
+        (sev, and_(sev.validation_fk == SweBenchRunValidation.id, SweBenchRun.benchmark_type == "swe_explorer_explore")),
+    ]
+    return joins, resolved_expr
+
 _ORCHESTRATOR_LOCK_KEY = "swebench-orchestrator-v1"
 _SEED_IDLE_LOG_INTERVAL_SECONDS = 60
 _LAST_IDLE_SEED_LOG_AT: datetime | None = None
 _LAST_CAPACITY_LOG_AT: float | None = None
 _CAPACITY_LOG_INTERVAL_SECONDS = 30.0
+_LAST_WINDOW_LIMIT_LOG_AT: float | None = None
+_WINDOW_LIMIT_LOG_INTERVAL_SECONDS = 30.0
 _LAST_IDLE_DISPATCH_LOG_AT: float | None = None
 _DISPATCH_IDLE_LOG_INTERVAL_SECONDS = 30.0
+_DISPATCH_FETCH_LIMIT_CAP = 2000
 
 
 @dataclass(frozen=True)
@@ -54,6 +81,13 @@ def _non_baseline_eligibility_sql(
     )
     return (
         f"""
+                    EXISTS (
+                        SELECT 1
+                        FROM miners m
+                        WHERE m.id = {miner_fk_expr}
+                          AND m.miner_banned_status = FALSE
+                    )
+                    AND
                     EXISTS (
                         SELECT 1
                         FROM miner_uploads mu
@@ -79,6 +113,11 @@ def start_swebench_orchestrator_task(app) -> None:
             "interval_seconds": interval,
             "dispatch_batch_size": int(settings.swebench_dispatch_batch_size),
             "dispatch_strict_fifo": bool(settings.swebench_dispatch_strict_fifo),
+            "dispatch_window_seconds": float(settings.swebench_dispatch_window_seconds),
+            "dispatch_max_runs_per_window": int(settings.swebench_dispatch_max_runs_per_window),
+            "max_concurrent_dispatched_per_miner": int(
+                settings.swebench_max_concurrent_dispatched_per_miner
+            ),
         },
     )
 
@@ -151,7 +190,27 @@ async def _run_orchestration_tick(app) -> None:
                 )
             break
 
-        dispatched, deferred, failed = await _dispatch_due_runs(app, now)
+        dispatched = 0
+        deferred = 0
+        failed = 0
+        strict_fifo_dispatch = bool(settings.swebench_dispatch_strict_fifo)
+        dispatch_window_quota = max(0, int(settings.swebench_dispatch_max_runs_per_window))
+        # In strict FIFO mode we still dispatch one run per pass, but we can
+        # perform multiple passes in a single orchestrator tick up to the
+        # configured window quota.
+        dispatch_pass_limit = (
+            dispatch_window_quota
+            if strict_fifo_dispatch and dispatch_window_quota > 0
+            else 1
+        )
+        for _ in range(max(1, dispatch_pass_limit)):
+            pass_dispatched, pass_deferred, pass_failed = await _dispatch_due_runs(app, now)
+            dispatched += pass_dispatched
+            deferred += pass_deferred
+            failed += pass_failed
+            # Stop early when a pass made no progress (e.g. cooldown/empty queue/window capped).
+            if pass_dispatched == 0 and pass_failed == 0:
+                break
         if dispatched or failed:
             logger.info(
                 "swebench_orchestrator_dispatch_pass",
@@ -380,7 +439,7 @@ async def _is_baseline_evaluation_complete(
     if not task_ids:
         return False
 
-    expected_runs = sum(max(1, int(task_repeats.get(task_id, 1))) for task_id in task_ids)
+    expected_runs = sum(max(1, int(task_repeats.get(task_id, 1))) for task_id in task_ids) * len(_BENCHMARK_TYPES)
     evaluated_runs = int(
         (
             await db.execute(
@@ -389,7 +448,6 @@ async def _is_baseline_evaluation_complete(
                 .where(SweBenchRun.baseline_run.is_(True))
                 .where(SweBenchRun.task_fk.in_(task_ids))
                 .where(SweBenchRunValidation.scored_at.is_not(None))
-                .where(SweBenchRunValidation.resolved.is_not(None))
             )
         ).scalar()
         or 0
@@ -408,24 +466,22 @@ async def _select_dynamic_screener_tasks(
         return
 
     task_ids = [int(task.id) for task in tasks]
-    rows = (
-        await db.execute(
-            select(
-                SweBenchRun.task_fk,
-                SweBenchRunValidation.resolved,
-            )
-            .join(SweBenchRunValidation, SweBenchRunValidation.run_fk == SweBenchRun.id)
-            .where(SweBenchRun.baseline_run.is_(True))
-            .where(SweBenchRun.task_fk.in_(task_ids))
-            .where(SweBenchRunValidation.scored_at.is_not(None))
-            .where(SweBenchRunValidation.resolved.is_not(None))
-        )
-    ).all()
+    sub_joins, resolved_expr = _all_types_resolved_joins_and_expr()
+    stmt = (
+        select(SweBenchRun.task_fk, resolved_expr)
+        .join(SweBenchRunValidation, SweBenchRunValidation.run_fk == SweBenchRun.id)
+        .where(SweBenchRun.baseline_run.is_(True))
+        .where(SweBenchRun.task_fk.in_(task_ids))
+        .where(SweBenchRunValidation.scored_at.is_not(None))
+    )
+    for model, condition in sub_joins:
+        stmt = stmt.outerjoin(model, condition)
+    rows = (await db.execute(stmt)).all()
 
     success_counts: dict[int, int] = {task_id: 0 for task_id in task_ids}
     for task_fk, resolved in rows:
         task_id = int(task_fk)
-        if bool(resolved):
+        if resolved is not None and bool(resolved):
             success_counts[task_id] = success_counts.get(task_id, 0) + 1
 
     by_success: dict[int, list[int]] = {}
@@ -503,13 +559,10 @@ async def _seed_baseline_runs(
 ) -> int:
     task_ids = [int(task.id) for task in tasks]
     existing = set(
-        (
-            int(row[0]),
-            int(row[1]),
-        )
+        (int(row[0]), int(row[1]), str(row[2]))
         for row in (
             await db.execute(
-                select(SweBenchRun.task_fk, SweBenchRun.attempt_no)
+                select(SweBenchRun.task_fk, SweBenchRun.attempt_no, SweBenchRun.benchmark_type)
                 .where(SweBenchRun.baseline_run.is_(True))
                 .where(SweBenchRun.miner_fk.is_(None))
                 .where(SweBenchRun.script_fk.is_(None))
@@ -522,20 +575,22 @@ async def _seed_baseline_runs(
     for task in tasks:
         task_id = int(task.id)
         for attempt_no in range(1, task_repeats[task_id] + 1):
-            key = (task_id, attempt_no)
-            if key in existing:
-                continue
-            await _create_run_and_validation(
-                db,
-                task_fk=task_id,
-                attempt_no=attempt_no,
-                baseline_run=True,
-                miner_fk=None,
-                script_fk=None,
-                now=now,
-            )
-            existing.add(key)
-            created += 1
+            for benchmark_type in _BENCHMARK_TYPES:
+                key = (task_id, attempt_no, benchmark_type)
+                if key in existing:
+                    continue
+                await _create_run_and_validation(
+                    db,
+                    task_fk=task_id,
+                    attempt_no=attempt_no,
+                    benchmark_type=benchmark_type,
+                    baseline_run=True,
+                    miner_fk=None,
+                    script_fk=None,
+                    now=now,
+                )
+                existing.add(key)
+                created += 1
     return created
 
 
@@ -557,6 +612,7 @@ async def _seed_script_runs(
             task_ids=screener_task_ids,
             task_repeats=task_repeats,
             now=now,
+            benchmark_types=("swebench_verified",),
         )
 
     screening_complete, screening_passed = await _evaluate_screening_for_script(
@@ -587,18 +643,16 @@ async def _seed_script_task_subset(
     task_ids: list[int],
     task_repeats: dict[int, int],
     now: datetime,
+    benchmark_types: tuple[str, ...] = _BENCHMARK_TYPES,
 ) -> int:
     if not task_ids:
         return 0
 
     existing = set(
-        (
-            int(row[0]),
-            int(row[1]),
-        )
+        (int(row[0]), int(row[1]), str(row[2]))
         for row in (
             await db.execute(
-                select(SweBenchRun.task_fk, SweBenchRun.attempt_no)
+                select(SweBenchRun.task_fk, SweBenchRun.attempt_no, SweBenchRun.benchmark_type)
                 .where(SweBenchRun.baseline_run.is_(False))
                 .where(SweBenchRun.script_fk == script.script_id)
                 .where(SweBenchRun.miner_fk == script.miner_fk)
@@ -611,20 +665,22 @@ async def _seed_script_task_subset(
     for task_id in task_ids:
         repeats = max(1, int(task_repeats.get(int(task_id), 1)))
         for attempt_no in range(1, repeats + 1):
-            key = (int(task_id), attempt_no)
-            if key in existing:
-                continue
-            await _create_run_and_validation(
-                db,
-                task_fk=int(task_id),
-                attempt_no=attempt_no,
-                baseline_run=False,
-                miner_fk=script.miner_fk,
-                script_fk=script.script_id,
-                now=now,
-            )
-            existing.add(key)
-            created += 1
+            for benchmark_type in benchmark_types:
+                key = (int(task_id), attempt_no, benchmark_type)
+                if key in existing:
+                    continue
+                await _create_run_and_validation(
+                    db,
+                    task_fk=int(task_id),
+                    attempt_no=attempt_no,
+                    benchmark_type=benchmark_type,
+                    baseline_run=False,
+                    miner_fk=script.miner_fk,
+                    script_fk=script.script_id,
+                    now=now,
+                )
+                existing.add(key)
+                created += 1
     return created
 
 
@@ -638,47 +694,109 @@ async def _evaluate_screening_for_script(
     if not screener_task_ids:
         return True, True
 
-    rows = (
+    input_tokens_col = _model_attr(SweBenchRun, "input_tokens")
+    cached_input_tokens_col = _model_attr(SweBenchRun, "cached_input_tokens")
+    output_tokens_col = _model_attr(SweBenchRun, "output_tokens")
+
+    sub_joins, resolved_expr = _all_types_resolved_joins_and_expr()
+    miner_stmt = (
+        select(
+            SweBenchRun.task_fk,
+            SweBenchRun.attempt_no,
+            SweBenchRun.benchmark_type,
+            resolved_expr,
+            SweBenchRunValidation.scored_at,
+            SweBenchRun.tokens_used,
+            (input_tokens_col if input_tokens_col is not None else literal(None)).label("input_tokens"),
+            (cached_input_tokens_col if cached_input_tokens_col is not None else literal(None)).label("cached_input_tokens"),
+            (output_tokens_col if output_tokens_col is not None else literal(None)).label("output_tokens"),
+        )
+        .join(SweBenchRunValidation, SweBenchRunValidation.run_fk == SweBenchRun.id)
+        .where(SweBenchRun.baseline_run.is_(False))
+        .where(SweBenchRun.script_fk == script.script_id)
+        .where(SweBenchRun.miner_fk == script.miner_fk)
+        .where(SweBenchRun.task_fk.in_(screener_task_ids))
+    )
+    for model, condition in sub_joins:
+        miner_stmt = miner_stmt.outerjoin(model, condition)
+    rows = (await db.execute(miner_stmt)).all()
+
+    baseline_rows = (
         await db.execute(
             select(
                 SweBenchRun.task_fk,
                 SweBenchRun.attempt_no,
-                SweBenchRunValidation.resolved,
-                SweBenchRunValidation.scored_at,
+                SweBenchRun.benchmark_type,
+                SweBenchRun.tokens_used,
+                (input_tokens_col if input_tokens_col is not None else literal(None)).label("input_tokens"),
+                (cached_input_tokens_col if cached_input_tokens_col is not None else literal(None)).label("cached_input_tokens"),
+                (output_tokens_col if output_tokens_col is not None else literal(None)).label("output_tokens"),
             )
-            .join(
-                SweBenchRunValidation,
-                SweBenchRunValidation.run_fk == SweBenchRun.id,
-            )
-            .where(SweBenchRun.baseline_run.is_(False))
-            .where(SweBenchRun.script_fk == script.script_id)
-            .where(SweBenchRun.miner_fk == script.miner_fk)
+            .where(SweBenchRun.baseline_run.is_(True))
+            .where(SweBenchRun.miner_fk.is_(None))
+            .where(SweBenchRun.script_fk.is_(None))
             .where(SweBenchRun.task_fk.in_(screener_task_ids))
         )
     ).all()
 
-    by_task_attempt: dict[tuple[int, int], tuple[bool | None, datetime | None]] = {}
+    by_task_attempt: dict[tuple[int, int, str], tuple[bool | None, datetime | None, float | None]] = {}
     for row in rows:
-        by_task_attempt[(int(row[0]), int(row[1]))] = (row[2], row[3])
+        by_task_attempt[(int(row[0]), int(row[1]), str(row[2]))] = (
+            row[3],
+            row[4],
+            _weighted_tokens_for_screening(
+                total_tokens=_coerce_optional_int(row[5]),
+                input_tokens=_coerce_optional_int(row[6]),
+                cached_input_tokens=_coerce_optional_int(row[7]),
+                output_tokens=_coerce_optional_int(row[8]),
+            ),
+        )
+
+    baseline_weighted_by_task_attempt: dict[tuple[int, int, str], float | None] = {}
+    for row in baseline_rows:
+        baseline_weighted_by_task_attempt[(int(row[0]), int(row[1]), str(row[2]))] = _weighted_tokens_for_screening(
+            total_tokens=_coerce_optional_int(row[3]),
+            input_tokens=_coerce_optional_int(row[4]),
+            cached_input_tokens=_coerce_optional_int(row[5]),
+            output_tokens=_coerce_optional_int(row[6]),
+        )
 
     passed_task_count = 0
+    miner_weighted_total = 0.0
+    baseline_weighted_total = 0.0
     for task_id in screener_task_ids:
         repeats = max(1, int(task_repeats.get(int(task_id), 1)))
         attempt_resolved: list[bool] = []
         for attempt_no in range(1, repeats + 1):
-            state = by_task_attempt.get((int(task_id), attempt_no))
-            if state is None:
-                return False, False
-            resolved_value, scored_at = state
-            if scored_at is None or resolved_value is None:
-                return False, False
-            attempt_resolved.append(bool(resolved_value))
+            for benchmark_type in ("swebench_verified",):
+                state = by_task_attempt.get((int(task_id), attempt_no, benchmark_type))
+                if state is None:
+                    return False, False
+                resolved_value, scored_at, miner_weighted_tokens = state
+                if scored_at is None or resolved_value is None:
+                    return False, False
+                baseline_weighted_tokens = baseline_weighted_by_task_attempt.get((int(task_id), attempt_no, benchmark_type))
+                if miner_weighted_tokens is None or baseline_weighted_tokens is None:
+                    return False, False
+                miner_weighted_total += miner_weighted_tokens
+                baseline_weighted_total += baseline_weighted_tokens
+                attempt_resolved.append(bool(resolved_value))
 
         if sum(1 for value in attempt_resolved if value) > (len(attempt_resolved) // 2):
             passed_task_count += 1
 
     required_passes = _required_screening_task_passes(len(screener_task_ids))
-    return True, passed_task_count >= required_passes
+    if passed_task_count < required_passes:
+        return True, False
+
+    weighted_savings_ratio = _compute_weighted_token_savings_ratio(
+        baseline_weighted_total=baseline_weighted_total,
+        miner_weighted_total=miner_weighted_total,
+    )
+    if weighted_savings_ratio is None:
+        return True, False
+
+    return True, weighted_savings_ratio >= _required_screening_weighted_token_saving_ratio()
 
 
 def _required_screening_task_passes(total_screener_tasks: int) -> int:
@@ -695,11 +813,76 @@ def _required_screening_task_passes(total_screener_tasks: int) -> int:
     return min(total_screener_tasks, required)
 
 
+def _required_screening_weighted_token_saving_ratio() -> float:
+    ratio = float(settings.swebench_screening_min_weighted_token_saving_ratio)
+    return min(1.0, max(0.0, ratio))
+
+
+def _screening_token_weights() -> tuple[float, float, float]:
+    return (
+        float(settings.swebench_screening_input_tokens_weight),
+        float(settings.swebench_screening_cached_input_tokens_weight),
+        float(settings.swebench_screening_output_tokens_weight),
+    )
+
+
+def _model_attr(model: type, name: str):
+    try:
+        return getattr(model, name)
+    except AttributeError:
+        return None
+
+
+def _coerce_optional_int(value: object) -> int | None:
+    if value is None:
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _weighted_tokens_for_screening(
+    *,
+    total_tokens: int | None,
+    input_tokens: int | None,
+    cached_input_tokens: int | None,
+    output_tokens: int | None,
+) -> float | None:
+    if input_tokens is not None and cached_input_tokens is not None and output_tokens is not None:
+        input_value = int(input_tokens)
+        cached_value = int(cached_input_tokens)
+        output_value = int(output_tokens)
+        if input_value < 0 or cached_value < 0 or output_value < 0:
+            return None
+        input_weight, cached_input_weight, output_weight = _screening_token_weights()
+        return (
+            (input_weight * float(input_value))
+            + (cached_input_weight * float(cached_value))
+            + (output_weight * float(output_value))
+        )
+
+    if total_tokens is None or int(total_tokens) < 0:
+        return None
+    return float(total_tokens)
+
+
+def _compute_weighted_token_savings_ratio(
+    *,
+    baseline_weighted_total: float,
+    miner_weighted_total: float,
+) -> float | None:
+    if baseline_weighted_total <= 0:
+        return None
+    return (baseline_weighted_total - miner_weighted_total) / baseline_weighted_total
+
+
 async def _create_run_and_validation(
     db: AsyncSession,
     *,
     task_fk: int,
     attempt_no: int,
+    benchmark_type: str,
     baseline_run: bool,
     miner_fk: int | None,
     script_fk: int | None,
@@ -709,6 +892,7 @@ async def _create_run_and_validation(
         task_fk=task_fk,
         request_fk=None,
         attempt_no=attempt_no,
+        benchmark_type=benchmark_type,
         miner_fk=miner_fk,
         script_fk=script_fk,
         diff_storage_uuid=str(uuid.uuid4()),
@@ -724,7 +908,6 @@ async def _create_run_and_validation(
         run_fk=run.id,
         request_fk=None,
         validator_fk=None,
-        resolved=None,
         scored_at=None,
     )
     db.add(validation)
@@ -734,7 +917,7 @@ async def _dispatch_due_runs(
     app,
     now: datetime,
 ) -> tuple[int, int, int]:
-    global _LAST_CAPACITY_LOG_AT
+    global _LAST_CAPACITY_LOG_AT, _LAST_WINDOW_LIMIT_LOG_AT
 
     manager = _get_compact_bench_manager(app)
     s3_storage = _get_s3_storage(app)
@@ -748,6 +931,22 @@ async def _dispatch_due_runs(
     global_not_before: float = float(getattr(app.state, "swebench_global_retry_not_before", 0.0))
     app.state.swebench_retry_not_before = retry_not_before
     app.state.swebench_retry_attempts = retry_attempts
+
+    dispatch_window_seconds = max(1.0, float(settings.swebench_dispatch_window_seconds))
+    dispatch_window_quota = max(0, int(settings.swebench_dispatch_max_runs_per_window))
+    dispatches_this_window = int(getattr(app.state, "swebench_dispatches_this_window", 0))
+    dispatch_window_started_at = float(
+        getattr(app.state, "swebench_dispatch_window_started_at", time.monotonic())
+    )
+    now_monotonic = time.monotonic()
+    if dispatch_window_quota > 0 and (now_monotonic - dispatch_window_started_at) >= dispatch_window_seconds:
+        dispatch_window_started_at = now_monotonic
+        dispatches_this_window = 0
+        _LAST_WINDOW_LIMIT_LOG_AT = None
+    app.state.swebench_dispatches_this_window = dispatches_this_window
+    app.state.swebench_dispatch_window_started_at = dispatch_window_started_at
+
+    max_dispatched_per_miner = max(0, int(settings.swebench_max_concurrent_dispatched_per_miner))
     eligibility_sql = _non_baseline_eligibility_sql(
         script_fk_expr="r.script_fk",
         miner_fk_expr="r.miner_fk",
@@ -755,13 +954,39 @@ async def _dispatch_due_runs(
     )
 
     async for db in get_db_session():
+        banned_pending_result = await db.execute(
+            text(
+                """
+                UPDATE swe_bench_runs r
+                SET status = 'failed',
+                    last_error = 'Miner failed review before sandbox dispatch',
+                    updated_at = now()
+                FROM miners m
+                WHERE r.status = 'pending'
+                  AND r.baseline_run = FALSE
+                  AND r.miner_fk = m.id
+                  AND m.miner_banned_status = TRUE
+                """
+            )
+        )
+        banned_pending_count = int(banned_pending_result.rowcount or 0)
+        if banned_pending_count > 0:
+            logger.info(
+                "swebench_orchestrator_failed_banned_pending_runs",
+                extra={"failed_runs": banned_pending_count},
+            )
+
         strict_fifo_dispatch = bool(settings.swebench_dispatch_strict_fifo)
         batch_size = (
             1
             if strict_fifo_dispatch
             else max(1, int(settings.swebench_dispatch_batch_size))
         )
-        fetch_limit = min(200, batch_size if strict_fifo_dispatch else batch_size * 5)
+        fetch_limit = (
+            _DISPATCH_FETCH_LIMIT_CAP
+            if strict_fifo_dispatch
+            else min(_DISPATCH_FETCH_LIMIT_CAP, batch_size * 5)
+        )
         due_rows = (
             await db.execute(
                 text(
@@ -770,6 +995,7 @@ async def _dispatch_due_runs(
                         r.id AS run_id,
                         r.diff_storage_uuid,
                         r.attempt_no,
+                        r.benchmark_type,
                         r.miner_fk,
                         r.script_fk,
                         r.baseline_run,
@@ -829,8 +1055,58 @@ async def _dispatch_due_runs(
                 )
             break
 
+        dispatch_window_remaining = (
+            max(0, dispatch_window_quota - dispatches_this_window)
+            if dispatch_window_quota > 0
+            else None
+        )
+        if dispatch_window_remaining is not None and dispatch_window_remaining <= 0:
+            deferred += len(due_rows)
+            await db.rollback()
+            if (
+                _LAST_WINDOW_LIMIT_LOG_AT is None
+                or (now_monotonic - _LAST_WINDOW_LIMIT_LOG_AT) >= _WINDOW_LIMIT_LOG_INTERVAL_SECONDS
+            ):
+                _LAST_WINDOW_LIMIT_LOG_AT = now_monotonic
+                seconds_left = max(
+                    0.0,
+                    dispatch_window_seconds - (now_monotonic - dispatch_window_started_at),
+                )
+                logger.info(
+                    "swebench_orchestrator_dispatch_window_limit_active",
+                    extra={
+                        "seconds_left": round(seconds_left, 2),
+                        "window_seconds": dispatch_window_seconds,
+                        "window_quota": dispatch_window_quota,
+                        "dispatched_in_window": dispatches_this_window,
+                        "deferred_runs": len(due_rows),
+                    },
+                )
+            break
+
+        active_dispatched_by_miner: dict[int, int] = {}
+        if max_dispatched_per_miner > 0:
+            miner_rows = (
+                await db.execute(
+                    text(
+                        """
+                        SELECT miner_fk, COUNT(*) AS dispatched_count
+                        FROM swe_bench_runs
+                        WHERE status = 'dispatched'
+                          AND miner_fk IS NOT NULL
+                        GROUP BY miner_fk
+                        """
+                    )
+                )
+            ).all()
+            active_dispatched_by_miner = {
+                int(miner_fk): int(dispatched_count)
+                for miner_fk, dispatched_count in miner_rows
+            }
+
         dispatch_rows: list[dict] = []
         deferred_by_cooldown = 0
+        deferred_by_miner_limit = 0
         for row in due_rows:
             run_id = int(row["run_id"])
             retry_at = retry_not_before.get(run_id)
@@ -840,17 +1116,34 @@ async def _dispatch_due_runs(
                     # Preserve strict queue order: do not bypass a cooling head run.
                     break
                 continue
+
+            miner_fk = row.get("miner_fk")
+            if max_dispatched_per_miner > 0 and miner_fk is not None:
+                active_for_miner = int(active_dispatched_by_miner.get(int(miner_fk), 0))
+                if active_for_miner >= max_dispatched_per_miner:
+                    deferred_by_miner_limit += 1
+                    # Intentionally bypass capped miners so other miners can keep flowing.
+                    continue
+
             dispatch_rows.append(row)
-            if strict_fifo_dispatch or len(dispatch_rows) >= batch_size:
+            if (
+                strict_fifo_dispatch
+                or len(dispatch_rows) >= batch_size
+                or (
+                    dispatch_window_remaining is not None
+                    and len(dispatch_rows) >= dispatch_window_remaining
+                )
+            ):
                 break
 
         if not dispatch_rows:
-            deferred += deferred_by_cooldown
+            deferred += deferred_by_cooldown + deferred_by_miner_limit
             await db.rollback()
             break
 
         expires_in = int(max(60.0, float(settings.sandbox_timeout_per_task_seconds) + 300.0))
 
+        prepared_dispatches: list[tuple[dict, int, str]] = []
         for row in dispatch_rows:
             run_id = int(row["run_id"])
             try:
@@ -873,24 +1166,40 @@ async def _dispatch_due_runs(
                 )
                 deferred += 1
                 continue
+            prepared_dispatches.append((row, run_id, script_presigned_url))
 
-            ok, error, retryable = await manager.dispatch_swebench_run(
-                run_id=run_id,
-                benchmark=str(settings.swebench_benchmark_name),
-                instance_id=str(row["instance_id"]),
-                storage_uuid=str(row["diff_storage_uuid"]),
-                script_presigned_url=script_presigned_url,
-                task_context={
-                    "competition_fk": int(row["competition_fk"]),
-                    "miner_fk": row["miner_fk"],
-                    "script_fk": row["script_fk"],
-                    "attempt_no": int(row["attempt_no"]),
-                    "planned_repeats": int(row["planned_repeats"]),
-                    "baseline_run": bool(row["baseline_run"]),
-                    "is_screener": bool(row["is_screener"]),
-                },
+        async def _dispatch_one(prepared: tuple[dict, int, str]) -> tuple[dict, int, bool, str | None, bool]:
+            row, run_id, script_presigned_url = prepared
+            try:
+                run_benchmark_type = str(row.get("benchmark_type") or "swebench_verified")
+                ok, error, retryable = await manager.dispatch_swebench_run(
+                    run_id=run_id,
+                    benchmark=str(settings.swebench_benchmark_name),
+                    instance_id=str(row["instance_id"]),
+                    storage_uuid=str(row["diff_storage_uuid"]),
+                    script_presigned_url=script_presigned_url,
+                    task_context={
+                        "competition_fk": int(row["competition_fk"]),
+                        "miner_fk": row["miner_fk"],
+                        "script_fk": row["script_fk"],
+                        "attempt_no": int(row["attempt_no"]),
+                        "planned_repeats": int(row["planned_repeats"]),
+                        "baseline_run": bool(row["baseline_run"]),
+                        "is_screener": bool(row["is_screener"]),
+                        "benchmark_type": run_benchmark_type,
+                    },
+                )
+                return row, run_id, bool(ok), error, bool(retryable)
+            except Exception as exc:
+                return row, run_id, False, f"Dispatch exception: {exc}", True
+
+        dispatch_results: list[tuple[dict, int, bool, str | None, bool]] = []
+        if prepared_dispatches:
+            dispatch_results = list(
+                await asyncio.gather(*(_dispatch_one(prepared) for prepared in prepared_dispatches))
             )
 
+        for row, run_id, ok, error, retryable in dispatch_results:
             if ok:
                 await db.execute(
                     text(
@@ -899,6 +1208,16 @@ async def _dispatch_due_runs(
                     {"run_id": run_id},
                 )
                 dispatched += 1
+                if max_dispatched_per_miner > 0 and row.get("miner_fk") is not None:
+                    miner_fk_int = int(row["miner_fk"])
+                    active_dispatched_by_miner[miner_fk_int] = (
+                        int(active_dispatched_by_miner.get(miner_fk_int, 0)) + 1
+                    )
+                if dispatch_window_quota > 0:
+                    dispatches_this_window += 1
+                    app.state.swebench_dispatches_this_window = dispatches_this_window
+                    app.state.swebench_dispatch_window_started_at = dispatch_window_started_at
+                    _LAST_WINDOW_LIMIT_LOG_AT = None
                 retry_not_before.pop(run_id, None)
                 retry_attempts.pop(run_id, None)
                 continue
@@ -925,9 +1244,11 @@ async def _dispatch_due_runs(
 
                 is_capacity_error = bool(error) and "at capacity" in error.lower()
                 if is_capacity_error:
-                    cooldown_seconds = min(max_seconds, base + (random.uniform(0.0, jitter) if jitter > 0 else 0.0))
+                    cooldown_seconds = min(
+                        max_seconds,
+                        base + (random.uniform(0.0, jitter) if jitter > 0 else 0.0),
+                    )
                     app.state.swebench_global_retry_not_before = time.monotonic() + cooldown_seconds
-                    break
             else:
                 retry_not_before.pop(run_id, None)
                 retry_attempts.pop(run_id, None)
@@ -939,7 +1260,7 @@ async def _dispatch_due_runs(
                 )
                 failed += 1
 
-        deferred += deferred_by_cooldown
+        deferred += deferred_by_cooldown + deferred_by_miner_limit
         await db.commit()
         break
 
@@ -1008,11 +1329,20 @@ async def _get_baseline_script_presigned_url(
 ) -> str:
     key = getattr(app.state, "swebench_baseline_script_key", None)
     if not key:
-        key = "hot/miner_solutions/__baseline__/baseline_default.py"
+        key = "hot/miner_solutions/__baseline__/baseline_default_v3.py"
         script = (
-            "from typing import Optional\n\n"
-            "def main(task: str, compression_ratio: Optional[float]) -> str:\n"
-            "    return task or ''\n"
+            "from __future__ import annotations\n\n"
+            "from typing import Any\n\n"
+            "def compress_messages(\n"
+            "    messages: list[Any] | None = None,\n"
+            "    path: str | None = None,\n"
+            "    metadata: dict[str, Any] | None = None,\n"
+            ") -> list[Any]:\n"
+            "    \"\"\"Identity compressor: return incoming messages unchanged.\"\"\"\n"
+            "    del path, metadata\n"
+            "    if isinstance(messages, list):\n"
+            "        return messages\n"
+            "    return []\n"
         )
         await s3_storage.put_bytes(
             key,
@@ -1069,6 +1399,7 @@ async def _load_script_dispatch_context(
                 JOIN miner_uploads u ON u.script_fk = s.id
                 WHERE s.id = :script_fk
                   AND m.id = :miner_fk
+                                    AND m.miner_banned_status = FALSE
                   AND u.competition_fk = :competition_fk
                   {key_filter}
                 ORDER BY u.created_at DESC

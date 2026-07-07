@@ -3,6 +3,7 @@ import json
 import sys
 from pathlib import Path
 import os
+import threading
 
 ROOT = Path(__file__).resolve().parent.parent
 MCP_PLATFORM_DIR = ROOT / "mcp_platform"
@@ -59,6 +60,12 @@ class Validator(AbstractValidator):
         self.settings = self.init_settings()
         self._last_fetch_cause = "unknown"
         self._provider_degraded_until = 0.0
+        self._state_lock = threading.Lock()
+        self._current_competition_id = self._load_competition_state()
+        self._pending_competition_id: int | None = None
+        self._active_evaluations = 0
+        self._cleanup_in_progress = False
+        self._cleanup_task: asyncio.Task | None = None
         self.evaluator = Evaluator(settings=self.settings)
         self.weight_setter = WeightSetter(
             netuid=self.settings.netuid, subtensor=self.settings.subtensor
@@ -67,7 +74,11 @@ class Validator(AbstractValidator):
         resp = asyncio.run(self.register_to_platform())
         self.registered = bool(resp and getattr(resp, "ok", False))
         if not self.registered:
-            raise RuntimeError("Validator registration to platform failed.")
+            logging.warning(
+                "Validator registration to platform failed; "
+                "task fetching is disabled until re-registration succeeds. "
+                "Weight setting and other operations will continue normally."
+            )
 
     def init_settings(self) -> Settings:
         return Settings.from_env()
@@ -75,6 +86,214 @@ class Validator(AbstractValidator):
     @staticmethod
     def _platform_endpoint(base_url: str, path: str) -> str:
         return f"{base_url.rstrip('/')}/{path.lstrip('/')}"
+
+    def _competition_state_path(self) -> Path:
+        return Path(self.settings.swebench_competition_state_file)
+
+    def _load_competition_state(self) -> int | None:
+        path = self._competition_state_path()
+        try:
+            if not path.exists():
+                return None
+            raw = json.loads(path.read_text())
+            competition_id = raw.get("competition_id")
+            if competition_id is None:
+                return None
+            return int(competition_id)
+        except Exception:
+            logging.warning(
+                "Failed to load competition state file",
+                extra={"path": str(path)},
+                exc_info=True,
+            )
+            return None
+
+    def _write_competition_state(self, competition_id: int) -> None:
+        path = self._competition_state_path()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "competition_id": int(competition_id),
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+        }
+        tmp_path = path.with_suffix(f"{path.suffix}.tmp")
+        tmp_path.write_text(json.dumps(payload, sort_keys=True))
+        tmp_path.replace(path)
+
+    def _weights_cache_path(self) -> Path:
+        return Path(self.settings.weights_cache_file)
+
+    def _write_weights_cache(
+        self,
+        *,
+        uids: np.ndarray,
+        weights: np.ndarray,
+        source: str,
+    ) -> None:
+        path = self._weights_cache_path()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "saved_at": datetime.now(timezone.utc).isoformat(),
+            "source": source,
+            "validator_hotkey": self.settings.wallet.hotkey.ss58_address,
+            "netuid": int(self.settings.netuid),
+            "uids": [int(uid) for uid in uids.tolist()],
+            "weights": [float(weight) for weight in weights.tolist()],
+        }
+        tmp_path = path.with_suffix(f"{path.suffix}.tmp")
+        tmp_path.write_text(json.dumps(payload, sort_keys=True))
+        tmp_path.replace(path)
+        logging.info(
+            "Saved validator weights cache",
+            extra={
+                "path": str(path),
+                "source": source,
+                "count": len(payload["uids"]),
+            },
+        )
+
+    def _load_weights_cache(self) -> tuple[np.ndarray, np.ndarray] | None:
+        path = self._weights_cache_path()
+        max_age_seconds = max(0.0, float(self.settings.weights_cache_max_age_seconds))
+        try:
+            if not path.exists():
+                logging.warning(
+                    "Weights cache file does not exist",
+                    extra={"path": str(path)},
+                )
+                return None
+
+            raw = json.loads(path.read_text())
+            saved_at_raw = raw.get("saved_at")
+            if not isinstance(saved_at_raw, str) or not saved_at_raw.strip():
+                logging.warning(
+                    "Weights cache file is missing saved_at",
+                    extra={"path": str(path)},
+                )
+                return None
+
+            saved_at = datetime.fromisoformat(saved_at_raw.replace("Z", "+00:00"))
+            if saved_at.tzinfo is None:
+                saved_at = saved_at.replace(tzinfo=timezone.utc)
+            age_seconds = (datetime.now(timezone.utc) - saved_at).total_seconds()
+            if age_seconds > max_age_seconds:
+                logging.warning(
+                    "Cached weights are too old for fallback",
+                    extra={
+                        "path": str(path),
+                        "age_seconds": age_seconds,
+                        "max_age_seconds": max_age_seconds,
+                    },
+                )
+                return None
+
+            uids_raw = raw.get("uids")
+            weights_raw = raw.get("weights")
+            if not isinstance(uids_raw, list) or not isinstance(weights_raw, list):
+                logging.warning(
+                    "Weights cache file has invalid schema",
+                    extra={"path": str(path)},
+                )
+                return None
+            if len(uids_raw) == 0 or len(uids_raw) != len(weights_raw):
+                logging.warning(
+                    "Weights cache file has invalid array lengths",
+                    extra={
+                        "path": str(path),
+                        "uids_len": len(uids_raw),
+                        "weights_len": len(weights_raw),
+                    },
+                )
+                return None
+
+            uids = np.array([int(uid) for uid in uids_raw], dtype=np.int64)
+            weights = np.array([float(weight) for weight in weights_raw], dtype=np.float32)
+            if np.any(weights < 0) or float(np.sum(weights)) <= 0:
+                logging.warning(
+                    "Weights cache file has invalid weight values",
+                    extra={"path": str(path)},
+                )
+                return None
+
+            logging.info(
+                "Loaded validator weights from cache",
+                extra={
+                    "path": str(path),
+                    "count": len(uids),
+                    "age_seconds": age_seconds,
+                    "max_age_seconds": max_age_seconds,
+                },
+            )
+            return uids, weights
+        except Exception as exc:
+            logging.warning(
+                "Failed to read weights cache file",
+                extra={"path": str(path), "error": str(exc)},
+                exc_info=True,
+            )
+            return None
+
+
+    async def _note_evaluation_started(self) -> None:
+        with self._state_lock:
+            self._active_evaluations += 1
+
+    async def _note_evaluation_finished(self) -> None:
+        should_schedule_cleanup = False
+        with self._state_lock:
+            self._active_evaluations = max(0, self._active_evaluations - 1)
+            if (
+                self._active_evaluations == 0
+                and self._pending_competition_id is not None
+                and not self._cleanup_in_progress
+            ):
+                self._cleanup_in_progress = True
+                should_schedule_cleanup = True
+
+        if should_schedule_cleanup:
+            self._cleanup_task = asyncio.create_task(self._run_competition_cleanup())
+
+    async def handle_competition_heartbeat(self, competition_id: int | None) -> None:
+        if competition_id is None:
+            return
+
+        should_schedule_cleanup = False
+        with self._state_lock:
+            if self._current_competition_id == competition_id and self._pending_competition_id is None:
+                return
+            self._pending_competition_id = int(competition_id)
+            if self._active_evaluations == 0 and not self._cleanup_in_progress:
+                self._cleanup_in_progress = True
+                should_schedule_cleanup = True
+
+        if should_schedule_cleanup:
+            self._cleanup_task = asyncio.create_task(self._run_competition_cleanup())
+
+    async def _run_competition_cleanup(self) -> None:
+        try:
+            cleanup_result = await asyncio.to_thread(
+                self.evaluator.cleanup_competition_cache,
+            )
+            with self._state_lock:
+                latest_competition_id = self._pending_competition_id
+                if latest_competition_id is not None:
+                    self._current_competition_id = int(latest_competition_id)
+                    self._pending_competition_id = None
+                    self._write_competition_state(int(latest_competition_id))
+                self._cleanup_in_progress = False
+            logging.info(
+                "Competition cleanup completed",
+                extra={
+                    "competition_id": self._current_competition_id,
+                    "cleanup_result": cleanup_result,
+                },
+            )
+        except Exception as exc:
+            with self._state_lock:
+                self._cleanup_in_progress = False
+            logging.error(
+                f"Competition cleanup failed: {exc}",
+                exc_info=True,
+            )
     
     async def async_init(self) -> None:
         """Initialize async resources in the correct event loop"""
@@ -217,34 +436,74 @@ class Validator(AbstractValidator):
                 f"set_weights: Got best_miners_response: {best_miners_response}"
             )
 
-            if not best_miners_response or not best_miners_response.miners:
+            should_persist_cache = False
+            cache_source = "platform"
+            if best_miners_response is not None and best_miners_response.miners:
+                # Extract UIDs and weights into numpy arrays
+                uids = np.array(
+                    [m.uid for m in best_miners_response.miners], dtype=np.int64
+                )
+                weights = np.array(
+                    [m.weight for m in best_miners_response.miners], dtype=np.float32
+                )
+                should_persist_cache = True
+                cache_source = "platform"
+            elif best_miners_response is None:
+                cached_weights = self._load_weights_cache()
+                if cached_weights is not None:
+                    uids, weights = cached_weights
+                    cache_source = "cached_fallback"
+                    logging.warning(
+                        "Platform unavailable; using cached weights",
+                        extra={
+                            "count": len(uids),
+                            "max_age_seconds": float(
+                                self.settings.weights_cache_max_age_seconds
+                            ),
+                        },
+                    )
+                else:
+                    logging.warning(
+                        "Platform unavailable and no valid cached weights; setting burn weight to uid 0"
+                    )
+                    uids = np.array([0], dtype=np.int64)
+                    weights = np.array([1.0], dtype=np.float32)
+                    cache_source = "burn_fallback"
+            else:
                 logging.warning(
-                    "No miners returned from platform setting weight to uid 0"
+                    "No miners returned from platform; setting burn weight to uid 0"
                 )
-                await self.weight_setter.set_weights(
-                    np.array([0], dtype=np.int64), np.array([1.0], dtype=np.float32)
-                )
-                return
-
-            # Extract UIDs and weights into numpy arrays
-            uids = np.array(
-                [m.uid for m in best_miners_response.miners], dtype=np.int64
-            )
-            weights = np.array(
-                [m.weight for m in best_miners_response.miners], dtype=np.float32
-            )
+                uids = np.array([0], dtype=np.int64)
+                weights = np.array([1.0], dtype=np.float32)
+                should_persist_cache = True
+                cache_source = "platform_empty"
 
             logging.info(
                 f"Setting weights for {len(uids)} miners: UIDs={uids.tolist()}, weights={weights.tolist()}"
             )
 
             await self.weight_setter.set_weights(uids, weights)
+            if should_persist_cache:
+                self._write_weights_cache(
+                    uids=uids,
+                    weights=weights,
+                    source=cache_source,
+                )
 
         except Exception as e:
             logging.error(f"Exception during setting weights: {e}", exc_info=True)
             raise  # Re-raise to see if this is causing the crash
 
     async def get_tasks_for_eval(self) -> SweBenchValidationTask | None:
+        if not self.registered:
+            logging.warning("get_tasks_for_eval: not registered, attempting re-registration")
+            resp = await self.register_to_platform()
+            self.registered = bool(resp and getattr(resp, "ok", False))
+            if not self.registered:
+                logging.warning("get_tasks_for_eval: re-registration failed, skipping task fetch")
+                self._last_fetch_cause = "not_registered"
+                return None
+            logging.info("get_tasks_for_eval: re-registration succeeded, proceeding with task fetch")
         try:
             payload = GetSweBenchValidationRequest()
             nonce = generate_nonce()
@@ -465,9 +724,11 @@ class Validator(AbstractValidator):
             validation_id = self._task_validation_id(task)
             payload = SubmitSweBenchValidationScoreRequest(
                 validation_id=validation_id,
+                benchmark=str(getattr(task, "benchmark", "")),
                 instance_id=task.instance_id,
                 resolved=bool(results["resolved"]),
                 logs=str(results["logs"]),
+                metrics=results.get("metrics") or None,
             )
             nonce = generate_nonce()
             signature = sign_payload_model(
@@ -522,6 +783,7 @@ class Validator(AbstractValidator):
             validation_id = self._task_validation_id(task)
             payload = SubmitSweBenchValidationScoreRequest(
                 validation_id=validation_id,
+                benchmark=str(getattr(task, "benchmark", "")),
                 instance_id=task.instance_id,
                 resolved=False,
                 logs=self._format_error_logs(
@@ -588,6 +850,7 @@ class Validator(AbstractValidator):
         weight_task: asyncio.Task | None = None
 
         async def process_task(task: SweBenchValidationTask) -> None:
+            await self._note_evaluation_started()
             try:
                 results = await self.evaluator.evaluate(task)
                 # logging.info(f"Async evaluation results: {results}")
@@ -628,6 +891,8 @@ class Validator(AbstractValidator):
                     error_details={"error": str(exc)},
                     retryable=True,
                 )
+            finally:
+                await self._note_evaluation_finished()
 
         try:
             logging.info("Validator run loop started")
@@ -656,11 +921,17 @@ class Validator(AbstractValidator):
                 max_in_flight = self.settings.max_concurrent_evaluations
                 fetch_due = now >= fetch_cooldown_until
                 provider_ready = now >= self._provider_degraded_until
+                with self._state_lock:
+                    competition_switch_pending = (
+                        self._cleanup_in_progress
+                        or self._pending_competition_id is not None
+                    )
                 can_fetch = (
                     has
                     and len(in_flight) < max_in_flight
                     and fetch_due
                     and provider_ready
+                    and not competition_switch_pending
                 )
                 cooldown_remaining = max(0.0, fetch_cooldown_until - now)
                 provider_cooldown_remaining = max(
@@ -672,7 +943,8 @@ class Validator(AbstractValidator):
                     f"ratio_fail_streak: {consecutive_ratio_failures}, "
                     f"fetch_due: {fetch_due}, cooldown_remaining: {cooldown_remaining:.1f}s, "
                     f"provider_ready: {provider_ready}, "
-                    f"provider_cooldown_remaining: {provider_cooldown_remaining:.1f}s"
+                    f"provider_cooldown_remaining: {provider_cooldown_remaining:.1f}s, "
+                    f"competition_switch_pending: {competition_switch_pending}"
                 )
                 if can_fetch:
                     logging.info("Fetching tasks from platform...")
@@ -808,6 +1080,7 @@ def create_app() -> FastAPI:
         if validator is None:
             logging.error("Validator is None, raising 503")
             raise HTTPException(status_code=503, detail="Validator not initialized")
+        await validator.handle_competition_heartbeat(request.payload.competition_id)
         payload = HeartbeatResponse(
             ok=True,
             server_ts=datetime.now(timezone.utc),

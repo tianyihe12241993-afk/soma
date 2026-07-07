@@ -5,6 +5,7 @@ import uuid
 
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy import and_, or_, select
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from soma_shared.contracts.common.signatures import SignedEnvelope
@@ -23,6 +24,9 @@ from soma_shared.contracts.validator.v1.messages import (
 from soma_shared.db.models.swe_bench_run import SweBenchRun
 from soma_shared.db.models.swe_bench_run_validation import SweBenchRunValidation
 from soma_shared.db.models.swe_bench_task import SweBenchTask
+from soma_shared.db.models.swe_bench_verified_validation import SweBenchVerifiedValidation
+from soma_shared.db.models.swe_explorer_edit_validation import SweExplorerEditValidation
+from soma_shared.db.models.swe_explorer_validation import SweExplorerValidation
 from soma_shared.db.models.validator import Validator
 from soma_shared.db.models.validator_registration import ValidatorRegistration
 from soma_shared.db.session import get_db_session
@@ -57,6 +61,61 @@ from app.services.blob.s3 import S3BlobStorage
 
 logger = get_logger(__name__)
 router = APIRouter(tags=["validator"])
+
+_EXPLORER_METRIC_KEYS = ("precision", "recall", "f1_score", "hit_file_rate", "noise_file_rate", "weighted_core_coverage")
+
+
+async def _insert_benchmark_sub_row(
+    db: AsyncSession,
+    *,
+    validation_fk: int,
+    benchmark_type: str,
+    resolved: bool,
+    metrics: dict | None,
+) -> None:
+    if benchmark_type == "swe_explorer_explore":
+        m = metrics or {}
+        values = {
+            "validation_fk": validation_fk,
+            **{k: float(m.get(k, 0.0)) for k in _EXPLORER_METRIC_KEYS},
+        }
+        stmt = (
+            pg_insert(SweExplorerValidation)
+            .values(**values)
+            .on_conflict_do_update(
+                index_elements=[SweExplorerValidation.validation_fk],
+                set_={k: values[k] for k in _EXPLORER_METRIC_KEYS},
+            )
+        )
+        await db.execute(stmt)
+    elif benchmark_type == "swe_explorer_edit":
+        stmt = (
+            pg_insert(SweExplorerEditValidation)
+            .values(
+                validation_fk=validation_fk,
+                resolved=resolved,
+                details=None,
+            )
+            .on_conflict_do_update(
+                index_elements=[SweExplorerEditValidation.validation_fk],
+                set_={"resolved": resolved, "details": None},
+            )
+        )
+        await db.execute(stmt)
+    else:
+        stmt = (
+            pg_insert(SweBenchVerifiedValidation)
+            .values(
+                validation_fk=validation_fk,
+                resolved=resolved,
+                details=None,
+            )
+            .on_conflict_do_update(
+                index_elements=[SweBenchVerifiedValidation.validation_fk],
+                set_={"resolved": resolved, "details": None},
+            )
+        )
+        await db.execute(stmt)
 
 
 def _model_attr(model: type, name: str):
@@ -363,6 +422,8 @@ async def _load_top_miner_ss58_weights(
                     + (float(row.weight) if row.weight else 0.0)
                 )
     except Exception as exc:
+        # Reset the session in case a prior statement aborted the transaction.
+        await db.rollback()
         logger.warning(
             "get_best_miners_top_miners_query_failed",
             extra={"request_id": request_id, "error": str(exc)},
@@ -388,6 +449,8 @@ async def _build_best_miners_payload(
             hotkey_to_uid=hotkey_to_uid,
         )
     except Exception as exc:
+        # Keep the session usable for subsequent queries in this request.
+        await db.rollback()
         logger.warning(
             "get_best_miners_screener_calculation_failed",
             extra={
@@ -414,31 +477,52 @@ async def _build_best_miners_payload(
         now=now,
     )
 
-    top_miner_weight_total = sum(w for w in top_miner_ss58_weights.values() if w > 0.0)
-    combined_weight = screener_weight_total + top_miner_weight_total
-    if combined_weight > 1.0 + 1e-6:
+    screener_used = sum(screener_weights_by_uid.values())
+    if screener_used > 1.0 + 1e-6:
         logger.warning(
-            "get_best_miners_combined_weight_exceeds_1",
+            "get_best_miners_screener_weight_exceeds_1",
             extra={
                 "request_id": request_id,
                 "screener_weight_total": screener_weight_total,
-                "top_miner_weight_total": top_miner_weight_total,
-                "combined_weight": combined_weight,
+                "screener_used": screener_used,
             },
         )
         return _burn_only_payload()
 
-    screener_used = sum(screener_weights_by_uid.values())
-    top_miners_assigned = 0.0
+    top_miner_weight_total_raw = sum(
+        w for w in top_miner_ss58_weights.values() if w > 0.0
+    )
+    remaining_for_top_miners = max(0.0, 1.0 - screener_used)
+
+    registered_top_miner_ss58_weights: dict[str, float] = {}
+    unregistered_top_miner_ss58_weights: dict[str, float] = {}
     for ss58, weight in top_miner_ss58_weights.items():
         if weight <= 0.0:
             continue
+        if hotkey_to_uid.get(ss58) is None:
+            unregistered_top_miner_ss58_weights[ss58] = weight
+        else:
+            registered_top_miner_ss58_weights[ss58] = weight
+
+    top_miner_weight_total_registered = sum(
+        w for w in registered_top_miner_ss58_weights.values() if w > 0.0
+    )
+    top_miner_scale = (
+        (remaining_for_top_miners / top_miner_weight_total_registered)
+        if top_miner_weight_total_registered > 0.0
+        else 0.0
+    )
+
+    top_miners_assigned = 0.0
+    for ss58, weight in registered_top_miner_ss58_weights.items():
+        normalized_weight = weight * top_miner_scale
+        if normalized_weight <= 0.0:
+            continue
         uid = hotkey_to_uid.get(ss58)
         if uid is None:
-            miners_by_uid[0] = miners_by_uid.get(0, 0.0) + weight
-        else:
-            miners_by_uid[int(uid)] = miners_by_uid.get(int(uid), 0.0) + weight
-        top_miners_assigned += weight
+            continue
+        miners_by_uid[int(uid)] = miners_by_uid.get(int(uid), 0.0) + normalized_weight
+        top_miners_assigned += normalized_weight
 
     burn = max(0.0, 1.0 - screener_used - top_miners_assigned)
     if burn > 0.0:
@@ -459,6 +543,17 @@ async def _build_best_miners_payload(
             "top_screener_miners": top_screener_miners,
             "screener_weight_total": screener_weight_total,
             "screener_weight_per_miner": screener_weight_per_miner,
+            "remaining_for_top_miners": remaining_for_top_miners,
+            "top_miner_weight_total_raw": top_miner_weight_total_raw,
+            "top_miner_weight_total_registered": top_miner_weight_total_registered,
+            "top_miner_weight_total_unregistered": sum(
+                w for w in unregistered_top_miner_ss58_weights.values() if w > 0.0
+            ),
+            "top_miner_scale": top_miner_scale,
+            "unregistered_top_miners": [
+                {"ss58": ss58, "weight": weight}
+                for ss58, weight in unregistered_top_miner_ss58_weights.items()
+            ],
             "top_miners_assigned": top_miners_assigned,
             "burn": burn,
             "miners": _miners_log(miners),
@@ -685,7 +780,6 @@ async def get_swebench_validation(
             .join(SweBenchRun, SweBenchRun.id == SweBenchRunValidation.run_fk)
             .join(SweBenchTask, SweBenchTask.id == SweBenchRun.task_fk)
             .where(SweBenchRunValidation.scored_at.is_(None))
-            .where(SweBenchRunValidation.resolved.is_(None))
         )
         if completed_condition is not None:
             query_unclaimed = query_unclaimed.where(completed_condition)
@@ -736,7 +830,13 @@ async def get_swebench_validation(
 
         run_status = str(getattr(run_row, "status", "") or "").lower()
         if run_status == "failed":
-            validation_row.resolved = False
+            await _insert_benchmark_sub_row(
+                db,
+                validation_fk=int(validation_row.id),
+                benchmark_type=str(run_row.benchmark_type),
+                resolved=False,
+                metrics=None,
+            )
             validation_row.scored_at = now
             if logs_col is not None:
                 validation_row.logs = "Auto-scored false: run status is failed."
@@ -767,7 +867,13 @@ async def get_swebench_validation(
                 },
                 exc_info=exc,
             )
-            validation_row.resolved = False
+            await _insert_benchmark_sub_row(
+                db,
+                validation_fk=int(validation_row.id),
+                benchmark_type=str(run_row.benchmark_type),
+                resolved=False,
+                metrics=None,
+            )
             validation_row.scored_at = now
             if logs_col is not None:
                 validation_row.logs = (
@@ -793,6 +899,8 @@ async def get_swebench_validation(
 
         task_payload = SweBenchValidationTask(
             validation_id=int(validation_row.id),
+            benchmark=str(task_row.benchmark_name),
+            benchmark_type=str(run_row.benchmark_type),
             instance_id=str(task_row.instance_id),
             diff=diff_text,
         )
@@ -911,7 +1019,13 @@ async def submit_swebench_validation_score(
 
     if validator_fk_col is not None:
         validation_row.validator_fk = validator.id
-    validation_row.resolved = bool(payload.resolved)
+    await _insert_benchmark_sub_row(
+        db,
+        validation_fk=int(validation_row.id),
+        benchmark_type=str(_run_row.benchmark_type),
+        resolved=bool(payload.resolved),
+        metrics=payload.metrics,
+    )
     if logs_col is not None:
         validation_row.logs = payload.logs
     validation_row.scored_at = now

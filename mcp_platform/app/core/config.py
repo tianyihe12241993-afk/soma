@@ -129,6 +129,18 @@ class Settings(BaseSettings):
         default=5000,
         alias="FRONTEND_API_KEY_DEFAULT_RPD",
     )
+    frontend_aggregate_snapshot_version: str = Field(
+        default="v1",
+        alias="FRONTEND_AGGREGATE_SNAPSHOT_VERSION",
+    )
+    frontend_aggregate_snapshot_dir: Path = Field(
+        default=Path("/tmp/soma/frontend_aggregate_snapshots"),
+        alias="FRONTEND_AGGREGATE_SNAPSHOT_DIR",
+    )
+    frontend_aggregate_snapshot_s3_prefix: str = Field(
+        default="frontend/competition_aggregate_snapshots",
+        alias="FRONTEND_AGGREGATE_SNAPSHOT_S3_PREFIX",
+    )
 
     # Batch cleanup
     batch_cleanup_interval_secs: int = Field(
@@ -220,6 +232,18 @@ class Settings(BaseSettings):
         default=False,
         alias="SWEBENCH_DISPATCH_STRICT_FIFO",
     )
+    swebench_dispatch_window_seconds: float = Field(
+        default=60.0,
+        alias="SWEBENCH_DISPATCH_WINDOW_SECONDS",
+    )
+    swebench_dispatch_max_runs_per_window: int = Field(
+        default=10,
+        alias="SWEBENCH_DISPATCH_MAX_RUNS_PER_WINDOW",
+    )
+    swebench_max_concurrent_dispatched_per_miner: int = Field(
+        default=30,
+        alias="SWEBENCH_MAX_CONCURRENT_DISPATCHED_PER_MINER",
+    )
     swebench_dispatched_ttl_seconds: int = Field(
         default=2400,
         alias="SWEBENCH_DISPATCHED_TTL_SECONDS",
@@ -247,6 +271,22 @@ class Settings(BaseSettings):
     swebench_screening_pass_ratio: float = Field(
         default=0.5,
         alias="SWEBENCH_SCREENING_PASS_RATIO",
+    )
+    swebench_screening_min_weighted_token_saving_ratio: float = Field(
+        default=0.1,
+        alias="SWEBENCH_SCREENING_MIN_WEIGHTED_TOKEN_SAVING_RATIO",
+    )
+    swebench_screening_input_tokens_weight: float = Field(
+        default=1.0,
+        alias="SWEBENCH_SCREENING_INPUT_TOKENS_WEIGHT",
+    )
+    swebench_screening_cached_input_tokens_weight: float = Field(
+        default=1.0 / 3.0,
+        alias="SWEBENCH_SCREENING_CACHED_INPUT_TOKENS_WEIGHT",
+    )
+    swebench_screening_output_tokens_weight: float = Field(
+        default=3.0,
+        alias="SWEBENCH_SCREENING_OUTPUT_TOKENS_WEIGHT",
     )
     swebench_dynamic_screener_task_count: int = Field(
         default=3,
@@ -341,6 +381,29 @@ class Settings(BaseSettings):
             "COMPACT_BENCH_SERVICE_URLS must be a list or comma-separated string"
         )
 
+    @field_validator("frontend_aggregate_snapshot_dir", mode="before")
+    @classmethod
+    def _parse_frontend_aggregate_snapshot_dir(cls, value: Any) -> Path:
+        if value is None or value == "":
+            return Path("/tmp/soma/frontend_aggregate_snapshots")
+        if isinstance(value, Path):
+            return value
+        if isinstance(value, str):
+            return Path(value.strip())
+        raise ValueError("FRONTEND_AGGREGATE_SNAPSHOT_DIR must be a filesystem path")
+
+    @field_validator("frontend_aggregate_snapshot_s3_prefix", mode="before")
+    @classmethod
+    def _parse_frontend_aggregate_snapshot_s3_prefix(cls, value: Any) -> str:
+        if value is None or value == "":
+            return "frontend/competition_aggregate_snapshots"
+        if not isinstance(value, str):
+            raise ValueError("FRONTEND_AGGREGATE_SNAPSHOT_S3_PREFIX must be a string")
+        normalized = value.strip().strip("/")
+        if not normalized:
+            return "frontend/competition_aggregate_snapshots"
+        return normalized
+
     @field_validator("top_screener_scripts", mode="before")
     @classmethod
     def _parse_top_screener_scripts(cls, value: Any) -> float:
@@ -406,6 +469,39 @@ class Settings(BaseSettings):
             ) from exc
         return max(0, numeric)
 
+    @field_validator("swebench_dispatch_window_seconds", mode="before")
+    @classmethod
+    def _parse_swebench_dispatch_window_seconds(cls, value: Any) -> float:
+        if value is None or value == "":
+            return 60.0
+        try:
+            numeric = float(value)
+        except (TypeError, ValueError) as exc:
+            raise ValueError("SWEBENCH_DISPATCH_WINDOW_SECONDS must be a number") from exc
+        return max(1.0, numeric)
+
+    @field_validator("swebench_dispatch_max_runs_per_window", mode="before")
+    @classmethod
+    def _parse_swebench_dispatch_max_runs_per_window(cls, value: Any) -> int:
+        if value is None or value == "":
+            return 10
+        try:
+            numeric = int(value)
+        except (TypeError, ValueError) as exc:
+            raise ValueError("SWEBENCH_DISPATCH_MAX_RUNS_PER_WINDOW must be an integer") from exc
+        return max(0, numeric)
+
+    @field_validator("swebench_max_concurrent_dispatched_per_miner", mode="before")
+    @classmethod
+    def _parse_swebench_max_concurrent_dispatched_per_miner(cls, value: Any) -> int:
+        if value is None or value == "":
+            return 30
+        try:
+            numeric = int(value)
+        except (TypeError, ValueError) as exc:
+            raise ValueError("SWEBENCH_MAX_CONCURRENT_DISPATCHED_PER_MINER must be an integer") from exc
+        return max(0, numeric)
+
     @field_validator("swebench_screening_pass_ratio", mode="before")
     @classmethod
     def _parse_swebench_screening_pass_ratio(cls, value: Any) -> float:
@@ -424,6 +520,39 @@ class Settings(BaseSettings):
         if numeric > 1:
             numeric = 1.0
         return numeric
+
+    @field_validator("swebench_screening_min_weighted_token_saving_ratio", mode="before")
+    @classmethod
+    def _parse_swebench_screening_min_weighted_token_saving_ratio(cls, value: Any) -> float:
+        if value is None or value == "":
+            return 0.1
+        try:
+            numeric = float(value)
+        except (TypeError, ValueError) as exc:
+            raise ValueError(
+                "SWEBENCH_SCREENING_MIN_WEIGHTED_TOKEN_SAVING_RATIO must be a number"
+            ) from exc
+        if numeric > 1:
+            if numeric > 100:
+                numeric = 100.0
+            numeric = numeric / 100.0
+        if numeric < 0:
+            numeric = 0.0
+        if numeric > 1:
+            numeric = 1.0
+        return numeric
+
+    @field_validator(
+        "swebench_screening_input_tokens_weight",
+        "swebench_screening_cached_input_tokens_weight",
+        "swebench_screening_output_tokens_weight",
+        mode="after",
+    )
+    @classmethod
+    def _validate_swebench_screening_token_weights(cls, value: float) -> float:
+        if value < 0:
+            raise ValueError("SWEBENCH screening token weights must be non-negative")
+        return float(value)
 
     @field_validator("previous_competition_screeners_grace_hours", mode="before")
     @classmethod

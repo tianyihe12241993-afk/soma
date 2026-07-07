@@ -5,6 +5,7 @@ import sys
 import types
 from dataclasses import dataclass
 from pathlib import Path
+from types import SimpleNamespace
 
 
 def _load_scoring_module():
@@ -35,6 +36,19 @@ def _load_scoring_module():
         types.ModuleType("soma_shared.contracts.api.v1"),
     )
     sys.modules["soma_shared.contracts.api.v1.frontend"] = frontend_module
+
+    # Stub app.core.config so scoring.py can read token weight settings.
+    config_module = types.ModuleType("app.core.config")
+    config_module.settings = SimpleNamespace(
+        swebench_screening_input_tokens_weight=1.0,
+        swebench_screening_cached_input_tokens_weight=1.0 / 3.0,
+        swebench_screening_output_tokens_weight=3.0,
+    )
+    app_module = types.ModuleType("app")
+    core_module = types.ModuleType("app.core")
+    sys.modules.setdefault("app", app_module)
+    sys.modules.setdefault("app.core", core_module)
+    sys.modules["app.core.config"] = config_module
 
     scoring_path = (
         Path(__file__).resolve().parents[1] / "app" / "api" / "routes" / "scoring.py"
@@ -121,27 +135,65 @@ def test_adjusted_score_keeps_raw_score_when_token_totals_are_invalid():
     ) < 1e-9
 
 
+def test_compute_weighted_tokens_treats_cached_null_as_zero_only():
+    scoring = _load_scoring_module()
+
+    # input=60, cached=NULL->0, output=10 with weights (1, 1/3, 3)
+    weighted = scoring.compute_weighted_tokens(
+        input_tokens=60,
+        cached_input_tokens=None,
+        output_tokens=10,
+    )
+    assert weighted is not None
+    assert abs(weighted - 90.0) < 1e-9
+
+    # All null stays unavailable.
+    assert (
+        scoring.compute_weighted_tokens(
+            input_tokens=None,
+            cached_input_tokens=None,
+            output_tokens=None,
+        )
+        is None
+    )
+
+    # Missing required non-cached/output still unavailable.
+    assert (
+        scoring.compute_weighted_tokens(
+            input_tokens=None,
+            cached_input_tokens=10,
+            output_tokens=5,
+        )
+        is None
+    )
+
+
 def test_build_swe_miner_scores_applies_global_token_multiplier():
     scoring = _load_scoring_module()
 
+    # Provide precomputed weighted totals directly in task groups.
     task_groups = {
         "task-a": {
             "is_screener": True,
             "baseline_runs": {1: {"tokens_used": 100}},
+            "baseline_weighted_tokens": 100.0,
             "runs": [
                 {
                     "platform_score": 2.0,
                     "tokens_with_compression": 80,
+                    "weighted_tokens_with_compression": 80.0,
                 }
             ],
         },
         "task-b": {
             "is_screener": False,
             "baseline_runs": {2: {"tokens_used": 100}},
+            "baseline_weighted_tokens": 100.0,
             "runs": [
                 {
                     "platform_score": 0.0,
                     "tokens_with_compression": 120,
+                    "weighted_tokens_with_compression": 120.0,
                 }
             ],
         },
@@ -156,16 +208,20 @@ def test_build_swe_miner_scores_applies_global_token_multiplier():
 def test_build_swe_miner_scores_leaves_total_raw_when_tokens_are_missing():
     scoring = _load_scoring_module()
 
+    # Missing tokens: task-a has no baseline tokens, task-b run has no compressed tokens.
+    # Neither group can form a valid pair, so no multiplier is applied.
     task_groups = {
         "task-a": {
             "is_screener": True,
             "baseline_runs": {1: {"tokens_used": None}},
-            "runs": [{"platform_score": 2.0, "tokens_with_compression": 80}],
+            "baseline_weighted_tokens": None,
+            "runs": [{"platform_score": 2.0, "tokens_with_compression": 80, "weighted_tokens_with_compression": 80.0}],
         },
         "task-b": {
             "is_screener": False,
             "baseline_runs": {2: {"tokens_used": 100}},
-            "runs": [{"platform_score": 0.0, "tokens_with_compression": None}],
+            "baseline_weighted_tokens": 100.0,
+            "runs": [{"platform_score": 0.0, "tokens_with_compression": None, "weighted_tokens_with_compression": None}],
         },
     }
 
@@ -173,3 +229,91 @@ def test_build_swe_miner_scores_leaves_total_raw_when_tokens_are_missing():
 
     assert abs(total_score - 1.0) < 1e-9
     assert abs(screener_score - 2.0) < 1e-9
+
+
+def test_build_swe_category_scores_uses_platform_scores_without_run_baseline_fields():
+    scoring = _load_scoring_module()
+
+    task_groups = {
+        "task-a": {
+            "task_name": "task-a",
+            "baseline_runs": {1: {"tokens_used": 100}},
+            "baseline_weighted_tokens": 100.0,
+            "runs": [{"platform_score": 2.0, "tokens_with_compression": 80, "weighted_tokens_with_compression": 80.0}],
+        },
+        "task-b": {
+            "task_name": "task-b",
+            "baseline_runs": {2: {"tokens_used": 100}},
+            "baseline_weighted_tokens": 100.0,
+            "runs": [{"platform_score": 0.0, "tokens_with_compression": 100, "weighted_tokens_with_compression": 100.0}],
+        },
+    }
+
+    category_scores = scoring.build_swe_category_scores(
+        task_groups,
+        {"task-a": "Easy", "task-b": "Hard"},
+    )
+
+    assert abs(category_scores["Easy"] - 2.0) < 1e-9
+    assert category_scores["Medium"] is None
+    assert abs(category_scores["Hard"] + 2.0) < 1e-9
+
+
+def test_build_swe_miner_category_scores_with_penalty_returns_scores_for_complete_miners():
+    scoring = _load_scoring_module()
+
+    task_difficulties = [
+        SimpleNamespace(task_name="task-1", category="Easy"),
+        SimpleNamespace(task_name="task-2", category="Hard"),
+    ]
+    rows = [
+        SimpleNamespace(
+            task_id=1,
+            task_name="task-1",
+            is_screener=False,
+            hotkey="miner-a",
+            baseline_run_id=101,
+            baseline_tokens_used=100,
+            baseline_input_tokens=60,
+            baseline_cached_input_tokens=30,
+            baseline_output_tokens=10,
+            baseline_resolved=True,
+            run_id=201,
+            attempt_no=1,
+            run_tokens_used=80,
+            run_input_tokens=48,
+            run_cached_input_tokens=24,
+            run_output_tokens=8,
+            time_taken_seconds=10.0,
+            agent_steps=5,
+            run_resolved=True,
+        ),
+        SimpleNamespace(
+            task_id=2,
+            task_name="task-2",
+            is_screener=False,
+            hotkey="miner-a",
+            baseline_run_id=102,
+            baseline_tokens_used=100,
+            baseline_input_tokens=60,
+            baseline_cached_input_tokens=30,
+            baseline_output_tokens=10,
+            baseline_resolved=True,
+            run_id=202,
+            attempt_no=1,
+            run_tokens_used=100,
+            run_input_tokens=60,
+            run_cached_input_tokens=30,
+            run_output_tokens=10,
+            time_taken_seconds=12.0,
+            agent_steps=6,
+            run_resolved=False,
+        ),
+    ]
+
+    scores = scoring.build_swe_miner_category_scores_with_penalty(rows, task_difficulties)
+
+    assert set(scores) == {"miner-a"}
+    assert abs(scores["miner-a"]["Easy"] - 1.1115717756571035) < 1e-9
+    assert abs(scores["miner-a"]["Hard"] + 4.0) < 1e-9
+    assert scores["miner-a"]["Medium"] is None

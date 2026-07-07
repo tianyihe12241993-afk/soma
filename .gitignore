@@ -5,7 +5,9 @@ __pycache__/
 sentence-transformers/
 # C extensions
 *.so
-scripts/
+# NOTE: `scripts/` was ignored here (upstream template) — that silently kept comp-108's gate tools
+# (check_readme_current.py / vet_draw.py / watch_comp_status.py) out of git and they were LOST.
+# Ops scripts MUST be tracked; do not re-add the ignore.
 # Distribution / packaging
 .Python
 build/
@@ -153,3 +155,6 @@ experiments/runs/
 # stray editor/script temp files
 state/*.tmp
 *.md.tmp
+
+# Local cache backup
+mcp_platform/app/services/dash_rows_cache/dash_rows_cache_backup.json
