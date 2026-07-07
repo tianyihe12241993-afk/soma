@@ -4,13 +4,24 @@
 Stores: data/raw/dashboard/YYYY-MM-DD/HHMMSS_leaderboard.json  (never overwritten)
 
 Modes:
-  (default)            fetch the live dashboard HTML and extract the embedded leaderboard JSON.
+  (default)            fetch the live dashboard and parse the leaderboard.
+  --comp NNN           fetch a specific competition (live or archive) via /dashboard?comp=NNN
+                       (e.g. --comp 108 for the CoT-Compression-4 archive; default = active comp).
   --import <file>      import a manually-saved leaderboard (raw HTML, JSON array, or CSV paste)
                        when browser/network automation isn't available.
 
+2026-07-07: the dashboard was rebuilt (Next.js App Router). The leaderboard is no longer inline
+page JSON; it lives in the RSC *flight* stream (`self.__next_f.push`) under `sweMiners` (swe-type
+comps, e.g. comp-108 archive) or `miners` (compression-type comps, e.g. comp-110 / CoT-Compression-5),
+alongside a `competitions` list (id/name/state/windows). We parse the flight first (reusing
+collect_runs.extract_flight/balanced) and fall back to the legacy inline-JSON regex for old saved
+HTML imports. Category keys are stored VERBATIM in `category_scores` (comp-110 replaces Easy/Medium/
+Hard with task-type layers); easy/medium/hard fields are kept for backward compat when present.
+
 The raw snapshot is a JSON object:
-  {"observed_at": "...Z", "source": "...", "miners": [ {hotkey, total, easy, medium, hard,
-   review_status, eval_status, rank}, ... ]}
+  {"observed_at": "...Z", "source": "...", "competition": {...} | None,
+   "miners": [ {hotkey, total, easy, medium, hard, review_status, eval_status,
+                category_scores?, screener_passed?, screener_score?, last_submit?}, ... ]}
 """
 from __future__ import annotations
 import argparse
@@ -22,9 +33,52 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _common import RAW, utc_now, utc_stamp  # noqa: E402
+from collect_runs import extract_flight, balanced  # noqa: E402  (RSC flight parser, 2026-07-07)
 
 CFG = (Path(__file__).resolve().parent.parent / "config" / "dashboard.yaml").read_text()
 URL = (re.search(r'leaderboard_url:\s*"([^"]+)"', CFG) or [None, "https://thesoma.ai/dashboard"])[1]
+HK_RX = re.compile(r"[1-9A-HJ-NP-Za-km-z]{48}")
+
+
+def _extract_from_flight(html: str) -> tuple[list, list]:
+    """Parse the new (2026-07) RSC-flight dashboard. Returns (competitions, miner rows).
+
+    Rows come from `sweMiners` (swe-type comps) or `miners` (compression-type comps).
+    Normalizes to the snapshot schema while keeping the raw category_scores dict verbatim
+    (comp-110's task-type layers may not be Easy/Medium/Hard).
+    """
+    flight = extract_flight(html)
+    if not flight:
+        return [], []
+    competitions = balanced(flight, "competitions") or []
+    raw_rows = balanced(flight, "sweMiners") or balanced(flight, "miners") or []
+    out: dict = {}
+    for r in raw_rows:
+        hk = r.get("hotkey") or ""
+        if not HK_RX.fullmatch(hk):
+            continue
+        cs = r.get("category_scores") or {}
+        vals = [v for v in cs.values() if isinstance(v, (int, float))]
+        total = r.get("total_score")
+        if total is None:
+            total = r.get("score")
+        if total is None and vals:
+            total = round(sum(vals) / len(vals), 6)
+        st = r.get("status") or ""
+        entry = {
+            "hotkey": hk, "total": total,
+            "easy": cs.get("Easy"), "medium": cs.get("Medium"), "hard": cs.get("Hard"),
+            "review_status": st or ("scored" if vals else ""),
+            "eval_status": st or ("scored" if vals else "pending"),
+        }
+        if cs:
+            entry["category_scores"] = cs                   # verbatim (new task-type layers)
+        for k in ("screener_passed", "screener_score", "last_submit", "partial_scores"):
+            if r.get(k) is not None:
+                entry[k] = r[k]
+        if hk not in out or (vals and out[hk]["total"] is None):
+            out[hk] = entry
+    return competitions, list(out.values())
 
 
 def _extract_from_html(html: str) -> list:
@@ -83,9 +137,11 @@ def _extract_from_csv(text: str) -> list:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--import", dest="imp", help="path to saved leaderboard (html/json/csv)")
+    ap.add_argument("--comp", type=int, help="competition id (?comp=NNN archive/live view; default = active)")
     args = ap.parse_args()
 
-    source = URL
+    source = URL + (f"?comp={args.comp}" if args.comp else "")
+    competitions: list = []
     if args.imp:
         raw = Path(args.imp).read_text(encoding="utf-8", errors="ignore")
         source = f"import:{args.imp}"
@@ -93,29 +149,39 @@ def main() -> int:
             obj = json.loads(raw)
             miners = obj.get("miners", obj) if isinstance(obj, dict) else obj
         elif "<html" in raw[:500].lower() or '"hotkey"' in raw[:5000]:
-            miners = _extract_from_html(raw)
+            competitions, miners = _extract_from_flight(raw)
+            if not miners:
+                miners = _extract_from_html(raw)
         else:
             miners = _extract_from_csv(raw)
     else:
-        req = urllib.request.Request(URL, headers={"User-Agent": "soma-ops-collector/1.0"})
+        req = urllib.request.Request(source, headers={"User-Agent": "soma-ops-collector/1.0"})
         try:
             html = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "ignore")
         except Exception as e:
             print(f"FETCH FAILED ({e}). Save the dashboard and use --import <file>.", file=sys.stderr)
             return 1
-        miners = _extract_from_html(html)
+        competitions, miners = _extract_from_flight(html)     # new RSC dashboard (2026-07-07)
+        if not miners:
+            miners = _extract_from_html(html)                 # legacy inline-JSON fallback
 
     if not miners:
         print("No miner records parsed — refusing to write empty snapshot.", file=sys.stderr)
         return 1
 
-    snap = {"observed_at": utc_now(), "source": source, "miner_count": len(miners), "miners": miners}
+    comp_meta = None
+    if competitions:
+        comp_meta = next((c for c in competitions if args.comp and c.get("competition_id") == args.comp), None) \
+            or next((c for c in competitions if c.get("is_active")), None)
+    snap = {"observed_at": utc_now(), "source": source, "competition": comp_meta,
+            "miner_count": len(miners), "miners": miners}
     day = utc_now()[:10]
     out_dir = RAW / day
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{utc_stamp().split('_')[1]}_leaderboard.json"
+    tag = f"comp{args.comp}_" if args.comp else ""
+    out_path = out_dir / f"{utc_stamp().split('_')[1]}_{tag}leaderboard.json"
     if out_path.exists():                                  # never overwrite raw
-        out_path = out_dir / f"{utc_stamp().split('_')[1]}_{len(list(out_dir.glob('*')))}_leaderboard.json"
+        out_path = out_dir / f"{utc_stamp().split('_')[1]}_{tag}{len(list(out_dir.glob('*')))}_leaderboard.json"
     out_path.write_text(json.dumps(snap, indent=2), encoding="utf-8")
     print(f"wrote {out_path}  ({len(miners)} miners)")
     return 0

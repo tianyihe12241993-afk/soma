@@ -1,9 +1,13 @@
 # Dashboard collection config.
-# The SOMA dashboard is a Next.js page with the leaderboard embedded as JSON in the HTML.
-# collect_dashboard.py fetches the HTML and extracts the per-miner records.
+# The SOMA dashboard is a Next.js App Router page (rebuilt 2026-07); the leaderboard lives in the
+# RSC flight stream (`self.__next_f.push`) — `sweMiners` for swe-type comps, `miners` for
+# compression-type comps. collect_dashboard.py parses the flight (legacy inline-JSON as fallback).
+# Archives: /dashboard?comp=NNN.
 leaderboard_url: "https://thesoma.ai/dashboard"
 miner_page_url: "https://thesoma.ai/dashboard/miner/{comp}/{hotkey}"   # per-miner detail (collect_miner_detail.py)
-competition_id: 108   # CoT-Compression-4 (was 107; bumped 2026-06-26 — detail scraper was 404ing on comp-108-only miners)
+competition_id: 110   # CoT-Compression-5 (platform id is 110, NOT 109 — confirmed from the dashboard
+                      # RSC flight 2026-07-07; comp-108=CoT-Compression-4 archive at ?comp=108).
+                      # competition_type: "compression" (board rows under `miners`, not `sweMiners`).
 
 # Display column order on the rendered board is: total, Easy, Hard, Medium.
 # But the embedded JSON category_scores key order is {Easy, Medium, Hard} — the
