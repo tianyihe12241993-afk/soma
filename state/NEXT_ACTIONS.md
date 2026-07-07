@@ -17,7 +17,16 @@ All rebuilt tools tested against live data. What's in place:
 - ✅ `.gitignore`: removed the `scripts/` ignore that silently lost the comp-108 gate tools.
 - ✅ `config/miners.yaml`: comp-110 upload protocol documented (register hotkey→file+sha at upload time).
 
+### ⚠️ MINER: INTERFACE BREAK (2026-07-07 ~05:00Z) — the #1 work item
+comp-110 runs the **copilot** agent; miners are now **imported modules**: `compress_messages(messages, path, metadata) -> list`
+per LLM request (OpenAI messages array). **cap32+pin CANNOT be re-submitted as-is — port required.**
+Full contract + what carries over: `reports/comp110_miner_brief.md`. Port = new candidate file
+(explicit USER instruction to build; Codex pre-upload audit; upload USER-run).
+
 ### USER-ONLY actions (in order; nothing else blocks on you):
+0. **Miner-env finishers (2 cmds, blocked for Claude as external-code execution):**
+   `cd ~/joshua-work/SOMA-benchmark && uv sync` (soma-bench env) and
+   `~/.venvs/soma/bin/pip install "git+https://github.com/DendriteHQ/SOMA-shared.git"` (upload signing; repo is public now).
 1. **OpenRouter (before ANY upload):** Settings → Privacy → enable BOTH Data Collection options;
    Settings → Guardrails → Workspace → enable the DeepSeek provider. (comp-110 = DeepSeek V4 Pro.)
 2. **Secrets:** `cp config/secrets.env.example config/secrets.env` then fill `OPENROUTER_KEY_COMP110`
