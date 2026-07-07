@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/opt/homebrew/bin/python3 /Users/user/SOMA/scripts/checkpoint_session.py --reason precompact",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/checkpoint_session.py\" --reason precompact",
             "timeout": 30
           }
         ]
@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/opt/homebrew/bin/python3 /Users/user/SOMA/scripts/context_for_claude.py",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/context_for_claude.py\"",
             "timeout": 20
           }
         ]
@@ -30,7 +30,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/opt/homebrew/bin/python3 /Users/user/SOMA/.claude/hooks/protect_files.py",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect_files.py\"",
             "timeout": 10
           }
         ]
@@ -42,7 +42,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/opt/homebrew/bin/python3 /Users/user/SOMA/.claude/hooks/audit_tool_use.py",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/audit_tool_use.py\"",
             "timeout": 10
           }
         ]
