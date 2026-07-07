@@ -32,16 +32,28 @@ from _common import RAW, utc_now, utc_stamp  # noqa: E402
 RAW_URL = "https://raw.githubusercontent.com/DendriteHQ/SOMA/main/miner/README_prompting.md"
 SNAP_DIR = RAW.parent / "readme_prompting"
 
-# The allowed set our live/upload candidates were verified against (README §5.1 + §5.2,
-# fetched from upstream@main 2026-07-07; identical to the comp-108 frozen set).
+# The allowed set our candidates are verified against (README §5.1 + §5.2).
+# ⚠ 2026-07-07 ~07:36Z: the owners MERGED the comp-110 prompt PR — 6 NEW markers landed (was 9→15).
+# New: omission markers [[Omitted]]/[[/Omitted]] + [[deleted]]/[[/deleted]] (may replace [[CMP]]),
+# and SOURCE-LINE-REFERENCE markers `[[CMP]] source line N [[/CMP]]` /
+# `[[CMP]] source line N ~ source line M Omitted [[/CMP]]` — README §1: "when compressing code,
+# include a source line reference inside the marker so omitted lines remain locatable."
+# = line-number provenance is now LEGAL (it was the DQ'd comp-108 king's Hard edge). NEW LEVER.
+# Our uploaded miners emit only a SUBSET (still compliant). Baseline updated to the live 15.
 BASELINE = {
     "Compressed text starts here",
     "Compressed text ends here",
     "[[CMP]]",
     "[[/CMP]]",
+    "[[Omitted]]",
+    "[[/Omitted]]",
+    "[[deleted]]",
+    "[[/deleted]]",
     "[[BLOCK X]]",
     "[[/BLOCK X]]",
     "Same response as in [[BLOCK X]].",
+    "[[CMP]] source line N [[/CMP]]",
+    "[[CMP]] source line N ~ source line M Omitted [[/CMP]]",
     "loop_detected: repeated assistant response",
     "loop_detected: repeated tool call signature",
 }
@@ -69,8 +81,10 @@ def file_strings(path: Path) -> set[str]:
 
 
 def normalize(s: str) -> str:
-    """Fold placeholder variants ([[BLOCK {n}]] / [[BLOCK N]] / [[BLOCK 3]]) onto the README's X form."""
-    return re.sub(r"\[\[(/?)BLOCK [^\]]+\]\]", r"[[\1BLOCK X]]", s)
+    """Fold placeholder variants ([[BLOCK {n}]] / [[BLOCK N]] / [[BLOCK 3]] / f-string
+    source placeholders like [[BLOCK {seen[h]}]]) onto the README's X form.
+    Lazy match to the FIRST ']]' so a ']' inside a placeholder doesn't break folding."""
+    return re.sub(r"\[\[(/?)BLOCK .*?\]\]", r"[[\1BLOCK X]]", s)
 
 
 def main() -> int:

@@ -1,5 +1,13 @@
 # DISCOVERIES (durable findings)
 
+## 2026-07-07 ~07:36Z — ★★★ RULE CHANGE (watcher-caught): comp-110 LEGALIZED line-number provenance. New compliant lever targeting our Hard weakness.
+The owners MERGED the comp-110 prompt PR (README_prompting.md, 9→15 allowed strings; snapshot data/raw/readme_prompting/2026-07-07_0737*.md). NEW allowed markers:
+- **`[[CMP]] source line N [[/CMP]]`** and **`[[CMP]] source line N ~ source line M Omitted [[/CMP]]`** — README §1: *"when compressing code, include a source line reference inside the marker so omitted lines remain locatable."*
+- `[[Omitted]]`/`[[/Omitted]]` and `[[deleted]]`/`[[/deleted]]` — may replace `[[CMP]]`/`[[/CMP]]` to wrap omitted content.
+- **WHY THIS MATTERS:** the comp-108 postmortem + Hard analysis (reports/comp110_hard_strategy.md) found the DQ'd king's edge was line-number provenance (`#source line N`) → agent edits the right lines → fewer breaks + more flips. We COULDN'T replicate it because it was UNAPPROVED. **Now it's legal AND recommended.** This is a direct, compliant lever for both break-aversion (edits land on the right lines) and the explore layer (locate correct file+lines) — the single biggest design change for the comp-110 candidate.
+- **DESIGN IMPACT:** LEAN v2 drops middle lines silently (agent loses line positions → break risk = why recency-protection was needed). A **LEAN v3** that emits `[[CMP]] source line N ~ M Omitted [[/CMP]]` at each elision makes omissions locatable → could reduce breaks WITHOUT the recency-protection cache cost, and directly serve the explore hit-rate. RECOMMEND building v3 (USER instruction + Codex audit first; the source-line marker is a PATTERN with real numbers → the gate's file-check needs a normalize rule for it).
+- Gate baseline (scripts/check_readme_current.py) updated 9→15; our LEAN v2 (emits only [[CMP]]/[[/CMP]]) remains compliant as a subset (GATE+FILE PASS). Watcher (com.soma.compwatch) caught the transition automatically.
+
 ## 2026-07-07 — ★★★ HARD DECODED: flips = per-step LEANNESS × run ENDURANCE; "Hard can't break" was WRONG (partial baselines punish fails −0.8·b). Codex-verified. Full: reports/comp110_hard_strategy.md
 - Run-level: 8/17 Hard tasks have partially-passing baselines (b=1–3 of 5, inferred from fail penalties −0.8b);
   fail ≈ −0.8b, flip ≈ +1.5–2.0 ⇒ **flip CONSISTENCY is the Hard lever** (16792 swing: H-winner +1.03 vs us −1.54).

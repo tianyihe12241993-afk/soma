@@ -1,0 +1,58 @@
+{
+  "observed_at": "2026-07-07T07:36:37Z",
+  "source": "https://thesoma.ai/dashboard",
+  "competition": {
+    "competition_id": 110,
+    "competition_name": "CoT-Compression-5",
+    "competition_type": "compression",
+    "state": "upload",
+    "is_active": true,
+    "upload_start": "2026-07-06T14:30:00Z",
+    "upload_end": "2026-07-13T14:30:00Z",
+    "evaluation_start": "2026-07-13T14:30:00Z",
+    "evaluation_end": "2026-07-20T14:30:00Z"
+  },
+  "miner_count": 4,
+  "miners": [
+    {
+      "hotkey": "5FUTAPjpKLKZU327F65vZGgf4ARe4JcpE8b9ZuLzHCBjU7zX",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "in queue",
+      "eval_status": "in queue",
+      "last_submit": "2026-07-07T02:33:30.504823Z"
+    },
+    {
+      "hotkey": "5FX3xhZe6n1oY1oDed8GUpnmKZcUpJ7qbyMryBQ52Ec2vvEh",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "in queue",
+      "eval_status": "in queue",
+      "last_submit": "2026-07-06T22:58:08.334449Z"
+    },
+    {
+      "hotkey": "5F6YSDG2q4gDUFiqGCAkAjm4Ptw3Ez51JeazQ1byuwymVGvw",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "in queue",
+      "eval_status": "in queue",
+      "last_submit": "2026-07-06T22:38:16.120414Z"
+    },
+    {
+      "hotkey": "5G3bjSmjapYJnN6cy1h15FkUjxgQjJBemBGJSoZeXZx8KQmJ",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "in queue",
+      "eval_status": "in queue",
+      "last_submit": "2026-07-06T14:58:40.971115Z"
+    }
+  ]
+}

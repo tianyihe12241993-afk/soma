@@ -17,6 +17,17 @@ All rebuilt tools tested against live data. What's in place:
 - ✅ `.gitignore`: removed the `scripts/` ignore that silently lost the comp-108 gate tools.
 - ✅ `config/miners.yaml`: comp-110 upload protocol documented (register hotkey→file+sha at upload time).
 
+### ⏳ SMOKE RUN BLOCKED on a USER env-file step (2026-07-07 ~06:00Z) — recipe: reports/local_eval_macos_recipe.md
+LEAN v2 (Codex GO) smoke on the real copilot stack cleared 2 macOS blockers (modprobe shim; isolation
+coupling) and now needs ONE user action Claude is barred from (create an env file):
+```
+cp ~/joshua-work/SOMA-benchmark/src/soma_bench/benchmark/backends/copilot/copilot-cli-container/.env.example \
+   ~/joshua-work/SOMA-benchmark/src/soma_bench/benchmark/backends/copilot/copilot-cli-container/.env
+```
+Then Claude can re-run the smoke (full command in the recipe; needs the `modprobe` shim on PATH +
+network isolation ON). Miner FIRING is already proven via the direct sidecar E2E; the smoke adds the
+run-level token ratio + does-it-solve (PENDING). If deeper macOS blockers appear → run on Linux (comp-108 lesson).
+
 ### ⚠️ MINER: INTERFACE BREAK (2026-07-07 ~05:00Z) — the #1 work item
 comp-110 runs the **copilot** agent; miners are now **imported modules**: `compress_messages(messages, path, metadata) -> list`
 per LLM request (OpenAI messages array). **cap32+pin CANNOT be re-submitted as-is — port required.**

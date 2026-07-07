@@ -1,0 +1,3 @@
+LEAN v2 — Codex-GO frozen reference (gate #1 passed round 3).
+sha256 163be033888029714de86d8f...
+DO NOT EDIT. The live candidate evolves as upload_miner_lean_v1.py / _v3.py; this is the audited GO byte-image.
