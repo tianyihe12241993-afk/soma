@@ -1,5 +1,24 @@
 # DISCOVERIES (durable findings)
 
+## 2026-07-07 — ★★★ comp-108 postmortem (per-run, 13 miners): the PIN was NET-NEGATIVE; the "compression ceiling" claim was WRONG; the crown margin was luck-sized. Full: reports/comp108_cap32pin_postmortem.md
+Data: 13 miners × 50 tasks × 5 runs from the comp-108 archive (immutable snapshot 045717_swe_runs.json).
+Task categories SOLVED from the 39 published board constraints (E17/M16/H17, fit ±0.02/cell — the 5 screeners
+are Easy; Hard ≠ exactly baseline-fail); map: data/latest/comp108_task_categories.json.
+- **PIN REFUTED in isolation:** np2+pin−np2 = E−0.348/M−0.137/H−0.018; np3+pin−np3 = E−0.103/M−0.012/H−0.019.
+  Break-rate went UP with the pin (np2 7.2%→10.4%; np3 7.6%→9.2%) — the "pin imports → fewer breaks" thesis
+  is refuted at run level. cap32+pin's low breaks match its BASE, not a pin effect. Do NOT port the pin by default.
+- **CAP CONFIRMED:** cap32+pin−np2 = H+0.108 (E−0.048); cap32+pin−np3 = E+0.188 (H−0.088) — the tiered cap
+  really is np2-Easy + ~np3-Hard in one miner. Port the concept.
+- **"Compliant frontier ~0.76 / compression exhausted" was WRONG:** M-winner (5DMC61SU, scored/clean) ran
+  **2.58× keep with M 0.969** and lost to us by 0.0025. Deep compliant compression existed; we were savings-light
+  (1.45×) and won on breaks (7.6% vs 10%+), cache (90.9% best-in-field), and draw luck.
+- **Crown margin = variance:** our per-attempt pseudo-draw totals span 0.381–0.885; top-5 clean totals within
+  0.039. The strategy earned "top cluster + compliant"; #1 specifically was a favorable draw.
+- **Hard stayed structural:** H 0.281 vs H-winner 0.718; H-winner = more flips (15.6% vs 11.2%) at 1.54× keep —
+  flip production, not fuller-keep alone.
+⇒ comp-110 inputs: port tiered cap + break-discipline + prefix cache-stability; pin only behind a local A/B
+(the new stack verifies firing); explore layer favors the M-winner direction (deep + quality-preserving).
+
 ## 2026-07-06 — ★★★ TEAM flagged 2 RIVALS non-compliant; VERIFIED our uploaded code is CLEAN (does not have the violation)
 Team/Discord flagged: **5Fjms** (not ours) emitted a string OUTSIDE the allowed list — `f"{CMP_START} pip index unreachable (offline sandbox): {len(net_idx)} retry/connection lines elided {CMP_END}"` (= a SEMANTIC/environment-specific description stuffed BETWEEN the CMP markers = introduces new semantic info + not on README §5.1 list). **5GpLcd** (the beyond-ceiling "king", not ours) = loop-prompt injection to force-shorten runs (violates README §2 "no forcing shortcuts to reduce tokens"). Neither is our hotkey (miners.yaml grep = 0). **5GpLcd being called out ⇒ likely DQ ⇒ helps our cap32+pin toward Overall.**
 **VERIFIED our 8 UPLOADED miners are COMPLIANT (do NOT have the 5Fjms pattern):**
