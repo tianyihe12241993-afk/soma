@@ -1,5 +1,18 @@
 # DISCOVERIES (durable findings)
 
+## 2026-07-07 — ★★★ HARD DECODED: flips = per-step LEANNESS × run ENDURANCE; "Hard can't break" was WRONG (partial baselines punish fails −0.8·b). Codex-verified. Full: reports/comp110_hard_strategy.md
+- Run-level: 8/17 Hard tasks have partially-passing baselines (b=1–3 of 5, inferred from fail penalties −0.8b);
+  fail ≈ −0.8b, flip ≈ +1.5–2.0 ⇒ **flip CONSISTENCY is the Hard lever** (16792 swing: H-winner +1.03 vs us −1.54).
+- Mechanism (13-miner cross-section): H-winner (H 0.718) = 51% Hard flips at **17.9k tokens/step, 67 steps,
+  5 early-deaths**; us = 34% at 24.3k/51/12. E-winner same profile. M-winner = the control (lean but 32-step
+  runs, 43 early-deaths → H 0.220). ⇒ **lean per-step context + never-die-early = Hard flips.** REFUTES the
+  comp-108 belief "Hard needs fuller context"; explains pin failure (adds per-step bulk) + nocap crater.
+- comp-110: endurance pays in ALL 3 task types (swebench flips; explore = savings×quality where lean IS the
+  savings and steps ARE the exploration; edit = cheap). **Port depth target = M-winner zone ~2.5×, not 1.45×.**
+- **Codex gate-#2 re-derivation (reports/codex_postmortem_verification.md): pin-raised-breaks, M-winner-2.58×,
+  breaks/cache, variance-span CONFIRMED exactly; pin/cap per-category deltas confirmed under the solved map
+  (Hard-specific attribution bucket-sensitive — pin verdict rests on the robust E/M+breaks evidence).**
+
 ## 2026-07-07 — ★★★ comp-108 postmortem (per-run, 13 miners): the PIN was NET-NEGATIVE; the "compression ceiling" claim was WRONG; the crown margin was luck-sized. Full: reports/comp108_cap32pin_postmortem.md
 Data: 13 miners × 50 tasks × 5 runs from the comp-108 archive (immutable snapshot 045717_swe_runs.json).
 Task categories SOLVED from the 39 published board constraints (E17/M16/H17, fit ±0.02/cell — the 5 screeners
