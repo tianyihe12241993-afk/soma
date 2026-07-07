@@ -1,7 +1,7 @@
-# LATEST — 2026-07-06T14:49:48Z
+# LATEST — 2026-07-06T19:06:44Z
 _auto-written by checkpoint (manual)_
 
-**Note:** 🏆 WON comp-108 (CoT-Compression-4). CONFIRMED via /browse (dashboard archive ?comp=108): cap32+pin (5DAbJik) = 'Highest score in this competition' / dashboard Top score 0.723 (E1.044/H0.281/M0.862), status=scored, star icon = the CHAMPION (Overall crown). ALL 23 higher-raw-Overall miners = failed review (every beyond-ceiling cheater DQ'd: 5CaFqLa/5CcZeD/5FWZGczz/5EeUAVZ/5GpLcd/5Fjms/5DZLFZj). 204 scored/36 failed/83 not-qualified. Reward elements (calc from final scored rows): Overall 57.1pct=cap32+pin CROWN + Pair(M,H) 9.5pct=np3 0.599 => ~66.6pct of pool. Specialist corners to clean rivals (5DMC61SU M0.954 Single-M/Pair(E,M); 5D22vwFM/5GvYDY7h Single-E; 5F4g41c5 H0.718 Single-H/Pair(E,H)). Strategy VALIDATED: build fully-compliant (verified 3x vs README+rules), hold floor, let review clear cheaters -> cap32+pin at compliant frontier ~0.73 won as everyone above got DQ'd. Screenshot saved data/raw/readme_prompting/comp108_WON. NEXT: comp-109 (CoT-Compression-5) LIVE, uploads until 13 Jul 14:30 UTC, eval->20 Jul, ~41328 dTAO pool; cap32+pin 695b4fe4 = proven base to defend title. Dashboard changed (JS-loaded, ?comp=NNN param) -> collect scripts need update.
+**Note:** SAFE-COMPACTION UPDATE (post comp-108 WIN). Updated all references: (1) CURRENT.md TOP = comp-108 WON (cap32+pin champion, Overall crown + Pair(M,H) = ~66.6pct) + comp-109 active + wallet-ops pointer + scraper-broke note. (2) NEXT_ACTIONS.md TOP = WON + comp-109 title defense (uploads until 13 Jul 14:30 UTC, cap32+pin 695b4fe4 = proven base, confirm rules first) + scraper-needs-update + wallet-ops. (3) CLAUDE.md header = comp-108 WON banner -> comp-109 active, points to CURRENT.md, retains comp-108 detail as reference. (4) NEW reports/wallet_ops.md = unstake-all + transfer commands (btcli 9.23.1, user-run, safety). Key state for a fresh session: comp-108 WON via compliant cap32+pin while cheaters DQ'd; comp-109 is next (defend title); dashboard changed (JS-loaded, ?comp=NNN) so collect scripts need updating; tony-miner coldkey has no seed backup (recover_seed.py/swap-coldkey). Files = truth.
 
 **Best live miner:** uphardsaliencesub=0.723 | pending: m7, m8, m9, m10, m11, np2csub, m17sub, m1, m2, m3, m5, m6
 **Our reward-element wins:** none
@@ -12,4 +12,4 @@ _auto-written by checkpoint (manual)_
 - - [ ] Re-run `make detail` periodically only if you want fresher rival scrapes (comp is over; board is static).
 - - [x] ~~WSL env + soma_shared~~ — DONE (env ready; soma_shared 0.1.0 in venv). Upload path needs only a wallet,
 
-_Full checkpoint: sessions/2026-07-06_144949_manual.md_
+_Full checkpoint: sessions/2026-07-06_190644_manual.md_

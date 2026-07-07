@@ -60,9 +60,19 @@ point Codex at it instead of re-explaining.
 → `make reward` (normalizes + computes the 7 reward elements) → `data/latest/category_winners.json`
 + `reports/reward_projection.md`. `make status` shows where we stand; `make checkpoint` saves state.
 
-## ACTIVE comp-108 mode (CoT-Compression-4) — WEIGHTED-TOKEN regime (current)
-We are in an **ACTIVE** competition and **DO submit** (separate hotkeys; **m12 stays LIVE**). The
-"post-comp-107 research / deeper-compression" framing is OBSOLETE.
+## 🏆 comp-108 WON (2026-07-06) → comp-109 (CoT-Compression-5) is now the ACTIVE comp. READ `state/CURRENT.md` TOP.
+**comp-108 (CoT-Compression-4) is OVER and WE WON it:** `cap32+pin` (`upload_miner_uphard_salience.py`, sha256 **695b4fe4**,
+hotkey `5DAbJik`) = platform "Highest score in this competition" 0.723 → Overall crown (57.1%) + np3 Pair(M,H) (9.5%) = ~66.6% of
+the pool. It won because it was fully COMPLIANT (thrice-verified vs README §5.1/§5.2 + the explicit rules) while every higher-scoring
+rival got **failed review** for prompt injection (`#source line N`, semantic text in `[[CMP]]` markers, loop-injection). **The lesson
+that won: build a compliant miner at the compliant frontier (~0.73 Overall = the ceiling of what compression alone reaches), hold, and
+let review enforcement clear the cheaters.** comp-109 uploads close **13 Jul 14:30 UTC**; `cap32+pin` (695b4fe4) = the proven base to
+defend the title (confirm comp-109 rules via `scripts/check_readme_current.py` first — the README can change between comps).
+
+The comp-108 detail below (WEIGHTED-TOKEN regime, DeepInfra+Venice routing, compliance rules, the DQ history) is retained as
+REFERENCE that carries into comp-109. m12 stays LIVE. Uploads USER-run.
+
+### [historical] comp-108 mode — WEIGHTED-TOKEN regime
 
 ⚠️ **SCORING REGIME CHANGED 2026-06-26** (DendriteHQ/SOMA commit `b79fcaee`, LIVE; verified from
 `mcp_platform/.../scoring.py`). The old raw-token "compress hard for the ratio bonus" era is DEAD:
