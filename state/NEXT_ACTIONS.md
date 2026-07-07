@@ -23,10 +23,17 @@ per LLM request (OpenAI messages array). **cap32+pin CANNOT be re-submitted as-i
 Full contract + what carries over: `reports/comp110_miner_brief.md`. Port = new candidate file
 (explicit USER instruction to build; Codex pre-upload audit; upload USER-run).
 
-### USER-ONLY actions (in order; nothing else blocks on you):
-0. **Miner-env finishers (2 cmds, blocked for Claude as external-code execution):**
-   `cd ~/joshua-work/SOMA-benchmark && uv sync` (soma-bench env) and
-   `~/.venvs/soma/bin/pip install "git+https://github.com/DendriteHQ/SOMA-shared.git"` (upload signing; repo is public now).
+### ✅ LOCAL ENV FULLY VERIFIED (2026-07-07 ~04:55Z) — every layer smoke-tested:
+venv (bittensor 9.12.2 + soma_shared imports OK) · soma-bench CLI resolves (`uv run python -m soma_bench --help` exit 0)
+· both Docker images built · **compression-sidecar E2E smoke PASSED** (custom `compress_messages` module mounted,
+loaded (`compressor_loaded: true`), long tool-message capped 500→97 chars with `[[CMP]]` markers, system msg untouched)
+· **watcher INSTALLED + heartbeating via launchd** (`com.soma.compwatch`, 30 min; verified run at 04:52Z).
+
+### USER-ONLY actions (remaining):
+0. ~~uv sync + soma_shared install~~ ✅ DONE (verified 2026-07-07).
+0b. **Add the comp-110 OpenRouter key** to `config/secrets.env` (line: `OPENROUTER_KEY_COMP110="sk-or-…"`).
+    File exists but the line is missing as of 04:55Z. ⚠️ Key was pasted in chat → ROTATE after the comp.
+    Confirm the key's account has DeepSeek provider + both Data Collection toggles enabled.
 1. **OpenRouter (before ANY upload):** Settings → Privacy → enable BOTH Data Collection options;
    Settings → Guardrails → Workspace → enable the DeepSeek provider. (comp-110 = DeepSeek V4 Pro.)
 2. **Secrets:** `cp config/secrets.env.example config/secrets.env` then fill `OPENROUTER_KEY_COMP110`
