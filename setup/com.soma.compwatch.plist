@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- comp-status watcher (rebuilt 2026-07-07 for comp-110 on eric.xiao's MacBook).
+     Install (USER action - starts a recurring background job):
+       cp setup/com.soma.compwatch.plist ~/Library/LaunchAgents/
+       launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.soma.compwatch.plist
+     Stop:
+       launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.soma.compwatch.plist -->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.soma.compwatch</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/eric.xiao/joshua-work/soma/scripts/watch_comp_status.py</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>1800</integer>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/eric.xiao/joshua-work/soma/data/latest/comp_watch.launchd.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/eric.xiao/joshua-work/soma/data/latest/comp_watch.launchd.err</string>
+</dict>
+</plist>

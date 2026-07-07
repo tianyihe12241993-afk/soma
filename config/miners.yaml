@@ -1,4 +1,15 @@
-# SOMA miner registry — OUR hotkeys, competition 107 (subnet 114). COMPLETED comp.
+# SOMA miner registry — OUR hotkeys (subnet 114).
+#
+# ⚠ 2026-07-07: the entries below are the comp-107 research set (historical). The comp-108
+# assets (np2 5CPbtf… / np3 5F9ZRe… / CHAMPION cap32+pin 5DAbJik… = upload_miner_uphard_salience.py
+# sha256 695b4fe4) were tracked in state/ on the comp-108 machine and never merged here.
+# comp-110 (CoT-Compression-5, uploads close 13 Jul 14:30 UTC): NO hotkeys assigned yet.
+# ON UPLOAD (USER-run): add each comp-110 submission here AS PART OF THE UPLOAD STEP —
+#   cN: { hotkey: <SS58>, label: <name>, version: <file+sha256>, notes: "comp-110 <what/why>" }
+# Scores stay hotkey-anchored; hotkey→file mapping recorded at upload time is what makes
+# scored reads auditable (the comp-108 label-audit lesson).
+#
+# (below: competition 107 registry — COMPLETED comp.)
 # hotkey→version mapping AUDITED 2026-06-21 (reports/label_mapping_audit.md): the
 # registry stands (m9=v22, m10=v18); the conflicting chat label was rejected.
 # Per-hotkey scores are scraped from the dashboard (source=platform). The derived

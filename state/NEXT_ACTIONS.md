@@ -2,6 +2,35 @@
 
 _Mode: 🏆 comp-108 WON (payout CONFIRMED 66.7%). **comp-110** (CoT-Compression-5 — platform id 110, NOT 109) is the ACTIVE comp. Files = source of truth. Full status: state/CURRENT.md TOP._
 
+## ENV READY (2026-07-07 ~04:30Z) — comp-110 ops environment SET UP on this MacBook (eric.xiao)
+All rebuilt tools tested against live data. What's in place:
+- ✅ **upstream merged** (`git fetch upstream main` works; platform code incl. the explore scoring is local).
+- ✅ **`scripts/check_readme_current.py`** rebuilt (rules gate; exit 0/2/3 contract; snapshots README to
+  `data/raw/readme_prompting/`; `--check-file` verifies a miner file's strings). LIVE-TESTED: GATE=PASS + champion FILE=PASS.
+- ✅ **`scripts/watch_comp_status.py`** rebuilt (board diff + README gate + macOS notify → `state/comp_watch.md`).
+  TESTED (alerts on first sight, quiet on re-run). Currently sees 4 subs in queue on comp-110.
+- ✅ **`scripts/vet_draw.py`** rebuilt, VERIFIED against ground truth (champion comp-108 draw → CLEAN,
+  cache 90.9% = exact match to the recorded vet). Works on comp-110 unchanged (detail pages kept their format).
+- ✅ **`collect_dashboard.py`** fixed for the RSC dashboard (`--comp NNN` archives); `collect_runs.parse_miner`
+  confirmed working (comp-108 champion page parses: 50 tasks / 250 runs).
+- ✅ Hooks fixed (portable python3 + $CLAUDE_PROJECT_DIR) — protect_files/audit/checkpoint/context all live.
+- ✅ `.gitignore`: removed the `scripts/` ignore that silently lost the comp-108 gate tools.
+- ✅ `config/miners.yaml`: comp-110 upload protocol documented (register hotkey→file+sha at upload time).
+
+### USER-ONLY actions (in order; nothing else blocks on you):
+1. **OpenRouter (before ANY upload):** Settings → Privacy → enable BOTH Data Collection options;
+   Settings → Guardrails → Workspace → enable the DeepSeek provider. (comp-110 = DeepSeek V4 Pro.)
+2. **Secrets:** `cp config/secrets.env.example config/secrets.env` then fill `OPENROUTER_KEY_COMP110`
+   (the protect-hook correctly blocks Claude from writing env files).
+3. **Start the watcher** (recurring launchd job — your call):
+   `cp setup/com.soma.compwatch.plist ~/Library/LaunchAgents/ && launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.soma.compwatch.plist`
+4. **Hotkey:** confirm the winner hotkeys are registered (owner asked); assign a clean hotkey for the comp-110 submission.
+5. **Wallet ops** (unchanged, `reports/wallet_ops.md`): unstake-all + transfer; tony-miner coldkey has NO seed backup.
+6. **Upload decision** (after the ~07 Jul baseline-costs/tasks reveal): early-bank the proven cap32+pin base
+   vs wait and build explore-aware. Run BOTH gates first:
+   `python3 scripts/check_readme_current.py --check-file miner/cot_compression/upload_miner_uphard_salience.py`
+   then Codex pre-upload audit (dual-agent protocol). At scored: `python3 scripts/vet_draw.py --hotkey HK`.
+
 ## TOP OF QUEUE (2026-07-07) — comp-110 title defense under a CHANGED regime. Uploads close 13 Jul 14:30 UTC.
 - [x] ✅ **WON comp-108 (CoT-Compression-4) — payout CONFIRMED by owner (Discord):** 5DAbJik (cap32+pin) 0.5714 + 5F9ZRe (np3) 0.0952 = **66.7%**. "Winners - please make sure your hotkey is registered." Raw: `data/raw/discord_notes/2026-07-06_comp109_round5_announcement.md`. Screenshot: `data/raw/readme_prompting/comp108_WON_5DAbJik_2026-07-06.png`.
 - [ ] ★★★ **USER: OpenRouter DeepSeek setup (MANDATORY before any comp-110 upload):** Settings → Privacy → enable BOTH Data Collection options; Settings → Guardrails → Workspace → enable the DeepSeek provider. comp-110 runs DeepSeek V4 Pro via the DeepSeek provider.
