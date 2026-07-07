@@ -72,19 +72,27 @@ def extract_allowed(md: str) -> set[str]:
 
 
 def file_strings(path: Path) -> set[str]:
-    """Marker/loop strings a miner file can emit (same patterns the comp-108 audit used)."""
+    """Marker/loop strings a miner file can emit (patterns from the comp-108 audit + the comp-110
+    source-line templates). Captures the FULL `[[CMP]] source line ... [[/CMP]]` span so its content
+    is verified against the allowed template — not just the bare [[CMP]]/[[/CMP]] tokens."""
     src = path.read_text(encoding="utf-8", errors="ignore")
     pats = re.findall(
-        r"\[\[[^\]]*\]\]|loop_detected: [a-z_ ]+|Compressed text (?:starts|ends) here"
+        r"\[\[CMP\]\][^\[]*?source line[^\[]*?\[\[/CMP\]\]"   # full source-line omission templates
+        r"|\[\[[^\]]*\]\]|loop_detected: [a-z_ ]+|Compressed text (?:starts|ends) here"
         r"|Same response as in[^\"'\n]*", src)
     return {p.strip() for p in pats}
 
 
 def normalize(s: str) -> str:
-    """Fold placeholder variants ([[BLOCK {n}]] / [[BLOCK N]] / [[BLOCK 3]] / f-string
-    source placeholders like [[BLOCK {seen[h]}]]) onto the README's X form.
-    Lazy match to the FIRST ']]' so a ']' inside a placeholder doesn't break folding."""
-    return re.sub(r"\[\[(/?)BLOCK .*?\]\]", r"[[\1BLOCK X]]", s)
+    """Fold placeholder/number variants onto the README's canonical N/M/X forms so a filled-in
+    marker (e.g. `[[CMP]] source line 42 ~ source line 99 Omitted [[/CMP]]`) matches its §5.1
+    template. Lazy [[BLOCK ...]] match tolerates f-string placeholders like [[BLOCK {seen[h]}]]."""
+    s = re.sub(r"\[\[(/?)BLOCK .*?\]\]", r"[[\1BLOCK X]]", s)
+    # source-line omission markers: real ints OR f-string placeholders ({N}, {start}) -> N / M
+    s = re.sub(r"(\[\[CMP\]\] source line )\S+?( ~ source line )\S+?( Omitted \[\[/CMP\]\])",
+               r"\1N\2M\3", s)
+    s = re.sub(r"(\[\[CMP\]\] source line )\S+?( \[\[/CMP\]\])", r"\1N\2", s)
+    return s
 
 
 def main() -> int:

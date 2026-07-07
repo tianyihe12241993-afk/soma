@@ -1,5 +1,77 @@
 # DISCOVERIES (durable findings)
 
+## 2026-07-07 — ★★★ LOCAL TESTING ENV COMPLETED (upload-window tasks are hidden → local is the only signal). KEY: explore quality is measurable locally.
+- **SWE-Explore-Bench dataset (`SWE-Explore-Bench/SWE-Explore-Bench`) is PUBLIC + resolvable locally** via `resolve_benchmark_runtime_setup` → we get the real `ground_truth.read_core_files` / `modified_core_files` for any public instance (verified django-14017). The platform ships NO local explore scorer (validator-side), so I BUILT one: `scripts/score_explore_local.py` computes hit_file_rate/noise_file_rate/quality + explore gate·tau from the agent's regions vs ground truth. VERIFIED (3/4 core → quality 0.50, gate·tau 0.644). ⇒ we can rank explore-layer quality LOCALLY.
+- **Full local env (guide: reports/local_testing_guide.md):** SOMA-benchmark+plugin cloned, uv env, both Docker images, copilot .env; macOS fixes = persistent `~/.soma-shimbin/modprobe` shim + isolation ON (recipe: reports/local_eval_macos_recipe.md); model deepseek/deepseek-v4-pro, key from config/secrets.env.
+- **Measures the 3 platform-scored things on PUBLIC instances:** (a) firing + per-request compression (keep-stack + docker logs [messages.in/out]); (b) weighted-token savings (token_usage → 1·in+cached_w·cached+3·out, miner vs no-op baseline); (c) explore quality (local scorer). Turnkey runner: `experiments/candidates/SKELETON_comp110_v1/local_eval.sh` (INSTANCE/PROFILE/TYPES/BASELINE params; ~6 solves/instance = credits). Variance-free context-savings replay: `retune_harness.py`.
+- **Limits:** public ≠ hidden eval set (ranks direction/relative quality, not exact score); hit/noise is a reconstruction of the metric names; n=1 token totals variance-dominated (aggregate ≥3 instances); formula in flux (re-derive + retune before trusting numbers). Platform = final arbiter.
+
+## 2026-07-07 — ⚠️ PENDING (not merged): PR #176 would change our RANGE omission marker syntax. No action now; watcher covers it.
+DendriteHQ/SOMA **PR #176 = OPEN (not merged)**; live main README UNCHANGED (still our 15-string baseline; our markers compliant). Diff (one line, §5.1):
+- REMOVES `[[CMP]] source line N ~ source line M Omitted [[/CMP]]`, ADDS `[[Omitted]] source line N ~ source line M Omitted [[/Omitted]]`. Single-line `[[CMP]] source line N [[/CMP]]` UNCHANGED.
+- **IMPACT if merged as-is:** LEAN v3 + SKELETON emit the RANGE form → would become NON-COMPLIANT (trivial fix: swap the wrapper in `_omission_marker`). Single-line form stays fine.
+- **Likely deferred:** Discord (Santiago+Hiccup) lean "apply NEXT comp, not mid-comp"; owner Matt suggested keeping BOTH old+new forms (→ we'd stay compliant). So probably no bite this comp.
+- **CONTINGENCY (only if the watcher flags a README allowed-set change):** update `_omission_marker` range template to whatever the final allowed string is (likely `[[Omitted]] … [[/Omitted]]`; keep `[[CMP]] … [[/CMP]]` too if they keep both), re-run rules gate + harness. This is a MARKER-syntax item, separate from the scoring-formula hold.
+
+## 2026-07-07 — ★★★★★ TEAM CONFIRMED comp-110 scoring intent (Discord, owner + validator). KEY: intended lever = INPUT/context-token reduction, and the SCORING FORMULA IS ACTIVELY CHANGING.
+Source: user-relayed Discord answers to our 4 questions.
+- **Owner:** upload window → only need to PASS SCREENING to qualify; evaluation phase runs REAL HIDDEN tasks.
+- **Q1 (gate):** "for now it's 20%, we might lower it in the future" → 20% weighted-savings screener gate confirmed, NOT final.
+- **Q2 (what's counted):** formula `1·input + 1/10·cached + 3·output` confirmed; and on follow-up the owner said the token total **"includes everything"** → system prompt + tool schemas/framing + cached + output ALL counted in the weighted denominator. ⇒ CONFIRMS the ceiling: the large uncompressible mass sits in the denominator, so a context compressor's savings % is capped (~11% real on our traffic) well under the current 20% gate.
+- **Q3 (cached 1/10):** "yes, stays the same across different tasks" → confirmed stable.
+- **Q4 (intended path):** ⭐ "Focus is on reducing **INPUT tokens** while maintaining quality — we are DURING score-formula changes to target it better." → intended lever = **context/prompt-token compression** (our LEAN/SKELETON axis is RIGHT), NOT trajectory/output; AND the formula is IN FLUX to reward it better.
+- **IMPLICATIONS:** (1) my earlier "the real lever is output/trajectory reduction" hypothesis is REFUTED by intent — they want input/context reduction (the current cached-1/10 formula just under-rewards it, which is why they're changing it). (2) **DO NOT over-optimize to the current 20%/cached-1/10 constants — they will move.** Build toward the stable INTENT (reduce prompt tokens + preserve quality); re-derive when the new formula lands. (3) Watch upstream config.py + scoring.py for the formula change; re-run feasibility then.
+
+## 2026-07-07 — ★★★★★ CORRECTION (user-caught stale number): screener gate is 20% (not 10%) AND cached-token weight dropped 1/3→1/10. Verified in CURRENT upstream (commit 9c1be25, dated 2026-07-07). My prior analysis used STALE merged values.
+- `SWEBENCH_SCREENING_MIN_WEIGHTED_TOKEN_SAVING_RATIO`: **0.1 → 0.2** (must save ≥20% weighted to qualify).
+- `SWEBENCH_SCREENING_CACHED_INPUT_TOKENS_WEIGHT`: **1/3 → 1/10**. weighted = 1·input + (1/10)·cached + 3·output.
+  Flows through `compute_weighted_tokens` → applies to BOTH the screener AND the explore tau. Explore formulas
+  (EXPLORE_QUALITY_DELTA 0.20, floor −2, gate/tau) UNCHANGED. (pass_ratio still 0.5; screener 3 tasks.)
+- **IMPACT: much harder.** With cached at 1/10, the cached history (most of what a context-compressor touches)
+  is now CHEAP → compressing it barely moves weighted tokens. Weighted total ≈ input(×1) + output(×3); the big
+  behavioral lever is now OUTPUT (shorter trajectories = fewer ×3 tokens), which a compressor only affects indirectly.
+- **CORRECTED feasibility (offline replay, cached 1/10, gate 20%):** SKELETON safe 7.8% / target 9.3% / deep 10.2%
+  real; EXTREME ceiling (keep almost nothing) ~11.4% real. **ALL BELOW 20%.** Context compression alone cannot
+  clear the gate on this task's traffic. Reaching 20% likely needs OUTPUT/trajectory reduction (unmeasurable in a
+  fixed-trajectory offline model) OR different tasks. USER heard a competitor achieves ~20% → if real, implies a
+  lever beyond context compression (verify how — Discord/board).
+- **⚠️ ALL prior comp-110 scoring numbers in reports were derived against STALE merged code (10% / cached 1/3).
+  A FULL upstream re-sync + re-derivation is needed** (local is ~35 commits behind; more may have changed).
+- Codex audit of SKELETON v1 = GO-WITH-CHANGES (fix newline preservation; correct the "always-keep paths" doc — it's
+  priority-within-budget). Minor; but SKELETON doesn't clear 20% as-is, so it's not the answer without a new lever.
+
+## 2026-07-07 — ★★★★★ CORRECTED FEASIBILITY: ≥10% IS clearable — the blocker was the HEAD/TAIL WINDOW floor, not the threshold. New design = SKELETON compressor. Full: reports/comp110_explore_scoring_analysis.md
+Same captured-traffic offline replay, but sweeping HEAD/TAIL down (not just threshold):
+- v3's head25/tail15 keeps the agent's small reads (~1.1k ch avg, <40 lines) WHOLE → ~4% real. THAT was the cap.
+- head/tail **4/2, thresh 500, recency ON → ~11.4% real savings (CLEARS 10%)**; 3/2 → 11.6%; 4/2 recency-off → 12.8%.
+- Even at head/tail=0 the QUALITY FLOOR keeps signal lines → tool content compresses 5.66× (39k→6.9k), NOT to zero → structure/locations preserved. Exact-dedup is dead (only 852ch dup); the agent re-reads FILES (expressions.py 8×) with DIFFERENT content.
+- **⇒ NEW DESIGN "SKELETON": transmit a navigable skeleton of each observation (signal lines + minimal head + source-line omission markers), drop the bulk, and rely on the agent RE-READING specifics (behavior we observed).** Cache-safe (content-only at insertion + final-msg recency = tail-only transition), compliant (allowed markers, whole lines), preserves explore hit-rate (file-level, locations kept). Clears the screener on savings.
+- **RISK (needs smoke): agent behavior under skeletons** — does it still solve (swebench) + locate (explore) when reads are skeletonized, or does it re-read so much it loops/inflates output (weight 3)? Savings estimate assumes fixed trajectory; real trajectory changes. This is the go/no-go for the design.
+
+## 2026-07-07 — ★★★★ (SUPERSEDED by the CORRECTED verdict above) threshold-lowering alone CANNOT clear ≥10% (max ~4–8%). Full: reports/comp110_explore_scoring_analysis.md
+Cheap variance-free test: captured 29 REAL per-request payloads from a keep-stack solve (django-14017), replayed offline through v3's compressor at thresholds 10k→200 × recency on/off, weighted-token scored. Model validated at 0.47× live (real has ~2× uncompressible mass → my numbers are OPTIMISTIC).
+- **Savings ceiling: threshold 2k → 6.6% optimistic (~3.1% real); saturates at 7.9% optimistic (~3.7% real) even compressing EVERYTHING >200 chars.** Never reaches 10%.
+- **Cap causes:** ~2× uncompressible mass (23.5k system prompt/turn + tool schemas, in BOTH miner+baseline → dilutes); the head(25)+tail(15) extraction floor means the copilot agent's small tool reads (≤10.6k, mostly 2–8k = <40 lines) barely compress (net in/out just 1.09×); output (×3) uncompressible.
+- **Compliance held at every threshold** (0 bad markers / 0 sys-user touched / 0 partial lines) — v3 guarantees are threshold-independent.
+- **To reach 10% needs ~5× compression (drop head/tail, keep ~20% of each read) → would break swebench solves AND tank explore hit−noise → fails the PASS + QUALITY gates.** So the SAFE compression lever can't qualify for comp-110 with the copilot agent. NOT a v4 threshold tweak — needs a different lever / strategic rethink. Do not build v4 on lower thresholds.
+
+## 2026-07-07 — ★★★★ comp-110 has a HARD ≥10% weighted-savings SCREENER GATE → near-passthrough is DEAD (opposite of comp-108). Full: reports/comp110_explore_scoring_analysis.md
+Read from code (`swebench_orchestrator.py:799`, `config.py` SWEBENCH_SCREENING_MIN_WEIGHTED_TOKEN_SAVING_RATIO=0.10):
+- **To QUALIFY (enter evaluation) a miner must pass ≥50% of swebench_verified screener tasks AND achieve ≥10% AGGREGATE weighted-token savings** (weighted = 1·input + ⅓·cached + 3·output). v3's ~1.2% → DISQUALIFIED. The comp-108 winning shape (near-passthrough + compliance) does NOT work in comp-110.
+- **Explore-layer scoring** (compute_explore_task_score / compute_explore_miner_total_score): per-task `gate·tau`, gate=smoothstep of (quality margin, δ=0.20), quality=hit_file_rate−noise_file_rate (FILE-level, from hidden ground_truth.read_core_files); `tau=clamp(2·log2(baseline_wt/miner_wt),±2)` maxes at 2× savings. Miner-total blends toward the −2 floor unless s_ratio≥0.20 (at 0% savings total=0.5·p_avg−1.0 = NEGATIVE). Margin≤−0.20 → instant −2.
+- **Targets:** ≥10% aggregate to survive screening; ≥20% to kill floor-drag; up to 2×/task to max tau. Below 10% = out.
+- **Source-line markers:** neutral-to-positive for quality (file-level metric; markers keep omissions locatable → don't degrade hit/noise). The block-relative caveat can't hurt hit−noise (only line-level weighted_core_coverage).
+- **⇒ LEAN v4 (proposed, NOT built):** drop threshold to ~2–3k (agent chunks small → compressible mass is there), keep all v3 safety + source-line markers (now essential), reconsider recency (protecting the final read costs screener savings), prioritize early/persistent reads (cached weight ⅓). **Feasibility risk: the uncompressible 23.5k system prompt caps achievable savings — MUST measure that v4 actually clears 10% on a screener-like task before trusting it.** Awaiting USER approval to build.
+
+## 2026-07-07 — ★★★ SMOKE VERDICT: LEAN v3 fires + markers work + agent solves, BUT compresses only ~1.2% on the copilot agent. Per-message cap barely engages. Full: experiments/candidates/LEAN_comp110_v1/BUILD_REPORT_v3.md
+Real copilot-stack solves (DeepSeek V4 Pro, django-14017 large-context + django-11099):
+- **MECHANICALLY PROVEN:** v3 fired 53×; emitted 96 source-line markers, all exact §5.1 template, ONLY on `tool` messages; the agent SOLVED (49-line patch) WITH the markers in context → **block-relative `source line N` markers do NOT break navigation** (the #1 open question). System prompt (23.5k, 381 lines) correctly untouched → live compliance holds.
+- **⚠️ SAVINGS ARE NEGLIGIBLE (~1.2%).** Direct, path-independent sidecar measure: total-in 2,963,254 → total-out 2,928,446 = **1.0119x** on the big-context task. Only 8 of 53 messages crossed the 10k budget. Two reasons: (1) the copilot agent reads in CHUNKS mostly <10k → per-message cap rarely fires; (2) the dominant token sink = the 23.5k copilot SYSTEM PROMPT resent every turn, which is (correctly) uncompressible.
+- **Run-TOTAL token comparison is USELESS at n=1** (v3 567k weighted vs baseline 206k = trajectory variance, NOT compression — v3 run just took a longer path: 49-line patch vs 32). Confirms comp-108: single-run diffs are dominated by path variance; only the sidecar in/out ratio is a clean compression signal locally; the platform (5×50 runs) averages it out.
+- **STRATEGIC IMPLICATION for comp-110:** v3 ≈ near-passthrough on the copilot agent. That is the comp-108 WINNING shape for the **swebench layer** (compliant + non-breaking + let review DQ cheaters). But comp-110's NEW **explore layer pays 2·log2(savings)** → ~1.2% savings ≈ near-ZERO explore score. The per-message-10k-cap lever (inherited from cap32) does NOT move the savings-scored layers on this agent.
+- **DIRECTION (for USER decision, not yet built):** (a) v3 as-is = safe compliant swebench-layer defender; (b) to score the explore layer, need REAL savings → a much lower threshold (compress >2-3k, since the agent chunks small) and/or a cross-message strategy — but raw savings are capped by the uncompressible system prompt, and lower thresholds risk breaks (must re-audit + re-smoke). Local eval can't rank savings (variance) → platform is the arbiter.
+- Infra: macOS local copilot eval works via the `modprobe` shim + isolation ON + copilot-cli-container/.env (recipe: reports/local_eval_macos_recipe.md). `SOMA_COPILOT_KEEP_STACK=true` + `docker logs <compression-service>` = how to capture firing markers + actual compressed LLM inputs.
+
 ## 2026-07-07 ~07:36Z — ★★★ RULE CHANGE (watcher-caught): comp-110 LEGALIZED line-number provenance. New compliant lever targeting our Hard weakness.
 The owners MERGED the comp-110 prompt PR (README_prompting.md, 9→15 allowed strings; snapshot data/raw/readme_prompting/2026-07-07_0737*.md). NEW allowed markers:
 - **`[[CMP]] source line N [[/CMP]]`** and **`[[CMP]] source line N ~ source line M Omitted [[/CMP]]`** — README §1: *"when compressing code, include a source line reference inside the marker so omitted lines remain locatable."*

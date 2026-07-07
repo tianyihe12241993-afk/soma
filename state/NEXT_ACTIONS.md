@@ -2,6 +2,24 @@
 
 _Mode: 🏆 comp-108 WON (payout CONFIRMED 66.7%). **comp-110** (CoT-Compression-5 — platform id 110, NOT 109) is the ACTIVE comp. Files = source of truth. Full status: state/CURRENT.md TOP._
 
+## ★★★ CANDIDATE READY + HOLDING FOR FORMULA CHANGE (2026-07-07 ~15:xxZ)
+**SKELETON v2 BUILT + CODEX GO** (`miner/cot_compression/upload_miner_skeleton_v2.py`, sha 429d1b26; frozen at experiments/candidates/SKELETON_comp110_v1/frozen/). Consolidated candidate: budgeted structural skeleton + file-PATH priority (true budget cap) + LEAN v3 safety + byte-verbatim line endings + PR#176-proofed (one-line switch) + knob-tunable. Report: experiments/candidates/SKELETON_comp110_v1/BUILD_REPORT_skeleton_v2.md. Codex trail: reports/codex_skeleton_v2_*. Verified: harness ALL PASS ×3, rules gate PASS, sidecar E2E, 100% path preservation, regressions PASS.
+**RE-TUNE HARNESS READY:** experiments/candidates/SKELETON_comp110_v1/retune_harness.py (parameterized on weights+gate; instant tuning when the formula changes). At current constants nothing clears 20% (by design — holding).
+**NOT committed (awaiting user approval), NOT uploaded, NO smoke yet (deferred to post-formula-change).**
+
+### WHEN THE WATCHER FIRES A SCORING-FORMULA CHANGE (the trigger to resume building):
+1. Re-derive constants from upstream (reports/comp110_scoring_rederivation.md method / worktree).
+2. `python3 experiments/candidates/SKELETON_comp110_v1/retune_harness.py --input-weight W --cached-weight W --output-weight W --gate G` → pick the profile that clears with margin + best path preservation.
+3. Local smoke on the copilot stack at that profile (needs OpenRouter key + uv; recipe: reports/local_eval_macos_recipe.md) → confirm solve + explore hit-rate + real weighted savings.
+4. Codex re-audit final bytes → USER upload decision. (If PR #176 also merged: apply the one-line marker switch first.)
+
+## (superseded by the block above) HOLDING FOR FORMULA CHANGE (2026-07-07 ~12:50Z) — DO NOT BUILD/TUNE until the score formula lands.
+Team confirmed (DISCOVERIES top): intended lever = INPUT/context-token reduction + quality; screener gate 20% (may lower); weighted counts EVERYTHING (cached ×1/10); **the score formula is ACTIVELY CHANGING to target input-reduction better.** Under the CURRENT formula a pure context compressor caps ~11% real << 20% → building now is premature.
+- **WATCHER EXTENDED** (`scripts/watch_comp_status.py`, launchd `com.soma.compwatch`, 30 min): now also alerts on upstream changes to config.py / scoring.py / swebench_orchestrator.py / incentive_calculator.py / README_prompting.md + the SOMA-benchmark compression-service contract. Named flags: screener savings gate, input/cached/output weights, compute_weighted_tokens, explore tau, quality gate/floor, screener qualification, incentive layer weights, miner contract, allowed markers. Whole-file SHA = catch-all. Baseline persisted in `data/latest/.comp_watch_state.json`. TESTED (quiet on no-change; specific alert on simulated change). Alerts → `state/comp_watch.md` + macOS notify.
+- **FROZEN REFERENCES (do not edit):** LEAN v3 (`upload_miner_lean_v3.py`, sha c8f540b2 — Codex GO, correct DIRECTION) + SKELETON v1 (`upload_miner_skeleton_v1.py`, sha 3ea9324f — Codex GO-WITH-CHANGES) + `experiments/candidates/*/frozen/`. These embody the right axis (compliant, cache-safe, quality-preserving context compression); reuse their primitives when the formula lands.
+- **WHEN THE WATCHER FIRES A SCORING CHANGE:** (1) re-derive constants from upstream (worktree method, reports/comp110_scoring_rederivation.md); (2) re-run the captured-traffic feasibility replay (`scratchpad/feas_payloads.jsonl` + feas_newweights.py) against the NEW constants; (3) ONLY THEN decide/build. Do not build before step 2 clears.
+- Reports: comp110_scoring_rederivation.md (current formulas + file:line), comp110_team_questions.md, comp110_explore_scoring_analysis.md (stale-number header).
+
 ## ENV READY (2026-07-07 ~04:30Z) — comp-110 ops environment SET UP on this MacBook (eric.xiao)
 All rebuilt tools tested against live data. What's in place:
 - ✅ **upstream merged** (`git fetch upstream main` works; platform code incl. the explore scoring is local).

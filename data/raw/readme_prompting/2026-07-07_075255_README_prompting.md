@@ -1,3 +1,4 @@
+<!-- fetched 2026-07-07T07:52:55Z from https://raw.githubusercontent.com/DendriteHQ/SOMA/main/miner/README_prompting.md -->
 # Miner Prompt Editing Rules
 
 This document defines what prompt edits are allowed in miner submissions.
