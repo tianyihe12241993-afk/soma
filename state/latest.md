@@ -1,7 +1,7 @@
-# LATEST — 2026-07-07T03:43:08Z
+# LATEST — 2026-07-07T04:32:13Z
 _auto-written by checkpoint (manual)_
 
-**Note:** comp-110 intel (Discord+upstream): payout confirmed 66.7%; new regime decoded (DeepSeek V4 Pro, task-type layers, explore passthrough=0); gate#1 passed (695b4fe4 intact, rules unchanged); scraper fixed for RSC dashboard
+**Note:** comp-110 environment ready: upstream merged; check_readme/vet_draw/watcher rebuilt and tested; user checklist in NEXT_ACTIONS
 
 **Best live miner:** uphardsaliencesub=0.723 | pending: m7, m8, m9, m10, m11, np2csub, m17sub, m1, m2, m3, m5, m6
 **Our reward-element wins:** none
@@ -12,4 +12,4 @@ _auto-written by checkpoint (manual)_
 - - [ ] Re-run `make detail` periodically only if you want fresher rival scrapes (comp is over; board is static).
 - - [x] ~~WSL env + soma_shared~~ — DONE (env ready; soma_shared 0.1.0 in venv). Upload path needs only a wallet,
 
-_Full checkpoint: sessions/2026-07-07_034308_manual.md_
+_Full checkpoint: sessions/2026-07-07_043213_manual.md_
