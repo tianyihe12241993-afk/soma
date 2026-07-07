@@ -1,7 +1,7 @@
-# LATEST — 2026-07-07T04:53:34Z
+# LATEST — 2026-07-07T05:05:50Z
 _auto-written by checkpoint (manual)_
 
-**Note:** local comp-110 env verified end-to-end; watcher installed; awaiting key line + port instruction
+**Note:** cap32+pin postmortem done: pin refuted, cap confirmed, frontier claim corrected, crown margin luck-sized
 
 **Best live miner:** uphardsaliencesub=0.723 | pending: m7, m8, m9, m10, m11, np2csub, m17sub, m1, m2, m3, m5, m6
 **Our reward-element wins:** none
@@ -12,4 +12,4 @@ _auto-written by checkpoint (manual)_
 - - [ ] Re-run `make detail` periodically only if you want fresher rival scrapes (comp is over; board is static).
 - - [x] ~~WSL env + soma_shared~~ — DONE (env ready; soma_shared 0.1.0 in venv). Upload path needs only a wallet,
 
-_Full checkpoint: sessions/2026-07-07_045334_manual.md_
+_Full checkpoint: sessions/2026-07-07_050550_manual.md_
