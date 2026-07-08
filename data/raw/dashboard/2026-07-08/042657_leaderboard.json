@@ -1,0 +1,823 @@
+{
+  "observed_at": "2026-07-08T04:26:57Z",
+  "source": "https://thesoma.ai/dashboard",
+  "competition": {
+    "competition_id": 110,
+    "competition_name": "CoT-Compression-5",
+    "competition_type": "swe",
+    "state": "upload",
+    "is_active": true,
+    "upload_start": "2026-07-06T14:30:00Z",
+    "upload_end": "2026-07-13T14:30:00Z",
+    "evaluation_start": "2026-07-13T14:30:00Z",
+    "evaluation_end": "2026-07-20T14:30:00Z"
+  },
+  "miner_count": 51,
+  "miners": [
+    {
+      "hotkey": "5DtYjEJbjzi6SEyDztYA6xRE368Dq3CSwSzXxvW6B4isvevC",
+      "total": 1.1299719388516518,
+      "easy": -0.5554169469183341,
+      "medium": 0.8832116212108403,
+      "hard": 1.22686863608555,
+      "review_status": "qualified",
+      "eval_status": "qualified",
+      "category_scores": {
+        "Easy": -0.5554169469183341,
+        "Medium": 0.8832116212108403,
+        "Hard": 1.22686863608555
+      },
+      "screener_passed": true,
+      "last_submit": "2026-07-07T19:22:22.031538Z"
+    },
+    {
+      "hotkey": "5HbsMWHUxRa6mF6W2fZKush6sagnHwNRqLZ9hERgQaA3qGts",
+      "total": 1.0609813076182828,
+      "easy": -2.767774092062221,
+      "medium": -0.6616029285664653,
+      "hard": 1.1662406986772282,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -2.767774092062221,
+        "Medium": -0.6616029285664653,
+        "Hard": 1.1662406986772282
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T18:11:38.041040Z"
+    },
+    {
+      "hotkey": "5CJRJ8kJPpBqwmQsEypJGZDiSEFHvdksAbfMwydpU8qJqsgh",
+      "total": 1.0421586723144243,
+      "easy": -2.6352122177103507,
+      "medium": -1.6568123027914243,
+      "hard": 1.167353187051262,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -2.6352122177103507,
+        "Medium": -1.6568123027914243,
+        "Hard": 1.167353187051262
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T15:22:58.306368Z"
+    },
+    {
+      "hotkey": "5EhrTjbQTQG5JzPaCwKZu2PxnJMZEK6ueBeHzT1B4h1R5Wza",
+      "total": 1.0377989269012406,
+      "easy": 0.17265295921297952,
+      "medium": -1.4774439939585506,
+      "hard": 0.9153854284600182,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": 0.17265295921297952,
+        "Medium": -1.4774439939585506,
+        "Hard": 0.9153854284600182
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T17:50:28.706862Z"
+    },
+    {
+      "hotkey": "5H8msSs66pLM3r5EdCsBCgLVa1Z6n4ufw8p4AYe3cjWRZ7CP",
+      "total": 1.0193739156218928,
+      "easy": -2.05255849091507,
+      "medium": -2.1178608954335147,
+      "hard": 0.29568137818094886,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -2.05255849091507,
+        "Medium": -2.1178608954335147,
+        "Hard": 0.29568137818094886
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T20:02:38.309377Z"
+    },
+    {
+      "hotkey": "5Fh7XD6FazV4X3tPjLk3aPJTgVHU6LC6NaPYoHoSnbPR1uJv",
+      "total": 0.9663572402824876,
+      "easy": -4,
+      "medium": -4,
+      "hard": 0.9775050896358,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": 0.9775050896358
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T17:27:17.622828Z"
+    },
+    {
+      "hotkey": "5GQevo9beEAVLz9Ub3guvGrtkf5oZSsxNbmdo6B8fV7mPtp4",
+      "total": 0.9652417342221957,
+      "easy": -4,
+      "medium": -2.9034810628624963,
+      "hard": 1.0331184386147276,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -2.9034810628624963,
+        "Hard": 1.0331184386147276
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T20:36:57.716345Z"
+    },
+    {
+      "hotkey": "5GmvTCoXvfjsFnAqH9e9Nc2Ee6FW4GaeXXY1361fiNMvu5ef",
+      "total": 0.9138480569389378,
+      "easy": -3.995600770593277,
+      "medium": -1.7170890048495075,
+      "hard": 1.1491788878849727,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -3.995600770593277,
+        "Medium": -1.7170890048495075,
+        "Hard": 1.1491788878849727
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T16:08:59.430082Z"
+    },
+    {
+      "hotkey": "5G4S4tAJvoZLf5qVRrdUMXHb9GKQs5zKTtxk3MbxdeExZfAY",
+      "total": 0.8434900947635846,
+      "easy": -4,
+      "medium": -2.3251713974272255,
+      "hard": 0.8977296659478116,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -2.3251713974272255,
+        "Hard": 0.8977296659478116
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T13:33:59.044641Z"
+    },
+    {
+      "hotkey": "5DWvxxcpzXkYuMp2u7dCJs8PYAH3arR19cdN3LQraANWCh5X",
+      "total": 0.8060499403167842,
+      "easy": -3.9126581641578215,
+      "medium": -3.9998562475233927,
+      "hard": 0.6082259085712263,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -3.9126581641578215,
+        "Medium": -3.9998562475233927,
+        "Hard": 0.6082259085712263
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T18:29:15.125700Z"
+    },
+    {
+      "hotkey": "5GsfVeCue9ro9ZQ6wenabKLTmTrbK4Gk94JcihpTq7pZPzVe",
+      "total": 0.788534667843031,
+      "easy": -4,
+      "medium": -3.7446066278529613,
+      "hard": 1.169266822056838,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.7446066278529613,
+        "Hard": 1.169266822056838
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T22:23:14.770379Z"
+    },
+    {
+      "hotkey": "5EqUfva34661TWvCGipFg1me3tyhMZaLWya56Biisuo8KGX9",
+      "total": 0.6994392417717892,
+      "easy": -4,
+      "medium": -3.2868624314914165,
+      "hard": 0.19035913029480067,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.2868624314914165,
+        "Hard": 0.19035913029480067
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T21:14:23.433914Z"
+    },
+    {
+      "hotkey": "5FeeQSc5TSLMK6ubjNDtzUG71MyUaVW61gd4PcLNn4tMBAbU",
+      "total": 0.674939454351569,
+      "easy": 1.1316811282547583,
+      "medium": -4,
+      "hard": -2.4796512122288554,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": 1.1316811282547583,
+        "Medium": -4,
+        "Hard": -2.4796512122288554
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T19:51:33.872566Z"
+    },
+    {
+      "hotkey": "5DFGQQTgAmwjppc1xTRkAFpZyB9rj87qQCRcxbLEtgh3RRtY",
+      "total": 0.5546847025480179,
+      "easy": -3.494990907567046,
+      "medium": -4,
+      "hard": 1.159141039442047,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -3.494990907567046,
+        "Medium": -4,
+        "Hard": 1.159141039442047
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T17:17:54.170649Z"
+    },
+    {
+      "hotkey": "5CYESdTMCxTQTqaWZPBY6NMJc1DFP5qzmfBxE89QxoJj5Mzs",
+      "total": 0.533411321060898,
+      "easy": 0.8803339194883932,
+      "medium": -3.9727061377885255,
+      "hard": -0.037877037763890176,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": 0.8803339194883932,
+        "Medium": -3.9727061377885255,
+        "Hard": -0.037877037763890176
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T17:29:00.622782Z"
+    },
+    {
+      "hotkey": "5DvKQFkSDWdnWFzm1C6cLYMoXwPHCh7EDEepH4irCaca1CbB",
+      "total": 0.49421594204982355,
+      "easy": -4,
+      "medium": -4,
+      "hard": 0.6391726609388728,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": 0.6391726609388728
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T15:07:05.586607Z"
+    },
+    {
+      "hotkey": "5FUTAPjpKLKZU327F65vZGgf4ARe4JcpE8b9ZuLzHCBjU7zX",
+      "total": 0.43326387800273647,
+      "easy": -4,
+      "medium": -2.447271604345483,
+      "hard": 0.8211495859160696,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -2.447271604345483,
+        "Hard": 0.8211495859160696
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T02:33:30.504823Z"
+    },
+    {
+      "hotkey": "5CDLSZYLKoJngZgnBXoeeS1tinEqdGPJAjJgrRJnpZ1C1WLK",
+      "total": 0.3882115335154257,
+      "easy": -3.9810256065932594,
+      "medium": -3.0994339694724067,
+      "hard": 1.1343996041870836,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -3.9810256065932594,
+        "Medium": -3.0994339694724067,
+        "Hard": 1.1343996041870836
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-08T03:43:53.591379Z"
+    },
+    {
+      "hotkey": "5G3bjSmjapYJnN6cy1h15FkUjxgQjJBemBGJSoZeXZx8KQmJ",
+      "total": 0.29241694720661204,
+      "easy": -3.864843523052107,
+      "medium": 0.769834352658993,
+      "hard": -0.462130265450464,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -3.864843523052107,
+        "Medium": 0.769834352658993,
+        "Hard": -0.462130265450464
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-06T14:58:40.971115Z"
+    },
+    {
+      "hotkey": "5DST5wyP5nuRwyqzj55x5MUWLZm1gNT7tBf2NdptDhEwCmM2",
+      "total": 0.14679559493620875,
+      "easy": -1.760795171409899,
+      "medium": -1.7722697486121959,
+      "hard": 0.3652875861344338,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -1.760795171409899,
+        "Medium": -1.7722697486121959,
+        "Hard": 0.3652875861344338
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T12:18:10.571339Z"
+    },
+    {
+      "hotkey": "5GsnC1vdzMM4FbAwEWmPaDxsQHne9dPVGiycEnapmgGR4Fjy",
+      "total": 0.04079103507257553,
+      "easy": -3.9112642044857333,
+      "medium": -4,
+      "hard": 0.961088326236264,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -3.9112642044857333,
+        "Medium": -4,
+        "Hard": 0.961088326236264
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T21:00:03.686732Z"
+    },
+    {
+      "hotkey": "5GudCAroSLYg6RbjS6VgZizdmMJ2pt94P5L43k8UxfRQdgqp",
+      "total": -0.023325815885135714,
+      "easy": -4,
+      "medium": -0.7373359549628642,
+      "hard": -0.3121901180993891,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -0.7373359549628642,
+        "Hard": -0.3121901180993891
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T16:54:00.201129Z"
+    },
+    {
+      "hotkey": "5FxZizynNryfbK115oPGuc1NsdZS49rz9ay6VNVfFfMnbSgP",
+      "total": -0.14507270218107848,
+      "easy": -4,
+      "medium": -4,
+      "hard": 0.5918994889350317,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": 0.5918994889350317
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T21:11:01.500059Z"
+    },
+    {
+      "hotkey": "5FTinuidYP12iULdM1qP4r6tbnSFyUwM1y8AejCgHmC5ascf",
+      "total": -0.2849393355215484,
+      "easy": -4,
+      "medium": -3.885884404012425,
+      "hard": 0.6254625528479991,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.885884404012425,
+        "Hard": 0.6254625528479991
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T19:22:17.990840Z"
+    },
+    {
+      "hotkey": "5DJkgwhA1CudZV2ajWswu3Z9Fq43wB1p6uqCTZag1Fq2WEXK",
+      "total": -0.4640051808532646,
+      "easy": 0.5696104061451734,
+      "medium": -4,
+      "hard": 0.12696062816568698,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": 0.5696104061451734,
+        "Medium": -4,
+        "Hard": 0.12696062816568698
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T14:07:33.363882Z"
+    },
+    {
+      "hotkey": "5DFnNiyMDxQfeiv5jMZPghxtyPwZGcqsRkHbr8hWsZWeSYpr",
+      "total": -0.5923777748570642,
+      "easy": -4,
+      "medium": -4,
+      "hard": 0.5372555424985164,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": 0.5372555424985164
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T20:49:57.557102Z"
+    },
+    {
+      "hotkey": "5HdTr7PisVFCpuAALrNiQcaYx4cxF545ywSWYboJv6j5gYiD",
+      "total": -0.6087597989495914,
+      "easy": -4,
+      "medium": -3.7642171166354186,
+      "hard": 1.1439345809103774,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.7642171166354186,
+        "Hard": 1.1439345809103774
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-08T00:27:15.443448Z"
+    },
+    {
+      "hotkey": "5HKrMDEjcfpBPx1A4cZB2vg1beTpYumEmxJ3TE11rkkgUN6Y",
+      "total": -0.690757264871356,
+      "easy": -4,
+      "medium": -3.889476607708463,
+      "hard": -0.5818149441954867,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.889476607708463,
+        "Hard": -0.5818149441954867
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T13:18:50.408967Z"
+    },
+    {
+      "hotkey": "5EAWfXi7rTt38FA4N7nhrQcQXAkMbYHMyuJPEE8uNgpFHoXc",
+      "total": -0.6929754885091732,
+      "easy": -4,
+      "medium": -4,
+      "hard": 1.173942681719514,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": 1.173942681719514
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T16:42:05.279493Z"
+    },
+    {
+      "hotkey": "5F6YSDG2q4gDUFiqGCAkAjm4Ptw3Ez51JeazQ1byuwymVGvw",
+      "total": -0.773893738796747,
+      "easy": -3.1282302212225526,
+      "medium": -2.0414054293393464,
+      "hard": -0.22468849425183457,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -3.1282302212225526,
+        "Medium": -2.0414054293393464,
+        "Hard": -0.22468849425183457
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-06T22:38:16.120414Z"
+    },
+    {
+      "hotkey": "5Ctr6aoRBoffXyJgZpCCXMYteGGpZ8tieJHG4a8sn26G616J",
+      "total": -0.8327295819990614,
+      "easy": -4,
+      "medium": -4,
+      "hard": -0.3473590108110032,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -0.3473590108110032
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T21:35:32.336519Z"
+    },
+    {
+      "hotkey": "5HaqeumDUiCyac5bTfyjCgDUiJL4GGW8yLV8L4RGd3HMo8Ei",
+      "total": -1.0597038466908515,
+      "easy": -4,
+      "medium": -3.4552756584635698,
+      "hard": 1.139069611027102,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.4552756584635698,
+        "Hard": 1.139069611027102
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T19:00:52.114743Z"
+    },
+    {
+      "hotkey": "5CmJKxityKrA6BdB6acDmuBsS4RRMiKfP4EeHPRUSnb5N74t",
+      "total": -1.2364749232156096,
+      "easy": 1.1937836768938954,
+      "medium": -4,
+      "hard": -0.48441051277597547,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": 1.1937836768938954,
+        "Medium": -4,
+        "Hard": -0.48441051277597547
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T20:52:57.494852Z"
+    },
+    {
+      "hotkey": "5HQJn2rHttT5MGqxmF2nsXmNxsSZYvFJLW8BZb6AvNSgJX6Q",
+      "total": -1.264835860715587,
+      "easy": 1.0568244393332282,
+      "medium": -3.8980458431959017,
+      "hard": 0.8198791977195885,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": 1.0568244393332282,
+        "Medium": -3.8980458431959017,
+        "Hard": 0.8198791977195885
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T16:49:02.200575Z"
+    },
+    {
+      "hotkey": "5GqH6eJSFJEzKAEy8uTzVd9qzvmqvN7pts55MVWqiekGAsAp",
+      "total": -1.3815574751643322,
+      "easy": -2.02097739738751,
+      "medium": -4,
+      "hard": -0.5146058621406286,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -2.02097739738751,
+        "Medium": -4,
+        "Hard": -0.5146058621406286
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T14:20:23.279017Z"
+    },
+    {
+      "hotkey": "5EbjGPXi1BvBBpth726KFeUL9CLzM7DQEdcxSrpNVSzVzBuE",
+      "total": -1.4916228601054793,
+      "easy": -4,
+      "medium": -4,
+      "hard": -0.2897098684804966,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -0.2897098684804966
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T18:48:40.872134Z"
+    },
+    {
+      "hotkey": "5E7u5P5QM4v4bRNjFgkcLMhegvJi3pq7ws3AAojwDNbKvRaF",
+      "total": -1.5757394237072502,
+      "easy": -3.8491720342114593,
+      "medium": -4,
+      "hard": -2.133141349257765,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -3.8491720342114593,
+        "Medium": -4,
+        "Hard": -2.133141349257765
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T14:34:01.433305Z"
+    },
+    {
+      "hotkey": "5CXsDH554Tvnc2AANzGW4LyZ9u6KybinP7HmMXGznhbbivSq",
+      "total": -1.6218056289994012,
+      "easy": -0.4108390971722651,
+      "medium": -4,
+      "hard": -0.36575913349922917,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -0.4108390971722651,
+        "Medium": -4,
+        "Hard": -0.36575913349922917
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T14:47:20.506197Z"
+    },
+    {
+      "hotkey": "5CfTqSB6cZyNBSJzw2WdgXLFooYeVQXHoak4vpDZ6JmfYS9J",
+      "total": -1.903420137936593,
+      "easy": -4,
+      "medium": -3.4967094954325417,
+      "hard": -0.35580099593141856,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -3.4967094954325417,
+        "Hard": -0.35580099593141856
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T15:29:12.541410Z"
+    },
+    {
+      "hotkey": "5EcpBY1MvmwFxzbD6mZSJmcqMR5TivTy1PnGDao3jw6EzDHj",
+      "total": -2.3422899804457513,
+      "easy": -1.177077959818229,
+      "medium": -2.483451958817671,
+      "hard": -1.037914432832515,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -1.177077959818229,
+        "Medium": -2.483451958817671,
+        "Hard": -1.037914432832515
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T15:53:33.591804Z"
+    },
+    {
+      "hotkey": "5EPN2pxZRBU4zWAgBWjcWfLwdr7jXAQd21w1U46qYUgn2wvA",
+      "total": -2.9372786721032975,
+      "easy": -3.5282356446708776,
+      "medium": -4,
+      "hard": 0.5341114097259974,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -3.5282356446708776,
+        "Medium": -4,
+        "Hard": 0.5341114097259974
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T23:50:28.733954Z"
+    },
+    {
+      "hotkey": "5GuKUq7zQ6LUcNuKqb521WNNBjgEHopRsUXoXzTPAodjhhzc",
+      "total": -3.2599379449062678,
+      "easy": -4,
+      "medium": -4,
+      "hard": -1.2284156325537774,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -1.2284156325537774
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T12:14:37.007706Z"
+    },
+    {
+      "hotkey": "5CS1JZPy3HNnLcEYz1jK3FYUfNNDD455g5AXmzvTe5e2U8N2",
+      "total": -4,
+      "easy": -4,
+      "medium": -4,
+      "hard": -4,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T16:11:42.186185Z"
+    },
+    {
+      "hotkey": "5CewhUZcFvwVP3caJgrVc6tNrvzdjkQpbDA5R2fcRNTYxqWm",
+      "total": -4,
+      "easy": -4,
+      "medium": -4,
+      "hard": -4,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T11:33:25.557125Z"
+    },
+    {
+      "hotkey": "5CnrUPTTHfR3ecFkF6Jwoj4qjqMrT2x9xEShdsNRK8NWij2w",
+      "total": -4,
+      "easy": -4,
+      "medium": -4,
+      "hard": -4,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T14:10:34.211156Z"
+    },
+    {
+      "hotkey": "5DcVw1bL2iyakMFq7yV5Em7Jui1aViyChZcUCRTLLmHN7Ne2",
+      "total": -4,
+      "easy": -4,
+      "medium": -4,
+      "hard": -4,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T11:19:15.043111Z"
+    },
+    {
+      "hotkey": "5F7QPrJ3isHuXdFzpAeJD4wSAAXRmAbbThXEwQKMYQ2sREpK",
+      "total": -4,
+      "easy": -4,
+      "medium": -4,
+      "hard": -4,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T09:46:48.103600Z"
+    },
+    {
+      "hotkey": "5FX3xhZe6n1oY1oDed8GUpnmKZcUpJ7qbyMryBQ52Ec2vvEh",
+      "total": -4,
+      "easy": -4,
+      "medium": -4,
+      "hard": -4,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-06T22:58:08.334449Z"
+    },
+    {
+      "hotkey": "5HgwrBnFsbF89RMa6SfWm5reC1Jjgf7kGBVfHh6XRQsiSJMb",
+      "total": -4,
+      "easy": -4,
+      "medium": -4,
+      "hard": -4,
+      "review_status": "not qualified",
+      "eval_status": "not qualified",
+      "category_scores": {
+        "Easy": -4,
+        "Medium": -4,
+        "Hard": -4
+      },
+      "screener_passed": false,
+      "last_submit": "2026-07-07T15:13:08.295095Z"
+    },
+    {
+      "hotkey": "5HgmWx88ryTG58qCo8YWZf8KyWoHYeFXhsKUdyECqqms8xRa",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "screening",
+      "eval_status": "screening",
+      "screener_passed": false,
+      "last_submit": "2026-07-08T04:20:47.538651Z"
+    },
+    {
+      "hotkey": "5EC1U8zdHcMaUVrmCMVLTBSk3ByWK876MRYBpSVZDX71LjjZ",
+      "total": null,
+      "easy": null,
+      "medium": null,
+      "hard": null,
+      "review_status": "no api key",
+      "eval_status": "no api key",
+      "last_submit": "2026-07-07T14:12:54.314736Z"
+    }
+  ]
+}

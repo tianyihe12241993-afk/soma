@@ -1,0 +1,79 @@
+{
+ "5EEzvKuKViMfLhLCDcQhitjWAxJB4bQU6EwFqZGKhRV43c4Y": [
+  {
+   "task_id": 319,
+   "task_name": "django__django-15103",
+   "is_screener": true,
+   "pass_without_compression": true,
+   "pass_with_compression": true,
+   "tokens_without_compression": 3788060,
+   "tokens_with_compression": 2021268,
+   "input_tokens_with_compression": 106568,
+   "cached_input_tokens_with_compression": 1886208,
+   "output_tokens_with_compression": 28492,
+   "platform_score": 1.2315274641845075,
+   "run_count": 5,
+   "benchmark_type": "swebench_verified"
+  },
+  {
+   "task_id": 320,
+   "task_name": "django__django-13964",
+   "is_screener": true,
+   "pass_without_compression": true,
+   "pass_with_compression": true,
+   "tokens_without_compression": 3300427,
+   "tokens_with_compression": 2643885,
+   "input_tokens_with_compression": 96469,
+   "cached_input_tokens_with_compression": 2515456,
+   "output_tokens_with_compression": 31960,
+   "platform_score": 1.0413068097894604,
+   "run_count": 5,
+   "benchmark_type": "swebench_verified"
+  },
+  {
+   "task_id": 321,
+   "task_name": "django__django-11551",
+   "is_screener": true,
+   "pass_without_compression": true,
+   "pass_with_compression": true,
+   "tokens_without_compression": 7247959,
+   "tokens_with_compression": 4307498,
+   "input_tokens_with_compression": 133100,
+   "cached_input_tokens_with_compression": 4125696,
+   "output_tokens_with_compression": 48702,
+   "platform_score": 1.1910343559276584,
+   "run_count": 5,
+   "benchmark_type": "swebench_verified"
+  },
+  {
+   "task_id": 322,
+   "task_name": "django__django-15375",
+   "is_screener": true,
+   "pass_without_compression": true,
+   "pass_with_compression": true,
+   "tokens_without_compression": 1326565,
+   "tokens_with_compression": 2195034,
+   "input_tokens_with_compression": 84848,
+   "cached_input_tokens_with_compression": 2087296,
+   "output_tokens_with_compression": 22890,
+   "platform_score": 0.7897797473143904,
+   "run_count": 5,
+   "benchmark_type": "swebench_verified"
+  },
+  {
+   "task_id": 323,
+   "task_name": "django__django-13516",
+   "is_screener": true,
+   "pass_without_compression": true,
+   "pass_with_compression": true,
+   "tokens_without_compression": 2834726,
+   "tokens_with_compression": 2150472,
+   "input_tokens_with_compression": 105653,
+   "cached_input_tokens_with_compression": 2006784,
+   "output_tokens_with_compression": 38035,
+   "platform_score": 1.0312092705253817,
+   "run_count": 5,
+   "benchmark_type": "swebench_verified"
+  }
+ ]
+}

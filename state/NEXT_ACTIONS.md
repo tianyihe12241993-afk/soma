@@ -462,3 +462,42 @@ weighted-savings gate + 108-task-specific work now gate it.) m12 analysis: repor
 1. **H1_m7_deeper_safe_compression** — primary lever (ratio ↑ without breaking passes).
 2. **H3_fragile_task_guard** — protect the broke-baseline cases so H1 can push safely.
 3. **H2_medium_specialist** — our closest reward element; BLOCKED until task→category map imported.
+
+## ★★★ 2026-07-08 REDESIGN MANDATE (USER: Gate B is mandatory; current direction incorrect; re-analyze + re-design)
+**THE MATH (where 20% weighted can come from; W ≈ input 15-20% + cached(×0.1) 50-60% + output(×3) 20-30%):**
+- Cached-content cutting (ALL our variants) is 0.1-weighted AND triggers re-read flails → frontier measured 5-15%, n=25. DEAD as sole lever.
+- OUTPUT (×3) and STEPS are the big levers: ~20% shorter trajectories ≈ 20%+ weighted (cached scales with turns). The sole qualifier's footprint (low output/run, low cached/run, input<baseline) = short trajectories.
+**RE-ANALYSIS PLAN (next session, all local/cheap):**
+1. TOOL-NAME taxonomy of the stream (messages carry tool context): split view/file-reads vs bash-output vs test-output vs grep. Prior "tool-other 37%" was contaminated (numbered view output misclassified). Question: how many % is BASH OUTPUT (low re-read risk: agents re-RUN commands, they don't re-read them)?
+2. FLAIL correlation: from our 40+ graded runs, which compressed content types precede re-read spirals? (file reads = proven; bash output = unknown)
+3. Candidate design A: tool-aware compressor — file reads VERBATIM (never touch), bash/test output compressed HARD. If bash-output ≥ 30% of stream → ~20% raw cut possible with zero file-re-read risk.
+4. Candidate design B (research): trajectory-shortening — what makes THIS agent take extra turns, and is any compliant message-shape change correlated with fewer turns (compare our 25 f1km runs' step counts vs content shapes).
+5. Emulator re-run on the winner; stop-rule unchanged (no hotkey <20%).
+**ASSETS: f1km frozen (bd352453, Gate-A 25/25); emulator + fixed baseline + grading all operational; 8-lane cap (10 kills runs).**
+
+## ★ COLLECTOR FIX NEEDED (2026-07-08 ~13:30Z; dashboard detail page changed)
+- Miner DETAIL page is now a 38KB client-side shell: NO data keys in HTML or RSC:1 fetch (sweSummary/sweTasks absent). Leaderboard collector still works (61 miners) — only detail broke.
+- Platform API routes confirmed from upstream frontend.py: /api/private/frontend/miners/{comp}/{hk}/screener[+/challenges], /swe/miners/{comp}/{hk} — but nginx 403s /api/private/ externally (server-side only).
+- FIX PLAN: the detail data most likely moved to a Next server ACTION (same pattern as comp-108's getSweTaskRunsAction). collect_runs.py already has action-ID auto-discovery from JS chunks — port that discovery to collect_miner_detail.py: fetch page JS chunks, find the miner-detail action id, POST-replay it (Next-Action header), parse JSON. Alternative: headless browser once.
+- CONSEQUENCE meanwhile: qualifier footprints (5GxLcC etc.) unobtainable; m1's old detail (035650) is the only per-task data. Do NOT anchor decisions on unverifiable footprints.
+- COLLECTOR FIX progress (13:4xZ): shell page's 5 shared chunks (463KB) contain NO action ids and NO app/dashboard route-chunk refs — route chunk loads via build manifest. NEXT: fetch /_next/static/<buildId>/_buildManifest.js (buildId is in the HTML) or app-build-manifest to find the dashboard/miner route chunk, grep IT for the action id / API path; fallback = headless browser (playwright) to capture the XHR the page makes. Then replay with Next-Action header. Qualifier detail numbers BLOCKED until then.
+
+## ★★★ KING CAMPAIGN — v2c improvement loop (2026-07-08 ~21:00Z; v2b QUALIFIED 5EEzvK 1.057, 4th/6; leader 5EPDbSXL 1.211)
+1. DECODE E=-4.00: v2b + 5EkKL1jD both E=-4.00 exactly WITH 5/5 pass_with — inspect per-run rows via collect_miner_detail_rsc.py (attempt-level fails? category mapping?). Fixing E is worth ~+0.3-0.5 total.
+2. FIX 15375-class small-task negative (-65.5%): v2b floor 1200 leaves small reads untouched yet 15375 went 1.66x baseline — inspect its runs (steps? small-read mass?). v2c axis: smarter small-task behavior.
+3. EXPLORE-TAU: engage compression on explore-sized reads (quality already survives: 15103 explore = perfect 1.0 with full compression).
+4. Baselines r3-r4 (pinned) for tighter reference; then v2c ladder -> emulator -> Codex -> USER uploads on NEW hotkey before 13 Jul 14:30 UTC.
+5. Generalization sweep (non-django) before eval window.
+ASSETS: v2b GO bytes frozen (8cc04b83), emulator+grading validated e2e (predicted platform qualification correctly), RSC detail collector, pinned-provider rule, 6-lane cap.
+
+## E=-4 DECODE (step-1 result, 2026-07-08 ~21:1xZ) — swebench rows EXONERATED; E maps to a NON-swebench category.
+- Snapshot analysis (165927): ALL 5 swebench screener tasks score POSITIVE for v2b (0.79-1.23), EkK (0.92-1.21), LEADER (1.01-1.34). pass_w 5/5 everywhere. **E=-4.00 does NOT come from these rows.**
+- HYPOTHESIS (strong): board E/M/H during screening maps to the 3 BENCHMARK TYPES; qualifier #1's raw page had 15 rows (5 tasks x 3 types) — our RSC parser extracts only the FIRST token array (swebench). **E is likely the EXPLORE screening category: v2b + EkK scored -4 there (explore quality-floor?) while LEADER scores +1.22.** If true: v2b's explore behavior on the PLATFORM failed where our local smoke passed (n=1) — the #1 crown threat AND the #1 v2c fix target.
+- NEXT: extend collect_miner_detail_rsc.py to extract ALL task arrays (explore/edit rows incl. platform_score) from the flight; confirm E=explore; diff leader's explore behavior. THEN: 15375 root-cause (v2b -65.5 vs leader +49.0 ON THE SAME TASK — leader compresses small-task reads too: in% 8.5 vs our 3.9 = they cut input MORE aggressively everywhere; our floor-1200 passthrough is the drag) → v2c: lower floor + explore-safe compression; emulator-test REQUIRED (incl. explore type runs).
+
+## E=-4 MAPPING CONFIRMED (parser now extracts all arrays; flight contains ONLY swebench rows -> screening runs swebench only):
+- **TOTAL = mean of the 5 swebench task platform_scores** (verified exact for all 3 miners: 1.057/1.088/1.211).
+- **Category buckets = task difficulty: Easy={15375}, Medium={13964,13516}, Hard={15103,11551}** (leader's E/M/H = exact bucket means: 1.22/1.10/1.31 ✓).
+- v2b/EkK board E=-4.00 while their 15375 task-score is 0.79/0.92 -> the E column uses a HARSHER stat than task mean (likely attempt-level: failed ATTEMPTS on 15375 floor the category, invisible in task aggregates; leader's 15375 is clean). EITHER WAY: **fixing 15375 fixes E** — one root cause, two symptoms.
+- 15375 root cause (established): our floor-1200 passes its small reads through (leader in% 8.5 vs our 3.9 = compresses small reads too; leader 15375 +49% vs our -65.5%).
+- **v2c DESIGN (confirmed): lower FLOOR to ~700, HEAD ~1000, keep structural salience + fresh-guard + contiguous drops. Test: swebench emulator (pinned dpkbase) + explore quality/tau pair + edit smoke -> Codex -> USER uploads new hotkey.**

@@ -1,0 +1,109 @@
+{
+  "observed_at": "2026-07-08T03:56:50Z",
+  "source": "https://thesoma.ai/dashboard/miner/110/<hotkey>",
+  "competition_id": 110,
+  "miner_count": 1,
+  "failed": [],
+  "miners": [
+    {
+      "hotkey": "5CDLSZYLKoJngZgnBXoeeS1tinEqdGPJAjJgrRJnpZ1C1WLK",
+      "total_score": 0.3882115335154257,
+      "screener_passed": false,
+      "category_scores": {
+        "Easy": -3.9810256065932594,
+        "Medium": -3.0994339694724067,
+        "Hard": 1.1343996041870836
+      },
+      "task_count": 5,
+      "screener_task_count": 5,
+      "penalty_total": 0.6145605001338459,
+      "penalty_categories": {
+        "Easy": 4.878671683677839,
+        "Medium": 4.023141410866213,
+        "Hard": -2.220446049250313e-16
+      },
+      "rank": null,
+      "registered_at": "2026-07-08T03:43:53.583428Z",
+      "contests": 1,
+      "status": "not qualified",
+      "source_code_available": false,
+      "tasks": [
+        {
+          "task_id": 319,
+          "task_name": "django__django-15103",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 3788060,
+          "tokens_with_compression": 2955749,
+          "input_tokens_with_compression": 80408,
+          "cached_input_tokens_with_compression": 2837888,
+          "output_tokens_with_compression": 37453,
+          "platform_score": 1.1105458642310826,
+          "run_count": 5,
+          "benchmark_type": "swebench_verified"
+        },
+        {
+          "task_id": 320,
+          "task_name": "django__django-13964",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 3300427,
+          "tokens_with_compression": 4144140,
+          "input_tokens_with_compression": 100045,
+          "cached_input_tokens_with_compression": 4000256,
+          "output_tokens_with_compression": 43839,
+          "platform_score": 0.8623195571999686,
+          "run_count": 5,
+          "benchmark_type": "swebench_verified"
+        },
+        {
+          "task_id": 321,
+          "task_name": "django__django-11551",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 7247959,
+          "tokens_with_compression": 5198197,
+          "input_tokens_with_compression": 99682,
+          "cached_input_tokens_with_compression": 5041408,
+          "output_tokens_with_compression": 57107,
+          "platform_score": 1.1582533441430845,
+          "run_count": 5,
+          "benchmark_type": "swebench_verified"
+        },
+        {
+          "task_id": 322,
+          "task_name": "django__django-15375",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 1326565,
+          "tokens_with_compression": 1625667,
+          "input_tokens_with_compression": 66206,
+          "cached_input_tokens_with_compression": 1541760,
+          "output_tokens_with_compression": 17701,
+          "platform_score": 0.8976460770845802,
+          "run_count": 5,
+          "benchmark_type": "swebench_verified"
+        },
+        {
+          "task_id": 323,
+          "task_name": "django__django-13516",
+          "is_screener": true,
+          "pass_without_compression": true,
+          "pass_with_compression": true,
+          "tokens_without_compression": 2834726,
+          "tokens_with_compression": 2494607,
+          "input_tokens_with_compression": 95883,
+          "cached_input_tokens_with_compression": 2354304,
+          "output_tokens_with_compression": 44420,
+          "platform_score": 0.9850953255876439,
+          "run_count": 5,
+          "benchmark_type": "swebench_verified"
+        }
+      ]
+    }
+  ]
+}

@@ -273,3 +273,6 @@ PAIRED A/B (candidate + fresh m12 same window, per-task diffs) for break/score, 
   COACH-FREE / force-stop-free, published `[[CMP]]` markers, loop-detection reduced to the 2 allowed reason
   strings; keep harvest/rich/H3 cache-stable compression.** Stripping the coach likely costs little (v12's
   forced-stop already FAILED to help). Full gap analysis: reports/prompting_policy_and_compliance.md.
+
+## 2026-07-08 — comp-110 DOCTRINE pinned (do not relitigate; full text = CURRENT.md 📌 PINNED block)
+Screener = Gate A (≥50% tasks majority-RESOLVED) × Gate B (≥20% weighted savings vs FIXED baseline, cached×0.1, output×3), one upload per hotkey. Crown = comp-108 playbook: (1) qualify, (2) survive review/compliance, (3) never break (−4), (4) score all 3 task types (explore passthrough=0), (5) generalize to hidden tasks, (6) trajectory efficiency. Retired approaches (platform-refuted, do NOT revisit): fresh-read compression (E−3.98), tiny-budget interior skeletons ≤250 (M−4.00), system-prompt trimming (non-compliant), CoT-only compression (0.9% of stream), floors ≥2k (<5% savings).

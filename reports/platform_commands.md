@@ -1,4 +1,13 @@
-# Platform commands — runbook (SN114 comp-108)
+# Platform commands — runbook (SN114 comp-108/110)
+
+> **⚠️ comp-110 UPLOAD ENV (2026-07-08, this MacBook):** the upload script imports `soma_shared.contracts.miner.v1.messages`,
+> which uses `str | None` syntax → **requires Python 3.10+**. The old `~/.venvs/soma` is Python **3.9** → upload fails at
+> import (`TypeError: unsupported operand type(s) for |`). FIX (built): **`~/.venvs/soma312`** (Python 3.12) with
+> `uv venv --python 3.12 ~/.venvs/soma312 && uv pip install --python ~/.venvs/soma312/bin/python bittensor httpx python-dotenv git+https://github.com/DendriteHQ/SOMA-shared.git`
+> (installed bittensor **10.5.0** — if wallet-load/signing errors, pin `bittensor==9.12.2`). comp-110 uploads = command #2
+> (`upload_miner_with_openrouter_key.py`, OpenRouter key mandatory for DeepSeek routing). First comp-110 test: candidate
+> `miner/cot_compression/upload_miner_skel_recoff_v1.py`, wallet `oro-miner`, hotkey `m1`.
+
 
 _Operational commands for uploading miners + managing the OpenRouter key on the platform.
 **SECURITY: the OpenRouter key is a SECRET — never commit it. It lives only in `config/secrets.env`
