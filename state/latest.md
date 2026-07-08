@@ -1,15 +1,15 @@
-# LATEST — 2026-07-08T21:30:34Z
+# LATEST — 2026-07-08T23:19:33Z
 _auto-written by checkpoint (manual)_
 
-**Note:** v2c EMULATOR: Gate A 10/10 (11th straight) but Gate B -10.8 weighted / -3.1 raw = REGRESSION vs v2b (+47/+56). THE TELL: 15375 flipped POSITIVE both runs (+72.6/+20.7 - the floor fix WORKED on its target) but flails MOVED (11551-r1 60stp -190, 13516-r2 63stp -340). CONFIRMS: screener = flail lottery; n=10 batches cannot rank same-family variants; v2b's 47 and v2c's -10.8 are draws of similar-mean processes. BAD-MARKERS = docker-log timestamp splice artifact (compliance clean). VERDICT: v2b stays best-of-line (platform-qualified 28pct raw). KING PLAY RECOMMENDATION: byte-identical v2b REDRAWS on additional spare hotkeys (comp-108 variance-draw play, now variance-measured) - each redraw = new screener lottery draw; best draw becomes our board score. v2c: park (same family, no measured edge).
+**Note:** PRE-COMPACT: maxraw_v1 n=5 emulator RUNNING (bekslx9g6, ~9/25 dirs, 8+ dead-retries). v2b QUALIFIED floor (5EEzvK 1.057, untouched). Reframe: score=raw-savings to 86pct, cache=gate-only; maxraw = position-dependent (recent full/old crushed), offline raw 13.9 vs 8.1. Resume point + decision rule in NEXT_ACTIONS; dual-objective report script ready (scratchpad/maxraw_report.py).
 
 **Best live miner:** uphardsaliencesub=0.723 | pending: m7, m8, m9, m10, m11, np2csub, m17sub, m1, m2, m3, m5, m6
 **Our reward-element wins:** none
 
 **Top of NEXT_ACTIONS:**
-- - Snapshot analysis (165927): ALL 5 swebench screener tasks score POSITIVE for v2b (0.79-1.23), EkK (0.92-1.21), LEADER (1.01-1.34). pass_w 5/5 everywhere. **E=-4.00 does NOT come from these rows.**
-- - HYPOTHESIS (strong): board E/M/H during screening maps to the 3 BENCHMARK TYPES; qualifier #1's raw page had 15 rows (5 tasks x 3 types) — our RSC parser extracts only the FIRST token array (swebench). **E is likely the EXPLORE screening category: v2b + EkK scored -4 there (explore quality-floor?) while LEADER scores +1.22.** If true: v2b's explore behavior on the PLATFORM failed where our local smoke passed (n=1) — the #1 crown threat AND the #1 v2c fix target.
-- - NEXT: extend collect_miner_detail_rsc.py to extract ALL task arrays (explore/edit rows incl. platform_score) from the flight; confirm E=explore; diff leader's explore behavior. THEN: 15375 root-cause (v2b -65.5 vs leader +49.0 ON THE SAME TASK — leader compresses small-task reads too: in% 8.5 vs our 3.9 = they cut input MORE aggressively everywhere; our floor-1200 passthrough is the drag) → v2c: lower floor + explore-safe compression; emulator-test REQUIRED (incl. explore type runs).
-- - **TOTAL = mean of the 5 swebench task platform_scores** (verified exact for all 3 miners: 1.057/1.088/1.211).
+- - v2b/EkK board E=-4.00 while their 15375 task-score is 0.79/0.92 -> the E column uses a HARSHER stat than task mean (likely attempt-level: failed ATTEMPTS on 15375 floor the category, invisible in task aggregates; leader's 15375 is clean). EITHER WAY: **fixing 15375 fixes E** — one root cause, two symptoms.
+- - 15375 root cause (established): our floor-1200 passes its small reads through (leader in% 8.5 vs our 3.9 = compresses small reads too; leader 15375 +49% vs our -65.5%).
+- - **v2c DESIGN (confirmed): lower FLOOR to ~700, HEAD ~1000, keep structural salience + fresh-guard + contiguous drops. Test: swebench emulator (pinned dpkbase) + explore quality/tau pair + edit smoke -> Codex -> USER uploads new hotkey.**
+- STATE: v2b QUALIFIED on platform (hotkey 5EEzvK, total 1.057, 4th of 6; leader 5EPDbSXL 1.211). v2b = our FLOOR; do NOT touch that hotkey.
 
-_Full checkpoint: sessions/2026-07-08_213034_manual.md_
+_Full checkpoint: sessions/2026-07-08_231933_manual.md_

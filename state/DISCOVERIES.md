@@ -1062,3 +1062,11 @@ IMPLICATION for capladder-v2: our offline view-read cut 20-51% + grep-preserve i
 - **THE REAL FINDING: the −8.0% verdict compared PINNED-provider cl2 runs against the OLD mixed-provider baselines.** Vs the pinned dpkbase seeds: 13964 baseline itself runs 49-57 steps → cl2's 56-61-step runs are near-baseline-NORMAL (−8%/−1%, not −151%). Corrected cl2: **weighted +13.3%, raw +21.4%** (min qualifier raw = 24.2%).
 - RULE (burned twice now): candidates must ALWAYS be scored against SAME-PROVIDER-EPOCH baselines (dpkbase_ prefix, --seed-runs 2). Old baseline_seed_ = pre-pin, DEPRECATED for scoring.
 - KNOB CHANGE JUSTIFIED (per stop-rule): cl2 leaves 1-2k reads untouched (floor 2000) + keeps 2k verbatim head. v2b = floor 1200 / head 1200 / minrun 5 → target +3-6 raw pts toward ~25% with same structural safety. Next: offline predict → 1 emulator pass vs dpkbase.
+
+## 2026-07-08 — ★★★★★ SCORING REFRAME (verified from upstream scoring.py + matched to 3 miners): board score = mean of per-task 1 + 0.5·trim(ln(RAW_baseline/RAW_miner)), trim cap ±2. Monotonic in RAW savings to ~86%. CACHE IRRELEVANT TO SCORE.
+- compute_swe_run_score (dashboard per-task) uses tokens_without/with_compression = RAW (not weighted). Prediction 1+0.5·trim matches actual (leader pred 1.297/board 1.211; v2b 1.114/1.057) — shape confirmed, gap = breaks/output.
+- IMPLICATION: cache-stability (in-frac 3pct) was a GATE concern only, NOT a score lever. We optimized the wrong axis for the KING. Leader in-frac 5.5pct = accepts cache-bust for more raw cut.
+- TWO score levers: (1) MORE raw savings (we're 28pct; leader 44.9pct; ceiling ~86pct), (2) ZERO per-run breaks (leader all task-scores>1.0 = no -4s).
+- UNLOCKED LEVER: POSITION-DEPENDENT aggression (previously banned for cache-stability, now free): keep RECENT working set full (no break) + CRUSH OLD stale history hard (max raw). New candidate maxraw_v1.
+- Also: SCREENER GATE still weighted+20pct (v2b passed) — position-dependence must still clear the gate, but that's easy (28pct raw already clears).
+- TEST PROTOCOL FIX: rank variants at n>=5/task (platform averages 5 runs); n=2 batches were flail-dominated noise that mis-ranked v2/v2c.
